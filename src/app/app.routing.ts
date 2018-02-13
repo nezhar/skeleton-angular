@@ -1,6 +1,6 @@
 import { Routes, RouterModule } from '@angular/router';
  
-import { HomeComponent, LoginComponent, RegisterComponent } from './components/index';
+import { HomeComponent, LoginComponent, RegisterComponent } from './screens/index'
 import { AuthGuard } from './guards/index';
  
 const appRoutes: Routes = [

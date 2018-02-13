@@ -3,8 +3,9 @@ import { NgModule } from '@angular/core';
 import { FormsModule } from '@angular/forms';
 import { HttpClientModule, HTTP_INTERCEPTORS } from '@angular/common/http';
 
-import { AppComponent } from './app.component';
-import { AlertComponent, HomeComponent, LoginComponent, RegisterComponent } from './components/index';
+import { MainComponent } from './main/main.component';
+import { AlertComponent } from './widgets/index';
+import { HomeComponent, LoginComponent, RegisterComponent } from './screens/index'
 
 import { JwtInterceptor } from './helpers/index';
 import { AlertService, AuthenticationService, UserService } from './services/index';
@@ -17,7 +18,7 @@ import { fakeBackendProvider } from './helpers/index';
 
 @NgModule({
   declarations: [
-    AppComponent,
+    MainComponent,
     AlertComponent,
     HomeComponent,
     LoginComponent,
@@ -43,6 +44,6 @@ import { fakeBackendProvider } from './helpers/index';
     // provider used to create fake backend
     fakeBackendProvider
   ],
-  bootstrap: [AppComponent]
+  bootstrap: [MainComponent]
 })
 export class AppModule { }
