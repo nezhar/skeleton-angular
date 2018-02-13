@@ -3,6 +3,8 @@ import { NgModule } from '@angular/core';
 import { FormsModule } from '@angular/forms';
 import { HttpClientModule, HTTP_INTERCEPTORS } from '@angular/common/http';
 
+import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
+
 import { MainComponent } from './main/main.component';
 import { AlertComponent } from './widgets/index';
 import { HomeComponent, LoginComponent, RegisterComponent } from './screens/index'
@@ -10,7 +12,7 @@ import { HomeComponent, LoginComponent, RegisterComponent } from './screens/inde
 import { JwtInterceptor } from './helpers/index';
 import { AlertService, AuthenticationService, UserService } from './services/index';
 import { AuthGuard } from './guards/index';
-import { routing } from './app.routing';
+import { Routing } from './app.routing';
 
 // used to create fake backend
 import { fakeBackendProvider } from './helpers/index';
@@ -24,11 +26,17 @@ import { fakeBackendProvider } from './helpers/index';
     LoginComponent,
     RegisterComponent
   ],
-  imports: [
+  imports: [    
+    // Angular imports
     BrowserModule,
     FormsModule,
     HttpClientModule,
-    routing
+
+    // 3rd party imports
+    NgbModule.forRoot(),
+
+    // Application imports
+    Routing
   ],
   providers: [
     AuthGuard,
@@ -41,7 +49,7 @@ import { fakeBackendProvider } from './helpers/index';
       multi: true
     },
 
-    // provider used to create fake backend
+    // Provider used to create fake backend
     fakeBackendProvider
   ],
   bootstrap: [MainComponent]
