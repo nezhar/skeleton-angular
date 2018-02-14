@@ -12,7 +12,7 @@ import { HomeComponent, LoginComponent, RegisterComponent } from './screens/inde
 import { JwtInterceptor } from './helpers/index';
 import { AlertService, AuthenticationService, UserService } from './services/index';
 import { AuthGuard } from './guards/index';
-import { Routing } from './app.routing';
+import { RoutingModule } from './app.routing';
 
 // used to create fake backend
 import { fakeBackendProvider } from './helpers/index';
@@ -36,7 +36,7 @@ import { fakeBackendProvider } from './helpers/index';
     NgbModule.forRoot(),
 
     // Application imports
-    Routing
+    RoutingModule
   ],
   providers: [
     AuthGuard,

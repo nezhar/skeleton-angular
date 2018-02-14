@@ -1,5 +1,6 @@
 import { Component } from '@angular/core';
-import { Router } from '@angular/router';
+
+import { StateService } from "@uirouter/angular";
  
 import { AlertService, UserService } from '../../services/index';
  
@@ -13,7 +14,7 @@ export class RegisterComponent {
     loading = false;
  
     constructor(
-        private router: Router,
+        private state: StateService,
         private userService: UserService,
         private alertService: AlertService) { }
  
@@ -24,7 +25,7 @@ export class RegisterComponent {
                 data => {
                     // set success message and pass true paramater to persist the message after redirecting to the login page
                     this.alertService.success('Registration successful', true);
-                    this.router.navigate(['/login']);
+                    this.state.go('login');
                 },
                 error => {
                     this.alertService.error(error);
