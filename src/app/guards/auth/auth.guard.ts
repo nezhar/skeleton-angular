@@ -1,8 +1,10 @@
-import { UserService } from '../../services/index';
-import { UIRouterModule, StateService, Transition } from "@uirouter/angular";
+import { UIRouterModule, Transition } from "@uirouter/angular";
+import { UserService } from "../../services/index";
+import { Injectable } from "@angular/core";
 
+@Injectable()
 export class AuthGuard {
-    constructor() {}
+    constructor(private userService: UserService) {}
  
     isLoggedIn(transition: Transition) {
         let state = transition.router.stateService;
@@ -16,7 +18,7 @@ export class AuthGuard {
         let state = transition.router.stateService;
 
         if (localStorage.getItem('currentUser')) {
-            state.go('home')
+            state.go('frontend.home')
         }
     }
 }

@@ -3,16 +3,12 @@ import { UIRouterModule } from "@uirouter/angular";
 import { HomeComponent, LoginComponent, RegisterComponent } from './screens/index'
 import { AuthGuard } from './guards/index';
 import { UserService } from "./services/index";
+import { FrontendLayoutComponent } from "./widgets/frontend-layout/frontend-layout.component";
 
 
 let authGuard = new AuthGuard();
+
 const appStates = [
-    {
-        name: 'home',
-        url: '/',
-        component: HomeComponent,
-        onEnter: authGuard.isLoggedIn
-    },
     {
         name: 'login',
         url: '/login',
@@ -24,6 +20,27 @@ const appStates = [
         component: RegisterComponent,
         onEnter: authGuard.isLoggedOut,
     },
+
+    {
+        name: 'root',
+        url: '/',
+        redirectTo: 'frontend',
+    },
+
+    {
+        name: 'frontend',
+        url: '/frontend',
+        component: FrontendLayoutComponent,
+        redirectTo: 'frontend.home',
+
+        onEnter: authGuard.isLoggedIn,
+    },
+    {
+        name: 'frontend.home',
+        url: '/home',
+        component: HomeComponent,
+    },
+
 ]
  
 // export const RoutingModule = RouterModule.forRoot(appRoutes);

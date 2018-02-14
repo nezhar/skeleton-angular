@@ -16,6 +16,11 @@ import { RoutingModule } from './app.routing';
 
 // used to create fake backend
 import { fakeBackendProvider } from './helpers/index';
+import { HeaderComponent } from './widgets/header/header.component';
+import { FooterComponent } from './widgets/footer/footer.component';
+import { NavigationComponent } from './widgets/navigation/navigation.component';
+import { ContentComponent } from './widgets/content/content.component';
+import { FrontendLayoutComponent } from './widgets/frontend-layout/frontend-layout.component';
 
 
 @NgModule({
@@ -24,7 +29,12 @@ import { fakeBackendProvider } from './helpers/index';
     AlertComponent,
     HomeComponent,
     LoginComponent,
-    RegisterComponent
+    RegisterComponent,
+    HeaderComponent,
+    FooterComponent,
+    NavigationComponent,
+    ContentComponent,
+    FrontendLayoutComponent
   ],
   imports: [    
     // Angular imports
