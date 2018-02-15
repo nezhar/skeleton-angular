@@ -1,4 +1,4 @@
-import { UIRouterModule } from "@uirouter/angular";
+import { UIRouterModule, Transition } from "@uirouter/angular";
  
 import { HomeComponent, LoginComponent, RegisterComponent } from './screens/index'
 import { AuthGuard } from './guards/index';
@@ -6,9 +6,19 @@ import { UserService } from "./services/index";
 import { FrontendLayoutComponent } from "./widgets/frontend-layout/frontend-layout.component";
 
 
-let authGuard = new AuthGuard();
-
 const appStates = [
+    /**
+     * Root Route
+     */
+    {
+        name: 'root',
+        url: '/',
+        redirectTo: 'frontend',
+    },
+
+    /**
+     * Auth Routes
+     */
     {
         name: 'login',
         url: '/login',
@@ -18,22 +28,24 @@ const appStates = [
         name: 'register',
         url: '/register',
         component: RegisterComponent,
-        onEnter: authGuard.isLoggedOut,
+        //onEnter: authGuard.isLoggedOut,
     },
 
-    {
-        name: 'root',
-        url: '/',
-        redirectTo: 'frontend',
-    },
-
+    /**
+     * Frontend Routes
+     */
     {
         name: 'frontend',
         url: '/frontend',
         component: FrontendLayoutComponent,
         redirectTo: 'frontend.home',
-
-        onEnter: authGuard.isLoggedIn,
+        resolve: [
+            { 
+                token: 'frontend', 
+                deps: [Transition, AuthGuard],
+                resolveFn: (transition, authGurad) => authGurad.isLoggedIn(transition)
+            }
+        ],
     },
     {
         name: 'frontend.home',

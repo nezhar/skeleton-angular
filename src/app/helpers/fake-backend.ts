@@ -45,6 +45,12 @@ export class FakeBackendInterceptor implements HttpInterceptor {
                 }
             }
  
+            // authenticate
+            if (request.url.endsWith('/api/authenticate/verify') && request.method === 'POST') {
+                return Observable.of(new HttpResponse({ status: 200 }));
+                //return Observable.throw('Invalid token!');
+            }
+
             // get users
             if (request.url.endsWith('/api/users') && request.method === 'GET') {
                 // check for fake auth token in header and return users if valid, this security is implemented server side in a real application

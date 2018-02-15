@@ -19,6 +19,13 @@ export class AuthenticationService {
                 return user;
             });
     }
+
+    verify_token(token: string) {
+        return this.http.post<any>('/api/authenticate/verify', { token: token })
+            .map(user => {
+                return user;
+            });
+    }
  
     logout() {
         // remove user from local storage to log user out
