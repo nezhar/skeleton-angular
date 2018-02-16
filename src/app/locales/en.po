@@ -1,0 +1,56 @@
+msgid ""
+msgstr ""
+"Project-Id-Version: angular-demo\n"
+"Language: en\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Plural-Forms: nplurals=2; plural=(n != 1);\n"
+
+msgid "Authentication"
+msgstr ""
+
+msgid "Build date"
+msgstr ""
+
+msgid "Build variant"
+msgstr ""
+
+msgid "Build version"
+msgstr ""
+
+msgid "Development build"
+msgstr ""
+
+msgid "English"
+msgstr ""
+
+msgid "German"
+msgstr ""
+
+msgid "Language"
+msgstr ""
+
+msgid "Language selector"
+msgstr ""
+
+msgid "Permission"
+msgstr ""
+
+msgid "Production build"
+msgstr ""
+
+msgid "Tables"
+msgstr ""
+
+msgid "Test build"
+msgstr ""
+
+msgid "UI elements"
+msgstr ""
+
+msgid "User"
+msgstr ""
+
+msgid "Widgets"
+msgstr ""

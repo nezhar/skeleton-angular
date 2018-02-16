@@ -1,0 +1,12 @@
+@import '~app/styles/variables';
+
+@import "~bootstrap/scss/functions";
+@import "~bootstrap/scss/variables";
+@import "~bootstrap/scss/mixins";
+
+
+:host {
+  display: block;
+  background-color: theme-color-level("navigation-bg", 0);
+  color: theme-color-level("navigation-fg", 0);
+}

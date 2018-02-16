@@ -1,0 +1,55 @@
+@import '~app/styles/variables';
+
+@import "~bootstrap/scss/functions";
+@import "~bootstrap/scss/variables";
+@import "~bootstrap/scss/mixins";
+
+
+:host {
+  $item-padding: ($grid-gutter-width / 2);
+
+  display: block;
+  background-color: theme-color-level("navigation-bg", 0);
+  color: theme-color-level("navigation-fg", 0);
+
+  .brand {
+    display: block;
+    height: $header-height;
+    background-color: theme-color-level("header-bg", 2);
+    color: theme-color-level("header-fg", 0);
+    padding-right: $item-padding;
+    padding-left: $item-padding;
+
+    h1 {
+      font-size: 1em;
+      line-height: $header-height;
+    }
+  }
+
+  .navigation {
+    display: block;
+
+    .nav-divider {
+      display: block;
+      color: theme-color-level("header-fg", 2);
+      padding: 1em $item-padding 0.5em $item-padding;
+      font-weight: bold;
+    }
+
+    .nav-link {
+      background-color: theme-color-level("navigation-bg", 2);
+      color: theme-color-level("navigation-fg", 0);
+      padding: $item-padding;
+    }
+    .nav-link:hover,
+    .nav-link.active {
+      background-color: theme-color-level("navigation-bg", 1);
+      border-left: 3px solid theme-color-level("navigation-hl", 2);
+      padding-left: calc(#{$item-padding} - 3px);
+    }
+    .nav-link:hover {
+      color: theme-color-level("navigation-fg", 2);
+      border-left-color: theme-color-level("navigation-hl", 2);
+    }
+  }
+}

@@ -1,10 +1,14 @@
 import { UIRouterModule, Transition } from "@uirouter/angular";
- 
-import { HomeComponent, LoginComponent, RegisterComponent } from './screens/index'
-import { FrontendLayoutComponent, AuthLayoutComponent } from "./layouts/index";
-import { UserService } from "./services/index";
-import { AuthGuard } from './guards/index';
 
+import {WidgetsScreenComponent} from "./screens/widgets/widgets-screen.component";
+import {TablesScreenComponent} from "./screens/tables/tables-screen.component";
+import {UsersScreenComponent} from "./screens/users/users-screen.component";
+import {PermissionsScreenComponent} from "./screens/permissions/permissions-screen.component";
+
+import {HomeComponent, LoginComponent, RegisterComponent} from './screens/index'
+import {FrontendLayoutComponent, AuthLayoutComponent} from "./layouts/index";
+import {UserService} from "./services/index";
+import {AuthGuard} from './guards/index';
 
 const appStates = [
     /**
@@ -57,10 +61,30 @@ const appStates = [
         url: '/home',
         component: HomeComponent,
     },
+    {
+        name: 'frontend.widgets',
+        url: '/widgets',
+        component: WidgetsScreenComponent,
+    },
+    {
+        name: 'frontend.tables',
+        url: '/tables',
+        component: TablesScreenComponent,
+    },
+    {
+        name: 'frontend.users',
+        url: '/users',
+        component: UsersScreenComponent,
+    },
+    {
+        name: 'frontend.permissions',
+        url: '/permissions',
+        component: PermissionsScreenComponent,
+    },
 ]
 
-export const RoutingModule = UIRouterModule.forRoot({
+export const routingConfig = {
     states: appStates,
-    //useHash: true,
+    useHash: true,
     otherwise: '/',
-})
+}

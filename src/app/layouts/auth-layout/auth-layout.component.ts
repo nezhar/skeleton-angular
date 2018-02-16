@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { ViewEncapsulation } from '@angular/core/src/metadata/view';
 
 @Component({
   selector: 'app-auth-layout',

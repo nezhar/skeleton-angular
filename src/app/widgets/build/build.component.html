@@ -1,0 +1,20 @@
+<div class="container-fluid">
+    <div class="row">
+        <div class="col-sm">
+            {{ 'Build version' | translate }}:
+            {{ buildVersion }}
+        </div>
+
+        <div class="col-sm">
+            {{ 'Build date' | translate }}:
+            {{ buildDate }}
+        </div>
+
+        <div class="col-sm">
+            {{ 'Build variant' | translate }}:
+            <span *ngIf="buildDevelopment">{{ 'Development build' | translate }}</span>
+            <span *ngIf="buildProduction">{{ 'Production build' | translate }}</span>
+            <span *ngIf="buildTest">{{ 'Test build' | translate }}</span>
+        </div>
+    </div>
+</div>

@@ -1,63 +1,120 @@
-import { BrowserModule } from '@angular/platform-browser';
-import { NgModule } from '@angular/core';
-import { FormsModule } from '@angular/forms';
-import { HttpClientModule, HTTP_INTERCEPTORS } from '@angular/common/http';
+import {NgModule, ApplicationRef} from '@angular/core';
+import {BrowserModule} from "@angular/platform-browser";
+import {HttpClient, HttpClientModule, HTTP_INTERCEPTORS} from "@angular/common/http";
 
-import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
+import {removeNgStyles, createNewHosts, createInputTransfer} from '@angularclass/hmr';
+import {MissingTranslationHandler, TranslateLoader, TranslateModule} from "@ngx-translate/core";
+import {NgbModule} from "@ng-bootstrap/ng-bootstrap";
+import {UIRouterModule} from "@uirouter/angular";
+import {NgxResourceFactoryModule} from "ngx-resource-factory";
 
-import { RoutingModule } from './app.routing';
-import { AuthGuard } from './guards/index';
-import { JwtInterceptor } from './helpers/index';
-import { AlertService, AuthenticationService, UserService } from './services/index';
+import {routingConfig} from "./app.routing";
+import {AppMissingTranslationHandler, createTranslatePoHttpLoader} from "./services/language/language.helper";
+import {MainComponent} from "./layouts";
+import {SharedModule} from "./shared/shared.module";
+import {ServicesModule} from "./services/services.module";
+import {WidgetsModule} from "./widgets/widgets.module";
+import {ScreensModule} from "./screens/screens.module";
+import {LayoutsModule} from "./layouts/layouts.module";
+import {ModulesModule} from "./modules/modules.module";
 
-import { MainComponent, FrontendLayoutComponent, AuthLayoutComponent } from './layouts/index';
-import { AlertComponent, HeaderComponent, FooterComponent, NavigationComponent, ContentComponent } from './widgets/index';
-import { HomeComponent, LoginComponent, RegisterComponent } from './screens/index'
+import {AuthGuard} from './guards';
+import {AlertService, UserService, AuthenticationService} from './services';
+import {JwtInterceptor} from './helpers';
 
 // used to create fake backend
-import { fakeBackendProvider } from './helpers/index';
-
+import { fakeBackendProvider } from './helpers';
 
 @NgModule({
-  declarations: [
-    MainComponent,
-    AlertComponent,
-    HomeComponent,
-    LoginComponent,
-    RegisterComponent,
-    HeaderComponent,
-    FooterComponent,
-    NavigationComponent,
-    ContentComponent,
-    FrontendLayoutComponent,
-    AuthLayoutComponent
-  ],
-  imports: [    
-    // Angular imports
-    BrowserModule,
-    FormsModule,
-    HttpClientModule,
+    imports: [
+        // Angular imports
+        BrowserModule,
+        HttpClientModule,
 
-    // 3rd party imports
-    NgbModule.forRoot(),
+        // 3rd party imports
+        NgbModule.forRoot(),
+        NgxResourceFactoryModule.forRoot(),
+        TranslateModule.forRoot({
+            loader: {
+                provide: TranslateLoader,
+                useFactory: createTranslatePoHttpLoader,
+                deps: [
+                    HttpClient,
+                ]
+            },
+            missingTranslationHandler: {
+                provide: MissingTranslationHandler,
+                useClass: AppMissingTranslationHandler,
+            }
+        }),
 
-    // Application imports
-    RoutingModule
-  ],
-  providers: [
-    AuthGuard,
-    AlertService,
-    AuthenticationService,
-    UserService,
-    {
-      provide: HTTP_INTERCEPTORS,
-      useClass: JwtInterceptor,
-      multi: true
-    },
+        // Application imports
+        UIRouterModule.forRoot(routingConfig),
+        ServicesModule.forRoot(),
+        SharedModule.forRoot(),
+        WidgetsModule.forRoot(),
+        ScreensModule.forRoot(),
+        LayoutsModule.forRoot(),
+        ModulesModule.forRoot(),
+    ],
+    bootstrap: [
+        MainComponent,
+    ],
+    providers: [
+        AuthGuard,
+        AlertService,
+        AuthenticationService,
+        UserService,
+        {
+            provide: HTTP_INTERCEPTORS,
+            useClass: JwtInterceptor,
+            multi: true
+        },
 
-    // Provider used to create fake backend
-    fakeBackendProvider
-  ],
-  bootstrap: [MainComponent]
+        // Provider used to create fake backend
+        fakeBackendProvider
+    ],
+    declarations: []
 })
-export class AppModule { }
+export class AppModule {
+    constructor(public appRef: ApplicationRef) {}
+
+    hmrOnInit(store) {
+        // Do nothing if we did not get a valid store object
+        if (!store) {
+            return;
+        }
+
+        // Restore the values of the input fields if we got
+        // an input transfer object in the store
+        if ('restoreInputValues' in store) {
+            store.restoreInputValues();
+        }
+
+        // Trigger angular change detection
+        this.appRef.tick();
+
+        // Now we clean up the store
+        delete store.restoreInputValues;
+    }
+
+    hmrOnDestroy(store) {
+        let cmpLocation = this.appRef.components.map(cmp => cmp.location.nativeElement);
+
+        // Put helper functions on store for re-creating the host elements,
+        // removing the old ones and restoring form inputs after HMR
+        store.disposeOldHosts = createNewHosts(cmpLocation);
+        store.restoreInputValues  = createInputTransfer();
+
+        // Remove old styles from the application
+        removeNgStyles();
+    }
+
+    hmrAfterDestroy(store) {
+        // Remove old elements and show new ones
+        store.disposeOldHosts();
+
+        // Now we clean up the store
+        delete store.disposeOldHosts;
+    }
+}

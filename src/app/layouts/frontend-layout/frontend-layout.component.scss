@@ -1,0 +1,56 @@
+@import '~app/styles/variables';
+
+@import "~bootstrap/scss/functions";
+@import "~bootstrap/scss/variables";
+@import "~bootstrap/scss/mixins";
+
+
+:host {
+  width: 100%;
+  display: block;
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+
+  & > app-header {
+    position: absolute;
+    top: 0;
+    left: $navigation-width;
+    right: 0;
+    height: $header-height;
+    overflow: visible;
+    z-index: 300;
+  }
+
+  & > app-navigation {
+    position: absolute;
+    top: 0;
+    left: 0;
+    bottom: 0;
+    width: $navigation-width;
+    overflow: visible;
+    z-index: 200;
+  }
+
+  & > app-content {
+    position: absolute;
+    top: $header-height;
+    left: $navigation-width;
+    right: 0;
+    bottom: 25px;
+    overflow: visible;
+    z-index: 100;
+  }
+
+  & > app-build {
+    position: absolute;
+    height: 25px;
+    left: $navigation-width;
+    right: 0;
+    bottom: 0;
+    overflow: hidden;
+    z-index: 400;
+  }
+}
