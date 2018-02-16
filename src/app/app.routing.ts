@@ -1,9 +1,9 @@
 import { UIRouterModule, Transition } from "@uirouter/angular";
  
 import { HomeComponent, LoginComponent, RegisterComponent } from './screens/index'
-import { AuthGuard } from './guards/index';
+import { FrontendLayoutComponent, AuthLayoutComponent } from "./layouts/index";
 import { UserService } from "./services/index";
-import { FrontendLayoutComponent } from "./widgets/frontend-layout/frontend-layout.component";
+import { AuthGuard } from './guards/index';
 
 
 const appStates = [
@@ -20,15 +20,20 @@ const appStates = [
      * Auth Routes
      */
     {
-        name: 'login',
+        name: 'auth',
+        url: '/auth',
+        component: AuthLayoutComponent,
+        redirectTo: 'auth.login',
+    },
+    {
+        name: 'auth.login',
         url: '/login',
         component: LoginComponent,
     },
     {
-        name: 'register',
+        name: 'auth.register',
         url: '/register',
         component: RegisterComponent,
-        //onEnter: authGuard.isLoggedOut,
     },
 
     /**
@@ -52,12 +57,10 @@ const appStates = [
         url: '/home',
         component: HomeComponent,
     },
-
 ]
- 
-// export const RoutingModule = RouterModule.forRoot(appRoutes);
+
 export const RoutingModule = UIRouterModule.forRoot({
     states: appStates,
-    useHash: true,
+    //useHash: true,
     otherwise: '/',
 })

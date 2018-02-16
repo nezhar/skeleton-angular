@@ -13,7 +13,7 @@ export class AuthGuard {
         var state = transition.router.stateService;
 
         if (!localStorage.getItem('currentUser')) {
-            state.go('login');
+            state.go('auth.login');
         } else {
             let user = JSON.parse(localStorage.getItem('currentUser'));
             
@@ -24,17 +24,9 @@ export class AuthGuard {
                 },
                 error => {
                     this.alertService.error(error);
-                    state.go('login');
+                    state.go('auth.login');
                 }
             );
-        }
-    }
-
-    isLoggedOut(transition: Transition) {
-        let state = transition.router.stateService;
-
-        if (localStorage.getItem('currentUser')) {
-            state.go('frontend.home')
         }
     }
 }

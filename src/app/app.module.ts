@@ -5,22 +5,17 @@ import { HttpClientModule, HTTP_INTERCEPTORS } from '@angular/common/http';
 
 import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
 
-import { MainComponent } from './main/main.component';
-import { AlertComponent } from './widgets/index';
-import { HomeComponent, LoginComponent, RegisterComponent } from './screens/index'
-
+import { RoutingModule } from './app.routing';
+import { AuthGuard } from './guards/index';
 import { JwtInterceptor } from './helpers/index';
 import { AlertService, AuthenticationService, UserService } from './services/index';
-import { AuthGuard } from './guards/index';
-import { RoutingModule } from './app.routing';
+
+import { MainComponent, FrontendLayoutComponent, AuthLayoutComponent } from './layouts/index';
+import { AlertComponent, HeaderComponent, FooterComponent, NavigationComponent, ContentComponent } from './widgets/index';
+import { HomeComponent, LoginComponent, RegisterComponent } from './screens/index'
 
 // used to create fake backend
 import { fakeBackendProvider } from './helpers/index';
-import { HeaderComponent } from './widgets/header/header.component';
-import { FooterComponent } from './widgets/footer/footer.component';
-import { NavigationComponent } from './widgets/navigation/navigation.component';
-import { ContentComponent } from './widgets/content/content.component';
-import { FrontendLayoutComponent } from './widgets/frontend-layout/frontend-layout.component';
 
 
 @NgModule({
@@ -34,7 +29,8 @@ import { FrontendLayoutComponent } from './widgets/frontend-layout/frontend-layo
     FooterComponent,
     NavigationComponent,
     ContentComponent,
-    FrontendLayoutComponent
+    FrontendLayoutComponent,
+    AuthLayoutComponent
   ],
   imports: [    
     // Angular imports

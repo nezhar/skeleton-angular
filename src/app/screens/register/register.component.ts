@@ -25,7 +25,7 @@ export class RegisterComponent {
                 data => {
                     // set success message and pass true paramater to persist the message after redirecting to the login page
                     this.alertService.success('Registration successful', true);
-                    this.state.go('login');
+                    this.state.go('auth.login');
                 },
                 error => {
                     this.alertService.error(error);
