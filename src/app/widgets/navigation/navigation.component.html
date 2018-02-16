@@ -1,11 +1,19 @@
 <div class="brand">
     <h1>
-        <b>Angular</b>Demo
+        <i class="fa fa-bars"></i>
     </h1>
 </div>
 
 <div class="navigation">
     <nav class="nav flex-column">
+        <div class="nav-divider">
+            {{ 'Pages' | translate }}
+        </div>
+        <a class="nav-link"
+            uiSref="frontend.home" uiSrefActive="active">
+             <i class="fa fa-home" aria-hidden="true"></i>
+             {{ 'Home' | translate }}
+        </a>
         <div class="nav-divider">
             {{ 'UI elements' | translate }}
         </div>

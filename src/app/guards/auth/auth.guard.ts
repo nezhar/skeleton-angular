@@ -1,5 +1,5 @@
-import { UIRouterModule, Transition } from "@uirouter/angular";
-import { AuthenticationService, AlertService } from "../../services/index";
+import { Transition } from "@uirouter/angular";
+import { AuthenticationService, AlertService } from "../../services";
 import { Injectable } from "@angular/core";
 
 @Injectable()
@@ -10,7 +10,7 @@ export class AuthGuard {
     ) {}
  
     isLoggedIn(transition: Transition) {
-        var state = transition.router.stateService;
+        let state = transition.router.stateService;
 
         if (!localStorage.getItem('currentUser')) {
             state.go('auth.login');

@@ -19,8 +19,8 @@
     "angular",
     "demo"
   ],
-  "author": "Andreas Stocker",
-  "license": "MIT",
+  "author": "ANEXIA Internetdienstleisungs GmbH",
+  "license": "PROPRIETARY SOFTWARE",
   "peerDependency": {
     "webpack": "^3.10.0"
   },

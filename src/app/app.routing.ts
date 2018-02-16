@@ -1,14 +1,13 @@
-import { UIRouterModule, Transition } from "@uirouter/angular";
+import { Transition } from "@uirouter/angular";
 
 import {WidgetsScreenComponent} from "./screens/widgets/widgets-screen.component";
 import {TablesScreenComponent} from "./screens/tables/tables-screen.component";
 import {UsersScreenComponent} from "./screens/users/users-screen.component";
 import {PermissionsScreenComponent} from "./screens/permissions/permissions-screen.component";
 
-import {HomeComponent, LoginComponent, RegisterComponent} from './screens/index'
-import {FrontendLayoutComponent, AuthLayoutComponent} from "./layouts/index";
-import {UserService} from "./services/index";
-import {AuthGuard} from './guards/index';
+import {HomeComponent, LoginComponent, RegisterComponent} from './screens'
+import {FrontendLayoutComponent, AuthLayoutComponent} from "./layouts";
+import {AuthGuard} from './guards';
 
 const appStates = [
     /**
@@ -52,7 +51,7 @@ const appStates = [
             { 
                 token: 'frontend', 
                 deps: [Transition, AuthGuard],
-                resolveFn: (transition, authGurad) => authGurad.isLoggedIn(transition)
+                resolveFn: (transition, authGuard) => authGuard.isLoggedIn(transition)
             }
         ],
     },
@@ -81,10 +80,10 @@ const appStates = [
         url: '/permissions',
         component: PermissionsScreenComponent,
     },
-]
+];
 
 export const routingConfig = {
     states: appStates,
     useHash: true,
     otherwise: '/',
-}
+};

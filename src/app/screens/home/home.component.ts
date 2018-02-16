@@ -5,7 +5,10 @@ import { UserService } from '../../services/index';
  
 @Component({
     moduleId: module.id,
-    templateUrl: 'home.component.html'
+    template: require('./home.component.html'),
+    styles: [
+        require('./home.component.scss')
+    ]
 })
  
 export class HomeComponent implements OnInit {

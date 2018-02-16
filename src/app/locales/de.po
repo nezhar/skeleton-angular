@@ -19,14 +19,26 @@ msgstr "Build Variante"
 msgid "Build version"
 msgstr "Build Version"
 
+msgid "Cancel"
+msgstr "Abbrechen"
+
 msgid "Development build"
 msgstr "Entwicklungsbuild"
 
 msgid "English"
 msgstr "English"
 
+msgid "First Name"
+msgstr "Vorname"
+
+msgid "First Name is required"
+msgstr "Vorname ist erforderlich"
+
 msgid "German"
 msgstr "Deutsch"
+
+msgid "Home"
+msgstr "Startseite"
 
 msgid "Language"
 msgstr "Sprache"
@@ -34,11 +46,32 @@ msgstr "Sprache"
 msgid "Language selector"
 msgstr "Sprachauswahl"
 
+msgid "Last Name"
+msgstr "Nachname"
+
+msgid "Last Name is required"
+msgstr "Nachname wird benötigt"
+
+msgid "Login"
+msgstr "Anmelden"
+
+msgid "Pages"
+msgstr "Seiten"
+
+msgid "Password"
+msgstr "Passwort"
+
+msgid "Password is required"
+msgstr "Passwort wird benötigt"
+
 msgid "Permission"
 msgstr "Berechtigung"
 
 msgid "Production build"
 msgstr "Produktionsbuild"
+
+msgid "Register"
+msgstr "Registrieren"
 
 msgid "Tables"
 msgstr "Tabellen"
@@ -51,6 +84,12 @@ msgstr "Oberflächenelemente"
 
 msgid "User"
 msgstr "Benutzer"
+
+msgid "Username"
+msgstr "Benutzername"
+
+msgid "Username is required"
+msgstr "Benutzername wird benötigt"
 
 msgid "Widgets"
 msgstr "Widgets"

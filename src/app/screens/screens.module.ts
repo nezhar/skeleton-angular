@@ -14,6 +14,7 @@ import {WidgetsScreenComponent} from "./widgets/widgets-screen.component";
 import {LoginComponent, RegisterComponent, HomeComponent} from "./index";
 import {WidgetsModule} from 'app/widgets/widgets.module';
 import {UIRouterModule} from '@uirouter/angular';
+import {TranslateModule} from '@ngx-translate/core';
 
 
 @NgModule({
@@ -23,6 +24,7 @@ import {UIRouterModule} from '@uirouter/angular';
         NgSelectizeModule,
         NgbMomentpickerModule,
         UIRouterModule,
+        TranslateModule,
     ],
     exports: [
         PermissionsScreenComponent,
