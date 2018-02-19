@@ -35,9 +35,10 @@ export class FakeBackendInterceptor implements HttpInterceptor {
                         username: user.username,
                         firstName: user.firstName,
                         lastName: user.lastName,
+                        superuser: user.superuser,
                         token: 'fake-jwt-token'
                     };
- 
+
                     return Observable.of(new HttpResponse({ status: 200, body: body }));
                 } else {
                     // else return 400 bad request

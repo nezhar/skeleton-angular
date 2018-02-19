@@ -5,8 +5,9 @@ import {FormsModule} from "@angular/forms";
 import { UIRouterModule } from '@uirouter/angular';
 import { TranslateModule } from '@ngx-translate/core';
 
-import {AuthLayoutComponent, FrontendLayoutComponent, MainComponent} from "./index";
+import {AuthLayoutComponent, FrontendLayoutComponent, MainComponent} from ".";
 import {WidgetsModule} from 'app/widgets/widgets.module';
+import { BackendLayoutComponent } from './backend-layout/backend-layout.component';
 
 
 @NgModule({
@@ -26,6 +27,7 @@ import {WidgetsModule} from 'app/widgets/widgets.module';
         AuthLayoutComponent,
         FrontendLayoutComponent,
         MainComponent,
+        BackendLayoutComponent,
     ],
     providers: [ /* declare in `forRoot()` */ ],
 })

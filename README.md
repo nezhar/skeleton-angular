@@ -21,7 +21,7 @@ To initially build and run the application, do the steps as follows:
 ## Installation and update instructions for deployment
 
 You may need the following common tasks during the development of the application:
-* Collect all translatable strings: `docker-compose exec --user=user node npm rum makemessages`
+* Collect all translatable strings: `docker-compose exec --user=user node npm run makemessages`
 * Add a NPM dependency to the application: `docker-compose exec --user=user node npm install --save DEPENDENCY_NAME`
 * Add a NPM development-only dependency to the application: `docker-compose exec --user=user node npm install --save-dev DEPENDENCY_NAME`
 
@@ -30,6 +30,8 @@ You may need the following common tasks during the development of the applicatio
 * Build the documentation: `docker-compose exec --user=user node run generatedocs`
 * Build the application for production: `docker-compose exec --user=user node run build:production`
 * Run the test suite: `docker-compose exec --user=user node run test`
+* Run `docker-compose exec --user=user node ng generate component module/component` to generate a new component. You can also use `ng generate directive|pipe|service|class|guard|interface|enum|module`.
+* docker-compose exec --user=user node ng generate component layouts/backendLayout
 
 ## Instructions for project
 

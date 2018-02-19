@@ -1,4 +1,4 @@
-import { Transition } from "@uirouter/angular";
+import {Transition, StateService} from "@uirouter/angular";
 
 import {WidgetsScreenComponent} from "./screens/widgets/widgets-screen.component";
 import {TablesScreenComponent} from "./screens/tables/tables-screen.component";
@@ -6,8 +6,10 @@ import {UsersScreenComponent} from "./screens/users/users-screen.component";
 import {PermissionsScreenComponent} from "./screens/permissions/permissions-screen.component";
 
 import {HomeComponent, LoginComponent, RegisterComponent} from './screens'
-import {FrontendLayoutComponent, AuthLayoutComponent} from "./layouts";
-import {AuthGuard} from './guards';
+import {AuthLayoutComponent, FrontendLayoutComponent, BackendLayoutComponent} from "./layouts";
+import {AuthGuard} from './shared/guards';
+import {AuthenticationService} from "./services";
+
 
 const appStates = [
     /**
@@ -16,7 +18,13 @@ const appStates = [
     {
         name: 'root',
         url: '/',
-        redirectTo: 'frontend',
+        resolve: [
+            {
+                token: 'backend',
+                deps: [Transition, AuthGuard],
+                resolveFn: (transition, authGuard) => authGuard.isLoggedIn(transition)
+            }
+        ],
     },
 
     /**
@@ -34,6 +42,20 @@ const appStates = [
         component: LoginComponent,
     },
     {
+        name: 'auth.logout',
+        url: '/logout',
+        resolve: [
+            {
+                token: 'logout',
+                deps: [StateService, AuthenticationService],
+                resolveFn: (stateService, authenticationService) => {
+                    authenticationService.logout();
+                    stateService.go('auth');
+                },
+            }
+        ],
+    },
+    {
         name: 'auth.register',
         url: '/register',
         component: RegisterComponent,
@@ -48,8 +70,8 @@ const appStates = [
         component: FrontendLayoutComponent,
         redirectTo: 'frontend.home',
         resolve: [
-            { 
-                token: 'frontend', 
+            {
+                token: 'frontend',
                 deps: [Transition, AuthGuard],
                 resolveFn: (transition, authGuard) => authGuard.isLoggedIn(transition)
             }
@@ -60,23 +82,45 @@ const appStates = [
         url: '/home',
         component: HomeComponent,
     },
+
+    /**
+     * Backend Routes
+     */
     {
-        name: 'frontend.widgets',
+        name: 'backend',
+        url: '/backend',
+        component: BackendLayoutComponent,
+        redirectTo: 'backend.home',
+        resolve: [
+            { 
+                token: 'backend',
+                deps: [Transition, AuthGuard],
+                resolveFn: (transition, authGuard) => authGuard.isLoggedIn(transition)
+            }
+        ],
+    },
+    {
+        name: 'backend.home',
+        url: '/home',
+        component: HomeComponent,
+    },
+    {
+        name: 'backend.widgets',
         url: '/widgets',
         component: WidgetsScreenComponent,
     },
     {
-        name: 'frontend.tables',
+        name: 'backend.tables',
         url: '/tables',
         component: TablesScreenComponent,
     },
     {
-        name: 'frontend.users',
+        name: 'backend.users',
         url: '/users',
         component: UsersScreenComponent,
     },
     {
-        name: 'frontend.permissions',
+        name: 'backend.permissions',
         url: '/permissions',
         component: PermissionsScreenComponent,
     },

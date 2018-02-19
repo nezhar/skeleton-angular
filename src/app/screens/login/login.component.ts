@@ -2,7 +2,7 @@ import { Component, OnInit } from '@angular/core';
 
 import { StateService } from "@uirouter/angular";
  
-import { AlertService, AuthenticationService } from '../../services/index';
+import { AlertService, AuthenticationService } from 'app/services';
  
 @Component({
     moduleId: module.id,
@@ -22,10 +22,7 @@ export class LoginComponent implements OnInit {
       private authenticationService: AuthenticationService,
       private alertService: AlertService) { }
  
-    ngOnInit() {
-      // reset login status
-      this.authenticationService.logout();
-    }
+    ngOnInit() {}
  
     login() {
       this.loading = true;

@@ -1,6 +1,7 @@
 import { Transition } from "@uirouter/angular";
-import { AuthenticationService, AlertService } from "../../services";
 import { Injectable } from "@angular/core";
+
+import { AuthenticationService, AlertService } from "app/services";
 
 @Injectable()
 export class AuthGuard {
@@ -16,11 +17,15 @@ export class AuthGuard {
             state.go('auth.login');
         } else {
             let user = JSON.parse(localStorage.getItem('currentUser'));
-            
+
             this.authenticationService.verify_token(user.token)
                 .subscribe(
                 data => {
-                    // Valid token
+                    if (user.superuser) {
+                        state.go('backend');
+                    } else {
+                        state.go('frontend');
+                    }
                 },
                 error => {
                     this.alertService.error(error);

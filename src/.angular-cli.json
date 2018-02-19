@@ -1,0 +1,21 @@
+{
+  "$schema": "./node_modules/@angular/cli/lib/config/schema.json",
+  "project": {
+    "name": "angular-demo-cli"
+  },
+  "apps": [
+    {
+      "root": ".",
+      "index": "index.html",
+      "main": "app.main.ts",
+      "polyfills": "polyfills.ts",
+      "tsconfig": "tsconfig.app.json",
+      "prefix": "app",
+      "scripts": [],
+      "environmentSource": "app/environments/environment.ts",
+      "defaults": {
+        "styleExt": "scss"
+      }
+    }
+  ]
+}

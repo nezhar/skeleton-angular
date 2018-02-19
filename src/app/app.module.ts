@@ -18,7 +18,7 @@ import {ScreensModule} from "./screens/screens.module";
 import {LayoutsModule} from "./layouts/layouts.module";
 import {ModulesModule} from "./modules/modules.module";
 
-import {AuthGuard} from './guards';
+import {AuthGuard} from './shared/guards';
 import {AlertService, UserService, AuthenticationService} from './services';
 import {JwtInterceptor} from './helpers';
 

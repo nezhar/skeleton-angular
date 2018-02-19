@@ -12,7 +12,6 @@ import {UsersScreenComponent} from "./users/users-screen.component";
 import {WidgetsScreenComponent} from "./widgets/widgets-screen.component";
 
 import {LoginComponent, RegisterComponent, HomeComponent} from "./index";
-import {WidgetsModule} from 'app/widgets/widgets.module';
 import {UIRouterModule} from '@uirouter/angular';
 import {TranslateModule} from '@ngx-translate/core';
 
