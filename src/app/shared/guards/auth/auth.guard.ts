@@ -1,7 +1,7 @@
 import {StateService, Transition, ResolveTypes} from "@uirouter/angular";
-import { Injectable } from "@angular/core";
+import {Injectable} from "@angular/core";
 
-import { AuthenticationService, AlertService } from "app/services";
+import {AuthenticationService, AlertService} from "app/services";
 
 @Injectable()
 export class AuthGuard {
@@ -11,28 +11,31 @@ export class AuthGuard {
     ) {}
  
     isLoggedIn(transition: Transition) {
-        let state = transition.router.stateService;
+        let {stateService, urlService} = transition.router;
+        let currentPath = urlService.path();
 
         if (!localStorage.getItem('currentUser')) {
-            state.go('auth');
-        } else {
-            let user = JSON.parse(localStorage.getItem('currentUser'));
+            stateService.go('auth');
+        }
 
-            this.authenticationService.verify_token(user.token)
-                .subscribe(
+        let user = JSON.parse(localStorage.getItem('currentUser'));
+
+        this.authenticationService.verify_token(user.token)
+            .subscribe(
                 data => {
-                    if (user.superuser) {
-                        state.go('backend');
-                    } else {
-                        state.go('frontend');
+                    if (user.superuser && currentPath.indexOf('backend') === -1) {
+                        stateService.go('backend');
+                    }
+
+                    if (!user.superuser && currentPath.indexOf('frontend') === -1) {
+                        stateService.go('frontend');
                     }
                 },
                 error => {
                     this.alertService.error(error);
-                    state.go('auth');
+                    stateService.go('auth');
                 }
             );
-        }
     }
 }
 

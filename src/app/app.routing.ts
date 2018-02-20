@@ -13,6 +13,7 @@ import {frontendStates} from "./screens/frontend/frontend.routing";
 const stateHome: Ng2StateDeclaration = {
     name: 'root',
     url: '/',
+    redirectTo: 'frontend',
     resolve: [
         ...stateAuthGuardConfiguration
     ],
