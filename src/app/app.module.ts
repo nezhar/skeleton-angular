@@ -23,7 +23,7 @@ import {BackendScreensModule} from "./screens/backend/backend.module";
 
 import {AuthGuard} from './shared/guards';
 import {JwtInterceptor} from './shared/helpers';
-import {AlertService, UserService, AuthenticationService} from './services';
+import {AlertService, AuthenticationService} from './services';
 
 // used to create fake backend
 import {fakeBackendProvider} from './shared/helpers';
@@ -69,7 +69,7 @@ import {fakeBackendProvider} from './shared/helpers';
         AuthGuard,
         AlertService,
         AuthenticationService,
-        UserService,
+
         {
             provide: HTTP_INTERCEPTORS,
             useClass: JwtInterceptor,

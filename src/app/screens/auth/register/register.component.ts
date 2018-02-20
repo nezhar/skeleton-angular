@@ -2,7 +2,7 @@ import {Component} from '@angular/core';
 
 import {StateService} from "@uirouter/angular";
 
-import {AlertService, UserService} from 'app/services';
+import {AlertService, UserResource} from 'app/services';
 
 
 @Component({
@@ -18,21 +18,21 @@ export class RegisterComponent {
 
     constructor(
         private state: StateService,
-        private userService: UserService,
+        private userResource: UserResource,
         private alertService: AlertService) { }
 
     register() {
         this.loading = true;
-        this.userService.create(this.model)
-            .subscribe(
-                data => {
-                    // set success message and pass true paramater to persist the message after redirecting to the login page
-                    this.alertService.success('Registration successful', true);
-                    this.state.go('auth.login');
-                },
-                error => {
-                    this.alertService.error(error);
-                    this.loading = false;
-                });
+
+        this.userResource.create(this.model).$save().$promise
+            .then(data => {
+                // set success message and pass true parameter to persist the message after redirecting to the login page
+                this.alertService.success('Registration successful', true);
+                this.state.go('auth.login');
+            })
+            .catch(error => {
+                this.alertService.error(error);
+                this.loading = false;
+            })
     }
 }

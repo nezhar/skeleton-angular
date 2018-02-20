@@ -1,8 +1,7 @@
 import {Component, OnInit} from '@angular/core';
- 
-import {User} from 'app/models';
-import {UserService} from 'app/services';
- 
+
+import {UserResource, User} from "app/services";
+
 @Component({
     moduleId: module.id,
     template: require('./home.component.html'),
@@ -13,8 +12,8 @@ import {UserService} from 'app/services';
 export class HomeComponent implements OnInit {
     currentUser: User;
     users: User[] = [];
- 
-    constructor(private userService: UserService) {
+
+    constructor(private userResource: UserResource) {
         this.currentUser = JSON.parse(localStorage.getItem('currentUser'));
     }
 
@@ -23,10 +22,10 @@ export class HomeComponent implements OnInit {
     }
 
     deleteUser(id: number) {
-        this.userService.delete(id).subscribe(() => { this.loadAllUsers() });
+        this.userResource.remove({pk: id}).$promise.then(() => { this.loadAllUsers() });
     }
 
     private loadAllUsers() {
-        this.userService.getAll().subscribe(users => { this.users = users; });
+        this.userResource.query().$promise.then(users => { this.users = users; });
     }
 }
