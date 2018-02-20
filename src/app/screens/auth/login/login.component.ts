@@ -6,9 +6,9 @@ import { AlertService, AuthenticationService } from 'app/services';
  
 @Component({
     moduleId: module.id,
-    template: require('./login.component.html'),
-    styles: [
-        require('./login.component.scss')
+    templateUrl: './login.component.html',
+    styleUrls: [
+        './login.component.scss'
     ]
 })
 export class LoginComponent implements OnInit {

@@ -6,9 +6,9 @@ import {NgbMomentpickerAccessor} from "./ngb-momentpicker-accessor";
 
 @Component({
     selector: 'ngb-momentpicker',
-    template: require('./ngb-momentpicker.component.html'),
-    styles: [
-        require('./ngb-momentpicker.component.scss'),
+    templateUrl: './ngb-momentpicker.component.html',
+    styleUrls: [
+        './ngb-momentpicker.component.scss'
     ],
     providers: [
         {

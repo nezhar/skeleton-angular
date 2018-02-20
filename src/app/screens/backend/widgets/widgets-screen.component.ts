@@ -5,9 +5,9 @@ import {ResourceModel} from "ngx-resource-factory/resource/resource-model";
 
 @Component({
     selector: 'app-widgets-screen',
-    template: require('./widgets-screen.component.html'),
-    styles: [
-        require('./widgets-screen.component.scss')
+    templateUrl: './widgets-screen.component.html',
+    styleUrls: [
+        './widgets-screen.component.scss'
     ]
 })
 export class WidgetsScreenComponent implements OnInit {

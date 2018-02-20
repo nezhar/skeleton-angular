@@ -3,9 +3,9 @@ import {Component, OnInit} from '@angular/core';
 
 @Component({
     selector: 'app-build',
-    template: require('./build.component.html'),
-    styles: [
-        require('./build.component.scss')
+    templateUrl: './build.component.html',
+    styleUrls: [
+        './build.component.scss'
     ]
 })
 export class BuildComponent implements OnInit {

@@ -3,9 +3,9 @@ import {Component, OnInit} from '@angular/core';
 
 @Component({
     selector: 'app-users-screen',
-    template: require('./users-screen.component.html'),
-    styles: [
-        require('./users-screen.component.scss')
+    templateUrl: './users-screen.component.html',
+    styleUrls: [
+        './users-screen.component.scss'
     ]
 })
 export class UsersScreenComponent implements OnInit {

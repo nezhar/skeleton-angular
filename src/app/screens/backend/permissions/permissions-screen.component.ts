@@ -3,9 +3,9 @@ import {Component, OnInit} from '@angular/core';
 
 @Component({
     selector: 'app-permissions-screen',
-    template: require('./permissions-screen.component.html'),
-    styles: [
-        require('./permissions-screen.component.scss')
+    templateUrl: './permissions-screen.component.html',
+    styleUrls: [
+        './permissions-screen.component.scss'
     ]
 })
 export class PermissionsScreenComponent implements OnInit {

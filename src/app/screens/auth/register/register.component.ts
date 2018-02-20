@@ -7,9 +7,9 @@ import {AlertService, UserResource} from 'app/services';
 
 @Component({
     moduleId: module.id,
-    template: require('./register.component.html'),
-    styles: [
-        require('./register.component.scss')
+    templateUrl: './register.component.html',
+    styleUrls: [
+        './register.component.scss'
     ]
 })
 export class RegisterComponent {

@@ -6,9 +6,9 @@ import {Language} from "app/services/language/language.model";
 
 @Component({
     selector: 'app-language',
-    template: require('./language.component.html'),
-    styles: [
-        require('./language.component.scss')
+    templateUrl: './language.component.html',
+    styleUrls: [
+        './language.component.scss'
     ]
 })
 export class LanguageComponent implements OnInit {
