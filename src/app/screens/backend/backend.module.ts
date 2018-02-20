@@ -1,19 +1,13 @@
 import {ModuleWithProviders, NgModule} from '@angular/core';
 import {CommonModule} from "@angular/common";
 import {FormsModule} from "@angular/forms";
+import {UIRouterModule} from '@uirouter/angular';
+import {TranslateModule} from '@ngx-translate/core';
 
 import {NgSelectizeModule} from "ng-selectize";
 
 import {NgbMomentpickerModule} from "app/modules/ngb-momentpicker/ngb-momentpicker.module";
-
-import {PermissionsScreenComponent} from "./permissions/permissions-screen.component";
-import {TablesScreenComponent} from "./tables/tables-screen.component";
-import {UsersScreenComponent} from "./users/users-screen.component";
-import {WidgetsScreenComponent} from "./widgets/widgets-screen.component";
-
-import {LoginComponent, RegisterComponent, HomeComponent} from "./index";
-import {UIRouterModule} from '@uirouter/angular';
-import {TranslateModule} from '@ngx-translate/core';
+import {HomeComponent, PermissionsScreenComponent, TablesScreenComponent, UsersScreenComponent, WidgetsScreenComponent} from ".";
 
 
 @NgModule({
@@ -30,8 +24,6 @@ import {TranslateModule} from '@ngx-translate/core';
         TablesScreenComponent,
         UsersScreenComponent,
         WidgetsScreenComponent,
-        LoginComponent,
-        RegisterComponent,
         HomeComponent,
     ],
     declarations: [
@@ -39,17 +31,15 @@ import {TranslateModule} from '@ngx-translate/core';
         TablesScreenComponent,
         UsersScreenComponent,
         WidgetsScreenComponent,
-        LoginComponent,
-        RegisterComponent,
         HomeComponent,
     ],
     providers: [ /* declare in `forRoot()` */ ],
 })
-export class ScreensModule {
+export class BackendScreensModule {
 
     static forRoot(): ModuleWithProviders {
         return {
-            ngModule: ScreensModule,
+            ngModule: BackendScreensModule,
             providers: []
         };
     }

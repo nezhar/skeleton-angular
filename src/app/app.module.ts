@@ -14,16 +14,19 @@ import {MainComponent} from "./layouts";
 import {SharedModule} from "./shared/shared.module";
 import {ServicesModule} from "./services/services.module";
 import {WidgetsModule} from "./widgets/widgets.module";
-import {ScreensModule} from "./screens/screens.module";
 import {LayoutsModule} from "./layouts/layouts.module";
 import {ModulesModule} from "./modules/modules.module";
 
+import {AuthScreensModule} from "./screens/auth/auth.module";
+import {FrontendScreensModule} from "./screens/frontend/frontend.module";
+import {BackendScreensModule} from "./screens/backend/backend.module";
+
 import {AuthGuard} from './shared/guards';
+import {JwtInterceptor} from './shared/helpers';
 import {AlertService, UserService, AuthenticationService} from './services';
-import {JwtInterceptor} from './helpers';
 
 // used to create fake backend
-import { fakeBackendProvider } from './helpers';
+import {fakeBackendProvider} from './shared/helpers';
 
 @NgModule({
     imports: [
@@ -53,7 +56,9 @@ import { fakeBackendProvider } from './helpers';
         ServicesModule.forRoot(),
         SharedModule.forRoot(),
         WidgetsModule.forRoot(),
-        ScreensModule.forRoot(),
+        AuthScreensModule.forRoot(),
+        FrontendScreensModule.forRoot(),
+        BackendScreensModule.forRoot(),
         LayoutsModule.forRoot(),
         ModulesModule.forRoot(),
     ],

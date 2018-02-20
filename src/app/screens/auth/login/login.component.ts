@@ -11,7 +11,6 @@ import { AlertService, AuthenticationService } from 'app/services';
         require('./login.component.scss')
     ]
 })
- 
 export class LoginComponent implements OnInit {
     model: any = {};
     loading = false;

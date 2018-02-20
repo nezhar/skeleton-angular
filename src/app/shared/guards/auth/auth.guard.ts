@@ -1,4 +1,4 @@
-import { Transition } from "@uirouter/angular";
+import {StateService, Transition, ResolveTypes} from "@uirouter/angular";
 import { Injectable } from "@angular/core";
 
 import { AuthenticationService, AlertService } from "app/services";
@@ -14,7 +14,7 @@ export class AuthGuard {
         let state = transition.router.stateService;
 
         if (!localStorage.getItem('currentUser')) {
-            state.go('auth.login');
+            state.go('auth');
         } else {
             let user = JSON.parse(localStorage.getItem('currentUser'));
 
@@ -29,9 +29,34 @@ export class AuthGuard {
                 },
                 error => {
                     this.alertService.error(error);
-                    state.go('auth.login');
+                    state.go('auth');
                 }
             );
         }
     }
 }
+
+/**
+ * @type ResolveTypes {{token: string; deps: (Transition | AuthGuard)[]; resolveFn: (transition, authGuard) => void}[]}
+ */
+export const stateAuthGuardConfiguration = [
+    {
+        token: 'auth',
+        deps: [Transition, AuthGuard],
+        resolveFn: (transition, authGuard) => authGuard.isLoggedIn(transition)
+    }
+];
+
+/**
+ * @type ResolveTypes {{token: string; deps: (StateService | AuthenticationService)[]; resolveFn: (stateService, authenticationService) => void}[]}
+ */
+export const stateAuthLogoutConfiguration = [
+    {
+        token: 'logout',
+        deps: [StateService, AuthenticationService],
+        resolveFn: (stateService, authenticationService) => {
+            authenticationService.logout();
+            stateService.go('auth');
+        },
+    }
+];

@@ -1,9 +1,10 @@
-import { Component } from '@angular/core';
+import {Component} from '@angular/core';
 
-import { StateService } from "@uirouter/angular";
- 
-import { AlertService, UserService } from '../../services/index';
- 
+import {StateService} from "@uirouter/angular";
+
+import {AlertService, UserService} from 'app/services';
+
+
 @Component({
     moduleId: module.id,
     template: require('./register.component.html'),
@@ -11,16 +12,15 @@ import { AlertService, UserService } from '../../services/index';
         require('./register.component.scss')
     ]
 })
- 
 export class RegisterComponent {
     model: any = {};
     loading = false;
- 
+
     constructor(
         private state: StateService,
         private userService: UserService,
         private alertService: AlertService) { }
- 
+
     register() {
         this.loading = true;
         this.userService.create(this.model)
