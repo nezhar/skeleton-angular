@@ -2,7 +2,8 @@ import { Component, OnInit } from '@angular/core';
 
 import { StateService } from "@uirouter/angular";
  
-import { AlertService, AuthenticationService } from 'app/services';
+import { AlertService } from 'app/services';
+import {AuthenticationResource} from "app/services/resource/authentication.resource";
  
 @Component({
     moduleId: module.id,
@@ -18,22 +19,28 @@ export class LoginComponent implements OnInit {
  
     constructor(
       private state: StateService,
-      private authenticationService: AuthenticationService,
+      private authenticationResource: AuthenticationResource,
       private alertService: AlertService) { }
  
     ngOnInit() {}
  
     login() {
       this.loading = true;
-      this.authenticationService.login(this.model.username, this.model.password)
-        .subscribe(
-          data => {
-              this.state.go('root');
-          },
-          error => {
-              this.alertService.error(error);
-              this.loading = false;
-          }
-        );
+      this.authenticationResource.login({}, {
+            username: this.model.username,
+            password: this.model.password
+      }).$promise
+          .then(
+              data => {
+                  localStorage.setItem('currentUser', JSON.stringify(data));
+                  this.state.go('root');
+              },
+          )
+          .catch(
+              error => {
+                  this.alertService.error(error);
+                  this.loading = false;
+              }
+          );
     }
 }

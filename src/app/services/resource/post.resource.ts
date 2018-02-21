@@ -14,6 +14,7 @@ export class Post extends ResourceInstance {
 
 @Injectable()
 @ResourceConfiguration({
+    name: 'PostResource',
     url: 'https://jsonplaceholder.typicode.com/posts/:pk/',
     pkAttr: 'id',
     instanceClass: Post,

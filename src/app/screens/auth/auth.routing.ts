@@ -34,7 +34,7 @@ const stateAuthRegister: Ng2StateDeclaration = {
 };
 
 /**
- * @type Ng2StateDeclaration {{name: string; url: string; resolve: {token: string; deps: (StateService | any)[]; resolveFn: (stateService, authenticationService) => void}[]}}
+ * @type Ng2StateDeclaration {{name: string; url: string; resolve: any[]}}
  */
 const stateAuthLogout: Ng2StateDeclaration = {
     name: 'auth.logout',

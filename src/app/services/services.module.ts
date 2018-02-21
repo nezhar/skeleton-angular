@@ -1,7 +1,7 @@
 import {ModuleWithProviders, NgModule} from '@angular/core';
 
 import {LanguageService} from "./language/language.service";
-import {PostResource, UserResource} from ".";
+import {PostResource, UserResource, AuthenticationResource} from ".";
 
 
 @NgModule({
@@ -21,6 +21,7 @@ export class ServicesModule {
                 // Resources
                 PostResource,
                 UserResource,
+                AuthenticationResource
             ]
         };
     }

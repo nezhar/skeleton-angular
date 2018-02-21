@@ -17,6 +17,7 @@ export class User extends ResourceInstance {
 
 @Injectable()
 @ResourceConfiguration({
+    name: 'UserResource',
     url: '/api/users/:pk/',
     pkAttr: 'id',
     instanceClass: User,

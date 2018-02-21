@@ -47,7 +47,7 @@ export class FakeBackendInterceptor implements HttpInterceptor {
             }
  
             // authenticate
-            if (request.url.endsWith('/api/authenticate/verify') && request.method === 'POST') {
+            if (request.url.endsWith('/api/authenticate/authverify') && request.method === 'POST') {
                 return Observable.of(new HttpResponse({ status: 200 }));
                 //return Observable.throw('Invalid token!');
             }
