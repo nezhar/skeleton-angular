@@ -6,6 +6,7 @@ import {UIRouterModule} from '@uirouter/angular';
 import {TranslateModule} from '@ngx-translate/core';
 
 import {LoginComponent, RegisterComponent} from ".";
+import {ComponentsModule} from "../../components/components.module";
 
 
 @NgModule({
@@ -14,6 +15,7 @@ import {LoginComponent, RegisterComponent} from ".";
         FormsModule,
         UIRouterModule,
         TranslateModule,
+        ComponentsModule,
     ],
     exports: [
         LoginComponent,

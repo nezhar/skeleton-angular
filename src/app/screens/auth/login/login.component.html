@@ -1,16 +1,21 @@
 <form name="form" (ngSubmit)="f.form.valid && login()" #f="ngForm" novalidate>
     <h2>{{ 'Authentication' | translate }}</h2>
     <hr>
-    <div class="form-group" [ngClass]="{ 'has-error': f.submitted && !username.valid }">
-        <label for="username">{{ 'Username' | translate }}</label>
-        <input type="text" class="form-control" name="username" [(ngModel)]="model.username" #username="ngModel" required />
-        <div *ngIf="f.submitted && !username.valid" class="help-block">{{ 'Username is required' | translate }}</div>
-    </div>
-    <div class="form-group" [ngClass]="{ 'has-error': f.submitted && !password.valid }">
-        <label for="password">{{ 'Password' | translate }}</label>
-        <input type="password" class="form-control" name="password" [(ngModel)]="model.password" #password="ngModel" required />
-        <div *ngIf="f.submitted && !password.valid" class="help-block">{{ 'Password is required' | translate }}</div>
-    </div>
+
+    <app-icon-input
+            name="username"
+            [(ngModel)]="model.username"
+            placeholder="{{ 'Username' | translate }}"
+            icon="fa fa-user"
+    ></app-icon-input>
+
+    <app-icon-input
+            name="password"
+            [(ngModel)]="model.password"
+            placeholder="{{ 'Password' | translate }}"
+            icon="fa fa-lock"
+    ></app-icon-input>
+
     <div class="form-group">
         <button [disabled]="loading" class="btn btn-primary">{{ 'Login' | translate }}</button>
         <img *ngIf="loading" src="data:image/gif;base64,R0lGODlhEAAQAPIAAP///wAAAMLCwkJCQgAAAGJiYoKCgpKSkiH/C05FVFNDQVBFMi4wAwEAAAAh/hpDcmVhdGVkIHdpdGggYWpheGxvYWQuaW5mbwAh+QQJCgAAACwAAAAAEAAQAAADMwi63P4wyklrE2MIOggZnAdOmGYJRbExwroUmcG2LmDEwnHQLVsYOd2mBzkYDAdKa+dIAAAh+QQJCgAAACwAAAAAEAAQAAADNAi63P5OjCEgG4QMu7DmikRxQlFUYDEZIGBMRVsaqHwctXXf7WEYB4Ag1xjihkMZsiUkKhIAIfkECQoAAAAsAAAAABAAEAAAAzYIujIjK8pByJDMlFYvBoVjHA70GU7xSUJhmKtwHPAKzLO9HMaoKwJZ7Rf8AYPDDzKpZBqfvwQAIfkECQoAAAAsAAAAABAAEAAAAzMIumIlK8oyhpHsnFZfhYumCYUhDAQxRIdhHBGqRoKw0R8DYlJd8z0fMDgsGo/IpHI5TAAAIfkECQoAAAAsAAAAABAAEAAAAzIIunInK0rnZBTwGPNMgQwmdsNgXGJUlIWEuR5oWUIpz8pAEAMe6TwfwyYsGo/IpFKSAAAh+QQJCgAAACwAAAAAEAAQAAADMwi6IMKQORfjdOe82p4wGccc4CEuQradylesojEMBgsUc2G7sDX3lQGBMLAJibufbSlKAAAh+QQJCgAAACwAAAAAEAAQAAADMgi63P7wCRHZnFVdmgHu2nFwlWCI3WGc3TSWhUFGxTAUkGCbtgENBMJAEJsxgMLWzpEAACH5BAkKAAAALAAAAAAQABAAAAMyCLrc/jDKSatlQtScKdceCAjDII7HcQ4EMTCpyrCuUBjCYRgHVtqlAiB1YhiCnlsRkAAAOwAAAAAAAAAAAA==" />

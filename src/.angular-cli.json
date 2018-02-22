@@ -13,9 +13,9 @@
       "prefix": "app",
       "scripts": [],
       "environmentSource": "app/environments/environment.ts",
-      "defaults": {
-        "styleExt": "scss"
-      }
     }
-  ]
+  ],
+  "defaults": {
+    "styleExt": "scss"
+  }
 }

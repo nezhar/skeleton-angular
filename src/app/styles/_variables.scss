@@ -12,7 +12,7 @@ $enable-transitions: false;
  * Application configuration
  */
 $theme-colors: (
-  "header-bg": #DD4B39,
+  "header-bg": #eaeaea,
   "header-fg": #FEFEFE,
   "navigation-bg": #222D32,
   "navigation-fg": #FEFEFE,
@@ -21,3 +21,5 @@ $theme-colors: (
 
 $header-height: 50px;
 $navigation-width: 300px;
+
+$primary: #a3a3a3;

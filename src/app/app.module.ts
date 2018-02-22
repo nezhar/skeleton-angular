@@ -16,6 +16,7 @@ import {ServicesModule} from "./services/services.module";
 import {WidgetsModule} from "./widgets/widgets.module";
 import {LayoutsModule} from "./layouts/layouts.module";
 import {ModulesModule} from "./modules/modules.module";
+import {ComponentsModule} from "./components/components.module";
 
 import {AuthScreensModule} from "./screens/auth/auth.module";
 import {FrontendScreensModule} from "./screens/frontend/frontend.module";
@@ -61,6 +62,7 @@ import {fakeBackendProvider} from './shared/helpers';
         BackendScreensModule.forRoot(),
         LayoutsModule.forRoot(),
         ModulesModule.forRoot(),
+        ComponentsModule.forRoot(),
     ],
     bootstrap: [
         MainComponent,
