@@ -1,12 +1,10 @@
 <div class="btn-group" placement="bottom-right"
      ngbDropdown
-     [attr.aria-label]="'Language selector' | translate">
+     [attr.aria-label]="'Language selector' ">
 
     <button type="button" class="btn btn-default dropdown-toggle"
             ngbDropdownToggle>
-
-        <i class="fa fa-language" aria-hidden="true" title="{{ 'Language' | translate }}"></i>
-
+        <i class="fa fa-language" aria-hidden="true" title="{{ 'Language'  }}"></i>
     </button>
 
     <ul class="dropdown-menu" role="menu"
@@ -16,7 +14,7 @@
             [class]="getLanguage() === language ? 'active' : ''"
             *ngFor="let language of getLanguages()">
             <button class="dropdown-item">
-                {{ language.getLanguageName() | translate }}
+                {{ language.getLanguageName()  }}
             </button>
         </li>
     </ul>

@@ -21,6 +21,7 @@ import { BackendLayoutComponent } from './backend-layout/backend-layout.componen
     exports: [
         AuthLayoutComponent,
         FrontendLayoutComponent,
+        BackendLayoutComponent,
         MainComponent,
     ],
     declarations: [

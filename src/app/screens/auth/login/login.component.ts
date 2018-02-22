@@ -1,10 +1,9 @@
-import { Component, OnInit } from '@angular/core';
+import {Component, OnInit} from '@angular/core';
 
-import { StateService } from "@uirouter/angular";
+import {StateService} from "@uirouter/angular";
  
-import { AlertService } from 'app/services';
-import {AuthenticationResource} from "app/services/resource/authentication.resource";
- 
+import {AlertService, AuthenticationResource} from 'app/services';
+
 @Component({
     moduleId: module.id,
     templateUrl: './login.component.html',
@@ -23,7 +22,7 @@ export class LoginComponent implements OnInit {
       private alertService: AlertService) { }
  
     ngOnInit() {}
- 
+
     login() {
       this.loading = true;
       this.authenticationResource.login({}, {
