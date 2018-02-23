@@ -1,6 +1,4 @@
-# Matchpoint Frontend
-
-Frontend of Lufthansa Matchpoint.
+# Angular Skeleton
 
 This application uses these core components:
 * Angular 5.x
