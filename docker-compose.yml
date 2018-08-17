@@ -10,9 +10,9 @@ services:
       NODE_RUN_GROUP: user
     volumes:
       - ./:/app
-    command: npm run runserver:hmr
+    command: ng serve --host 0.0.0.0
     dns: 8.8.8.8
     ports:
-      - "8080:8080"
+      - "8080:4200"
       - "9876:9876"
       - "9001:9001"

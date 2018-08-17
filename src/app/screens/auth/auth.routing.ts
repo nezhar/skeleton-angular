@@ -1,13 +1,11 @@
-import {Ng2StateDeclaration} from "@uirouter/angular";
+import { Ng2StateDeclaration } from "@uirouter/angular";
 
-import {LoginComponent, RegisterComponent} from '.'
-import {AuthLayoutComponent} from "app/layouts";
-import {stateAuthLogoutConfiguration} from 'app/shared/guards';
+import { LoginComponent } from './login/login.component'
+import { RegisterComponent } from "./register/register.component";
+import { AuthLayoutComponent} from "../../layouts/auth-layout/auth-layout.component";
+import { stateAuthLogoutConfiguration } from '../../shared/guards/auth/auth.guard';
 
 
-/**
- * @type Ng2StateDeclaration {{name: string; url: string; component: any; redirectTo: string}}
- */
 const stateAuth: Ng2StateDeclaration = {
     name: 'auth',
     url: '/auth',
@@ -15,27 +13,18 @@ const stateAuth: Ng2StateDeclaration = {
     redirectTo: 'auth.login',
 };
 
-/**
- * @type Ng2StateDeclaration {{name: string; url: string; component: any}}
- */
 const stateAuthLogin: Ng2StateDeclaration = {
     name: 'auth.login',
     url: '/login',
     component: LoginComponent,
 };
 
-/**
- * Ng2StateDeclaration @type {{name: string; url: string; component: any}}
- */
 const stateAuthRegister: Ng2StateDeclaration = {
     name: 'auth.register',
     url: '/register',
     component: RegisterComponent,
 };
 
-/**
- * @type Ng2StateDeclaration {{name: string; url: string; resolve: any[]}}
- */
 const stateAuthLogout: Ng2StateDeclaration = {
     name: 'auth.logout',
     url: '/logout',

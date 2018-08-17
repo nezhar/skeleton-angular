@@ -24,11 +24,3 @@ import * as moment from 'moment';
 window['moment'] = moment; // install globally
 
 import 'moment/locale/de';
-
-/**
- * jQuery and jQuery based libraries
- */
-import * as jQuery from 'jquery';
-window['jQuery'] = window['$'] = jQuery; // install globally
-
-import 'selectize';

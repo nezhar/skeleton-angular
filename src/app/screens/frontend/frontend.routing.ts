@@ -1,14 +1,10 @@
-import {Ng2StateDeclaration} from "@uirouter/angular";
+import { Ng2StateDeclaration } from "@uirouter/angular";
 
-import {FrontendLayoutComponent} from "app/layouts";
-import {stateAuthGuardConfiguration} from 'app/shared/guards';
+import { FrontendLayoutComponent } from "../../layouts/frontend-layout/frontend-layout.component";
+import { stateAuthGuardConfiguration } from "../../shared/guards";
+import { HomeComponent } from "./home/home.component";
 
-import {HomeComponent} from "."
 
-
-/**
- * @type Ng2StateDeclaration {{name: string; url: string; component: FrontendLayoutComponent; redirectTo: string; resolve: any[]}}
- */
 const stateFrontend: Ng2StateDeclaration = {
     name: 'frontend',
     url: '/frontend',
@@ -19,9 +15,6 @@ const stateFrontend: Ng2StateDeclaration = {
     ]
 };
 
-/**
- * @type Ng2StateDeclaration {{name: string; url: string; component: any}}
- */
 const stateFrontendHome: Ng2StateDeclaration = {
     name: 'frontend.home',
     url: '/home',

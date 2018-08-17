@@ -3,7 +3,6 @@
         <div class="card-body">
             <h5 class="card-title">Single Selectize</h5>
             <div class="card-text">
-                <ng-selectize [config]="{labelField: 'title', valueField: 'id', maxItems: 1}" [options]="selectizeItems" [(ngModel)]="singleSelectizeValue"></ng-selectize>
                 <div>
                     {{ 'Selected' }}: <pre>{{ singleSelectizeValue | json }}</pre>
                 </div>
@@ -14,7 +13,6 @@
         <div class="card-body">
             <h5 class="card-title">Multi Selectize</h5>
             <div class="card-text">
-                <ng-selectize [config]="{labelField: 'title', valueField: 'id', maxItems: 9999}" [options]="selectizeItems" [(ngModel)]="multiSelectizeValue"></ng-selectize>
                 <div>
                     {{ 'Selected' }}: <pre>{{ multiSelectizeValue | json }}</pre>
                 </div>
@@ -25,7 +23,6 @@
         <div class="card-body">
             <h5 class="card-title">Moment picker</h5>
             <div class="card-text">
-                <ngb-momentpicker [(ngModel)]="momentValue"></ngb-momentpicker>
                 <div>
                     {{ 'Selected' }}: <pre>{{ momentValue | json }}</pre>
                 </div>

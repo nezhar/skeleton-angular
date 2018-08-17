@@ -1,13 +1,13 @@
-import {Ng2StateDeclaration} from "@uirouter/angular";
+import { Ng2StateDeclaration } from "@uirouter/angular";
+import { BackendLayoutComponent } from "../../layouts/backend-layout/backend-layout.component";
+import { stateAuthGuardConfiguration } from "../../shared/guards";
+import { HomeComponent } from "./home/home.component";
+import { WidgetsScreenComponent } from "./widgets/widgets-screen.component";
+import { TablesScreenComponent } from "./tables/tables-screen.component";
+import { UsersScreenComponent } from "./users/users-screen.component";
+import { PermissionsScreenComponent } from "./permissions/permissions-screen.component";
 
-import {HomeComponent, PermissionsScreenComponent, TablesScreenComponent, UsersScreenComponent, WidgetsScreenComponent} from ".";
-import {BackendLayoutComponent} from "app/layouts";
-import {stateAuthGuardConfiguration} from "app/shared/guards";
 
-
-/**
- * @type Ng2StateDeclaration {{name: string; url: string; component: any; redirectTo: string}}
- */
 const stateBackend: Ng2StateDeclaration = {
     name: 'backend',
     url: '/backend',
@@ -18,45 +18,30 @@ const stateBackend: Ng2StateDeclaration = {
     redirectTo: 'backend.home',
 };
 
-/**
- * @type Ng2StateDeclaration {{name: string; url: string; component: any}}
- */
 const stateBackendHome = {
     name: 'backend.home',
     url: '/home',
     component: HomeComponent,
 };
 
-/**
- * @type Ng2StateDeclaration {{name: string; url: string; component: any}}
- */
 const stateBackendWidgets = {
     name: 'backend.widgets',
     url: '/widgets',
     component: WidgetsScreenComponent,
 };
 
-/**
- * @type Ng2StateDeclaration {{name: string; url: string; component: any}}
- */
 const stateBackendTables = {
     name: 'backend.tables',
     url: '/tables',
     component: TablesScreenComponent,
 };
 
-/**
- * @type Ng2StateDeclaration {{name: string; url: string; component: any}}
- */
 const stateBackendUsers = {
     name: 'backend.users',
     url: '/users',
     component: UsersScreenComponent,
 };
 
-/**
- * @type Ng2StateDeclaration {{name: string; url: string; component: any}}
- */
 const stateBackendPermissions = {
     name: 'backend.permissions',
     url: '/permissions',

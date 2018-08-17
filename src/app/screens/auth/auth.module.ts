@@ -1,12 +1,14 @@
-import {ModuleWithProviders, NgModule} from '@angular/core';
-import {CommonModule} from "@angular/common";
-import {FormsModule} from "@angular/forms";
+import { ModuleWithProviders, NgModule } from '@angular/core';
+import { CommonModule } from "@angular/common";
+import { FormsModule } from "@angular/forms";
 
-import {UIRouterModule} from '@uirouter/angular';
-import {TranslateModule} from '@ngx-translate/core';
+import { UIRouterModule } from '@uirouter/angular';
+import { TranslateModule } from '@ngx-translate/core';
 
-import {LoginComponent, RegisterComponent} from ".";
-import {ComponentsModule} from "../../components/components.module";
+import { ComponentsModule } from "../../components/components.module";
+
+import { LoginComponent } from './login/login.component';
+import { RegisterComponent } from './register/register.component';
 
 
 @NgModule({

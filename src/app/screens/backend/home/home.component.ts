@@ -1,10 +1,10 @@
-import {Component, OnInit} from '@angular/core';
+import { Component, OnInit } from '@angular/core';
 
-import {UserResource, User} from "app/services";
+import { User, UserResource } from '../../../services/resource';
 
 
 @Component({
-    moduleId: module.id,
+    selector: 'app-backend-home-screen',
     templateUrl: './home.component.html',
     styleUrls: [
         './home.component.scss'

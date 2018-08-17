@@ -1,21 +1,20 @@
-import {ModuleWithProviders, NgModule} from '@angular/core';
-import {CommonModule} from "@angular/common";
-import {FormsModule} from "@angular/forms";
-import {UIRouterModule} from '@uirouter/angular';
-import {TranslateModule} from '@ngx-translate/core';
+import { ModuleWithProviders, NgModule } from '@angular/core';
+import { CommonModule } from "@angular/common";
+import { FormsModule } from "@angular/forms";
+import { UIRouterModule } from '@uirouter/angular';
+import { TranslateModule } from '@ngx-translate/core';
 
-import {NgSelectizeModule} from "ng-selectize";
-
-import {NgbMomentpickerModule} from "app/modules/ngb-momentpicker/ngb-momentpicker.module";
-import {HomeComponent, PermissionsScreenComponent, TablesScreenComponent, UsersScreenComponent, WidgetsScreenComponent} from ".";
+import { PermissionsScreenComponent } from './permissions/permissions-screen.component';
+import { TablesScreenComponent } from './tables/tables-screen.component';
+import { UsersScreenComponent } from './users/users-screen.component';
+import { WidgetsScreenComponent } from './widgets/widgets-screen.component';
+import { HomeComponent } from './home/home.component';
 
 
 @NgModule({
     imports: [
         CommonModule,
         FormsModule,
-        NgSelectizeModule,
-        NgbMomentpickerModule,
         UIRouterModule,
         TranslateModule,
     ],

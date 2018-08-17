@@ -1,5 +1,5 @@
-FROM node:9.3
-MAINTAINER Andreas Stocker <andreas@stocker.co.it>
+FROM node:10
+MAINTAINER Harald Nezbeda <HNezbeda@anexia-it.com>
 
 # Install system applications and libraries
 RUN apt-get update && \
@@ -67,14 +67,6 @@ RUN apt-get update && \
     apt-get clean && \
     rm -rf /var/lib/apt/lists/*
 
-# Install yarn from the third party repo
-RUN curl -sS "https://dl.yarnpkg.com/debian/pubkey.gpg" | apt-key add - ; \
-    echo "deb https://dl.yarnpkg.com/debian/ stable main" | tee /etc/apt/sources.list.d/yarn.list ; \
-    apt-get update && \
-    apt-get install yarn && \
-    apt-get clean && \
-    rm -rf /var/lib/apt/lists/*
-
 # Install node modules
 RUN npm install --global --unsafe-perm \
         @angular/cli \
@@ -91,5 +83,5 @@ RUN npm install --global --unsafe-perm \
 COPY docker-node-entrypoint /usr/local/bin/
 RUN chmod a+x /usr/local/bin/docker-node-entrypoint
 
-WORKDIR /app/src
+WORKDIR /app
 ENTRYPOINT [ "/bin/bash", "/usr/local/bin/docker-node-entrypoint" ]

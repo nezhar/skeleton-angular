@@ -1,7 +1,7 @@
-import {HttpClient} from "@angular/common/http";
+import { HttpClient } from "@angular/common/http";
 
-import {MissingTranslationHandler, MissingTranslationHandlerParams, TranslateLoader} from "@ngx-translate/core";
-import {TranslatePoHttpLoader} from "@biesbjerg/ngx-translate-po-http-loader";
+import { MissingTranslationHandler, MissingTranslationHandlerParams, TranslateLoader } from "@ngx-translate/core";
+import { TranslateHttpLoader } from '@ngx-translate/http-loader';
 
 
 /**
@@ -20,7 +20,7 @@ export function translate(str: string): string {
  * @returns {TranslateLoader}
  */
 export function createTranslatePoHttpLoader(http: HttpClient): TranslateLoader {
-    return new TranslatePoHttpLoader(http, 'locale', '.po');
+    return new TranslateHttpLoader(http, 'assets/locales/', '.json');
 }
 
 

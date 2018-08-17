@@ -1,9 +1,10 @@
 import {Component, OnInit} from '@angular/core';
 
-import {UserResource, User} from "app/services";
+import { UserResource,User } from '../../../services/resource';
+
 
 @Component({
-    moduleId: module.id,
+    selector: 'app-frontend-home-screen',
     templateUrl: './home.component.html',
     styleUrls: [
         './home.component.scss'

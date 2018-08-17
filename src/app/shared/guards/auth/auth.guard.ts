@@ -1,7 +1,9 @@
-import {StateService, Transition, ResolveTypes} from "@uirouter/angular";
-import {Injectable} from "@angular/core";
+import { StateService, Transition, ResolveTypes } from "@uirouter/angular";
+import { Injectable } from "@angular/core";
 
-import {AlertService, AuthenticationResource} from "app/services";
+import { AuthenticationResource } from "../../../services/resource";
+import { AlertService } from "../../../services/alert/alert.service";
+
 
 @Injectable()
 export class AuthGuard {

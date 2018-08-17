@@ -1,10 +1,11 @@
-import {ModuleWithProviders, NgModule} from '@angular/core';
-import {CommonModule} from "@angular/common";
-import {FormsModule} from "@angular/forms";
+import { ModuleWithProviders, NgModule } from '@angular/core';
+import { CommonModule } from "@angular/common";
+import { FormsModule } from "@angular/forms";
 
-import {HomeComponent} from ".";
-import {UIRouterModule} from '@uirouter/angular';
-import {TranslateModule} from '@ngx-translate/core';
+import { UIRouterModule } from '@uirouter/angular';
+import { TranslateModule } from '@ngx-translate/core';
+
+import { HomeComponent } from './home/home.component';
 
 
 @NgModule({

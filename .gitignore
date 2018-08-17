@@ -21,7 +21,7 @@ logs/*
 !logs/.gitkeep
 public/*
 !public/.gitkeep
-src/node_modules/*
-!src/node_modules/.gitkeep
+node_modules/*
+!node_modules/.gitkeep
 *.sqlite3
 *.mo

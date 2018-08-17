@@ -1,12 +1,12 @@
-import {Component} from '@angular/core';
+import { Component } from '@angular/core';
 
-import {StateService} from "@uirouter/angular";
-
-import {AlertService, UserResource} from 'app/services';
+import { StateService } from "@uirouter/angular";
+import { UserResource } from '../../../services/resource';
+import { AlertService } from '../../../services/alert/alert.service';
 
 
 @Component({
-    moduleId: module.id,
+    selector: 'app-register-screen',
     templateUrl: './register.component.html',
     styleUrls: [
         './register.component.scss'

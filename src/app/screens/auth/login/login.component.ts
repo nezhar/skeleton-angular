@@ -1,11 +1,13 @@
-import {Component, OnInit} from '@angular/core';
+import { Component, OnInit } from '@angular/core';
 
-import {StateService} from "@uirouter/angular";
+import { StateService } from "@uirouter/angular";
+
+import { AuthenticationResource } from '../../../services/resource';
+import { AlertService } from '../../../services/alert/alert.service';
  
-import {AlertService, AuthenticationResource} from 'app/services';
 
 @Component({
-    moduleId: module.id,
+    selector: 'app-login-screen',
     templateUrl: './login.component.html',
     styleUrls: [
         './login.component.scss'

@@ -1,7 +1,7 @@
 # Angular Skeleton
 
 This application uses these core components:
-* Angular 5.x
+* Angular 6.x
 * UI Router 1.0.x
 * ngx-translate
 * ngx-resource-factory
@@ -12,9 +12,8 @@ It is expected you have `docker` as well as `docker-compose` set up and running 
 
 To initially build and run the application, do the steps as follows:
 * Build the docker container: `docker-compose build`
-* Install the NPM dependencies: `docker-compose exec --user=user node npm install`
+* Install the NPM dependencies: `docker-compose run node npm install`
 * Build the application, start development server and watch for changes: `docker-compose up`
-* Alternatively build the application without starting a development server and file watcher: `docker-compose exec --user=user node npm run build`
 
 ## Installation and update instructions for deployment
 
@@ -23,7 +22,7 @@ You may need the following common tasks during the development of the applicatio
 * Add a NPM dependency to the application: `docker-compose exec --user=user node npm install --save DEPENDENCY_NAME`
 * Add a NPM development-only dependency to the application: `docker-compose exec --user=user node npm install --save-dev DEPENDENCY_NAME`
 
-## Manual tasks
+## Manual tasks (WIP)
 
 * Build the documentation: `docker-compose exec --user=user node run generatedocs`
 * Build the application for production: `docker-compose exec --user=user node run build:production`

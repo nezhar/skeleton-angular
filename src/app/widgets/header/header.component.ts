@@ -1,4 +1,5 @@
 import {Component, OnInit} from '@angular/core';
+import { environment } from '../../../environments/environment';
 
 
 @Component({
@@ -9,9 +10,9 @@ import {Component, OnInit} from '@angular/core';
     ]
 })
 export class HeaderComponent implements OnInit {
-    buildVersion: string = BUILD_VERSION;
-    buildDate: string = BUILD_DATE;
-    buildDevelopment: boolean = BUILD_DEVELOPMENT;
+    buildVersion: string = environment.BUILD_VERSION;
+    buildDate: string = environment.BUILD_DATE;
+    buildDevelopment: boolean = environment.BUILD_DEVELOPMENT;
 
     constructor() { }
 

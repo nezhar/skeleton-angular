@@ -1,7 +1,7 @@
-import {ModuleWithProviders, NgModule} from '@angular/core';
+import { ModuleWithProviders, NgModule } from '@angular/core';
 
-import {LanguageService} from "./language/language.service";
-import {PostResource, UserResource, AuthenticationResource} from ".";
+import { LanguageService } from "./language/language.service";
+import { PostResource, UserResource, AuthenticationResource } from './resource';
 
 
 @NgModule({

@@ -1,13 +1,16 @@
-import {ModuleWithProviders, NgModule} from '@angular/core';
-import {CommonModule} from "@angular/common";
-import {FormsModule} from "@angular/forms";
+import { ModuleWithProviders, NgModule } from '@angular/core';
+import { CommonModule } from "@angular/common";
+import { FormsModule } from "@angular/forms";
 
 import { UIRouterModule } from '@uirouter/angular';
 import { TranslateModule } from '@ngx-translate/core';
 
-import {AuthLayoutComponent, FrontendLayoutComponent, MainComponent} from ".";
-import {WidgetsModule} from 'app/widgets/widgets.module';
+import { WidgetsModule } from '../widgets/widgets.module';
+
+import { AuthLayoutComponent } from './auth-layout/auth-layout.component';
 import { BackendLayoutComponent } from './backend-layout/backend-layout.component';
+import { FrontendLayoutComponent } from './frontend-layout/frontend-layout.component';
+import { MainComponent } from './main/main.component';
 
 
 @NgModule({
