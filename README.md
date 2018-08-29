@@ -25,11 +25,12 @@ You may need the following common tasks during the development of the applicatio
 
 ## Manual tasks (WIP)
 
+All of the commands described below assume that you have your docker-compose up and running (e.g. by using `docker-compose up`).
 * Build the documentation: `docker-compose exec --user=user node run generatedocs`
 * Build the application for production: `docker-compose exec --user=user node run build:production`
 * Run the test suite: `docker-compose exec --user=user node run test`
 * Run `docker-compose exec --user=user node ng generate component module/component` to generate a new component. You can also use `ng generate directive|pipe|service|class|guard|interface|enum|module`.
-* docker-compose exec --user=user node ng generate component layouts/backendLayout
+* `docker-compose exec --user=user node ng generate component layouts/backendLayout`
 
 ## Instructions for project
 
