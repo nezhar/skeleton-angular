@@ -25,3 +25,4 @@ node_modules/*
 !node_modules/.gitkeep
 *.sqlite3
 *.mo
+docker-compose.yml

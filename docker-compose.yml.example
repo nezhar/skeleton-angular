@@ -5,7 +5,6 @@ services:
     build:
       context: ./docker/node
     environment:
-      NODE_RUN_UID: 1000
       NODE_RUN_USER: user
       NODE_RUN_GROUP: user
     volumes:
