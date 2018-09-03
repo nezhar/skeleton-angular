@@ -11,6 +11,7 @@ This application uses these core components:
 It is expected you have `docker` as well as `docker-compose` set up and running on your machine.
 
 To initially build and run the application, do the steps as follows:
+* Create the `docker-compose.yml` from the example: `cp docker-compose.yml.example docker-compose.yml`
 * Build the docker container: `docker-compose build`
 * Install the NPM dependencies: `docker-compose run node npm install`
 * Build the application, start development server and watch for changes: `docker-compose up`
@@ -39,6 +40,7 @@ You may need the following common tasks during the development of the applicatio
 ## List of developers
 
 * Harald Nezbeda <HNezbeda@anexia-it.com>, Lead developer
+* Andreas Stocker <AStocker@anexia-it.com>, Developer
 
 ## Project related external resources
 

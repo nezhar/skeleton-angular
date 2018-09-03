@@ -1,54 +1,78 @@
 #!/bin/bash
-
-NODE_RUN_UID=${NODE_RUN_UID:=1000}
+NODE_RUN_UID_DEFAULT=$(stat -c "%u" "${PWD}")
+NODE_RUN_GID_DEFAULT=$(stat -c "%g" "${PWD}")
+NODE_RUN_UID=${NODE_RUN_UID:=${NODE_RUN_UID_DEFAULT}}
+NODE_RUN_GID=${NODE_RUN_GID:=${NODE_RUN_GID_DEFAULT}}
 NODE_RUN_USER=${NODE_RUN_USER:=user}
 NODE_RUN_GROUP=${NODE_RUN_GROUP:=user}
-NODE_RUN_USER_TEST=$(grep "[a-zA-Z0-9\-\_]*:[a-zA-Z]:${NODE_RUN_UID}:" /etc/passwd)
+NODE_RUN_USER_TEST=$(getent passwd "${NODE_RUN_USER}" > /dev/null)
+NODE_RUN_GROUP_TEST=$(getent group "${NODE_RUN_GROUP}" > /dev/null)
 
-# Make sure the given group exists
-getent group $NODE_RUN_GROUP > /dev/null || groupadd $NODE_RUN_GROUP > /dev/null
 
-# Update the user to the configured UID and group if
-# it already exists.
+# Update the group to the configured GID if it already exists
+if [ -n "${NODE_RUN_GROUP_TEST}" ]; then
+    echo "Update group '$NODE_RUN_GROUP' with GID '$NODE_RUN_GID'"
+
+    # Update the group
+    groupmod -og "${NODE_RUN_GID}" "${NODE_RUN_GROUP}" 1> /dev/null 2>&1
+
+# Else create the group with the configured GID
+else
+    echo "Create group '$NODE_RUN_GROUP' with GID '$NODE_RUN_GID'"
+
+    # Create the group
+    groupadd -fog "${NODE_RUN_GID}" "${NODE_RUN_GROUP}" 1> /dev/null 2>&1
+fi
+
+
+# Update the user to the configured UID and group if it already exists
 if [ -n "${NODE_RUN_USER_TEST}" ]; then
-    echo "Update user '$NODE_RUN_USER'"
+    echo "Update user '$NODE_RUN_USER' with UID '$NODE_RUN_UID'"
 
-    usermod -l ${NODE_RUN_USER} $(id -un ${NODE_RUN_UID}) 1> /dev/null 2>&1
-    usermod -u $NODE_RUN_UID -g $NODE_RUN_GROUP $NODE_RUN_USER 1> /dev/null 2>&1
+    # Update the user with the corresponding group
+    usermod -l "${NODE_RUN_USER}" $(id -un "${NODE_RUN_UID}") 1> /dev/null 2>&1
+    usermod -u "${NODE_RUN_UID}" -g "${NODE_RUN_GROUP}" "${NODE_RUN_USER}" 1> /dev/null 2>&1
 
 # Else create the user with the configured UID and group
 else
-    echo "Create user '$NODE_RUN_USER'"
+    echo "Create user '$NODE_RUN_USER' with UID '$NODE_RUN_UID'"
 
     # Create the user with the corresponding group
-    useradd -u $NODE_RUN_UID -g $NODE_RUN_GROUP -d /home/$NODE_RUN_USER $NODE_RUN_USER 1> /dev/null 2>&1
+    useradd -u "${NODE_RUN_UID}" -g "${NODE_RUN_GROUP}" -d "/home/${NODE_RUN_USER}" "${NODE_RUN_USER}" 1> /dev/null 2>&1
 fi
 
+
 # Make sure $HOME directory of user exists
-mkdir /home/$NODE_RUN_USER 1> /dev/null 2>&1
-chown $NODE_RUN_USER:$NODE_RUN_GROUP /home/$NODE_RUN_USER
-export HOME=/home/$NODE_RUN_USER
+mkdir "/home/${NODE_RUN_USER}" 1> /dev/null 2>&1
+chown "${NODE_RUN_USER}:${NODE_RUN_GROUP}" "/home/${NODE_RUN_USER}"
+export HOME="/home/${NODE_RUN_USER}"
+
 
 # Make the user a sudoer
-echo "$NODE_RUN_USER ALL=(ALL) NOPASSWD:ALL" > /etc/sudoers.d/100-$NODE_RUN_USER
-echo "Defaults:$NODE_RUN_USER !requiretty" >> /etc/sudoers
+echo "${NODE_RUN_USER} ALL=(ALL) NOPASSWD:ALL" > "/etc/sudoers.d/100-${NODE_RUN_USER}"
+echo "Defaults:${NODE_RUN_USER} !requiretty" >> "/etc/sudoers"
+
 
 # Fix permissions of sudoers files
-chmod 600 /etc/sudoers
-chmod 600 /etc/sudoers.d/100-$NODE_RUN_USER
+chmod 600 "/etc/sudoers"
+chmod 600 "/etc/sudoers.d/100-${NODE_RUN_USER}"
+
 
 # Setup data storage for the application
-mkdir -p /var/lib/app 1> /dev/null 2>&1
-chown -R $NODE_RUN_USER:$NODE_RUN_GROUP /var/lib/app
-find /var/lib/app -type d -exec chmod 750 {} +
-find /var/lib/app -type f -exec chmod 640 {} +
+mkdir -p "/var/lib/app" 1> /dev/null 2>&1
+chown -R "${NODE_RUN_USER}:${NODE_RUN_GROUP}" /var/lib/app
+find "/var/lib/app" -type d -exec chmod 750 {} +
+find "/var/lib/app" -type f -exec chmod 640 {} +
+
 
 # Block the container if no commands supplied
 if [ $# -eq 0 ]; then
+    echo "No command supplied"
     exec sleep infinity
-
 # Else start the supplied commands with the configured
 # user.
 else
-    exec su - $NODE_RUN_USER -m -s /bin/bash -c "cd $PWD; $*"
+    sleep 1
+    exec su - "${NODE_RUN_USER}" -m -s /bin/bash -c "cd '${PWD}'; $*"
 fi
+
