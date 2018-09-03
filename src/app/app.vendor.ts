@@ -16,11 +16,3 @@ import '@angular/common';
 import '@angular/http';
 
 import '@angularclass/hmr';
-
-/**
- * Moment.js
- */
-import * as moment from 'moment';
-window['moment'] = moment; // install globally
-
-import 'moment/locale/de';
