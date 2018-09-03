@@ -17,8 +17,6 @@ export class WidgetsScreenComponent implements OnInit {
     singleSelectizeValue = null;
     multiSelectizeValue = [];
 
-    momentValue = null;
-
     constructor(public postResource: PostResource) { }
 
     ngOnInit() {
