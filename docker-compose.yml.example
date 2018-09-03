@@ -4,9 +4,6 @@ services:
   node:
     build:
       context: ./docker/node
-    environment:
-      NODE_RUN_USER: user
-      NODE_RUN_GROUP: user
     volumes:
       - ./:/app
     command: ng serve --host 0.0.0.0
