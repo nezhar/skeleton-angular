@@ -1,7 +1,7 @@
 # Angular Skeleton
 
 This application uses these core components:
-* Angular 6.x
+* Angular 6.1.x
 * UI Router 1.0.x
 * ngx-translate
 * ngx-resource-factory
@@ -19,18 +19,17 @@ To initially build and run the application, do the steps as follows:
 ## Installation and update instructions for deployment
 
 You may need the following common tasks during the development of the application:
-* Collect all translatable strings: `docker-compose exec --user=user node npm run makemessages`
-* Add a NPM dependency to the application: `docker-compose exec --user=user node npm install --save DEPENDENCY_NAME`
-* Add a NPM development-only dependency to the application: `docker-compose exec --user=user node npm install --save-dev DEPENDENCY_NAME`
+* Collect all translatable strings: `docker-compose run --rm node "npm run makemessages"`
+* Add a NPM dependency to the application: `docker-compose run --rm "node npm install --save DEPENDENCY_NAME"`
+* Add a NPM development-only dependency to the application: `docker-compose run --rm node "npm install --save-dev DEPENDENCY_NAME"`
 
-## Manual tasks (WIP)
+## Manual tasks
 
 All of the commands described below assume that you have your docker-compose up and running (e.g. by using `docker-compose up`).
-* Build the documentation: `docker-compose exec --user=user node run generatedocs`
-* Build the application for production: `docker-compose exec --user=user node run build:production`
-* Run the test suite: `docker-compose exec --user=user node run test`
-* Run `docker-compose exec --user=user node ng generate component module/component` to generate a new component. You can also use `ng generate directive|pipe|service|class|guard|interface|enum|module`.
-* `docker-compose exec --user=user node ng generate component layouts/backendLayout`
+* Build the application for production: `docker-compose run --rm node "npm run build"`
+* Build the documentation: `docker-compose run ---rm node "npm run generatedocs"`
+* Run the test suite: `docker-compose run --rm node "npm run test"`
+* Run `docker-compose run --rm node "ng generate component module/component"` to generate a new component. You can also use `ng generate directive|pipe|service|class|guard|interface|enum|module`
 
 ## Instructions for project
 
