@@ -1,9 +1,9 @@
-import {ModuleWithProviders, NgModule} from '@angular/core';
-import {CommonModule} from "@angular/common";
-import {FormsModule} from "@angular/forms";
+import { ModuleWithProviders, NgModule } from '@angular/core';
+import { CommonModule } from '@angular/common';
+import { FormsModule } from '@angular/forms';
 
-import {InputComponent} from './input/input.component';
-import {IconInputComponent} from './icon-input/icon-input.component';
+import { InputComponent } from './input/input.component';
+import { IconInputComponent } from './icon-input/icon-input.component';
 
 @NgModule({
     imports: [

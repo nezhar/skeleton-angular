@@ -1,11 +1,11 @@
-import { Ng2StateDeclaration } from "@uirouter/angular";
-import { BackendLayoutComponent } from "../../layouts/backend-layout/backend-layout.component";
-import { stateAuthGuardConfiguration } from "../../shared/guards";
-import { HomeComponent } from "./home/home.component";
-import { WidgetsScreenComponent } from "./widgets/widgets-screen.component";
-import { TablesScreenComponent } from "./tables/tables-screen.component";
-import { UsersScreenComponent } from "./users/users-screen.component";
-import { PermissionsScreenComponent } from "./permissions/permissions-screen.component";
+import { Ng2StateDeclaration } from '@uirouter/angular';
+import { BackendLayoutComponent } from '../../layouts/backend-layout/backend-layout.component';
+import { HomeComponent } from './home/home.component';
+import { WidgetsScreenComponent } from './widgets/widgets-screen.component';
+import { TablesScreenComponent } from './tables/tables-screen.component';
+import { UsersScreenComponent } from './users/users-screen.component';
+import { PermissionsScreenComponent } from './permissions/permissions-screen.component';
+import { stateAuthGuardConfiguration } from 'src/app/shared/guards/auth/auth.guard';
 
 
 const stateBackend: Ng2StateDeclaration = {

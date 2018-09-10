@@ -1,8 +1,8 @@
 import { Component } from '@angular/core';
 
-import { StateService } from "@uirouter/angular";
-import { UserResource } from '../../../services/resource';
-import { AlertService } from '../../../services/alert/alert.service';
+import { StateService } from '@uirouter/angular';
+import { UserResource } from 'src/app/services/resource/user.resource';
+import { AlertService } from 'src/app/services/alert/alert.service';
 
 
 @Component({
@@ -33,6 +33,6 @@ export class RegisterComponent {
             .catch(error => {
                 this.alertService.error(error);
                 this.loading = false;
-            })
+            });
     }
 }

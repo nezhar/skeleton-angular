@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 
-import { ResourceModel } from "ngx-resource-factory/resource/resource-model";
-import { PostResource, Post } from '../../../services/resource';
+import { ResourceModel } from 'ngx-resource-factory/resource/resource-model';
+import { Post, PostResource } from 'src/app/services/resource/post.resource';
 
 
 @Component({
@@ -12,42 +12,23 @@ import { PostResource, Post } from '../../../services/resource';
     ]
 })
 export class WidgetsScreenComponent implements OnInit {
-    // Selectize examples
-    selectizeItems = [];
-    singleSelectizeValue = null;
-    multiSelectizeValue = [];
+    items = [];
 
     constructor(public postResource: PostResource) { }
 
     ngOnInit() {
         console.log('Widgets screen component initialised');
 
-        this.selectizeItems = this.postResource.query(
-                function success (result: ResourceModel<ResourceModel<Post>[]>) {
-                    console.log(result[0].id);
-                    console.log(result.$resolved === false);
+        this.postResource.query({}).$promise
+            .then((data) => {
+                console.log('PostResource success:');
+                console.log(data);
 
-                    console.log('PostResource success:');
-                    console.log(result);
-
-                    result[0].$update(
-                        function success (result) {
-                            console.log('PostResource instance update success:');
-                            console.log(result);
-                        },
-                        function error (response) {
-                            console.log('PostResource instance update error:');
-                            console.log(response);
-                        }
-                    );
-                },
-                function error (response) {
-                    console.log('PostResource error:');
-                    console.log(response);
-                }
-            );
-
-        console.log('PostResource start:');
-        console.log(this.selectizeItems);
+                this.items = data;
+            })
+            .catch((reason) => {
+                console.log('PostResource error:');
+                console.log(response);
+            });
     }
 }

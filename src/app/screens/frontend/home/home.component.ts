@@ -1,6 +1,5 @@
-import {Component, OnInit} from '@angular/core';
-
-import { UserResource,User } from '../../../services/resource';
+import { Component, OnInit } from '@angular/core';
+import { User, UserResource } from 'src/app/services/resource/user.resource';
 
 
 @Component({
@@ -23,7 +22,7 @@ export class HomeComponent implements OnInit {
     }
 
     deleteUser(id: number) {
-        this.userResource.remove({pk: id}).$promise.then(() => { this.loadAllUsers() });
+        this.userResource.remove({pk: id}).$promise.then(() => { this.loadAllUsers(); });
     }
 
     private loadAllUsers() {

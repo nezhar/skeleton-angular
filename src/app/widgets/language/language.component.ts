@@ -1,4 +1,4 @@
-import {Component, OnInit} from '@angular/core';
+import { Component, OnInit } from '@angular/core';
 
 import { LanguageService } from '../../services/language/language.service';
 import { Language } from '../../services/language/language.model';
@@ -12,7 +12,8 @@ import { Language } from '../../services/language/language.model';
     ]
 })
 export class LanguageComponent implements OnInit {
-    constructor(private languageService: LanguageService) { }
+    constructor(private languageService: LanguageService) {
+    }
 
     ngOnInit() {
         console.log('Language component initialised');

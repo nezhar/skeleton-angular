@@ -1,34 +1,34 @@
-import {NgModule, ApplicationRef} from '@angular/core';
-import {BrowserModule} from "@angular/platform-browser";
-import {HttpClient, HttpClientModule, HTTP_INTERCEPTORS} from "@angular/common/http";
+import { NgModule, ApplicationRef } from '@angular/core';
+import { BrowserModule } from '@angular/platform-browser';
+import { HttpClient, HttpClientModule, HTTP_INTERCEPTORS } from '@angular/common/http';
 
-//import {removeNgStyles, createNewHosts, createInputTransfer} from '@angularclass/hmr';
-import {MissingTranslationHandler, TranslateLoader, TranslateModule} from "@ngx-translate/core";
-import {NgbModule} from "@ng-bootstrap/ng-bootstrap";
-import {UIRouterModule} from "@uirouter/angular";
-import {NgxResourceFactoryModule} from "ngx-resource-factory";
+// import {removeNgStyles, createNewHosts, createInputTransfer} from '@angularclass/hmr';
+import { MissingTranslationHandler, TranslateLoader, TranslateModule } from '@ngx-translate/core';
+import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
+import { UIRouterModule } from '@uirouter/angular';
+import { NgxResourceFactoryModule } from 'ngx-resource-factory';
 
-import {routingConfig} from "./app.routing";
-import {AppMissingTranslationHandler, createTranslatePoHttpLoader} from "./services/language/language.helper";
-import {MainComponent} from "./layouts/main/main.component";
-import {SharedModule} from "./shared/shared.module";
-import {ServicesModule} from "./services/services.module";
-import {WidgetsModule} from "./widgets/widgets.module";
-import {LayoutsModule} from "./layouts/layouts.module";
-import {ModulesModule} from "./modules/modules.module";
-import {ComponentsModule} from "./components/components.module";
+import { routingConfig } from './app.routing';
+import { AppMissingTranslationHandler, createTranslatePoHttpLoader } from './services/language/language.helper';
+import { MainComponent } from './layouts/main/main.component';
+import { SharedModule } from './shared/shared.module';
+import { ServicesModule } from './services/services.module';
+import { WidgetsModule } from './widgets/widgets.module';
+import { LayoutsModule } from './layouts/layouts.module';
+import { ModulesModule } from './modules/modules.module';
+import { ComponentsModule } from './components/components.module';
 
-import {AuthScreensModule} from "./screens/auth/auth.module";
-import {FrontendScreensModule} from "./screens/frontend/frontend.module";
-import {BackendScreensModule} from "./screens/backend/backend.module";
+import { AuthScreensModule } from './screens/auth/auth.module';
+import { FrontendScreensModule } from './screens/frontend/frontend.module';
+import { BackendScreensModule } from './screens/backend/backend.module';
 
-import {AuthGuard} from './shared/guards';
-import {JwtInterceptor} from './shared/helpers';
+import { AuthGuard } from './shared/guards/auth/auth.guard';
+import { JwtInterceptor } from './shared/helpers/jwt.interceptor';
 
 // used to create fake backend
-import { fakeBackendProvider } from './shared/helpers';
+import { fakeBackendProvider } from './shared/helpers/fake-backend';
 import { AlertService } from './services/alert/alert.service';
-import { AuthenticationResource } from './services/resource';
+import { AuthenticationResource } from './services/resource/authentication.resource';
 
 @NgModule({
     imports: [
@@ -37,7 +37,7 @@ import { AuthenticationResource } from './services/resource';
         HttpClientModule,
 
         // 3rd party imports
-        NgbModule.forRoot(),
+        NgbModule,
         NgxResourceFactoryModule.forRoot(),
         TranslateModule.forRoot({
             loader: {

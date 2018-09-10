@@ -1,10 +1,10 @@
-import {Injectable} from "@angular/core";
+import { Injectable } from '@angular/core';
 
-import {Resource} from "ngx-resource-factory/resource/resource";
-import {ResourceConfiguration} from "ngx-resource-factory/resource/resource-configuration";
-import {ResourceInstance} from "ngx-resource-factory/resource/resource-instance";
+import { Resource } from 'ngx-resource-factory/resource/resource';
+import { ResourceConfiguration } from 'ngx-resource-factory/resource/resource-configuration';
+import { ResourceInstance } from 'ngx-resource-factory/resource/resource-instance';
 
-import {startOfDay} from "date-fns";
+import { startOfDay } from 'date-fns';
 
 
 export class Post extends ResourceInstance {

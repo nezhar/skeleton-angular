@@ -1,8 +1,8 @@
-import {Injectable} from "@angular/core";
-import {TranslateService} from "@ngx-translate/core";
+import { Injectable } from '@angular/core';
+import { TranslateService } from '@ngx-translate/core';
 
-import {Language} from "./language.model";
-import {translate} from "./language.helper";
+import { Language } from './language.model';
+import { translate } from './language.helper';
 
 
 @Injectable()
@@ -18,7 +18,7 @@ export class LanguageService {
     }
 
     getFallbackLanguage(): Language {
-        let
+        const
             self = this;
 
         return this.availableLanguages.filter(function (item: Language) {
@@ -31,7 +31,7 @@ export class LanguageService {
     }
 
     getLanguage(): Language {
-        let
+        const
             self = this;
 
         return this.availableLanguages.filter(function (item: Language) {
@@ -40,7 +40,7 @@ export class LanguageService {
     }
 
     setLanguage(lang: Language) {
-        this.locale.use(lang.getLanguageKey())
+        this.locale.use(lang.getLanguageKey());
     }
 
     getAvailableLanguages(): Language[] {

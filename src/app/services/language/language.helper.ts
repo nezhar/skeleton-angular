@@ -1,6 +1,6 @@
-import { HttpClient } from "@angular/common/http";
+import { HttpClient } from '@angular/common/http';
 
-import { MissingTranslationHandler, MissingTranslationHandlerParams, TranslateLoader } from "@ngx-translate/core";
+import { MissingTranslationHandler, MissingTranslationHandlerParams, TranslateLoader } from '@ngx-translate/core';
 import { TranslateHttpLoader } from '@ngx-translate/http-loader';
 
 
@@ -34,8 +34,7 @@ export class AppMissingTranslationHandler implements MissingTranslationHandler {
     handle(params: MissingTranslationHandlerParams) {
         if (params.translateService.currentLang === params.translateService.defaultLang) {
             return params.key;
-        }
-        else {
+        } else {
             return '[MISSING]: ' + params.key;
         }
     }

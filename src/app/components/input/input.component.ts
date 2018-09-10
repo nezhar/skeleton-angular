@@ -1,5 +1,5 @@
-import {Component, Input, forwardRef } from '@angular/core';
-import {ControlValueAccessor, NG_VALUE_ACCESSOR} from "@angular/forms";
+import { Component, Input, forwardRef } from '@angular/core';
+import { ControlValueAccessor, NG_VALUE_ACCESSOR } from '@angular/forms';
 
 
 @Component({
@@ -21,7 +21,7 @@ export class InputComponent implements ControlValueAccessor {
     @Input() placeholder: string = '';
     @Input() errors: Array<string> = [];
 
-    public value: string;
+    public value;
     protected changedCallbacks = new Array<(value: string) => void>();
     protected touchedCallbacks = new Array<() => void>();
 

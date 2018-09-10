@@ -17,7 +17,7 @@ export class AlertComponent implements OnInit {
 
   ngOnInit() {
     this.alertService.getMessage().subscribe(message => {
-      
+
       // Map message type from Rest API to frontend message type
       if (message) {
         switch (message.type) {

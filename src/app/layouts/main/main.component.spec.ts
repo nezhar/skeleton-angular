@@ -1,6 +1,6 @@
-import {MainComponent} from "./main.component";
-import {ComponentFixture, TestBed} from "@angular/core/testing";
-import {TranslateLoader, TranslateModule, TranslateFakeLoader} from "@ngx-translate/core";
+import { MainComponent } from './main.component';
+import { ComponentFixture, TestBed } from '@angular/core/testing';
+import { TranslateLoader, TranslateModule, TranslateFakeLoader } from '@ngx-translate/core';
 
 // describe('Component: MainComponent', () => {
 //     let

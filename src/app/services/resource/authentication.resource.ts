@@ -1,11 +1,11 @@
-import {Injectable} from "@angular/core";
+import { Injectable } from '@angular/core';
 
-import {Resource} from "ngx-resource-factory/resource/resource";
-import {ResourceConfiguration} from "ngx-resource-factory/resource/resource-configuration";
-import {User} from "./user.resource";
-import {ResourceAction} from "ngx-resource-factory/resource/resource-action";
-import {ResourceActionHttpMethod} from "ngx-resource-factory/resource/resource-action-http-method";
-import {ResourceActionMethod} from "ngx-resource-factory/resource/resource-action-method";
+import { Resource } from 'ngx-resource-factory/resource/resource';
+import { ResourceConfiguration } from 'ngx-resource-factory/resource/resource-configuration';
+import { User } from './user.resource';
+import { ResourceAction } from 'ngx-resource-factory/resource/resource-action';
+import { ResourceActionHttpMethod } from 'ngx-resource-factory/resource/resource-action-http-method';
+import { ResourceActionMethod } from 'ngx-resource-factory/resource/resource-action-method';
 
 
 @Injectable()

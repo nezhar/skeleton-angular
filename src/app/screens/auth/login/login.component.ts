@@ -1,10 +1,9 @@
 import { Component, OnInit } from '@angular/core';
 
-import { StateService } from "@uirouter/angular";
+import { StateService } from '@uirouter/angular';
+import { AuthenticationResource } from 'src/app/services/resource/authentication.resource';
+import { AlertService } from 'src/app/services/alert/alert.service';
 
-import { AuthenticationResource } from '../../../services/resource';
-import { AlertService } from '../../../services/alert/alert.service';
- 
 
 @Component({
     selector: 'app-login-screen',
@@ -17,12 +16,12 @@ export class LoginComponent implements OnInit {
     model: any = {};
     loading = false;
     returnUrl: string;
- 
+
     constructor(
       private state: StateService,
       private authenticationResource: AuthenticationResource,
       private alertService: AlertService) { }
- 
+
     ngOnInit() {}
 
     login() {

@@ -1,8 +1,8 @@
-import { StateService, Transition, ResolveTypes } from "@uirouter/angular";
-import { Injectable } from "@angular/core";
+import { StateService, Transition, ResolveTypes } from '@uirouter/angular';
+import { Injectable } from '@angular/core';
 
-import { AuthenticationResource } from "../../../services/resource";
-import { AlertService } from "../../../services/alert/alert.service";
+import { AuthenticationResource } from 'src/app/services/resource/authentication.resource';
+import { AlertService } from 'src/app/services/alert/alert.service';
 
 
 @Injectable()
@@ -11,16 +11,16 @@ export class AuthGuard {
         private authenticationResource: AuthenticationResource,
         private alertService: AlertService,
     ) {}
- 
+
     isLoggedIn(transition: Transition) {
-        let {stateService, urlService} = transition.router;
-        let currentPath = urlService.path();
+        const {stateService, urlService} = transition.router;
+        const currentPath = urlService.path();
 
         if (!localStorage.getItem('currentUser')) {
             stateService.go('auth');
         }
 
-        let user = JSON.parse(localStorage.getItem('currentUser'));
+        const user = JSON.parse(localStorage.getItem('currentUser'));
 
         this.authenticationResource.authverify({}, {token: user.token}).$promise
             .then(data => {
@@ -51,7 +51,12 @@ export const stateAuthGuardConfiguration = [
 ];
 
 /**
- * @type ResolveTypes {{token: string; deps: (StateService | AuthenticationService)[]; resolveFn: (stateService, authenticationResource) => void}[]}
+ * @type ResolveTypes {
+ *  {
+ *      token: string;
+ *      deps: (StateService | AuthenticationService)[];
+ *      resolveFn: (stateService, authenticationResource) => void}[]
+ * }
  */
 export const stateAuthLogoutConfiguration = [
     {

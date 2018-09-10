@@ -1,4 +1,4 @@
-import {Component, OnInit} from '@angular/core';
+import { Component, OnInit } from '@angular/core';
 
 
 @Component({
@@ -9,7 +9,8 @@ import {Component, OnInit} from '@angular/core';
     ]
 })
 export class NavigationComponent implements OnInit {
-    constructor() { }
+    constructor() {
+    }
 
     ngOnInit() {
         console.log('Navigation component initialised');
