@@ -28,7 +28,7 @@ export class WidgetsScreenComponent implements OnInit {
             })
             .catch((reason) => {
                 console.log('PostResource error:');
-                console.log(response);
+                console.log(reason);
             });
     }
 }
