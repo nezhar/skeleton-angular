@@ -6,9 +6,8 @@ services:
       context: ./docker/node
     volumes:
       - ./:/app
-    command: ng serve --host 0.0.0.0
-    dns: 8.8.8.8
+    command: ng serve --host 0.0.0.0 --port 8080
     ports:
-      - "8080:4200"
-      - "9876:9876"
-      - "9001:9001"
+      - "8080:8080" # ng serve
+      - "9876:9876" # storybook?
+      - "9001:9001" # storybook?
