@@ -1,7 +1,8 @@
 image: gitlab.anx.local:4567/anexia-developme/skeleton-angular/node_base
 
 stages:
-  - test_lint
+  - code_review
+  - test_code
 
 cache:
   paths:
@@ -12,9 +13,16 @@ before_script:
   - cd src/
   - npm install
 
-test_test_lint:
-  stage: test_lint
+test_code_review:
+  stage: code_review
   script:
     - ng lint
+  except:
+    - tags
+
+test_code:
+  stage: test_code
+  script:
+    - ng test --watch=false
   except:
     - tags

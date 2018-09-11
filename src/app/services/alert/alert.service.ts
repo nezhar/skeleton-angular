@@ -9,7 +9,7 @@ export class AlertService {
     private subject = new Subject<any>();
     private keepAfterNavigationChange = false;
 
-    constructor(protected router: UIRouter) {
+    constructor(router: UIRouter) {
         // clear alert message on route change
         router.transitionService.onEnter({}, (transition: Transition) => {
             if (this.keepAfterNavigationChange) {
