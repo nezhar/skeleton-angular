@@ -38,7 +38,29 @@ All of the commands described below assume that you have your docker-compose up 
 Screens are regular Angular components which follow some internal established conventions:
 
 * They are declared inside a screens module and not exported, so they are used only inside the module
-*
+* Remove the selector as the components will be instantiated by the ui router
+* Add routing declaration and export it in the working module:
+
+```
+const stateFrontendHome: Ng2StateDeclaration = {
+    name: 'frontend.home',
+    url: '/home',
+    component: HomeComponent,
+};
+
+export const frontendStates = [
+    stateFrontendHome,
+];
+
+```
+
+### Adding components
+
+... todo
+
+### Adding services
+
+... todo
 
 ## Instructions for project
 

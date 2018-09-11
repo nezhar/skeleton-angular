@@ -2,7 +2,6 @@ import { Component, OnInit } from '@angular/core';
 
 
 @Component({
-    selector: 'app-permissions-screen',
     templateUrl: './permissions-screen.component.html',
     styleUrls: [
         './permissions-screen.component.scss'

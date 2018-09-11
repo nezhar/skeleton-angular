@@ -6,7 +6,6 @@ import { AlertService } from 'src/app/services/alert/alert.service';
 
 
 @Component({
-    selector: 'app-register-screen',
     templateUrl: './register.component.html',
     styleUrls: [
         './register.component.scss'

@@ -2,7 +2,6 @@ import { Component, OnInit } from '@angular/core';
 
 
 @Component({
-    selector: 'app-tables-screen',
     templateUrl: './tables-screen.component.html',
     styleUrls: [
         './tables-screen.component.scss'

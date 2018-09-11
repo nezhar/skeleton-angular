@@ -4,7 +4,6 @@ import { PostResource } from 'src/app/services/resource/post.resource';
 
 
 @Component({
-    selector: 'app-widgets-screen',
     templateUrl: './widgets-screen.component.html',
     styleUrls: [
         './widgets-screen.component.scss'

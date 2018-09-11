@@ -3,7 +3,6 @@ import { User, UserResource } from 'src/app/services/resource/user.resource';
 
 
 @Component({
-    selector: 'app-backend-home-screen',
     templateUrl: './home.component.html',
     styleUrls: [
         './home.component.scss'

@@ -22,15 +22,15 @@ import { MainComponent } from './main/main.component';
         UIRouterModule,
     ],
     exports: [
+        MainComponent,
         AuthLayoutComponent,
         FrontendLayoutComponent,
         BackendLayoutComponent,
-        MainComponent,
     ],
     declarations: [
+        MainComponent,
         AuthLayoutComponent,
         FrontendLayoutComponent,
-        MainComponent,
         BackendLayoutComponent,
     ],
     providers: [ /* declare in `forRoot()` */ ],

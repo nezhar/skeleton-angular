@@ -6,7 +6,6 @@ import { AlertService } from 'src/app/services/alert/alert.service';
 
 
 @Component({
-    selector: 'app-login-screen',
     templateUrl: './login.component.html',
     styleUrls: [
         './login.component.scss'
