@@ -5,6 +5,8 @@ This application uses these core components:
 * UI Router 1.0.x
 * ngx-translate
 * ngx-resource-factory
+* ng-bootstrap (using Bootstrap 4.1)
+
 
 ## Installation instructions for development
 
@@ -55,4 +57,5 @@ Screens are regular Angular components which follow some internal established co
 * [UI-Router documentation](https://ui-router.github.io/ng2/)
 * [ngx-translate documentation](https://github.com/ngx-translate/core)
 * [ngx-resource-factory documentation](https://github.com/beachmachine/ngx-resource-factory)
+* [ng-bootstrap documentation](https://ng-bootstrap.github.io/#/home)
 * [GitLab flavored markdown](https://docs.gitlab.com/ee/user/markdown.html)
