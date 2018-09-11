@@ -1,7 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 
-import { ResourceModel } from 'ngx-resource-factory/resource/resource-model';
-import { Post, PostResource } from 'src/app/services/resource/post.resource';
+import { PostResource } from 'src/app/services/resource/post.resource';
 
 
 @Component({

@@ -31,6 +31,13 @@ All of the commands described below assume that you have your docker-compose up 
 * Run the test suite: `docker-compose run --rm node "npm run test"`
 * Run `docker-compose run --rm node "ng generate component module/component"` to generate a new component. You can also use `ng generate directive|pipe|service|class|guard|interface|enum|module`
 
+### Adding screens
+
+Screens are regular Angular components which follow some internal established conventions:
+
+* They are declared inside a screens module and not exported, so they are used only inside the module
+*
+
 ## Instructions for project
 
 * Follow the Anexia coding conventions for JavaScript

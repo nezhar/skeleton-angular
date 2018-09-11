@@ -19,10 +19,7 @@ import { RegisterComponent } from './register/register.component';
         TranslateModule,
         ComponentsModule,
     ],
-    exports: [
-        LoginComponent,
-        RegisterComponent,
-    ],
+    exports: [],
     declarations: [
         LoginComponent,
         RegisterComponent,

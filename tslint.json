@@ -59,7 +59,10 @@
     "no-empty": false,
     "no-empty-interface": true,
     "no-eval": true,
-    "no-inferrable-types": false,
+    "no-inferrable-types": [
+      true,
+      "ignore-params"
+    ],
     "no-misused-new": true,
     "no-non-null-assertion": true,
     "no-shadowed-variable": true,
@@ -111,8 +114,7 @@
       "check-decl",
       "check-operator",
       "check-separator",
-      "check-type",
-      "check-module"
+      "check-type"
     ],
     "no-output-on-prefix": true,
     "use-input-property-decorator": true,

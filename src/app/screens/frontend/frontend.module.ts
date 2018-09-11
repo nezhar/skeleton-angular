@@ -15,9 +15,7 @@ import { HomeComponent } from './home/home.component';
         UIRouterModule,
         TranslateModule,
     ],
-    exports: [
-        HomeComponent,
-    ],
+    exports: [],
     declarations: [
         HomeComponent,
     ],

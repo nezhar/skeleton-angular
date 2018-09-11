@@ -1,8 +1,15 @@
-import { StateService, Transition, ResolveTypes } from '@uirouter/angular';
+import { StateService, Transition } from '@uirouter/angular';
 import { Injectable } from '@angular/core';
 
 import { AuthenticationResource } from 'src/app/services/resource/authentication.resource';
 import { AlertService } from 'src/app/services/alert/alert.service';
+
+
+export interface GuardConfiguration {
+    token: string;
+    deps: any[];
+    resolveFn: (stateService, authenticationResource) => void;
+}
 
 
 @Injectable()
@@ -39,10 +46,7 @@ export class AuthGuard {
     }
 }
 
-/**
- * @type ResolveTypes {{token: string; deps: (Transition | AuthGuard)[]; resolveFn: (transition, authGuard) => void}[]}
- */
-export const stateAuthGuardConfiguration = [
+export const stateAuthGuardConfiguration: GuardConfiguration[] = [
     {
         token: 'auth',
         deps: [Transition, AuthGuard],
@@ -50,15 +54,7 @@ export const stateAuthGuardConfiguration = [
     }
 ];
 
-/**
- * @type ResolveTypes {
- *  {
- *      token: string;
- *      deps: (StateService | AuthenticationService)[];
- *      resolveFn: (stateService, authenticationResource) => void}[]
- * }
- */
-export const stateAuthLogoutConfiguration = [
+export const stateAuthLogoutConfiguration: GuardConfiguration[] = [
     {
         token: 'logout',
         deps: [StateService, AuthenticationResource],

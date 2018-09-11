@@ -18,13 +18,7 @@ import { HomeComponent } from './home/home.component';
         UIRouterModule,
         TranslateModule,
     ],
-    exports: [
-        PermissionsScreenComponent,
-        TablesScreenComponent,
-        UsersScreenComponent,
-        WidgetsScreenComponent,
-        HomeComponent,
-    ],
+    exports: [],
     declarations: [
         PermissionsScreenComponent,
         TablesScreenComponent,
