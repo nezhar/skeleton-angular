@@ -23,10 +23,10 @@ import { FrontendScreensModule } from './screens/frontend/frontend.module';
 import { BackendScreensModule } from './screens/backend/backend.module';
 
 import { AuthGuard } from './shared/guards/auth/auth.guard';
-import { JwtInterceptor } from './shared/helpers/jwt.interceptor';
+import { JwtInterceptor } from './shared/interceptors/jwt.interceptor';
 
 // used to create fake backend
-import { fakeBackendProvider } from './shared/helpers/fake-backend';
+import { fakeBackendProvider } from './shared/interceptors/fake-backend';
 import { AlertService } from './services/alert/alert.service';
 import { AuthenticationResource } from './services/resource/authentication.resource';
 
