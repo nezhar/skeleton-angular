@@ -1,5 +1,6 @@
 import { Ng2StateDeclaration } from '@uirouter/angular';
-import { BackendLayoutComponent } from '../../layouts/backend-layout/backend-layout.component';
+
+import { BackendLayoutComponent } from '@app/layouts/backend-layout/backend-layout.component';
 import { HomeComponent } from './home/home.component';
 import { WidgetsScreenComponent } from './widgets/widgets-screen.component';
 import { TablesScreenComponent } from './tables/tables-screen.component';

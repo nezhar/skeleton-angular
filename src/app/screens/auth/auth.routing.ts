@@ -2,8 +2,8 @@ import { Ng2StateDeclaration } from '@uirouter/angular';
 
 import { LoginComponent } from './login/login.component';
 import { RegisterComponent } from './register/register.component';
-import { AuthLayoutComponent } from '../../layouts/auth-layout/auth-layout.component';
-import { stateAuthLogoutConfiguration } from '../../shared/guards/auth/auth.guard';
+import { AuthLayoutComponent } from '@app/layouts/auth-layout/auth-layout.component';
+import { stateAuthLogoutConfiguration } from '@app/shared/guards/auth/auth.guard';
 
 
 const stateAuth: Ng2StateDeclaration = {

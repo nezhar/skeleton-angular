@@ -5,7 +5,7 @@ import { TranslateModule } from '@ngx-translate/core';
 import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
 import { UIRouterModule } from '@uirouter/angular';
 
-import { ServicesModule } from '../services/services.module';
+import { ServicesModule } from '@app/services/services.module';
 
 import { AlertComponent } from './alert/alert.component';
 import { BuildComponent } from './build/build.component';

@@ -5,7 +5,7 @@ import { FormsModule } from '@angular/forms';
 import { UIRouterModule } from '@uirouter/angular';
 import { TranslateModule } from '@ngx-translate/core';
 
-import { WidgetsModule } from '../widgets/widgets.module';
+import { WidgetsModule } from '@app/widgets/widgets.module';
 
 import { AuthLayoutComponent } from './auth-layout/auth-layout.component';
 import { BackendLayoutComponent } from './backend-layout/backend-layout.component';

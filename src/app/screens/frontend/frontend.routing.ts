@@ -1,8 +1,8 @@
 import { Ng2StateDeclaration } from '@uirouter/angular';
 
-import { HomeComponent } from './home/home.component';
-import { FrontendLayoutComponent } from 'src/app/layouts/frontend-layout/frontend-layout.component';
-import { stateAuthGuardConfiguration } from 'src/app/shared/guards/auth/auth.guard';
+import { stateAuthGuardConfiguration } from '@app/shared/guards/auth/auth.guard';
+import { HomeComponent } from '@app/screens/frontend/home/home.component';
+import { FrontendLayoutComponent } from '@app/layouts/frontend-layout/frontend-layout.component';
 
 
 const stateFrontend: Ng2StateDeclaration = {

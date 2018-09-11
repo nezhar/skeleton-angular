@@ -1,5 +1,5 @@
 import { Component, forwardRef, Input } from '@angular/core';
-import { InputComponent } from '../input/input.component';
+import { InputComponent } from '@app/components/input/input.component';
 import { NG_VALUE_ACCESSOR } from '@angular/forms';
 
 

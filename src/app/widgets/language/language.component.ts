@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 
-import { LanguageService } from '../../services/language/language.service';
-import { Language } from '../../services/language/language.model';
+import { LanguageService } from '@app/services/language/language.service';
+import { Language } from '@app/services/language/language.model';
 
 
 @Component({
