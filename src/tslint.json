@@ -23,7 +23,6 @@
       "check-module"
     ],
     "no-inferrable-types": false,
-    "no-unused-variable": true,
     "no-duplicate-variable": true
   }
 }

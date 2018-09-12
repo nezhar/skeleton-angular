@@ -1,5 +1,5 @@
 import { Injectable } from '@angular/core';
-import { UIRouter, Transition } from '@uirouter/angular';
+import { UIRouter } from '@uirouter/angular';
 
 import { Observable } from 'rxjs';
 import { Subject } from 'rxjs/Subject';
@@ -11,7 +11,7 @@ export class AlertService {
 
     constructor(router: UIRouter) {
         // clear alert message on route change
-        router.transitionService.onEnter({}, (transition: Transition) => {
+        router.transitionService.onEnter({}, () => {
             if (this.keepAfterNavigationChange) {
                 // only keep for a single location change
                 this.keepAfterNavigationChange = false;

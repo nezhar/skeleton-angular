@@ -24,7 +24,7 @@ export class RegisterComponent {
         this.loading = true;
 
         this.userResource.create(this.model).$save().$promise
-            .then(data => {
+            .then(() => {
                 // set success message and pass true parameter to persist the message after redirecting to the login page
                 this.alertService.success('Registration successful', true);
                 this.state.go('auth.login');

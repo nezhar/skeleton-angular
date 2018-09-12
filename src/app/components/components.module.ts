@@ -4,6 +4,7 @@ import { FormsModule } from '@angular/forms';
 
 import { InputComponent } from './input/input.component';
 import { IconInputComponent } from './icon-input/icon-input.component';
+import { ButtonComponent } from '@app/components/button/button.component';
 
 @NgModule({
     imports: [
@@ -13,10 +14,12 @@ import { IconInputComponent } from './icon-input/icon-input.component';
     exports: [
         InputComponent,
         IconInputComponent,
+        ButtonComponent,
     ],
     declarations: [
         InputComponent,
         IconInputComponent,
+        ButtonComponent,
     ],
     providers: [ /* declare in `forRoot()` */ ],
 })

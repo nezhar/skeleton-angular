@@ -30,7 +30,7 @@ export class AuthGuard {
         const user = JSON.parse(localStorage.getItem('currentUser'));
 
         this.authenticationResource.authverify({}, {token: user.token}).$promise
-            .then(data => {
+            .then(() => {
                 if (user.superuser && currentPath.indexOf('backend') === -1) {
                     stateService.go('backend');
                 }

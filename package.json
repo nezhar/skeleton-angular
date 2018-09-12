@@ -9,7 +9,9 @@
     "lint": "ng lint",
     "e2e": "ng e2e",
     "makemessages": "ngx-translate-extract -i ./src/app/ -o ./src/assets/locales/*.json",
-    "generatedocs": "./node_modules/.bin/compodoc -p ./src/tsconfig.app.json -d ./docs"
+    "generatedocs": "./node_modules/.bin/compodoc -p ./src/tsconfig.app.json -d ./docs/docs",
+    "storybook-start": "start-storybook -p 9001 -h 0.0.0.0 -c ./src/storybook/config",
+    "storybook-build": "build-storybook -c ./src/storybook/config -o ../docs/storybook"
   },
   "private": true,
   "dependencies": {
@@ -42,21 +44,29 @@
     "@angular/compiler-cli": "^6.1.7",
     "@angular/language-service": "^6.1.7",
     "@compodoc/compodoc": "^1.1.5",
+    "@storybook/angular": "^4.0.0-alpha.21",
+    "@storybook/addon-knobs": "^4.0.0-alpha.21",
+    "@storybook/addon-notes": "^4.0.0-alpha.21",
+    "@storybook/addon-actions": "^4.0.0-alpha.21",
+    "@storybook/addon-options": "^4.0.0-alpha.21",
+    "moment": "^2.22.2",
     "@types/jasmine": "~2.8.6",
     "@types/jasminewd2": "~2.0.3",
-    "@types/node": "~8.9.4",
-    "codelyzer": "~4.2.1",
-    "jasmine-core": "~2.99.1",
+    "@types/node": "~10.9.4",
+    "babel-core": "^6.26.3",
+    "babel-loader": "^7.1.5",
+    "codelyzer": "~4.4.4",
+    "jasmine-core": "~3.2.1",
     "jasmine-spec-reporter": "~4.2.1",
-    "karma": "~1.7.1",
+    "karma": "~3.0.0",
     "karma-chrome-launcher": "~2.2.0",
     "karma-coverage-istanbul-reporter": "~2.0.4",
     "karma-jasmine": "~1.1.1",
-    "karma-jasmine-html-reporter": "^0.2.2",
+    "karma-jasmine-html-reporter": "^1.3.1",
     "protractor": "~5.4.1",
     "puppeteer": "^1.8.0",
-    "ts-node": "~5.0.1",
+    "ts-node": "~7.0.1",
     "tslint": "~5.11.0",
-    "typescript": "~2.7.2"
+    "typescript": "~2.9.2"
   }
 }
