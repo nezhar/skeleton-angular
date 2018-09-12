@@ -6,17 +6,17 @@ import { WidgetsScreenComponent } from './widgets/widgets-screen.component';
 import { TablesScreenComponent } from './tables/tables-screen.component';
 import { UsersScreenComponent } from './users/users-screen.component';
 import { PermissionsScreenComponent } from './permissions/permissions-screen.component';
-import { stateAuthGuardConfiguration } from 'src/app/shared/guards/auth/auth.guard';
+import { guardAuthenticated } from 'src/app/shared/guards/auth/auth.guard';
 
 
 const stateBackend: Ng2StateDeclaration = {
     name: 'backend',
     url: '/backend',
     component: BackendLayoutComponent,
-    resolve: [
-        ...stateAuthGuardConfiguration
-    ],
     redirectTo: 'backend.home',
+    data: {
+        guard: guardAuthenticated,
+    },
 };
 
 const stateBackendHome = {

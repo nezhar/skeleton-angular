@@ -1,67 +1,68 @@
-import { StateService, Transition } from '@uirouter/angular';
 import { Injectable } from '@angular/core';
 
-import { AuthenticationResource } from 'src/app/services/resource/authentication.resource';
-import { AlertService } from 'src/app/services/alert/alert.service';
+import { StateService, Transition } from '@uirouter/angular';
+import { AuthenticationService } from '@app/services/authentication/authentication.service';
 
-
-export interface GuardConfiguration {
-    token: string;
-    deps: any[];
-    resolveFn: (stateService, authenticationResource) => void;
-}
 
 
 @Injectable()
-export class AuthGuard {
-    constructor(
-        private authenticationResource: AuthenticationResource,
-        private alertService: AlertService,
-    ) {}
+export class AuthenticationGuard {
+    constructor(protected _authenticationService: AuthenticationService,
+                protected _stateService: StateService) {
+    }
 
-    isLoggedIn(transition: Transition) {
-        const {stateService, urlService} = transition.router;
-        const currentPath = urlService.path();
+    unauthenticated(transition: Transition) {
+        return new Promise((resolve, reject) => {
+            const
+                transitionTargetName = transition.to().name;
 
-        if (!localStorage.getItem('currentUser')) {
-            stateService.go('auth');
-        }
+            this._authenticationService.logout()
+                .then(() => {
+                    console.log(transitionTargetName);
 
-        const user = JSON.parse(localStorage.getItem('currentUser'));
+                    resolve(this._stateService.target('auth'));
+                })
+                .catch(reject);
+        });
+    }
 
-        this.authenticationResource.authverify({}, {token: user.token}).$promise
-            .then(() => {
-                if (user.superuser && currentPath.indexOf('backend') === -1) {
-                    stateService.go('backend');
-                }
+    authenticated(transition: Transition) {
+        return new Promise((resolve, reject) => {
+            this._authenticationService.isAuthenticatedAsync()
+                .then((authenticated) => {
+                    const
+                        transitionTargetName = transition.to().name,
+                        user = this._authenticationService.user;
 
-                if (!user.superuser && currentPath.indexOf('frontend') === -1) {
-                    stateService.go('frontend');
-                }
-            })
-            .catch(error => {
-                this.alertService.error(error);
-                stateService.go('auth');
-            });
+                    if (!authenticated) {
+                        console.log('auth');
+
+                        resolve(this._stateService.target('auth', {}, {
+                            reload: true,
+                        }));
+                    } else if (user.superuser && transitionTargetName.indexOf('backend') !== 0) {
+                        console.log('backend');
+
+                        resolve(this._stateService.target('backend'));
+                    } else if (!user.superuser && transitionTargetName.indexOf('frontend') !== 0) {
+                        console.log('frontend');
+
+                        resolve(this._stateService.target('frontend'));
+                    } else {
+                        resolve();
+                    }
+                })
+                .catch(reject);
+        });
     }
 }
 
-export const stateAuthGuardConfiguration: GuardConfiguration[] = [
-    {
-        token: 'auth',
-        deps: [Transition, AuthGuard],
-        resolveFn: (transition, authGuard) => authGuard.isLoggedIn(transition)
-    }
-];
 
-export const stateAuthLogoutConfiguration: GuardConfiguration[] = [
-    {
-        token: 'logout',
-        deps: [StateService, AuthenticationResource],
-        resolveFn: (stateService, authenticationResource) => {
-            authenticationResource.logout();
-            localStorage.removeItem('currentUser');
-            stateService.go('auth');
-        },
-    }
-];
+export function guardAuthenticated(transition: Transition, guard: AuthenticationGuard) {
+    return guard.authenticated(transition);
+}
+
+
+export function guardUnauthenticated(transition: Transition, guard: AuthenticationGuard) {
+    return guard.unauthenticated(transition);
+}

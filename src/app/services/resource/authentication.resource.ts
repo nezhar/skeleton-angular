@@ -36,6 +36,16 @@ export class AuthenticationResource extends Resource<User> {
         paramDefaults: [],
         isList: false,
         urlSuffix: 'authverify',
+        reportProgress: true,
     })
-    authverify: ResourceActionMethod<any, {token: string}, null>;
+    verify: ResourceActionMethod<any, {token: string}, null>;
+
+    @ResourceAction({
+        method: ResourceActionHttpMethod.POST,
+        paramDefaults: [],
+        isList: false,
+        urlSuffix: '../authrefresh/',
+        reportProgress: true,
+    })
+    refresh: ResourceActionMethod<any, { token: string }, null>;
 }

@@ -3,7 +3,7 @@ import { Ng2StateDeclaration } from '@uirouter/angular';
 import { LoginComponent } from './login/login.component';
 import { RegisterComponent } from './register/register.component';
 import { AuthLayoutComponent } from '@app/layouts/auth-layout/auth-layout.component';
-import { stateAuthLogoutConfiguration } from '@app/shared/guards/auth/auth.guard';
+import { guardUnauthenticated } from '@app/shared/guards/auth/auth.guard';
 
 
 const stateAuth: Ng2StateDeclaration = {
@@ -28,9 +28,9 @@ const stateAuthRegister: Ng2StateDeclaration = {
 const stateAuthLogout: Ng2StateDeclaration = {
     name: 'auth.logout',
     url: '/logout',
-    resolve: [
-        ...stateAuthLogoutConfiguration,
-    ],
+    data: {
+        guard: guardUnauthenticated,
+    },
 };
 
 export const authStates = [

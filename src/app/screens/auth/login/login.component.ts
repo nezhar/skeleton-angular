@@ -1,8 +1,8 @@
 import { Component, OnInit } from '@angular/core';
 
 import { StateService } from '@uirouter/angular';
-import { AuthenticationResource } from 'src/app/services/resource/authentication.resource';
 import { AlertService } from 'src/app/services/alert/alert.service';
+import { AuthenticationService } from '@app/services/authentication/authentication.service';
 
 
 @Component({
@@ -17,30 +17,31 @@ export class LoginComponent implements OnInit {
     returnUrl: string;
 
     constructor(
-      private state: StateService,
-      private authenticationResource: AuthenticationResource,
-      private alertService: AlertService) { }
+        private state: StateService,
+        private authenticationService: AuthenticationService,
+        private alertService: AlertService) {
+    }
 
-    ngOnInit() {}
+    ngOnInit() {
+    }
 
     login() {
-
-      this.loading = true;
-      this.authenticationResource.login({}, {
-            username: this.model.username,
-            password: this.model.password
-      }).$promise
-          .then(
-              data => {
-                  localStorage.setItem('currentUser', JSON.stringify(data));
-                  this.state.go('root');
-              },
-          )
-          .catch(
-              error => {
-                  this.alertService.error(error);
-                  this.loading = false;
-              }
-          );
+        this.loading = true;
+        this.authenticationService.login(this.model.username, this.model.password)
+            .then(
+                () => {
+                    this.alertService.success('Login successful');
+                    this.state.go('root');
+                },
+            )
+            .catch(
+                error => {
+                    console.log('Could not login user!');
+                    this.alertService.error(error);
+                }
+            )
+            .finally(() => {
+                this.loading = false;
+            });
     }
 }

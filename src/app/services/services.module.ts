@@ -4,6 +4,7 @@ import { LanguageService } from './language/language.service';
 import { PostResource } from 'src/app/services/resource/post.resource';
 import { UserResource } from 'src/app/services/resource/user.resource';
 import { AuthenticationResource } from 'src/app/services/resource/authentication.resource';
+import { AuthenticationService } from '@app/services/authentication/authentication.service';
 
 
 @NgModule({
@@ -18,12 +19,15 @@ export class ServicesModule {
         return {
             ngModule: ServicesModule,
             providers: [
-                LanguageService,
 
                 // Resources
                 PostResource,
                 UserResource,
-                AuthenticationResource
+                AuthenticationResource,
+
+                // Services
+                AuthenticationService,
+                LanguageService
             ]
         };
     }

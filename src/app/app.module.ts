@@ -20,7 +20,7 @@ import { AuthScreensModule } from './screens/auth/auth.module';
 import { FrontendScreensModule } from './screens/frontend/frontend.module';
 import { BackendScreensModule } from './screens/backend/backend.module';
 
-import { AuthGuard } from './shared/guards/auth/auth.guard';
+import { AuthenticationGuard } from './shared/guards/auth/auth.guard';
 import { JwtInterceptor } from './shared/interceptors/jwt.interceptor';
 
 // used to create fake backend
@@ -65,7 +65,7 @@ import { AuthenticationResource } from './services/resource/authentication.resou
         MainComponent,
     ],
     providers: [
-        AuthGuard,
+        AuthenticationGuard,
         AlertService,
         AuthenticationResource,
 
