@@ -2,19 +2,19 @@
     <h2>{{ 'Authentication' | translate }}</h2>
     <hr>
 
-    <app-icon-input
+    <anx-forms-icon-input
             name="username"
             [(ngModel)]="model.username"
             placeholder="{{ 'Username' | translate }}"
             icon="fa fa-user"
-    ></app-icon-input>
+    ></anx-forms-icon-input>
 
-    <app-icon-input
+    <anx-forms-icon-input
             name="password"
             [(ngModel)]="model.password"
             placeholder="{{ 'Password' | translate }}"
             icon="fa fa-lock"
-    ></app-icon-input>
+    ></anx-forms-icon-input>
 
     <div class="form-group">
         <button [disabled]="loading" class="btn btn-primary">{{ 'Login' | translate }}</button>

@@ -1,0 +1,17 @@
+<textarea
+        #inputField="ngModel"
+        class="form-control"
+        [ngModel]="value"
+        (ngModelChange)="triggerOnChange($event)"
+        (blur)="triggerOnTouched()"
+        [id]="id"
+        [title]="title"
+        [placeholder]="placeholder"
+        [readonly]="readonly"
+></textarea>
+
+<anx-forms-input-error
+        *ngIf="displayErrors()"
+        [errors]="errors"
+        [errorMessages]="errorMessages"
+></anx-forms-input-error>

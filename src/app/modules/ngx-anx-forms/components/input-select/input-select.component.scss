@@ -1,0 +1,15 @@
+.is-invalid~.invalid-feedback {
+  margin-top: 0;
+  display: inline-block;
+}
+
+.disabled {
+  pointer-events: none;
+  opacity: 0.8;
+}
+
+::ng-deep {
+  .ng-select .ng-select-container {
+    border-radius: 0;
+  }
+}

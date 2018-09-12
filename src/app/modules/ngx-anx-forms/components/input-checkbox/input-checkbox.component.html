@@ -1,0 +1,21 @@
+<div class="form-check">
+    <label [ngClass]="{disabled: readonly}">
+        <input
+            type="checkbox"
+            class="form-check-input"
+            [ngModel]="value"
+            (ngModelChange)="triggerOnChange($event)"
+            (blur)="triggerOnTouched()"
+            [id]="id"
+            [title]="title"
+            [name]="name"
+            [disabled]="readonly"
+            [placeholder]="placeholder"/>
+        <span>{{ label }}</span>
+    </label>
+    <anx-forms-input-error
+        *ngIf="displayErrors()"
+        [errors]="errors"
+        [errorMessages]="errorMessages"
+    ></anx-forms-input-error>
+</div>

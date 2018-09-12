@@ -8,7 +8,7 @@ import {
     text,
     select,
 } from '@storybook/addon-knobs/angular';
-import { ButtonComponent } from './../../app/components/button/button.component';
+import { ButtonComponent } from './../../../app/components/button/button.component';
 
 
 const moduleMetadata = {

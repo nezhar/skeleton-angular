@@ -5,14 +5,16 @@
 
   i.fa {
     position: absolute;
-    top: 12px;
+    top: 9px;
     left: 10px;
     color: #6c757d;
   }
 
-  app-input {
-    ::ng-deep input {
-      padding-left: 30px;
+  anx-forms-input {
+    ::ng-deep {
+      input {
+        padding-left: 30px;
+      }
     }
   }
 }

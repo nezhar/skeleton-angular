@@ -1,0 +1,23 @@
+<div class="row">
+    <div class="col-lg-2 col-12 ">
+        {{ minAnswerInfo }}
+    </div>
+    <div class="col-lg-8 col-12 " style="display: flex; justify-content: space-between; width: 100%;">
+        <span *ngFor="let option of counter(maxAnswer - minAnswer + 1); let j=index">
+            <anx-forms-input-radio
+                [name]="name"
+                [ngModel]="value"
+                (ngModelChange)="triggerOnChange($event)"
+                (blur)="triggerOnTouched()"
+                [readonly]="readonly"
+                [label]="minAnswer + j"
+                [radioValue]="minAnswer + j"
+            ></anx-forms-input-radio>
+        </span>
+    </div>
+    <div class="col-lg-2 col-2 text-right">
+        {{ maxAnswerInfo }}
+    </div>
+</div>
+
+<anx-forms-input-error [errors]="errors" [errorMessages]="errorMessages"></anx-forms-input-error>

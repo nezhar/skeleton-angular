@@ -1,0 +1,22 @@
+<div class="form-group">
+    <input
+        #inputField="ngModel"
+        class="form-control"
+        autocomplete="off"
+        [ngModel]="value"
+        (ngModelChange)="triggerOnChange($event)"
+        (blur)="triggerOnTouched()"
+        [id]="id"
+        [title]="title"
+        [placeholder]="placeholder"
+        [type]="type"
+        [readonly]="readonly"
+        [min]="min"
+        [max]="max"
+        [step]="step"/>
+    <anx-forms-input-error
+        *ngIf="displayErrors()"
+        [errors]="errors"
+        [errorMessages]="errorMessages"
+    ></anx-forms-input-error>
+</div>

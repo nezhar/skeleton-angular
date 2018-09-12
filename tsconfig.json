@@ -3,7 +3,8 @@
   "compilerOptions": {
     "baseUrl": "./",
     "paths": {
-        "@app/*": [ "src/app/*" ]
+        "@app/*": [ "src/app/*" ],
+        "ngx-anx-forms/*": [ "src/app/modules/ngx-anx-forms/*" ],
     },
     "outDir": "./dist/out-tsc",
     "sourceMap": true,

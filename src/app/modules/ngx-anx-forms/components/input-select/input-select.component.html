@@ -1,0 +1,21 @@
+<div class="form-group" [ngClass]="{disabled: readonly}">
+    <ng-select #inputField="ngModel"
+               [items]="options"
+               [bindLabel]="bindLabel"
+               [bindValue]="bindValue"
+               [ngModel]="value"
+               [placeholder]="placeholder"
+               [multiple]="multiple"
+               [hideSelected]="true"
+               [notFoundText]="notFoundText"
+               [closeOnSelect]="closeOnSelect"
+               (ngModelChange)="triggerOnChange($event)"
+               (blur)="triggerOnTouched()">
+    </ng-select>
+
+    <anx-forms-input-error
+        *ngIf="displayErrors()"
+        [errors]="errors"
+        [errorMessages]="errorMessages"
+    ></anx-forms-input-error>
+</div>

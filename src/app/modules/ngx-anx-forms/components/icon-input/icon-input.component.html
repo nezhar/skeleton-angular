@@ -1,0 +1,16 @@
+<div class="wrapper">
+    <i class="{{ icon }}"></i>
+    <anx-forms-input
+            [ngModel]="value"
+            (ngModelChange)="triggerOnChange($event)"
+            (blur)="triggerOnTouched()"
+            [id]="id"
+            [name]="name"
+            [errors]="errors"
+            [title]="title"
+            [placeholder]="placeholder"
+            [type]="type"
+            [readonly]="readonly"
+            [errorMessages]="errorMessages"
+    ></anx-forms-input>
+</div>
