@@ -3,6 +3,7 @@ image: gitlab.anx.local:4567/anexia-developme/skeleton-angular/node_base
 stages:
   - code_review
   - test_code
+  - build_docs
 
 cache:
   paths:
@@ -13,10 +14,10 @@ before_script:
   - cd src/
   - npm install
 
-test_code_review:
+code_review:
   stage: code_review
   script:
-    - ng lint
+    - npm run lint
   except:
     - tags
 
@@ -26,3 +27,17 @@ test_code:
     - ng test --watch=false
   except:
     - tags
+
+documentation:
+  stage: build_docs
+  script:
+    - npm run storybook-build
+    - npm run generatedocs
+  except:
+    - tags
+  artifacts:
+    when: on_success
+    expire_in: 1 month
+    name: "docs_$CI_COMMIT_REF_SLUG_$CI_COMMIT_SHA"
+    paths:
+      - docs/

@@ -3,15 +3,16 @@
   "version": "0.0.0",
   "scripts": {
     "ng": "ng",
-    "start": "ng serve",
-    "build": "ng build",
-    "test": "ng test",
+    "app-start": "ng serve --host 0.0.0.0 --port 8080",
+    "app-build": "ng build",
+    "test": "ng test --watch=false",
+    "test-watch": "ng test",
     "lint": "ng lint",
     "e2e": "ng e2e",
     "makemessages": "ngx-translate-extract -i ./src/app/ -o ./src/assets/locales/*.json",
     "generatedocs": "./node_modules/.bin/compodoc -p ./src/tsconfig.app.json -d ./docs/docs",
     "storybook-start": "start-storybook -p 9001 -h 0.0.0.0 -c ./src/storybook/config",
-    "storybook-build": "build-storybook -c ./src/storybook/config -o ../docs/storybook"
+    "storybook-build": "build-storybook -c ./src/storybook/config -o ./docs/storybook"
   },
   "private": true,
   "dependencies": {
