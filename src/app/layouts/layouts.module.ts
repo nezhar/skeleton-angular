@@ -5,12 +5,12 @@ import { FormsModule } from '@angular/forms';
 import { UIRouterModule } from '@uirouter/angular';
 import { TranslateModule } from '@ngx-translate/core';
 
-import { WidgetsModule } from '@app/widgets/widgets.module';
 
+import { MainComponent } from './main/main.component';
 import { AuthLayoutComponent } from './auth-layout/auth-layout.component';
 import { BackendLayoutComponent } from './backend-layout/backend-layout.component';
 import { FrontendLayoutComponent } from './frontend-layout/frontend-layout.component';
-import { MainComponent } from './main/main.component';
+import { ComponentsModule } from '@app/components/components.module';
 
 
 @NgModule({
@@ -18,7 +18,7 @@ import { MainComponent } from './main/main.component';
         CommonModule,
         FormsModule,
         TranslateModule,
-        WidgetsModule,
+        ComponentsModule,
         UIRouterModule,
     ],
     exports: [

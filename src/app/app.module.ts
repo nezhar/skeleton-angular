@@ -13,7 +13,6 @@ import { AppMissingTranslationHandler, createTranslatePoHttpLoader } from './ser
 import { MainComponent } from './layouts/main/main.component';
 import { SharedModule } from './shared/shared.module';
 import { ServicesModule } from './services/services.module';
-import { WidgetsModule } from './widgets/widgets.module';
 import { LayoutsModule } from './layouts/layouts.module';
 import { ComponentsModule } from './components/components.module';
 
@@ -56,7 +55,6 @@ import { AuthenticationResource } from './services/resource/authentication.resou
         UIRouterModule.forRoot(routingConfig),
         ServicesModule.forRoot(),
         SharedModule.forRoot(),
-        WidgetsModule.forRoot(),
         AuthScreensModule.forRoot(),
         FrontendScreensModule.forRoot(),
         BackendScreensModule.forRoot(),
