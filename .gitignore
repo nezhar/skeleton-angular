@@ -19,8 +19,8 @@ docs/*
 !docs/.gitkeep
 logs/*
 !logs/.gitkeep
-public/*
-!public/.gitkeep
+dist/*
+!dist/.gitkeep
 node_modules/*
 !node_modules/.gitkeep
 *.sqlite3

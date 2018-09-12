@@ -4,6 +4,7 @@ stages:
   - code_review
   - test_code
   - build_docs
+  - build_app
 
 cache:
   paths:
@@ -31,7 +32,6 @@ test_code:
 documentation:
   stage: build_docs
   script:
-    - npm run storybook-build
     - npm run generatedocs
   except:
     - tags
@@ -40,4 +40,43 @@ documentation:
     expire_in: 1 month
     name: "docs_$CI_COMMIT_REF_SLUG_$CI_COMMIT_SHA"
     paths:
-      - docs/
+      - dist/docs/
+
+storybook:
+  stage: build_docs
+  script:
+    - npm run storybook-build
+  except:
+    - tags
+  artifacts:
+    when: on_success
+    expire_in: 1 month
+    name: "storybook_$CI_COMMIT_REF_SLUG_$CI_COMMIT_SHA"
+    paths:
+      - dist/storybook/
+
+build_development:
+  stage: build_app
+  script:
+    - npm run app-build-dev
+  except:
+    - tags
+  artifacts:
+    when: on_success
+    expire_in: 1 month
+    name: "development_build_$CI_COMMIT_REF_SLUG_$CI_COMMIT_SHA"
+    paths:
+      - dist/skeleton-angular/
+
+build_production:
+  stage: build_app
+  script:
+    - npm run app-build-prod
+  except:
+    - tags
+  artifacts:
+    when: on_success
+    expire_in: 1 month
+    name: "production_build_$CI_COMMIT_REF_SLUG_$CI_COMMIT_SHA"
+    paths:
+      - dist/skeleton-angular/
