@@ -10,6 +10,7 @@ import { ComponentsModule } from '@app/components/components.module';
 import { LoginComponent } from './login/login.component';
 import { RegisterComponent } from './register/register.component';
 import { NgxAnxFormsModule } from 'ngx-anx-forms/ngx-anx-forms.module';
+import { FontAwesomeModule } from '@fortawesome/angular-fontawesome';
 
 
 @NgModule({
@@ -20,6 +21,7 @@ import { NgxAnxFormsModule } from 'ngx-anx-forms/ngx-anx-forms.module';
         TranslateModule,
         ComponentsModule,
         NgxAnxFormsModule,
+        FontAwesomeModule,
     ],
     exports: [],
     declarations: [

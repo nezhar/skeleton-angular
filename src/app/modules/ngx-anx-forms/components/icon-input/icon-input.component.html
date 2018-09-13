@@ -1,5 +1,7 @@
 <div class="wrapper">
-    <i class="{{ icon }}"></i>
+    <div class="icon">
+        <ng-content></ng-content>
+    </div>
     <anx-forms-input
             [ngModel]="value"
             (ngModelChange)="triggerOnChange($event)"

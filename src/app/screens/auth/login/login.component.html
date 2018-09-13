@@ -7,14 +7,18 @@
             [(ngModel)]="model.username"
             placeholder="{{ 'Username' | translate }}"
             icon="fa fa-user"
-    ></anx-forms-icon-input>
+    >
+        <fa-icon [icon]="['fas', 'user']"></fa-icon>
+    </anx-forms-icon-input>
 
     <anx-forms-icon-input
             name="password"
             [(ngModel)]="model.password"
             placeholder="{{ 'Password' | translate }}"
             icon="fa fa-lock"
-    ></anx-forms-icon-input>
+    >
+        <fa-icon [icon]="['fas', 'lock']"></fa-icon>
+    </anx-forms-icon-input>
 
     <div class="form-group">
         <button [disabled]="loading" class="btn btn-primary">{{ 'Login' | translate }}</button>

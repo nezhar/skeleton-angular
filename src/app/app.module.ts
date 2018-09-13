@@ -8,6 +8,8 @@ import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
 import { UIRouterModule } from '@uirouter/angular';
 import { NgxResourceFactoryModule } from 'ngx-resource-factory';
 
+import { FontAwesomeModule } from '@fortawesome/angular-fontawesome';
+
 import { routingConfig } from './app.routing';
 import { AppMissingTranslationHandler, createTranslatePoHttpLoader } from './services/language/language.helper';
 import { MainComponent } from './layouts/main/main.component';
@@ -27,6 +29,9 @@ import { JwtInterceptor } from './shared/interceptors/jwt.interceptor';
 import { fakeBackendProvider } from './shared/interceptors/fake-backend';
 import { AlertService } from './services/alert/alert.service';
 import { AuthenticationResource } from './services/resource/authentication.resource';
+import { IconsModule } from '@app/app.icons';
+
+
 
 @NgModule({
     imports: [
@@ -36,6 +41,7 @@ import { AuthenticationResource } from './services/resource/authentication.resou
 
         // 3rd party imports
         NgbModule,
+        FontAwesomeModule,
         NgxResourceFactoryModule.forRoot(),
         TranslateModule.forRoot({
             loader: {
@@ -52,6 +58,7 @@ import { AuthenticationResource } from './services/resource/authentication.resou
         }),
 
         // Application imports
+        IconsModule,
         UIRouterModule.forRoot(routingConfig),
         ServicesModule.forRoot(),
         SharedModule.forRoot(),
