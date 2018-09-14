@@ -35,7 +35,7 @@ export class AuthenticationResource extends Resource<User> {
         method: ResourceActionHttpMethod.POST,
         paramDefaults: [],
         isList: false,
-        urlSuffix: 'authverify',
+        urlSuffix: '../authverify',
         reportProgress: true,
     })
     verify: ResourceActionMethod<any, {token: string}, null>;

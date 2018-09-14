@@ -168,17 +168,13 @@ export class AuthenticationService {
         return new Promise<any>((resolve, reject) => {
             this._authResource.login({}, {'username': username, 'password': password}).$promise
                 .then((data) => {
-                    const
-                        token = data && data.token ? data.token : null,
-                        user = data;
-
-                    this.user = user;
-                    this.token = token;
+                    this.user = data && data.user ? data.user : null;
+                    this.token = data && data.token ? data.token : null;
                     this.startTokenRefreshInterval();
 
-                    this.emit(AuthenticationServiceEventType.LOGGED_IN, user, token);
+                    this.emit(AuthenticationServiceEventType.LOGGED_IN, this.user, this.token);
 
-                    resolve(user);
+                    resolve(this.user);
                 })
                 .catch((reason) => {
                     this.logout();

@@ -7,11 +7,25 @@ import 'rxjs/add/operator/delay';
 import 'rxjs/add/operator/mergeMap';
 import 'rxjs/add/operator/materialize';
 import 'rxjs/add/operator/dematerialize';
+import { User } from '@app/services/resource/user.resource';
 
 @Injectable()
 export class FakeBackendInterceptor implements HttpInterceptor {
 
     constructor() { }
+
+    private userBody(user: User) {
+        return {
+            user: {
+                id: user.id,
+                username: user.username,
+                first_name: user.first_name,
+                last_name: user.last_name,
+                superuser: user.superuser,
+            },
+            token: `fake-jwt-token:${user.username}`
+        };
+    }
 
     intercept(request: HttpRequest<any>, next: HttpHandler): Observable<HttpEvent<any>> {
         // array in local storage for registered users
@@ -29,16 +43,9 @@ export class FakeBackendInterceptor implements HttpInterceptor {
 
                 if (filteredUsers.length) {
                     // if login details are valid return 200 OK with user details and fake jwt token
-                    const user = filteredUsers[0];
-                    const body = {
-                        id: user.id,
-                        username: user.username,
-                        firstName: user.firstName,
-                        lastName: user.lastName,
-                        superuser: user.superuser,
-                        token: 'fake-jwt-token'
-                    };
-
+                    const
+                        user = filteredUsers[0],
+                        body = this.userBody(user);
                     return Observable.of(new HttpResponse({ status: 200, body: body }));
                 } else {
                     // else return 400 bad request
@@ -46,17 +53,53 @@ export class FakeBackendInterceptor implements HttpInterceptor {
                 }
             }
 
-            // authenticate
-            if (request.url.endsWith('/api/authenticate/authverify') && request.method === 'POST') {
-                return Observable.of(new HttpResponse({ status: 200 }));
-                // return Observable.throwError('Invalid token!');
+            // authverify
+            if (request.url.endsWith('/api/authverify') && request.method === 'POST') {
+                const
+                    token = request.body.token,
+                    username = token.split(':')[1],
+                    filteredUsers = users.filter(user => {
+                        return user.username === username;
+                    });
+
+                if (filteredUsers.length) {
+                    // if login details are valid return 200 OK with user details and fake jwt token
+                    const
+                        user = filteredUsers[0],
+                        body = this.userBody(user);
+                    return Observable.of(new HttpResponse({ status: 200, body: body }));
+                } else {
+                    // else return 400 bad request
+                    return Observable.throwError('Invalid token!');
+                }
             }
 
-            // get users
+            // authrefresh
+            if (request.url.endsWith('/api/authrefresh') && request.method === 'POST') {
+                const
+                    token = request.body.token,
+                    username = token.split(':')[1],
+                    filteredUsers = users.filter(user => {
+                        return user.username === username;
+                    });
+
+                if (filteredUsers.length) {
+                    // if login details are valid return 200 OK with user details and fake jwt token
+                    const
+                        user = filteredUsers[0],
+                        body = this.userBody(user);
+                    return Observable.of(new HttpResponse({ status: 200, body: body }));
+                } else {
+                    // else return 400 bad request
+                    return Observable.throwError('Invalid token!');
+                }
+            }
+
+            // get user list
             if (request.url.endsWith('/api/users') && request.method === 'GET') {
                 // check for fake auth token in header and return users if valid,
                 // this security is implemented server side in a real application
-                if (request.headers.get('Authorization') === 'Bearer fake-jwt-token') {
+                if (request.headers.get('Authorization').startsWith('Bearer fake-jwt-token')) {
                     return Observable.of(new HttpResponse({ status: 200, body: users }));
                 } else {
                     // return 401 not authorised if token is null or invalid
@@ -68,7 +111,7 @@ export class FakeBackendInterceptor implements HttpInterceptor {
             if (request.url.match(/\/api\/users\/\d+$/) && request.method === 'GET') {
                 // check for fake auth token in header and return user if valid,
                 // this security is implemented server side in a real application
-                if (request.headers.get('Authorization') === 'Bearer fake-jwt-token') {
+                if (request.headers.get('Authorization').startsWith('Bearer fake-jwt-token')) {
                     // find user by id in users array
                     const urlParts = request.url.split('/');
                     const id = parseInt(urlParts[urlParts.length - 1], 10);
@@ -106,7 +149,7 @@ export class FakeBackendInterceptor implements HttpInterceptor {
             if (request.url.match(/\/api\/users\/\d+$/) && request.method === 'DELETE') {
                 // check for fake auth token in header and return user if valid,
                 // this security is implemented server side in a real application
-                if (request.headers.get('Authorization') === 'Bearer fake-jwt-token') {
+                if (request.headers.get('Authorization').startsWith('Bearer fake-jwt-token')) {
                     // find user by id in users array
                     const urlParts = request.url.split('/');
                     const id = parseInt(urlParts[urlParts.length - 1], 10);

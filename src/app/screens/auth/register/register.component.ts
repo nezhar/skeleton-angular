@@ -34,7 +34,7 @@ export class RegisterComponent implements OnInit {
 
     register() {
         this.loading = true;
-        this.userResource.create(this.registerForm.value).$save().$promise
+        this.userResource.save({}, this.registerForm.value).$promise
             .then(() => {
                 // set success message and pass true parameter to persist the message after redirecting to the login page
                 this.alertService.success('Registration successful', true);

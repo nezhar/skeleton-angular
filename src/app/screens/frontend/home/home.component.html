@@ -1,11 +1,11 @@
-<h1>Hi {{currentUser.firstName}}!</h1>
+<h1>Hi {{currentUser.first_name}}!</h1>
 <p>You're logged in!</p>
 <h3>All registered users:</h3>
 <ul>
     <li *ngFor="let user of users">
-        <fa-icon *ngIf="!user.superuser" [icon]="['fas', 'fa-user']"></fa-icon>
+        <fa-icon *ngIf="!user.superuser" [icon]="['fas', 'user']"></fa-icon>
         <fa-icon *ngIf="user.superuser" [icon]="['fab', 'superpowers']"></fa-icon>
-        {{user.username}} ({{user.firstName}} {{user.lastName}})
+        {{user.username}} ({{user.first_name}} {{user.last_name}})
         - <a (click)="deleteUser(user.id)">Delete</a>
     </li>
 </ul>
