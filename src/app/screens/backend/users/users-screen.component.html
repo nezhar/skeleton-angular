@@ -5,6 +5,6 @@
         <fa-icon *ngIf="!user.superuser" [icon]="['fas', 'user']"></fa-icon>
         <fa-icon *ngIf="user.superuser" [icon]="['fab', 'superpowers']"></fa-icon>
         {{user.username}} ({{user.first_name}} {{user.last_name}})
-        - <a (click)="deleteUser(user.id)">Delete</a>
+        - <app-button role="link" (click)="deleteUser(user.id)">Delete</app-button>
     </li>
 </ul>

@@ -1,4 +1,7 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, EventEmitter, OnInit } from '@angular/core';
+
+import { LangChangeEvent, TranslateService } from '@ngx-translate/core';
+import { TableColumn } from '@swimlane/ngx-datatable';
 
 import { PostResource } from '@app/services/resource/post.resource';
 
@@ -11,8 +14,13 @@ import { PostResource } from '@app/services/resource/post.resource';
 })
 export class TablesScreenComponent implements OnInit {
     items = [];
+    tableColumns: TableColumn[] = [];
+    languageSubscription: EventEmitter<LangChangeEvent> = null;
+    paginationLimit = 10;
 
-    constructor(public postResource: PostResource) { }
+    constructor(public postResource: PostResource,
+                private translateService: TranslateService) {
+    }
 
     ngOnInit() {
         console.log('Tables screen component initialised');
@@ -28,5 +36,38 @@ export class TablesScreenComponent implements OnInit {
                 console.log('PostResource error:');
                 console.log(reason);
             });
+
+        this.tableColumns = this.getTableColumns(); // This is required as the subscriber bellow fires only on the first load
+        this.languageSubscription = this.translateService.onLangChange.subscribe(
+            () => {
+                this.tableColumns = this.getTableColumns();
+            }
+        );
+    }
+
+    getTableColumns(): TableColumn[] {
+        return [
+            {
+                name: this.translateService.instant('ID'),
+                prop: 'id',
+                resizeable: false,
+            },
+            {
+                name: this.translateService.instant('User ID'),
+                prop: 'userId',
+                resizeable: false,
+            },
+            {
+                name: this.translateService.instant('Title'),
+                prop: 'title',
+                resizeable: false,
+            },
+            {
+                name: this.translateService.instant('Loaded at'),
+                prop: 'loadedAt',
+                resizeable: false,
+                sortable: false,
+            },
+        ];
     }
 }

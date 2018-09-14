@@ -47,5 +47,5 @@ export const backendStates = [
     stateBackendHome,
     stateBackendPermissions,
     stateBackendTables,
-    stateBackendUsers
+    stateBackendUsers,
 ];

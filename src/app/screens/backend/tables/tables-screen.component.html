@@ -1,3 +1,34 @@
-<h1>TABLES SCREEN</h1>
+<h1>Tables</h1>
 
-{{ items | json }}
+<ngx-datatable
+        #datatable
+        [rows]="items"
+        [columns]="tableColumns"
+        [trackByProp]="'pk'"
+        [columnMode]="'force'"
+        [reorderable]="false"
+        [limit]="paginationLimit"
+        [footerHeight]="50"
+        [selectionType]="'checkbox'"
+        [messages]="{emptyMessage: 'No data to display' | translate, totalMessage: 'Total' | translate}"
+>
+    <ngx-datatable-footer>
+        <ng-template
+                ngx-datatable-footer-template
+                let-rowCount="rowCount"
+                let-pageSize="pageSize"
+                let-curPage="curPage"
+        >
+            <div style="width: 100%; margin-top: 15px;" *ngIf="rowCount > 0">
+                <ngb-pagination
+                        class="d-flex justify-content-center"
+                        [collectionSize]="items.length"
+                        [pageSize]="pageSize"
+                        [page]="curPage"
+                        [maxSize]="10"
+                        (pageChange)="datatable.onFooterPage({page: $event})"
+                ></ngb-pagination>
+            </div>
+        </ng-template>
+    </ngx-datatable-footer>
+</ngx-datatable>

@@ -1,0 +1,34 @@
+.ngx-datatable {
+
+  datatable-header {
+    margin: 10px 0;
+  }
+
+  .datatable-header-cell-label {
+    font-weight: bold;
+  }
+
+  .datatable-header-inner {
+    border-bottom: 1px solid;
+  }
+
+  .sortable .sort-btn:not(.datatable-icon-up):not(.datatable-icon-down):before {
+    content: "↓↑";
+    display: block;
+  }
+
+  .sortable .datatable-icon-down:before {
+    content: "↓";
+    display: block;
+  }
+
+  .sortable .datatable-icon-up:before {
+    content: "↑";
+    display: block;
+  }
+
+  datatable-row-wrapper {
+    padding: 10px 0;
+  }
+
+}

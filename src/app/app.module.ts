@@ -8,6 +8,7 @@ import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
 import { UIRouterModule } from '@uirouter/angular';
 import { NgxResourceFactoryModule } from 'ngx-resource-factory';
 import { FontAwesomeModule } from '@fortawesome/angular-fontawesome';
+import { NgxDatatableModule } from '@swimlane/ngx-datatable';
 
 import { NgxAnxLoadingScreenModule } from 'ngx-anx-loading-screen/ngx-anx-loading-screen.module';
 
@@ -43,6 +44,7 @@ import { loadingScreenProvider } from '@app/shared/interceptors/loader.intercept
         // 3rd party imports
         NgbModule,
         FontAwesomeModule,
+        NgxDatatableModule,
         NgxResourceFactoryModule.forRoot(),
         TranslateModule.forRoot({
             loader: {
