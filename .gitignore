@@ -26,3 +26,4 @@ node_modules/*
 *.sqlite3
 *.mo
 docker-compose.yml
+src/environments/version.ts

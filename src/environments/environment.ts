@@ -3,12 +3,10 @@
 // The list of file replacements can be found in `angular.json`.
 
 export const environment = {
-  production: false,
-  BUILD_VERSION: 'ToDo: Version',
-  BUILD_DATE: 'ToDo: Date',
-  BUILD_DEVELOPMENT: true,
-  BUILD_PRODUCTION: false,
-  BUILD_TEST: false,
+    production: false,
+    development: true,
+    staging: false,
+    api_url: '',
 };
 
 /*

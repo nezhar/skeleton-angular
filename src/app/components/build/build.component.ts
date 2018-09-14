@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { environment } from 'src/environments/environment';
+import { VERSION } from 'src/environments/version';
 
 @Component({
     selector: 'app-build',
@@ -9,11 +10,11 @@ import { environment } from 'src/environments/environment';
     ]
 })
 export class BuildComponent implements OnInit {
-    buildVersion: string = environment.BUILD_VERSION;
-    buildDate: string = environment.BUILD_DATE;
-    buildDevelopment: boolean = environment.BUILD_DEVELOPMENT;
-    buildProduction: boolean = environment.BUILD_PRODUCTION;
-    buildTest: boolean = environment.BUILD_TEST;
+    buildVersion: string = VERSION.hash;
+    buildDate: string = VERSION.date;
+    buildDevelopment: boolean = environment.development;
+    buildProduction: boolean = environment.production;
+    buildStaging: boolean = environment.staging;
 
     constructor() { }
 
