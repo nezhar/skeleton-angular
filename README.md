@@ -6,6 +6,7 @@ This application uses these core components:
 * ngx-translate
 * ngx-resource-factory
 * ng-bootstrap (using Bootstrap 4.1)
+* angular-fontawesome
 
 
 ## Installation instructions for development
