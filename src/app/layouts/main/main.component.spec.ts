@@ -2,6 +2,7 @@ import { async, ComponentFixture, TestBed } from '@angular/core/testing';
 
 import { MainComponent } from 'src/app/layouts/main/main.component';
 import { UIRouterModule } from '@uirouter/angular';
+import { NgxAnxLoadingScreenModule } from 'ngx-anx-loading-screen/ngx-anx-loading-screen.module';
 
 
 describe('MainComponent', () => {
@@ -10,12 +11,13 @@ describe('MainComponent', () => {
 
     beforeEach(async(() => {
         TestBed.configureTestingModule({
-            declarations: [
-                MainComponent
-            ],
             imports: [
+                NgxAnxLoadingScreenModule.forRoot(),
                 UIRouterModule.forRoot({useHash: true}),
-            ]
+            ],
+            declarations: [
+                MainComponent,
+            ],
         })
             .compileComponents();
     }));

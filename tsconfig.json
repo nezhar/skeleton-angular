@@ -5,6 +5,7 @@
     "paths": {
         "@app/*": [ "src/app/*" ],
         "ngx-anx-forms/*": [ "src/app/modules/ngx-anx-forms/*" ],
+        "ngx-anx-loading-screen/*": [ "src/app/modules/ngx-anx-loading-screen/*" ]
     },
     "outDir": "./dist/out-tsc",
     "sourceMap": true,

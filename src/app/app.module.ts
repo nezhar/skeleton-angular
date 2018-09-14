@@ -7,8 +7,9 @@ import { MissingTranslationHandler, TranslateLoader, TranslateModule } from '@ng
 import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
 import { UIRouterModule } from '@uirouter/angular';
 import { NgxResourceFactoryModule } from 'ngx-resource-factory';
-
 import { FontAwesomeModule } from '@fortawesome/angular-fontawesome';
+
+import { NgxAnxLoadingScreenModule } from 'ngx-anx-loading-screen/ngx-anx-loading-screen.module';
 
 import { routingConfig } from './app.routing';
 import { AppMissingTranslationHandler, createTranslatePoHttpLoader } from './services/language/language.helper';
@@ -25,12 +26,12 @@ import { BackendScreensModule } from './screens/backend/backend.module';
 import { AuthenticationGuard } from './shared/guards/auth/auth.guard';
 import { JwtInterceptor } from './shared/interceptors/jwt.interceptor';
 
-// used to create fake backend
-import { fakeBackendProvider } from './shared/interceptors/fake-backend';
 import { AlertService } from './services/alert/alert.service';
 import { AuthenticationResource } from './services/resource/authentication.resource';
 import { IconsModule } from '@app/app.icons';
 
+import { fakeBackendProvider } from './shared/interceptors/fake-backend';
+import { loadingScreenProvider } from '@app/shared/interceptors/loader.interceptor';
 
 
 @NgModule({
@@ -56,6 +57,7 @@ import { IconsModule } from '@app/app.icons';
                 useClass: AppMissingTranslationHandler,
             }
         }),
+        NgxAnxLoadingScreenModule.forRoot(),
 
         // Application imports
         IconsModule,
@@ -82,8 +84,8 @@ import { IconsModule } from '@app/app.icons';
             multi: true
         },
 
-        // Provider used to create fake backend
-        fakeBackendProvider
+        fakeBackendProvider,
+        loadingScreenProvider,
     ],
     declarations: []
 })

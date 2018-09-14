@@ -2,7 +2,6 @@ import { Ng2StateDeclaration } from '@uirouter/angular';
 
 import { BackendLayoutComponent } from '@app/layouts/backend-layout/backend-layout.component';
 import { HomeComponent } from './home/home.component';
-import { WidgetsScreenComponent } from './widgets/widgets-screen.component';
 import { TablesScreenComponent } from './tables/tables-screen.component';
 import { UsersScreenComponent } from './users/users-screen.component';
 import { PermissionsScreenComponent } from './permissions/permissions-screen.component';
@@ -23,12 +22,6 @@ const stateBackendHome = {
     name: 'backend.home',
     url: '/home',
     component: HomeComponent,
-};
-
-const stateBackendWidgets = {
-    name: 'backend.widgets',
-    url: '/widgets',
-    component: WidgetsScreenComponent,
 };
 
 const stateBackendTables = {
@@ -52,7 +45,6 @@ const stateBackendPermissions = {
 export const backendStates = [
     stateBackend,
     stateBackendHome,
-    stateBackendWidgets,
     stateBackendPermissions,
     stateBackendTables,
     stateBackendUsers

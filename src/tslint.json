@@ -8,7 +8,7 @@
     "component-selector": [
       true,
       "app",
-      "anx-forms"
+      "anx-"
     ],
     "whitespace": [
       true,

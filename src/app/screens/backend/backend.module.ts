@@ -9,7 +9,6 @@ import { FontAwesomeModule } from '@fortawesome/angular-fontawesome';
 import { PermissionsScreenComponent } from './permissions/permissions-screen.component';
 import { TablesScreenComponent } from './tables/tables-screen.component';
 import { UsersScreenComponent } from './users/users-screen.component';
-import { WidgetsScreenComponent } from './widgets/widgets-screen.component';
 import { HomeComponent } from './home/home.component';
 
 
@@ -26,7 +25,6 @@ import { HomeComponent } from './home/home.component';
         PermissionsScreenComponent,
         TablesScreenComponent,
         UsersScreenComponent,
-        WidgetsScreenComponent,
         HomeComponent,
     ],
     providers: [ /* declare in `forRoot()` */ ],

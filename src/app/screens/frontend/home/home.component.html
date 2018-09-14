@@ -1,12 +1,4 @@
 <h1>Hi {{currentUser.first_name}}!</h1>
 <p>You're logged in!</p>
-<h3>All registered users:</h3>
-<ul>
-    <li *ngFor="let user of users">
-        <fa-icon *ngIf="!user.superuser" [icon]="['fas', 'user']"></fa-icon>
-        <fa-icon *ngIf="user.superuser" [icon]="['fab', 'superpowers']"></fa-icon>
-        {{user.username}} ({{user.first_name}} {{user.last_name}})
-        - <a (click)="deleteUser(user.id)">Delete</a>
-    </li>
-</ul>
+
 <p><a uiSref="auth.logout">Logout</a></p>

@@ -12,7 +12,7 @@ import {
     faLanguage,
     faSpinner,
 } from '@fortawesome/free-solid-svg-icons';
-import { faSuperpowers } from '@fortawesome/free-brands-svg-icons';
+import { faSuperpowers, faAngular } from '@fortawesome/free-brands-svg-icons';
 // import { far  } from '@fortawesome/free-regular-svg-icons';
 
 // icons to be used in components
@@ -27,6 +27,7 @@ library.add(
     faLanguage,
     faSuperpowers,
     faSpinner,
+    faAngular,
 );
 
 /**

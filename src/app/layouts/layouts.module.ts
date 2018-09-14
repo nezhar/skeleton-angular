@@ -4,7 +4,7 @@ import { FormsModule } from '@angular/forms';
 
 import { UIRouterModule } from '@uirouter/angular';
 import { TranslateModule } from '@ngx-translate/core';
-
+import { NgxAnxLoadingScreenModule } from 'ngx-anx-loading-screen/ngx-anx-loading-screen.module';
 
 import { MainComponent } from './main/main.component';
 import { AuthLayoutComponent } from './auth-layout/auth-layout.component';
@@ -20,6 +20,7 @@ import { ComponentsModule } from '@app/components/components.module';
         TranslateModule,
         ComponentsModule,
         UIRouterModule,
+        NgxAnxLoadingScreenModule,
     ],
     exports: [
         MainComponent,

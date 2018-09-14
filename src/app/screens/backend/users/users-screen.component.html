@@ -1,1 +1,10 @@
-<h1>USERS SCREEN</h1>
+<h1>Registered users</h1>
+
+<ul>
+    <li *ngFor="let user of users">
+        <fa-icon *ngIf="!user.superuser" [icon]="['fas', 'user']"></fa-icon>
+        <fa-icon *ngIf="user.superuser" [icon]="['fab', 'superpowers']"></fa-icon>
+        {{user.username}} ({{user.first_name}} {{user.last_name}})
+        - <a (click)="deleteUser(user.id)">Delete</a>
+    </li>
+</ul>
