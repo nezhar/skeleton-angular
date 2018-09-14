@@ -4,13 +4,13 @@ import { FormsModule } from '@angular/forms';
 
 import { UIRouterModule } from '@uirouter/angular';
 import { TranslateModule } from '@ngx-translate/core';
+import { FontAwesomeModule } from '@fortawesome/angular-fontawesome';
 
 import { ComponentsModule } from '@app/components/components.module';
 
 import { LoginComponent } from './login/login.component';
 import { RegisterComponent } from './register/register.component';
 import { NgxAnxFormsModule } from 'ngx-anx-forms/ngx-anx-forms.module';
-import { FontAwesomeModule } from '@fortawesome/angular-fontawesome';
 
 
 @NgModule({

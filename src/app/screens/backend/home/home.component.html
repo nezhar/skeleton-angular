@@ -3,8 +3,8 @@
 <h3>All registered users:</h3>
 <ul>
     <li *ngFor="let user of users">
-        <i *ngIf="!user.superuser" class="fa fa-user"></i>
-        <i *ngIf="user.superuser" class="fa fa-superpowers"></i>
+        <fa-icon *ngIf="!user.superuser" [icon]="['fas', 'fa-user']"></fa-icon>
+        <fa-icon *ngIf="user.superuser" [icon]="['fab', 'superpowers']"></fa-icon>
         {{user.username}} ({{user.firstName}} {{user.lastName}})
         - <a (click)="deleteUser(user.id)">Delete</a>
     </li>

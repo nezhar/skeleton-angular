@@ -1,6 +1,6 @@
 <div class="brand">
     <h1>
-        <i class="fa fa-bars"></i>
+        <fa-icon [icon]="['fas', 'bars']"></fa-icon>
     </h1>
 </div>
 
@@ -11,7 +11,7 @@
         </div>
         <a class="nav-link"
             uiSref="backend.home" uiSrefActive="active">
-             <i class="fa fa-home" aria-hidden="true"></i>
+             <fa-icon [icon]="['fas', 'home']"></fa-icon>
              {{ 'Home' | translate }}
         </a>
         <div class="nav-divider">
@@ -19,12 +19,12 @@
         </div>
         <a class="nav-link"
            uiSref="backend.widgets" uiSrefActive="active">
-            <i class="fa fa-window-maximize" aria-hidden="true"></i>
+            <fa-icon [icon]="['fas', 'window-maximize']"></fa-icon>
             {{ 'Widgets' | translate }}
         </a>
         <a class="nav-link"
            uiSref="backend.tables" uiSrefActive="active">
-            <i class="fa fa-table" aria-hidden="true"></i>
+            <fa-icon [icon]="['fas', 'table']"></fa-icon>
             {{ 'Tables' | translate }}
         </a>
 
@@ -33,13 +33,13 @@
         </div>
         <a class="nav-link"
            uiSref="backend.users" uiSrefActive="active">
-            <i class="fa fa-user-circle" aria-hidden="true"></i>
-            {{ 'User' | translate }}
+            <fa-icon [icon]="['fas', 'users']"></fa-icon>
+            {{ 'Users' | translate }}
         </a>
         <a class="nav-link"
            uiSref="backend.permissions" uiSrefActive="active">
-            <i class="fa fa-lock" aria-hidden="true"></i>
-            {{ 'Permission' | translate }}
+            <fa-icon [icon]="['fas', 'lock']"></fa-icon>
+            {{ 'Permissions' | translate }}
         </a>
     </nav>
 </div>

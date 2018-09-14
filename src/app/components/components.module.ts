@@ -13,6 +13,7 @@ import { NavigationComponent } from '@app/components/navigation/navigation.compo
 import { TranslateModule } from '@ngx-translate/core';
 import { ServicesModule } from '@app/services/services.module';
 import { UIRouterModule } from '@uirouter/angular';
+import { FontAwesomeModule } from '@fortawesome/angular-fontawesome';
 
 @NgModule({
     imports: [
@@ -22,6 +23,7 @@ import { UIRouterModule } from '@uirouter/angular';
         TranslateModule,
         ServicesModule,
         UIRouterModule,
+        FontAwesomeModule,
     ],
     exports: [
         ButtonComponent,

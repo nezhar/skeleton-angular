@@ -8,10 +8,25 @@ import {
 import { InputComponent } from "../components/input/input.component";
 import { IconInputComponent } from "../components/icon-input/icon-input.component";
 import { InputErrorComponent } from "../components/input-error/input-error.component";
+import { FontAwesomeModule } from '@fortawesome/angular-fontawesome';
+
+
+import { library } from '@fortawesome/fontawesome-svg-core';
+import { faLock, faUser, faMeh } from '@fortawesome/free-solid-svg-icons';
+
+// icons to be used in components
+library.add(
+    faLock,
+    faUser,
+    faMeh,
+);
 
 
 const metaData = {
     moduleMetadata: {
+        imports: [
+            FontAwesomeModule,
+        ],
         declarations: [
             InputComponent,
             IconInputComponent,
@@ -24,12 +39,13 @@ const template = {
     template: `
         <anx-forms-icon-input
             [type]="type"
-            [icon]="icon"
             [placeholder]="placeholder"
             [readonly]="readonly"
             [errors]="errors"
             [errorMessages]="errorMessages"
-        ></anx-forms-icon-input>
+        >
+            <fa-icon [icon]="icon"></fa-icon>
+        </anx-forms-icon-input>
     `,
 };
 
@@ -50,7 +66,7 @@ storiesOf('NGX Forms|Icon input', module)
             props: {
                 type: 'text',
                 placeholder: 'username',
-                icon: 'fa fa-user',
+                icon: ['fas', 'user'],
                 readonly: readonly,
             },
         }
@@ -65,7 +81,7 @@ storiesOf('NGX Forms|Icon input', module)
             props: {
                 type: 'password',
                 placeholder: '********',
-                icon: 'fa fa-lock',
+                icon: ['fas', 'lock'],
                 readonly: readonly,
             },
         }
@@ -76,7 +92,7 @@ storiesOf('NGX Forms|Icon input', module)
         props: {
             type: 'text',
             placeholder: 'Errors after touch',
-            icon: 'fa fa-meh-o',
+            icon: ['fas', 'meh'],
             errors: {
                 'required': true,
                 'other': true,
@@ -89,7 +105,7 @@ storiesOf('NGX Forms|Icon input', module)
         props: {
             type: 'text',
             placeholder: 'Custom errors after touch',
-            icon: 'fa fa-meh-o',
+            icon: ['fas', 'meh'],
             errors: {
                 'required': true,
                 'error1': true,

@@ -4,6 +4,7 @@ import { FormsModule } from '@angular/forms';
 
 import { UIRouterModule } from '@uirouter/angular';
 import { TranslateModule } from '@ngx-translate/core';
+import { FontAwesomeModule } from '@fortawesome/angular-fontawesome';
 
 import { HomeComponent } from './home/home.component';
 
@@ -14,6 +15,7 @@ import { HomeComponent } from './home/home.component';
         FormsModule,
         UIRouterModule,
         TranslateModule,
+        FontAwesomeModule,
     ],
     exports: [],
     declarations: [

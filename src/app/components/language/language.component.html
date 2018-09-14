@@ -4,7 +4,7 @@
 
     <button type="button" class="btn btn-default dropdown-toggle"
             ngbDropdownToggle>
-        <i class="fa fa-language" aria-hidden="true" title="{{ 'Language'  }}"></i>
+        <fa-icon [icon]="['fas', 'language']" title="{{ 'Language' | translate }}"></fa-icon>
     </button>
 
     <ul class="dropdown-menu" role="menu"
@@ -18,5 +18,4 @@
             </button>
         </li>
     </ul>
-
 </div>
