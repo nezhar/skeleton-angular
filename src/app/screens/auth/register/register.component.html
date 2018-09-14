@@ -1,36 +1,42 @@
-<form name="form" (ngSubmit)="f.form.valid && register()" #f="ngForm" novalidate>
+<form name="form" (ngSubmit)="register()" [formGroup]="registerForm" novalidate>
     <h2>{{ 'Register' | translate }}</h2>
     <hr>
-    <div class="form-group" [ngClass]="{ 'has-error': f.submitted && !username.valid }">
-        <label for="firstName">{{ 'First Name' | translate }}</label>
-        <input type="text" class="form-control" name="firstName" [(ngModel)]="model.firstName" #firstName="ngModel" required />
-        <div *ngIf="f.submitted && !firstName.valid" class="help-block">{{ 'First Name is required' | translate }}</div>
-    </div>
-    <div class="form-group" [ngClass]="{ 'has-error': f.submitted && !username.valid }">
-        <label for="lastName">{{ 'Last Name' | translate }}</label>
-        <input type="text" class="form-control" name="lastName" [(ngModel)]="model.lastName" #lastName="ngModel" required />
-        <div *ngIf="f.submitted && !lastName.valid" class="help-block">{{ 'Last Name is required' | translate }}</div>
-    </div>
-    <div class="form-group" [ngClass]="{ 'has-error': f.submitted && !username.valid }">
-        <label for="username">{{ 'Username' | translate }}</label>
-        <input type="text" class="form-control" name="username" [(ngModel)]="model.username" #username="ngModel" required />
-        <div *ngIf="f.submitted && !username.valid" class="help-block">{{ 'Username is required' | translate }}</div>
-    </div>
-    <div class="form-group" [ngClass]="{ 'has-error': f.submitted && !password.valid }">
-        <label for="password">{{ 'Password' | translate }}</label>
-        <input type="password" class="form-control" name="password" [(ngModel)]="model.password" #password="ngModel" required />
-        <div *ngIf="f.submitted && !password.valid" class="help-block">{{ 'Password is required' | translate }}</div>
-    </div>
-    <div class="form-check">
-        <input type="checkbox" class="form-check-input" name="superuser" [(ngModel)]="model.superuser" #superuser="ngModel" />
-        <label for="superuser">{{ 'Is Superuser?' | translate }}</label>
-        <div *ngIf="f.submitted && !password.valid" class="help-block">{{ 'Password is required' | translate }}</div>
-    </div>
+
+    <span for="firstName">{{ 'First Name' | translate }}</span>
+    <anx-forms-input
+            formControlName="first_name"
+            [errors]="registerForm.get('first_name').errors"
+    ></anx-forms-input>
+
+    <span>{{ 'Last Name' | translate }}</span>
+    <anx-forms-input
+            formControlName="last_name"
+            [errors]="registerForm.get('last_name').errors"
+    ></anx-forms-input>
+
+    <span>{{ 'Username' | translate }}</span>
+    <anx-forms-input
+            formControlName="username"
+            [errors]="registerForm.get('username').errors"
+    ></anx-forms-input>
+
+    <span>{{ 'Password' | translate }}</span>
+    <anx-forms-input
+            formControlName="password"
+            [errors]="registerForm.get('password').errors"
+    ></anx-forms-input>
+
+    <anx-forms-input-checkbox
+            formControlName="superuser"
+            [errors]="registerForm.get('superuser').errors"
+            [label]="'Is Superuser?' | translate"
+    ></anx-forms-input-checkbox>
+
     <div class="form-group">
-        <app-button [disabled]="loading" role="primary">
+        <app-button type="submit" [disabled]="!registerForm.valid" role="primary">
             <fa-icon *ngIf="loading" [icon]="['fas', 'spinner']" [spin]="true"></fa-icon>
             {{ 'Register' | translate }}
         </app-button>
-        <a uiSref="auth.login" class="btn btn-link">{{ 'Cancel' | translate }}</a>
+        <a uiSref="auth.login" class="btn btn-link">{{ 'Login' | translate }}</a>
     </div>
 </form>

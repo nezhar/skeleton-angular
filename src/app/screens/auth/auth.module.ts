@@ -1,6 +1,6 @@
 import { ModuleWithProviders, NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
-import { FormsModule } from '@angular/forms';
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 
 import { UIRouterModule } from '@uirouter/angular';
 import { TranslateModule } from '@ngx-translate/core';
@@ -17,6 +17,7 @@ import { NgxAnxFormsModule } from 'ngx-anx-forms/ngx-anx-forms.module';
     imports: [
         CommonModule,
         FormsModule,
+        ReactiveFormsModule,
         UIRouterModule,
         TranslateModule,
         ComponentsModule,

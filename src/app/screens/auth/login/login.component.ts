@@ -3,6 +3,7 @@ import { Component, OnInit } from '@angular/core';
 import { StateService } from '@uirouter/angular';
 import { AlertService } from 'src/app/services/alert/alert.service';
 import { AuthenticationService } from '@app/services/authentication/authentication.service';
+import { FormControl, FormGroup, Validators } from '@angular/forms';
 
 
 @Component({
@@ -12,9 +13,8 @@ import { AuthenticationService } from '@app/services/authentication/authenticati
     ]
 })
 export class LoginComponent implements OnInit {
-    model: any = {};
     loading = false;
-    returnUrl: string;
+    loginForm: FormGroup;
 
     constructor(
         private state: StateService,
@@ -23,11 +23,19 @@ export class LoginComponent implements OnInit {
     }
 
     ngOnInit() {
+        this.loginForm = new FormGroup({
+            username: new FormControl('', Validators.required),
+            password: new FormControl('', Validators.required),
+        });
     }
 
     login() {
+        const
+            username = this.loginForm.get('username').value,
+            password = this.loginForm.get('password').value;
+
         this.loading = true;
-        this.authenticationService.login(this.model.username, this.model.password)
+        this.authenticationService.login(username, password)
             .then(
                 () => {
                     this.alertService.success('Login successful');
