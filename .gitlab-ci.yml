@@ -68,6 +68,19 @@ build_development:
     paths:
       - dist/skeleton-angular/
 
+build_staging:
+  stage: build_app
+  script:
+    - npm run app-build-stage
+  except:
+    - tags
+  artifacts:
+    when: on_success
+    expire_in: 1 month
+    name: "staging_build_$CI_COMMIT_REF_SLUG_$CI_COMMIT_SHA"
+    paths:
+      - dist/skeleton-angular/
+
 build_production:
   stage: build_app
   script:

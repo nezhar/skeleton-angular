@@ -40,11 +40,12 @@
 /** IE10 and IE11 requires the following for the Reflect API. */
 // import 'core-js/es6/reflect';
 
+/** IE11 and lower require the following for URL support */
+// import 'url-polyfill';  // Run `npm install --save url-polyfill`.
 
 /** Evergreen browsers require these. **/
 // Used for reflect-metadata in JIT. If you use AOT (and only Angular decorators), you can remove.
 import 'core-js/es7/reflect';
-
 
 /**
  * Web Animations `@angular/platform-browser/animations`
