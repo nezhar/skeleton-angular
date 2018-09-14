@@ -1,6 +1,6 @@
 <div class="brand">
     <h1>
-        <fa-icon [icon]="['fas', 'bars']"></fa-icon>
+        <fa-icon [icon]="['fas', 'bars']" [fixedWidth]="true"></fa-icon>
     </h1>
 </div>
 
@@ -11,7 +11,7 @@
         </div>
         <a class="nav-link"
             uiSref="backend.home" uiSrefActive="active">
-             <fa-icon [icon]="['fas', 'home']"></fa-icon>
+             <fa-icon [icon]="['fas', 'home']" [fixedWidth]="true"></fa-icon>
              {{ 'Home' | translate }}
         </a>
         <div class="nav-divider">
@@ -19,12 +19,12 @@
         </div>
         <a class="nav-link"
            uiSref="backend.widgets" uiSrefActive="active">
-            <fa-icon [icon]="['fas', 'window-maximize']"></fa-icon>
+            <fa-icon [icon]="['fas', 'window-maximize']" [fixedWidth]="true"></fa-icon>
             {{ 'Widgets' | translate }}
         </a>
         <a class="nav-link"
            uiSref="backend.tables" uiSrefActive="active">
-            <fa-icon [icon]="['fas', 'table']"></fa-icon>
+            <fa-icon [icon]="['fas', 'table']" [fixedWidth]="true"></fa-icon>
             {{ 'Tables' | translate }}
         </a>
 
@@ -33,12 +33,12 @@
         </div>
         <a class="nav-link"
            uiSref="backend.users" uiSrefActive="active">
-            <fa-icon [icon]="['fas', 'users']"></fa-icon>
+            <fa-icon [icon]="['fas', 'users']" [fixedWidth]="true"></fa-icon>
             {{ 'Users' | translate }}
         </a>
         <a class="nav-link"
            uiSref="backend.permissions" uiSrefActive="active">
-            <fa-icon [icon]="['fas', 'lock']"></fa-icon>
+            <fa-icon [icon]="['fas', 'lock']" [fixedWidth]="true"></fa-icon>
             {{ 'Permissions' | translate }}
         </a>
     </nav>
