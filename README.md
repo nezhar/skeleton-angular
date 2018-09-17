@@ -5,6 +5,7 @@ This application uses these core components:
 * UI Router 1.0.x
 * ngx-translate
 * ngx-resource-factory
+* ngx-ui-router-url-type-factory
 * ng-bootstrap (using Bootstrap 4.1)
 * angular-fontawesome (using Font Awesome 5)
 
@@ -134,6 +135,7 @@ export const frontendStates = [
 * [UI-Router documentation](https://ui-router.github.io/ng2/)
 * [ngx-translate documentation](https://github.com/ngx-translate/core)
 * [ngx-resource-factory documentation](https://github.com/beachmachine/ngx-resource-factory)
+* [ngx-ui-router-url-type-factory documentation](https://github.com/anx-astocker/ngx-ui-router-url-type-factory)
 * [ng-bootstrap documentation](https://ng-bootstrap.github.io/#/home)
 * [Font Awesome 5 icons](https://fontawesome.com/icons?d=gallery&m=free)
 * [Angular Font Awesome docs](https://github.com/FortAwesome/angular-fontawesome)

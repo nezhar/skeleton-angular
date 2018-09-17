@@ -1,0 +1,12 @@
+<app-modal-base>
+    <span modal-title>{{ 'Post detail' | translate }}</span>
+    <div modal-body>
+        <h1>{{ post.title }}</h1>
+        <p>{{ post.body }}</p>
+        <i>{{ post.loadedAt }}</i>
+    </div>
+    <span modal-footer>
+        <app-button role="primary" (click)="confirmAction()">{{ 'Ok' | translate }}</app-button>
+        <app-button role="secondary" (click)="cancelAction()">{{ 'Close' | translate }}</app-button>
+    </span>
+</app-modal-base>

@@ -33,7 +33,16 @@
     </ngx-datatable-footer>
 </ngx-datatable>
 
-
 <ng-template #titleColumn let-row="row" let-value="value">
-    <a uiSref="backend.posts.detail" [uiParams]="{post: row}">{{ value }} </a>
+    <a uiSref="backend.posts.detail" [uiParams]="{post: row}">{{ value }}</a>
+</ng-template>
+
+<ng-template #actionsColumn let-row="row" let-value="value">
+    <app-button
+        role="primary"
+        size="sm"
+        (click)="openPostDetail(row)"
+    >
+        {{ 'Open' | translate }}
+    </app-button>
 </ng-template>

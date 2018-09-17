@@ -2,8 +2,10 @@ import { Component, ElementRef, EventEmitter, OnInit, TemplateRef, ViewChild } f
 
 import { LangChangeEvent, TranslateService } from '@ngx-translate/core';
 import { TableColumn } from '@swimlane/ngx-datatable';
+import { NgbModal } from '@ng-bootstrap/ng-bootstrap';
 
-import { PostResource } from '@app/services/resource/post.resource';
+import { Post, PostResource } from '@app/services/resource/post.resource';
+import { ModalPostDetailComponent } from '@app/modals/modal-post-detail/modal-post-detail.component';
 
 
 @Component({
@@ -19,9 +21,11 @@ export class PostsListComponent implements OnInit {
     paginationLimit = 10;
 
     @ViewChild('titleColumn') titleColumn: TemplateRef<ElementRef>;
+    @ViewChild('actionsColumn') actionsColumn: TemplateRef<ElementRef>;
 
     constructor(public postResource: PostResource,
-                private translateService: TranslateService) {
+                private translateService: TranslateService,
+                private modalService: NgbModal) {
     }
 
     ngOnInit() {
@@ -71,6 +75,26 @@ export class PostsListComponent implements OnInit {
                 resizeable: false,
                 sortable: false,
             },
+            {
+                name: this.translateService.instant('Actions'),
+                resizeable: false,
+                sortable: false,
+                cellTemplate: this.actionsColumn,
+                cellClass: 'text-right'
+            },
         ];
+    }
+
+    openPostDetail(post: Post) {
+        const modalRef = this.modalService.open(ModalPostDetailComponent, {size: 'lg'});
+        modalRef.componentInstance.post = post;
+
+        modalRef.result
+            .then((result) => {
+                console.log('Modal success: ' + result);
+            })
+            .catch((reason) => {
+                console.log('Modal dismissed: ' + reason);
+            });
     }
 }

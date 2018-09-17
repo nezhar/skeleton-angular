@@ -5,6 +5,8 @@ import { PostResource } from 'src/app/services/resource/post.resource';
 import { UserResource } from 'src/app/services/resource/user.resource';
 import { AuthenticationResource } from 'src/app/services/resource/authentication.resource';
 import { AuthenticationService } from '@app/services/authentication/authentication.service';
+import { AuthenticationGuard } from '@app/shared/guards/auth/auth.guard';
+import { AlertService } from '@app/services/alert/alert.service';
 
 
 @NgModule({
@@ -26,8 +28,10 @@ export class ServicesModule {
                 AuthenticationResource,
 
                 // Services
+                AlertService,
+                LanguageService,
                 AuthenticationService,
-                LanguageService
+                AuthenticationGuard,
             ]
         };
     }

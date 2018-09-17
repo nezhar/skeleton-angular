@@ -25,12 +25,10 @@ import { AuthScreensModule } from './screens/auth/auth.module';
 import { FrontendScreensModule } from './screens/frontend/frontend.module';
 import { BackendScreensModule } from './screens/backend/backend.module';
 
-import { AuthenticationGuard } from './shared/guards/auth/auth.guard';
 import { JwtInterceptor } from './shared/interceptors/jwt.interceptor';
 
-import { AlertService } from './services/alert/alert.service';
-import { AuthenticationResource } from './services/resource/authentication.resource';
 import { IconsModule } from '@app/app.icons';
+import { ModalsModule } from '@app/modals/modals.module';
 
 import { fakeBackendProvider } from './shared/interceptors/fake-backend';
 import { loadingScreenProvider } from '@app/shared/interceptors/loader.interceptor';
@@ -79,21 +77,17 @@ import { PostType } from '@app/shared/types/post.type';
         BackendScreensModule.forRoot(),
         LayoutsModule.forRoot(),
         ComponentsModule.forRoot(),
+        ModalsModule.forRoot(),
     ],
     bootstrap: [
         MainComponent,
     ],
     providers: [
-        AuthenticationGuard,
-        AlertService,
-        AuthenticationResource,
-
         {
             provide: HTTP_INTERCEPTORS,
             useClass: JwtInterceptor,
             multi: true
         },
-
         fakeBackendProvider,
         loadingScreenProvider,
     ],
