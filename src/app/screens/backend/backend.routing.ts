@@ -35,7 +35,7 @@ const stateBackendPosts = {
 
 const stateBackendPostsList = {
     name: 'backend.posts.list',
-    url: '/',
+    url: '',
     component: PostsListComponent,
 };
 

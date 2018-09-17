@@ -1,14 +1,14 @@
 import { ModuleWithProviders, NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
-import { FormsModule } from '@angular/forms';
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 
 import { UIRouterModule } from '@uirouter/angular';
 import { TranslateModule } from '@ngx-translate/core';
 import { FontAwesomeModule } from '@fortawesome/angular-fontawesome';
 import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
-
 import { NgxDatatableModule } from '@swimlane/ngx-datatable';
 
+import { NgxAnxFormsModule } from 'ngx-anx-forms/ngx-anx-forms.module';
 import { ComponentsModule } from '@app/components/components.module';
 
 import { HomeComponent } from '@app/screens/backend/home/home.component';
@@ -24,11 +24,13 @@ import { PermissionsComponent } from '@app/screens/backend/permissions/permissio
         CommonModule,
         ComponentsModule,
         FormsModule,
+        ReactiveFormsModule,
         UIRouterModule,
         TranslateModule,
         FontAwesomeModule,
         NgxDatatableModule,
         NgbModule,
+        NgxAnxFormsModule,
     ],
     exports: [],
     declarations: [

@@ -1,5 +1,24 @@
 <h1>{{ 'Tables' | translate }}</h1>
 
+<div class="row" [formGroup]="filterForm">
+    <div class="col-6"></div>
+    <div class="col">
+        <span>{{ 'User ID' | translate }}</span>
+        <anx-forms-input-select
+                [options]="userIds"
+                bindLabel="label"
+                bindValue="id"
+                formControlName="userId"
+        ></anx-forms-input-select>
+    </div>
+    <div class="col">
+        <span>{{ 'Search' | translate }}</span>
+        <anx-forms-input
+                formControlName="search"
+        ></anx-forms-input>
+    </div>
+</div>
+
 <ngx-datatable
         #datatable
         [rows]="items"
