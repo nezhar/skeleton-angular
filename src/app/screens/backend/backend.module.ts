@@ -8,7 +8,7 @@ import { FontAwesomeModule } from '@fortawesome/angular-fontawesome';
 import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
 
 import { PermissionsScreenComponent } from './permissions/permissions-screen.component';
-import { TablesScreenComponent } from './tables/tables-screen.component';
+import { PostsScreenComponent } from './posts/posts-screen.component';
 import { UsersScreenComponent } from './users/users-screen.component';
 import { HomeComponent } from './home/home.component';
 import { NgxDatatableModule } from '@swimlane/ngx-datatable';
@@ -30,7 +30,7 @@ import { ComponentsModule } from '@app/components/components.module';
     exports: [],
     declarations: [
         PermissionsScreenComponent,
-        TablesScreenComponent,
+        PostsScreenComponent,
         UsersScreenComponent,
         HomeComponent,
     ],

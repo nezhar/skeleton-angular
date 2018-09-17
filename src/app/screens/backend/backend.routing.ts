@@ -2,7 +2,7 @@ import { Ng2StateDeclaration } from '@uirouter/angular';
 
 import { BackendLayoutComponent } from '@app/layouts/backend-layout/backend-layout.component';
 import { HomeComponent } from './home/home.component';
-import { TablesScreenComponent } from './tables/tables-screen.component';
+import { PostsScreenComponent } from './posts/posts-screen.component';
 import { UsersScreenComponent } from './users/users-screen.component';
 import { PermissionsScreenComponent } from './permissions/permissions-screen.component';
 import { guardAuthenticated } from 'src/app/shared/guards/auth/auth.guard';
@@ -24,10 +24,10 @@ const stateBackendHome = {
     component: HomeComponent,
 };
 
-const stateBackendTables = {
+const stateBackendPosts = {
     name: 'backend.tables',
     url: '/tables',
-    component: TablesScreenComponent,
+    component: PostsScreenComponent,
 };
 
 const stateBackendUsers = {
@@ -46,6 +46,6 @@ export const backendStates = [
     stateBackend,
     stateBackendHome,
     stateBackendPermissions,
-    stateBackendTables,
+    stateBackendPosts,
     stateBackendUsers,
 ];

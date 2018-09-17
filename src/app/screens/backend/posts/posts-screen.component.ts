@@ -7,12 +7,12 @@ import { PostResource } from '@app/services/resource/post.resource';
 
 
 @Component({
-    templateUrl: './tables-screen.component.html',
+    templateUrl: './posts-screen.component.html',
     styleUrls: [
-        './tables-screen.component.scss'
+        './posts-screen.component.scss'
     ]
 })
-export class TablesScreenComponent implements OnInit {
+export class PostsScreenComponent implements OnInit {
     items = [];
     tableColumns: TableColumn[] = [];
     languageSubscription: EventEmitter<LangChangeEvent> = null;

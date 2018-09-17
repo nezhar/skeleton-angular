@@ -6,7 +6,7 @@ This application uses these core components:
 * ngx-translate
 * ngx-resource-factory
 * ng-bootstrap (using Bootstrap 4.1)
-* angular-fontawesome
+* angular-fontawesome (using Font Awesome 5)
 
 
 ## Installation instructions for development
@@ -59,7 +59,26 @@ export const frontendStates = [
 
 ... todo
 
+
+### Adding modals
+
+... todo
+
+
 ### Adding services
+
+... todo
+
+### Adding resources
+
+... todo
+
+### Adding modules
+
+... todo
+
+
+### Manage translations
 
 ... todo
 
@@ -68,6 +87,14 @@ export const frontendStates = [
 * Follow the Anexia coding conventions for JavaScript
 * Only deploy production builds to staging and production servers
 * Only deploy the application if all tests pass
+
+### Application bootstrapping
+
+... todo
+
+### Replace the fake backend
+
+... todo
 
 ## List of developers
 
@@ -81,4 +108,6 @@ export const frontendStates = [
 * [ngx-translate documentation](https://github.com/ngx-translate/core)
 * [ngx-resource-factory documentation](https://github.com/beachmachine/ngx-resource-factory)
 * [ng-bootstrap documentation](https://ng-bootstrap.github.io/#/home)
+* [Font Awesome 5 icons](https://fontawesome.com/icons?d=gallery&m=free)
+* [Angular Font Awesome docs](https://github.com/FortAwesome/angular-fontawesome)
 * [GitLab flavored markdown](https://docs.gitlab.com/ee/user/markdown.html)

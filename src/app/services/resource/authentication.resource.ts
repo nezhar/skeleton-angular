@@ -22,7 +22,7 @@ export class AuthenticationResource extends Resource<User> {
         paramDefaults: [],
         isList: false,
     })
-    login: ResourceActionMethod<any, {username: string, password: string}, User>;
+    login: ResourceActionMethod<any, {username: string, password: string}, {token: string, user: User}>;
 
     @ResourceAction({
         method: ResourceActionHttpMethod.DELETE,
