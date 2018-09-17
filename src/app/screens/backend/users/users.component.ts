@@ -3,12 +3,12 @@ import { User, UserResource } from '@app/services/resource/user.resource';
 
 
 @Component({
-    templateUrl: './users-screen.component.html',
+    templateUrl: './users.component.html',
     styleUrls: [
-        './users-screen.component.scss'
+        './users.component.scss'
     ]
 })
-export class UsersScreenComponent implements OnInit {
+export class UsersComponent implements OnInit {
     users: User[] = [];
 
     constructor(private userResource: UserResource) { }

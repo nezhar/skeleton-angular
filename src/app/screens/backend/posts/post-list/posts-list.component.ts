@@ -7,12 +7,12 @@ import { PostResource } from '@app/services/resource/post.resource';
 
 
 @Component({
-    templateUrl: './posts-screen.component.html',
+    templateUrl: './posts-list.component.html',
     styleUrls: [
-        './posts-screen.component.scss'
+        './posts-list.component.scss'
     ]
 })
-export class PostsScreenComponent implements OnInit {
+export class PostsListComponent implements OnInit {
     items = [];
     tableColumns: TableColumn[] = [];
     languageSubscription: EventEmitter<LangChangeEvent> = null;
@@ -25,7 +25,7 @@ export class PostsScreenComponent implements OnInit {
     }
 
     ngOnInit() {
-        console.log('Tables screen component initialised');
+        console.log('Post list component initialised');
 
         this.postResource.query({}).$promise
             .then((data) => {
