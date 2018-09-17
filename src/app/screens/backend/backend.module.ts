@@ -16,7 +16,6 @@ import { PostsComponent } from '@app/screens/backend/posts/posts.component';
 import { PostsListComponent } from '@app/screens/backend/posts/post-list/posts-list.component';
 import { PostDetailComponent } from '@app/screens/backend/posts/post-detail/post-detail.component';
 import { UsersComponent } from '@app/screens/backend/users/users.component';
-import { PermissionsComponent } from '@app/screens/backend/permissions/permissions.component';
 
 
 @NgModule({
@@ -39,7 +38,6 @@ import { PermissionsComponent } from '@app/screens/backend/permissions/permissio
         PostsListComponent,
         PostDetailComponent,
         UsersComponent,
-        PermissionsComponent,
     ],
     providers: [ /* declare in `forRoot()` */ ],
 })

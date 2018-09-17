@@ -29,7 +29,7 @@ code_review:
 test_code:
   stage: test_code
   script:
-    - ng test --watch=false
+    - npm run test
 
 
 # Builds the apps documentation and stores it as an artifact

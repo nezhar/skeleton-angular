@@ -7,7 +7,7 @@
     "app-build-dev": "node helpers/version.js && ng build",
     "app-build-stage": "node helpers/version.js && ng build -c=staging",
     "app-build-prod": "node helpers/version.js && ng build -c=production",
-    "test": "ng test --watch=false",
+    "test": "node helpers/version.js && ng test --watch=false",
     "test-watch": "ng test",
     "lint": "ng lint",
     "e2e": "ng e2e",

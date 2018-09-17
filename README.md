@@ -99,9 +99,6 @@ export const frontendStates = [
 
 ## Notes for dependencies
 
-#### @uirouter/angular - 1.1.0
-
-... todo
 
 #### rxjs - 6.2.2
 
@@ -123,6 +120,9 @@ export const frontendStates = [
 
 ... todo
 
+#### @uirouter/angular - 1.1.0
+
+... todo
 
 ## List of developers
 

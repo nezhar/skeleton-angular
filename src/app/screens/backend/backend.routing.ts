@@ -7,7 +7,6 @@ import { PostsComponent } from '@app/screens/backend/posts/posts.component';
 import { PostsListComponent } from '@app/screens/backend/posts/post-list/posts-list.component';
 import { PostDetailComponent } from '@app/screens/backend/posts/post-detail/post-detail.component';
 import { UsersComponent } from '@app/screens/backend/users/users.component';
-import { PermissionsComponent } from '@app/screens/backend/permissions/permissions.component';
 
 
 const stateBackend: Ng2StateDeclaration = {
@@ -51,16 +50,10 @@ const stateBackendUsers = {
     component: UsersComponent,
 };
 
-const stateBackendPermissions = {
-    name: 'backend.permissions',
-    url: '/permissions',
-    component: PermissionsComponent,
-};
 
 export const backendStates = [
     stateBackend,
     stateBackendHome,
-    stateBackendPermissions,
     stateBackendPosts,
     stateBackendPostsList,
     stateBackendPostsDetail,
