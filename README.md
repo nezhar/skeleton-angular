@@ -32,7 +32,7 @@ All of the commands described below assume that you have your docker-compose up 
 * Build the application for production: `docker-compose run --rm node "npm run build"`
 * Build the documentation: `docker-compose run ---rm node "npm run generatedocs"`
 * Run the test suite: `docker-compose run --rm node "npm run test"`
-* Run `docker-compose run --rm node "ng generate component module/component"` to generate a new component. You can also use `ng generate directive|pipe|service|class|guard|interface|enum|module`
+* Run `s` to generate a new component. You can also use `ng generate directive|pipe|service|class|guard|interface|enum|module`
 
 ### Adding screens
 
@@ -44,7 +44,6 @@ Screens are regular Angular components which follow some internal established co
 
 ```
 const stateFrontendHome: Ng2StateDeclaration = {
-    name: 'frontend.home',
     url: '/home',
     component: HomeComponent,
 };
@@ -95,6 +94,34 @@ export const frontendStates = [
 ### Replace the fake backend
 
 ... todo
+
+
+## Notes for dependencies
+
+#### @uirouter/angular - 1.1.0
+
+... todo
+
+#### rxjs - 6.2.2
+
+... todo
+
+#### rxjs-compat - 6.2.2
+
+... todo
+
+#### typescript - 2.9
+
+... todo
+
+#### @storybook - 4.0.0-alpha.21
+
+... todo
+
+#### date-fns - 2.0.0-alpha.16
+
+... todo
+
 
 ## List of developers
 

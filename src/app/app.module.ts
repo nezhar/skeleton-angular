@@ -9,6 +9,7 @@ import { UIRouterModule } from '@uirouter/angular';
 import { NgxResourceFactoryModule } from 'ngx-resource-factory';
 import { FontAwesomeModule } from '@fortawesome/angular-fontawesome';
 import { NgxDatatableModule } from '@swimlane/ngx-datatable';
+import { NgxUIRouterUrlTypeFactoryModule } from 'ngx-ui-router-url-type-factory';
 
 import { NgxAnxLoadingScreenModule } from 'ngx-anx-loading-screen/ngx-anx-loading-screen.module';
 
@@ -33,6 +34,8 @@ import { IconsModule } from '@app/app.icons';
 
 import { fakeBackendProvider } from './shared/interceptors/fake-backend';
 import { loadingScreenProvider } from '@app/shared/interceptors/loader.interceptor';
+
+import { PostType } from '@app/shared/types/post.type';
 
 
 @NgModule({
@@ -60,10 +63,15 @@ import { loadingScreenProvider } from '@app/shared/interceptors/loader.intercept
             }
         }),
         NgxAnxLoadingScreenModule.forRoot(),
+        NgxUIRouterUrlTypeFactoryModule.forRoot({
+            types: [
+                PostType,
+            ]
+        }),
+        UIRouterModule.forRoot(routingConfig),
 
         // Application imports
         IconsModule,
-        UIRouterModule.forRoot(routingConfig),
         ServicesModule.forRoot(),
         SharedModule.forRoot(),
         AuthScreensModule.forRoot(),

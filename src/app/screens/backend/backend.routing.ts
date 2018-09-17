@@ -1,11 +1,12 @@
 import { Ng2StateDeclaration } from '@uirouter/angular';
 
+import { guardAuthenticated } from 'src/app/shared/guards/auth/auth.guard';
 import { BackendLayoutComponent } from '@app/layouts/backend-layout/backend-layout.component';
 import { HomeComponent } from './home/home.component';
 import { PostsScreenComponent } from './posts/posts-screen.component';
 import { UsersScreenComponent } from './users/users-screen.component';
 import { PermissionsScreenComponent } from './permissions/permissions-screen.component';
-import { guardAuthenticated } from 'src/app/shared/guards/auth/auth.guard';
+import { PostDetailComponent } from '@app/screens/backend/post-detail/post-detail.component';
 
 
 const stateBackend: Ng2StateDeclaration = {
@@ -25,9 +26,15 @@ const stateBackendHome = {
 };
 
 const stateBackendPosts = {
-    name: 'backend.tables',
-    url: '/tables',
+    name: 'backend.posts',
+    url: '/posts',
     component: PostsScreenComponent,
+};
+
+const stateBackendPostsDetail = {
+    name: 'backend.posts-detail',
+    url: '/post/{post:Post}',
+    component: PostDetailComponent,
 };
 
 const stateBackendUsers = {
@@ -47,5 +54,6 @@ export const backendStates = [
     stateBackendHome,
     stateBackendPermissions,
     stateBackendPosts,
+    stateBackendPostsDetail,
     stateBackendUsers,
 ];

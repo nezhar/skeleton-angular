@@ -14,6 +14,7 @@ import { HomeComponent } from './home/home.component';
 import { NgxDatatableModule } from '@swimlane/ngx-datatable';
 
 import { ComponentsModule } from '@app/components/components.module';
+import { PostDetailComponent } from './post-detail/post-detail.component';
 
 
 @NgModule({
@@ -31,6 +32,7 @@ import { ComponentsModule } from '@app/components/components.module';
     declarations: [
         PermissionsScreenComponent,
         PostsScreenComponent,
+        PostDetailComponent,
         UsersScreenComponent,
         HomeComponent,
     ],

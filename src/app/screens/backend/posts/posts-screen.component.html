@@ -32,3 +32,8 @@
         </ng-template>
     </ngx-datatable-footer>
 </ngx-datatable>
+
+
+<ng-template #titleColumn let-row="row" let-value="value">
+    <a uiSref="backend.posts-detail" [uiParams]="{post: row}">{{ value }} </a>
+</ng-template>

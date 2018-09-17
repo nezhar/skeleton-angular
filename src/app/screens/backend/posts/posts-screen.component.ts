@@ -1,4 +1,4 @@
-import { Component, EventEmitter, OnInit } from '@angular/core';
+import { Component, ElementRef, EventEmitter, OnInit, TemplateRef, ViewChild } from '@angular/core';
 
 import { LangChangeEvent, TranslateService } from '@ngx-translate/core';
 import { TableColumn } from '@swimlane/ngx-datatable';
@@ -17,6 +17,8 @@ export class PostsScreenComponent implements OnInit {
     tableColumns: TableColumn[] = [];
     languageSubscription: EventEmitter<LangChangeEvent> = null;
     paginationLimit = 10;
+
+    @ViewChild('titleColumn') titleColumn: TemplateRef<ElementRef>;
 
     constructor(public postResource: PostResource,
                 private translateService: TranslateService) {
@@ -61,6 +63,7 @@ export class PostsScreenComponent implements OnInit {
                 name: this.translateService.instant('Title'),
                 prop: 'title',
                 resizeable: false,
+                cellTemplate: this.titleColumn,
             },
             {
                 name: this.translateService.instant('Loaded at'),
