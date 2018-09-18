@@ -1,19 +1,19 @@
 image: gitlab.anx.local:4567/anexia-developme/skeleton-angular/node_base
 
 stages:
-  - code_review
-  - test_code
-  - build_docs
-  - build_app
+- code_review
+- test_code
+- build_docs
+- build_app
 
 cache:
   paths:
-    - node_modules/
+  - node_modules/
   key: "$CI_PROJECT_ID"
 
 before_script:
-  - cd src/
-  - npm install
+- cd src/
+- npm install
 
 #
 # CI Tasks
@@ -23,13 +23,13 @@ before_script:
 code_review:
   stage: code_review
   script:
-    - npm run lint
+  - npm run lint
 
 # Task for running tests
 test_code:
   stage: test_code
   script:
-    - npm run test
+  - npm run test
 
 
 # Builds the apps documentation and stores it as an artifact
@@ -37,15 +37,15 @@ test_code:
 documentation:
   stage: build_docs
   script:
-    - npm run generatedocs
+  - npm run generatedocs
   only:
-    - master
+  - master
   artifacts:
     when: on_success
     expire_in: 1 month
     name: "docs_$CI_COMMIT_REF_SLUG_$CI_COMMIT_SHA"
     paths:
-      - dist/docs/
+    - dist/docs/
 
 
 # Builds the apps storybook and stores it as an artifact
@@ -53,28 +53,28 @@ documentation:
 storybook:
   stage: build_docs
   script:
-    - npm run storybook-build
+  - npm run storybook-build
   only:
-    - master
+  - master
   artifacts:
     when: on_success
     expire_in: 1 month
     name: "storybook_$CI_COMMIT_REF_SLUG_$CI_COMMIT_SHA"
     paths:
-      - dist/storybook/
+    - dist/storybook/
 
 
 # Builds the app in development mode with the development environment and stores it as an artifact
 build_development:
   stage: build_app
   script:
-    - npm run app-build-dev
+  - npm run app-build-dev
   artifacts:
     when: on_success
     expire_in: 1 month
     name: "development_build_$CI_COMMIT_REF_SLUG_$CI_COMMIT_SHA"
     paths:
-      - dist/skeleton-angular/
+    - dist/skeleton-angular/
 
 
 # Builds the app in development mode with the staging environment and stores it as an artifact
@@ -82,15 +82,15 @@ build_development:
 build_staging:
   stage: build_app
   script:
-    - npm run app-build-stage
+  - npm run app-build-stage
   only:
-    - master
+  - master
   artifacts:
     when: on_success
     expire_in: 1 month
     name: "staging_build_$CI_COMMIT_REF_SLUG_$CI_COMMIT_SHA"
     paths:
-      - dist/skeleton-angular/
+    - dist/skeleton-angular/
 
 
 # Builds the app in production mode with the production environment and stores it as an artifact
@@ -98,15 +98,15 @@ build_staging:
 build_production:
   stage: build_app
   script:
-    - npm run app-build-prod
+  - npm run app-build-prod
   only:
-    - master
+  - master
   artifacts:
     when: on_success
     expire_in: 1 month
     name: "production_build_$CI_COMMIT_REF_SLUG_$CI_COMMIT_SHA"
     paths:
-      - dist/skeleton-angular/
+    - dist/skeleton-angular/
 
 
 # This is only used to verify that the app is building in production mode
@@ -114,6 +114,6 @@ build_production:
 build_production_test:
   stage: build_app
   script:
-    - npm run app-build-prod
+  - npm run app-build-prod
   except:
-    - master
+  - master

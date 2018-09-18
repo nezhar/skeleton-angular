@@ -9,6 +9,9 @@ This application uses these core components:
 * ng-bootstrap (using Bootstrap 4.1)
 * angular-fontawesome (using Font Awesome 5)
 
+For generating documentation we use:
+* Compodoc 1.1.x
+* Angular Storybook 4.0.x
 
 ## Installation instructions for development
 
@@ -16,13 +19,16 @@ It is expected you have `docker` as well as `docker-compose` set up and running 
 
 To initially build and run the application, do the steps as follows:
 * Create the `docker-compose.yml` from the example: `cp docker-compose.yml.example docker-compose.yml`
+* Make sure you can access the [Internal Docker Registry](https://ais.anexia-it.com/display/SI/Interne+Docker+Registry)
 * Build the docker container: `docker-compose build`
-* Install the NPM dependencies: `docker-compose run node npm install`
+* Install the NPM dependencies: `docker-compose run --rm node npm install`
 * Build the application, start development server and watch for changes: `docker-compose up`
 
 ## Installation and update instructions for deployment
 
 You may need the following common tasks during the development of the application:
+* Run code lint: `docker-compose run --rm node "npm run lint"`
+* Run unit tests: `docker-compose run --rm node "npm run test"`
 * Collect all translatable strings: `docker-compose run --rm node "npm run makemessages"`
 * Add a NPM dependency to the application: `docker-compose run --rm "node npm install --save DEPENDENCY_NAME"`
 * Add a NPM development-only dependency to the application: `docker-compose run --rm node "npm install --save-dev DEPENDENCY_NAME"`
@@ -31,13 +37,13 @@ You may need the following common tasks during the development of the applicatio
 
 All of the commands described below assume that you have your docker-compose up and running (e.g. by using `docker-compose up`).
 * Build the application for production: `docker-compose run --rm node "npm run build"`
-* Build the documentation: `docker-compose run ---rm node "npm run generatedocs"`
-* Run the test suite: `docker-compose run --rm node "npm run test"`
-* Run `s` to generate a new component. You can also use `ng generate directive|pipe|service|class|guard|interface|enum|module`
+* Build the documentation: `docker-compose run --rm node "npm run generatedocs"`
+* Build the storybook: `docker-compose run --rm node "npm run storybook-build"`
 
 ### Adding screens
 
-Screens are regular Angular components which follow some internal established conventions:
+Screens are regular Angular components that are used to bind routes with visual elements.
+They follow some internal established conventions:
 
 * They are declared inside a screens module and not exported, so they are used only inside the module
 * Remove the selector as the components will be instantiated by the ui router
@@ -45,6 +51,7 @@ Screens are regular Angular components which follow some internal established co
 
 ```
 const stateFrontendHome: Ng2StateDeclaration = {
+    name: 'frontend.home',
     url: '/home',
     component: HomeComponent,
 };
@@ -55,32 +62,170 @@ export const frontendStates = [
 
 ```
 
+You can generate screens using the Angular CLI:
+`docker-compose run --rm node "ng generate component app/screens/{screenModule}/{screenName}"`
+
+* **screenModule** - is the name of the screen module (auth|frontend|backend)
+* **screenName** - in the name of the new screen
+
+The screen component will be added automatically by the CLI in the declarations of the screen module.
+
+
+### Adding wrapper screens
+
+A wrapper screen is a Angular component that is used to hold child component in Routing.
+They must declare the ui-view component in their template. Here is a sample for the PostsComponent:
+
+```
+const stateBackendPosts = {
+    name: 'backend.posts',
+    url: '/posts',
+    component: PostsComponent,
+    redirectTo: 'backend.posts.list',
+};
+
+const stateBackendPostsList = {
+    name: 'backend.posts.list',
+    url: '',
+    component: PostsListComponent,
+};
+
+const stateBackendPostsDetail = {
+    name: 'backend.posts.detail',
+    url: '/{post:Post}',
+    component: PostDetailComponent,
+};
+
+export const frontendStates = [
+    stateFrontendHome,
+    stateBackendPostsList,
+    stateBackendPostsDetail,
+];
+```
+
+The PostsComponent is held very simple and hold only the ui-view.
+
+```
+import { Component } from '@angular/core';
+
+@Component({
+    template: '<ui-view></ui-view>',
+})
+export class PostsComponent {
+}
+
+```
+
+This allows to load the PostsListComponent or PostDetailComponent component (depending on the current route) in the available ui-view
+and also to used the nested routing feature of the ui-router. The template in the PostsComponent can also be outsourced to a html file as
+in regular components and extended (like with a sub navigation), but make sure that this behavior is required, as this will load the
+extended template on all child routes, and only the ui-view will be allocated for the child components.
+
+
 ### Adding components
 
-... todo
+The components module holds Angular components that are used inside **screens**, **modals** or other **components**.
+
+Run `docker-compose run --rm node "ng generate component app/components/{componentName}"` to add a new component.
+
+The new component will be added directly in the declarations of the component module, located under `src/app/components/components.module.ts`.
+Open the file an make sure to also add the component in the **exports** array, so the component can be used in the other modules.
+
+Make sure that the ComponentsModule is declared in the **imports** array of the **@NgModule** you want to use the component.
 
 
 ### Adding modals
 
-... todo
+The modals module holds Angular components that are used in modal dialogs, using the **NgbModal** service.
 
+Run `docker-compose run --rm node "ng generate component app/modals/{modalName}"` to add a new modal.
+
+The new component will be added directly in the declarations of the modal module, located under `src/app/modals/modals.module.ts`.
+Open the file an make sure to also add the component in the **entryComponents** array, so the component can be loaded using NgbModal.
+
+Always extend the **ModalBaseComponent** in a newly created modal, and use the provided content areas in the template
+
+```
+<app-modal-base>
+    <span modal-title></span>
+    <div modal-body></div>
+    <span modal-footer></span>
+</app-modal-base>
+
+```
+
+Use the *ModalPostDetailComponent* as a sample.
 
 ### Adding services
 
-... todo
+The **services** module is dedicated for creating service.
+
+Run `docker-compose run --rm node "ng generate service app/services/{serviceFolder}/{serviceName}"` to add a new modal.
+
+This will generate a new folder for the service, and also the .service.ts and .spec.ts files inside.
+Make sure to add the newly created service in the module (under `src/app/services/services.module.ts`),
+as this is not done by the CLI.
 
 ### Adding resources
 
-... todo
+Resources are also services, they act in the application similar to a data model.
+You have to create them manually under `src/app/services/resources`
+By convention we always name the file `{resourceName}.resource.ts`
+
+Resources cam be injected into any component and are used to fetch data from
+an external source.
+
+Use the *PostResource* and the *UserResource* as samples.
+
+### Adding types
+
+Types are used inside the state declarations of the UI Router.
+They allow to map an existing object to a given Route.
+
+Types are located in `src/app/shared/types/`.
+By convention we always name the file `{resourceName}.type.ts`
+
+Each type must be added in `src/app/app.module.ts` in the types list declared in
+the forRoot method of the **NgxUIRouterUrlTypeFactoryModule**
+
+```
+NgxUIRouterUrlTypeFactoryModule.forRoot({
+    types: [
+        PostType,
+    ]
+}),
+```
+
+Use the *PostType* as a sample.
 
 ### Adding modules
 
-... todo
+**modules** is the location where you would add code that can be potentially
+used in other applications or that is meant to be published on a package repository like NPM.
 
+Run `docker-compose run --rm node "ng generate module app/modules/{moduleName}"` to create a new module.
+
+Make sure that your module is declared in app.module.ts or in the module where you want to use the provided function.
+
+If your declare components in your module, make sure that they are using `anx-` as a prefix in the component selector.
+
+You can also add a the new module in the tsconfig.json paths for a more convenient loading:
+
+```
+    "paths": {
+        "@app/*": [ "src/app/*" ],
+        "ngx-anx-forms/*": [ "src/app/modules/ngx-anx-forms/*" ],
+        "ngx-anx-loading-screen/*": [ "src/app/modules/ngx-anx-loading-screen/*" ]
+    },
+```
 
 ### Manage translations
 
-... todo
+Use `docker-compose run --rm node "npm run makemessages"` to collect all available translations.
+
+All available languages are managed in the `LanguageService` located under `src/app/services/language/language.service.ts`
+
+The translations files are located under `src/assets/locales`
 
 ## Instructions for project
 
@@ -88,41 +233,58 @@ export const frontendStates = [
 * Only deploy production builds to staging and production servers
 * Only deploy the application if all tests pass
 
-### Application bootstrapping
+### Application bootstrapping/entry point
 
-... todo
+... todo:
+
+* How application load (MainComponent, ui-view)
+* Architecture diagram
+
 
 ### Replace the fake backend
 
+The fake backend is currently simulating the default authentication prodived by the [Django Skeleton](https://gitlab.anx.local/anexia-developme/skeleton-django)
+In order to remove this you have to remove the `fake-backend.ts` from `src/app/shared/interceptors`. Also make sure that you remove all declarations of the fake backend.
+The AuthenticationResource and the UserResource need to be reconfigured to use the appropriate REST APIs.
+
+### JWT Authentication
+
 ... todo
 
+### Usage of Layouts
+
+... todo
 
 ## Notes for dependencies
 
+Some of the applications dependencies cannot be upgraded. Here you can find out why.
+Make sure to keep this list updated when making changes to the applications dependencies.
 
-#### rxjs - 6.2.2
+#### rxjs - 6.2.2 and rxjs-compat - 6.2.2
 
-... todo
-
-#### rxjs-compat - 6.2.2
-
-... todo
+There are some issues with observables and promises when upgrading to 6.3
+Probably they are cause in the *ngx-resource-factory*
 
 #### typescript - 2.9
 
-... todo
+Angular 2.9 is the maximum that Angular 6 is currently supporting.
 
 #### @storybook - 4.0.0-alpha.21
 
-... todo
+We use the alpha version here as this is providing some features that are required for Angular 6.
+Also this is a dev dependency and is not causing any harm to the application.
+It should be updated to stable once it is available.
 
 #### date-fns - 2.0.0-alpha.16
 
-... todo
+It should be updated to stable once it is available.
 
 #### @uirouter/angular - 1.1.0
 
-... todo
+The ngx-ui-router-url-type-factory requires version ^1.0.1 as a dependency.
+A [pull request](https://github.com/anx-astocker/ngx-ui-router-url-type-factory/pull/1)
+to change this to a peerDependency is already made. Once this is merged we can upgrade
+to version 2.x  @uirouter/angular
 
 ## List of developers
 
@@ -139,4 +301,6 @@ export const frontendStates = [
 * [ng-bootstrap documentation](https://ng-bootstrap.github.io/#/home)
 * [Font Awesome 5 icons](https://fontawesome.com/icons?d=gallery&m=free)
 * [Angular Font Awesome docs](https://github.com/FortAwesome/angular-fontawesome)
+* [Angular Storyybook docs](https://storybook.js.org/basics/guide-angular/)
+* [Compodoc docs](https://compodoc.app/)
 * [GitLab flavored markdown](https://docs.gitlab.com/ee/user/markdown.html)

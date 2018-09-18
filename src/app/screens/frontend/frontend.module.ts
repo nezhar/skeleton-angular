@@ -7,11 +7,13 @@ import { TranslateModule } from '@ngx-translate/core';
 import { FontAwesomeModule } from '@fortawesome/angular-fontawesome';
 
 import { HomeComponent } from './home/home.component';
+import { ComponentsModule } from '@app/components/components.module';
 
 
 @NgModule({
     imports: [
         CommonModule,
+        ComponentsModule,
         FormsModule,
         UIRouterModule,
         TranslateModule,
