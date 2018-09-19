@@ -45,11 +45,11 @@ All of the commands described below assume that you have your docker-compose up 
 Screens are regular Angular components that are used to bind routes with visual elements.
 They follow some internal established conventions:
 
-* They are declared inside a screens module and not exported, so they are used only inside the module
-* Remove the selector as the components will be instantiated by the ui router
-* Add routing declaration and export it in the working module:
+* They are declared inside a screens module (e.g., `frontend`) and not exported, so they are used only inside the module
+* Remove the selector of the screen from `@Component()`, as the components will be instantiated by the ui router
+* Add routing declaration and export it in the screens module routing declaration (e.g., `frontend.routing.ts`):
 
-```
+```typescript
 const stateFrontendHome: Ng2StateDeclaration = {
     name: 'frontend.home',
     url: '/home',
@@ -73,10 +73,10 @@ The screen component will be added automatically by the CLI in the declarations 
 
 ### Adding wrapper screens
 
-A wrapper screen is a Angular component that is used to hold child component in Routing.
+A wrapper screen is an Angular component that is used to hold child component in Routing.
 They must declare the ui-view component in their template. Here is a sample for the PostsComponent:
 
-```
+```typescript
 const stateBackendPosts = {
     name: 'backend.posts',
     url: '/posts',
@@ -103,9 +103,9 @@ export const frontendStates = [
 ];
 ```
 
-The PostsComponent is held very simple and hold only the ui-view.
+The `PostsComponent` is kept very simple and contains only the ui-view within its template.
 
-```
+```typescript
 import { Component } from '@angular/core';
 
 @Component({
@@ -116,7 +116,7 @@ export class PostsComponent {
 
 ```
 
-This allows to load the PostsListComponent or PostDetailComponent component (depending on the current route) in the available ui-view
+This allows to load the `PostsListComponent` or `PostDetailComponent` component (depending on the current route) in the available ui-view
 and also to used the nested routing feature of the ui-router. The template in the PostsComponent can also be outsourced to a html file as
 in regular components and extended (like with a sub navigation), but make sure that this behavior is required, as this will load the
 extended template on all child routes, and only the ui-view will be allocated for the child components.
@@ -145,7 +145,7 @@ Open the file an make sure to also add the component in the **entryComponents** 
 
 Always extend the **ModalBaseComponent** in a newly created modal, and use the provided content areas in the template
 
-```
+```html
 <app-modal-base>
     <span modal-title></span>
     <div modal-body></div>
@@ -188,7 +188,7 @@ By convention we always name the file `{resourceName}.type.ts`
 Each type must be added in `src/app/app.module.ts` in the types list declared in
 the forRoot method of the **NgxUIRouterUrlTypeFactoryModule**
 
-```
+```typescript
 NgxUIRouterUrlTypeFactoryModule.forRoot({
     types: [
         PostType,
@@ -211,7 +211,7 @@ If your declare components in your module, make sure that they are using `anx-` 
 
 You can also add a the new module in the tsconfig.json paths for a more convenient loading:
 
-```
+```typescript
     "paths": {
         "@app/*": [ "src/app/*" ],
         "ngx-anx-forms/*": [ "src/app/modules/ngx-anx-forms/*" ],
