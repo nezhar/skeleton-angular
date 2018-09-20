@@ -1,6 +1,7 @@
 <div class="form-check">
     <label [ngClass]="{disabled: readonly}">
         <input
+            #inputField="ngModel"
             type="checkbox"
             class="form-check-input"
             [ngModel]="value"

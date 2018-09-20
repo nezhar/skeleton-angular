@@ -20,8 +20,4 @@ import { InputComponent } from '../input/input.component';
 })
 export class InputCheckboxComponent extends InputComponent {
     @Input() public label: string = '';
-
-    displayErrors(): boolean {
-        return !!this.errors;
-    }
 }
