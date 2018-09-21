@@ -12,12 +12,12 @@ import { debounceTime, startWith } from 'rxjs/operators';
 
 
 @Component({
-    templateUrl: './posts-list.component.html',
+    templateUrl: './post-list.component.html',
     styleUrls: [
-        './posts-list.component.scss'
+        './post-list.component.scss'
     ]
 })
-export class PostsListComponent implements OnInit, OnDestroy {
+export class PostListComponent implements OnInit, OnDestroy {
     items = [];
     tableColumns: TableColumn[] = [];
     languageSubscription: EventEmitter<LangChangeEvent> = null;

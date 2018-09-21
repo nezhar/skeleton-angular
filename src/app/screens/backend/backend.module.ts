@@ -13,7 +13,7 @@ import { ComponentsModule } from '@app/components/components.module';
 
 import { HomeComponent } from '@app/screens/backend/home/home.component';
 import { PostsComponent } from '@app/screens/backend/posts/posts.component';
-import { PostsListComponent } from '@app/screens/backend/posts/post-list/posts-list.component';
+import { PostListComponent } from '@app/screens/backend/posts/post-list/post-list.component';
 import { PostDetailComponent } from '@app/screens/backend/posts/post-detail/post-detail.component';
 import { UsersComponent } from '@app/screens/backend/users/users.component';
 
@@ -35,7 +35,7 @@ import { UsersComponent } from '@app/screens/backend/users/users.component';
     declarations: [
         HomeComponent,
         PostsComponent,
-        PostsListComponent,
+        PostListComponent,
         PostDetailComponent,
         UsersComponent,
     ],

@@ -4,7 +4,7 @@ import { guardAuthenticated } from 'src/app/shared/guards/auth/auth.guard';
 import { BackendLayoutComponent } from '@app/layouts/backend-layout/backend-layout.component';
 import { HomeComponent } from '@app/screens/backend/home/home.component';
 import { PostsComponent } from '@app/screens/backend/posts/posts.component';
-import { PostsListComponent } from '@app/screens/backend/posts/post-list/posts-list.component';
+import { PostListComponent } from '@app/screens/backend/posts/post-list/post-list.component';
 import { PostDetailComponent } from '@app/screens/backend/posts/post-detail/post-detail.component';
 import { UsersComponent } from '@app/screens/backend/users/users.component';
 
@@ -35,7 +35,7 @@ const stateBackendPosts = {
 const stateBackendPostsList = {
     name: 'backend.posts.list',
     url: '',
-    component: PostsListComponent,
+    component: PostListComponent,
 };
 
 const stateBackendPostsDetail = {
