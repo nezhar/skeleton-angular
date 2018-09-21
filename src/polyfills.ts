@@ -18,6 +18,13 @@
  * BROWSER POLYFILLS
  */
 
+/**
+ * Angular CLI come default with core-js polyfills.
+ * You can use babel-polyfill instead, depending on the project.
+ * Important: Don't mix babel-polyfill and core-js as they provide similar features
+ */
+// import 'babel-polyfill';  // Run `npm install --save babel-polyfill`.
+
 /** IE9, IE10 and IE11 requires all of the following polyfills. **/
 // import 'core-js/es6/symbol';
 // import 'core-js/es6/object';
