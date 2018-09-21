@@ -1,4 +1,12 @@
 <h1>{{ 'Hi :first_name:!' | translate:currentUser }} </h1>
 
 <p>{{ "You're logged in!" | translate }}</p>
+
+
+<h2>Clicks: {{ count | async }}</h2>
+<app-button role="primary" (click)="add()">{{ "Add" | translate }}</app-button>
+<app-button role="defalut" (click)="clear()">{{ "Clear" | translate }}</app-button>
+
+<hr>
+
 <p><a uiSref="auth.logout">{{ "Logout" | translate }}</a></p>

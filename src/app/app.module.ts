@@ -1,8 +1,7 @@
-import { NgModule, ApplicationRef } from '@angular/core';
+import { NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
 import { HttpClient, HttpClientModule, HTTP_INTERCEPTORS } from '@angular/common/http';
 
-// import {removeNgStyles, createNewHosts, createInputTransfer} from '@angularclass/hmr';
 import { MissingTranslationHandler, TranslateLoader, TranslateModule } from '@ngx-translate/core';
 import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
 import { UIRouterModule } from '@uirouter/angular';
@@ -10,7 +9,7 @@ import { NgxResourceFactoryModule } from 'ngx-resource-factory';
 import { FontAwesomeModule } from '@fortawesome/angular-fontawesome';
 import { NgxDatatableModule } from '@swimlane/ngx-datatable';
 import { NgxUIRouterUrlTypeFactoryModule } from 'ngx-ui-router-url-type-factory';
-
+import { NgxsModule } from '@ngxs/store';
 import { NgxAnxLoadingScreenModule } from 'ngx-anx-loading-screen/ngx-anx-loading-screen.module';
 
 import { routingConfig } from './app.routing';
@@ -34,6 +33,7 @@ import { fakeBackendProvider } from './shared/interceptors/fake-backend';
 import { loadingScreenProvider } from '@app/shared/interceptors/loader.interceptor';
 
 import { PostType } from '@app/shared/types/post.type';
+import { states } from '@app/services/state/app.state';
 
 
 @NgModule({
@@ -67,6 +67,8 @@ import { PostType } from '@app/shared/types/post.type';
             ]
         }),
         UIRouterModule.forRoot(routingConfig),
+        NgxsModule.forRoot(states),
+
 
         // Application imports
         IconsModule,
@@ -93,45 +95,4 @@ import { PostType } from '@app/shared/types/post.type';
     ],
     declarations: []
 })
-export class AppModule {
-    constructor(public appRef: ApplicationRef) {}
-
-/*     hmrOnInit(store) {
-        // Do nothing if we did not get a valid store object
-        if (!store) {
-            return;
-        }
-
-        // Restore the values of the input fields if we got
-        // an input transfer object in the store
-        if ('restoreInputValues' in store) {
-            store.restoreInputValues();
-        }
-
-        // Trigger angular change detection
-        this.appRef.tick();
-
-        // Now we clean up the store
-        delete store.restoreInputValues;
-    }
-
-    hmrOnDestroy(store) {
-        let cmpLocation = this.appRef.components.map(cmp => cmp.location.nativeElement);
-
-        // Put helper functions on store for re-creating the host elements,
-        // removing the old ones and restoring form inputs after HMR
-        store.disposeOldHosts = createNewHosts(cmpLocation);
-        store.restoreInputValues  = createInputTransfer();
-
-        // Remove old styles from the application
-        removeNgStyles();
-    }
-
-    hmrAfterDestroy(store) {
-        // Remove old elements and show new ones
-        store.disposeOldHosts();
-
-        // Now we clean up the store
-        delete store.disposeOldHosts;
-    } */
-}
+export class AppModule {}
