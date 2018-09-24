@@ -10,6 +10,9 @@ import { FontAwesomeModule } from '@fortawesome/angular-fontawesome';
 import { NgxDatatableModule } from '@swimlane/ngx-datatable';
 import { NgxUIRouterUrlTypeFactoryModule } from 'ngx-ui-router-url-type-factory';
 import { NgxsModule } from '@ngxs/store';
+import { NgxsReduxDevtoolsPluginModule } from '@ngxs/devtools-plugin';
+import { NgxsStoragePluginModule } from '@ngxs/storage-plugin';
+
 import { NgxAnxLoadingScreenModule } from 'ngx-anx-loading-screen/ngx-anx-loading-screen.module';
 
 import { routingConfig } from './app.routing';
@@ -32,6 +35,7 @@ import { ModalsModule } from '@app/modals/modals.module';
 import { fakeBackendProvider } from './shared/interceptors/fake-backend';
 import { loadingScreenProvider } from '@app/shared/interceptors/loader.interceptor';
 
+import { environment } from 'src/environments/environment';
 import { PostType } from '@app/shared/types/post.type';
 import { states } from '@app/services/state/app.state';
 
@@ -68,7 +72,10 @@ import { states } from '@app/services/state/app.state';
         }),
         UIRouterModule.forRoot(routingConfig),
         NgxsModule.forRoot(states),
-
+        NgxsStoragePluginModule.forRoot(),
+        NgxsReduxDevtoolsPluginModule.forRoot({
+            disabled: !!environment.production
+        }),
 
         // Application imports
         IconsModule,
