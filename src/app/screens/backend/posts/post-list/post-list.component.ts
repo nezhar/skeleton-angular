@@ -88,7 +88,7 @@ export class PostListComponent implements OnInit, OnDestroy {
                 console.log(data);
 
                 // The filter is only implemented because the test REST API has no implemented search filter
-                this.items = data.filter(post => post.title.startsWith(filter.search));
+                this.items = data.filter(post => post.title && post.title.startsWith(filter.search));
             })
             .catch((reason) => {
                 console.log('PostResource error:');

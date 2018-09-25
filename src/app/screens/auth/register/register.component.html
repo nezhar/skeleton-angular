@@ -4,30 +4,35 @@
 
     <span>{{ 'First Name' | translate }}</span>
     <anx-forms-input
+            id="first-name"
             formControlName="first_name"
             [errors]="registerForm.get('first_name').errors"
     ></anx-forms-input>
 
     <span>{{ 'Last Name' | translate }}</span>
     <anx-forms-input
+            id="last-name"
             formControlName="last_name"
             [errors]="registerForm.get('last_name').errors"
     ></anx-forms-input>
 
     <span>{{ 'Username' | translate }}</span>
     <anx-forms-input
+            id="username"
             formControlName="username"
             [errors]="registerForm.get('username').errors"
     ></anx-forms-input>
 
     <span>{{ 'Password' | translate }}</span>
     <anx-forms-input
+            id="password"
             type="password"
             formControlName="password"
             [errors]="registerForm.get('password').errors"
     ></anx-forms-input>
 
     <anx-forms-input-checkbox
+            id="superuser"
             formControlName="superuser"
             [errors]="registerForm.get('superuser').errors"
             [label]="'Is Superuser?' | translate"

@@ -26,7 +26,16 @@ export class LoaderInterceptor implements HttpInterceptor {
     }
 
     intercept(request: HttpRequest<any>, next: HttpHandler): Observable<HttpEvent<any>> {
-        if (!new RegExp(this.ignoreUrls.join('|')).test(request.url)) {
+        let displayLoadingScreen = true;
+
+        for (const ignoreUrl of this.ignoreUrls) {
+            if (new RegExp(ignoreUrl).test(request.url)) {
+                displayLoadingScreen = false;
+                break;
+            }
+        }
+
+        if (displayLoadingScreen) {
             if (this.activeRequests === 0) {
                 this.loadingScreenService.show();
             }
