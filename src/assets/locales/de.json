@@ -27,6 +27,8 @@
 	"Is Superuser?": "Ist Superuser?",
 	"Hi :first_name:!": "Hallo {{ first_name }}!",
 	"You're logged in!": "Du bist eingeloggt!",
+	"Add": "Hinzufügen",
+	"Clear": "Löschen",
 	"Logout": "Ausloggen",
 	"Back": "Zurück",
 	"Search": "Suchen",

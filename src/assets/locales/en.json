@@ -27,6 +27,8 @@
 	"Is Superuser?": "Is Superuser?",
 	"Hi :first_name:!": "Hi {{ first_name }}!",
 	"You're logged in!": "You're logged in!",
+	"Add": "Add",
+	"Clear": "Clear",
 	"Logout": "Logout",
 	"Back": "Back",
 	"Search": "Search",
