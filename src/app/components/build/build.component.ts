@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
-import { environment } from 'src/environments/environment';
-import { VERSION } from 'src/environments/version';
+
+import { environment } from '@env/environment';
+import { VERSION } from '@env/version';
 
 @Component({
     selector: 'app-build',

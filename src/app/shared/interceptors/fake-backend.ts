@@ -33,6 +33,7 @@ export class FakeBackendInterceptor implements HttpInterceptor {
 
         // wrap in delayed observable to simulate server api call
         return Observable.of(null).mergeMap(() => {
+            console.log(`Fake Backend | ${request.method}: ${request.url}, Body: ${JSON.stringify(request.body)}`);
 
             // authenticate
             if (request.url.endsWith('/api/authenticate') && request.method === 'POST') {
@@ -55,43 +56,64 @@ export class FakeBackendInterceptor implements HttpInterceptor {
 
             // authverify
             if (request.url.endsWith('/api/authverify') && request.method === 'POST') {
-                const
-                    token = request.body.token,
-                    username = token.split(':')[1],
-                    filteredUsers = users.filter(user => {
-                        return user.username === username;
-                    });
+                const token = request.body.token;
 
-                if (filteredUsers.length) {
-                    // if login details are valid return 200 OK with user details and fake jwt token
+                // Simulate expired token
+                // return Observable.throwError('Expired token!');
+
+                if (token) {
                     const
-                        user = filteredUsers[0],
-                        body = this.userBody(user);
-                    return Observable.of(new HttpResponse({ status: 200, body: body }));
+                        username = token.split(':')[1],
+                        filteredUsers = users.filter(user => {
+                            return user.username === username;
+                        });
+
+                    if (filteredUsers.length) {
+                        // if login details are valid return 200 OK with user details and fake jwt token
+                        const
+                            user = filteredUsers[0],
+                            body = this.userBody(user);
+
+                        return Observable.of(new HttpResponse({ status: 200, body: body }));
+                    } else {
+                        // Return 400 bad request
+                        return Observable.throwError('Invalid token!');
+                    }
                 } else {
-                    // else return 400 bad request
-                    return Observable.throwError('Invalid token!');
+                    // Return 400 bad request
+                    return Observable.throwError('Missing token!');
                 }
             }
 
             // authrefresh
             if (request.url.endsWith('/api/authrefresh') && request.method === 'POST') {
                 const
-                    token = request.body.token,
-                    username = token.split(':')[1],
-                    filteredUsers = users.filter(user => {
-                        return user.username === username;
-                    });
+                    token = request.body.token;
 
-                if (filteredUsers.length) {
-                    // if login details are valid return 200 OK with user details and fake jwt token
+                // Simulate expired token
+                // return Observable.throwError('Expired token!');
+
+                if (token) {
                     const
-                        user = filteredUsers[0],
-                        body = this.userBody(user);
-                    return Observable.of(new HttpResponse({ status: 200, body: body }));
+                        username = token.split(':')[1],
+                        filteredUsers = users.filter(user => {
+                            return user.username === username;
+                        });
+
+                    if (filteredUsers.length) {
+                        // if login details are valid return 200 OK with user details and fake jwt token
+                        const
+                            user = filteredUsers[0],
+                            body = this.userBody(user);
+
+                        return Observable.of(new HttpResponse({status: 200, body: body}));
+                    } else {
+                        // Return 400 bad request
+                        return Observable.throwError('Invalid token!');
+                    }
                 } else {
-                    // else return 400 bad request
-                    return Observable.throwError('Invalid token!');
+                    // Return 400 bad request
+                    return Observable.throwError('Missing token!');
                 }
             }
 
@@ -170,6 +192,8 @@ export class FakeBackendInterceptor implements HttpInterceptor {
                     return Observable.throwError('Unauthorised');
                 }
             }
+
+            console.log(`Fake Backend | ${request.method}: ${request.url} not processed -> going to real api`);
 
             // pass through any requests not handled above
             return next.handle(request);

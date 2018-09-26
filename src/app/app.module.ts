@@ -1,6 +1,6 @@
 import { NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
-import { HttpClient, HttpClientModule, HTTP_INTERCEPTORS } from '@angular/common/http';
+import { HttpClient, HttpClientModule } from '@angular/common/http';
 
 import { MissingTranslationHandler, TranslateLoader, TranslateModule } from '@ngx-translate/core';
 import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
@@ -15,29 +15,29 @@ import { NgxsStoragePluginModule } from '@ngxs/storage-plugin';
 
 import { NgxAnxLoadingScreenModule } from 'ngx-anx-loading-screen/ngx-anx-loading-screen.module';
 
-import { routingConfig } from './app.routing';
-import { AppMissingTranslationHandler, createTranslatePoHttpLoader } from './services/language/language.helper';
-import { MainComponent } from './layouts/main/main.component';
-import { SharedModule } from './shared/shared.module';
-import { ServicesModule } from './services/services.module';
-import { LayoutsModule } from './layouts/layouts.module';
-import { ComponentsModule } from './components/components.module';
+import { routingConfig } from '@app/app.routing';
+import { AppMissingTranslationHandler, createTranslatePoHttpLoader } from '@app/services/language/language.helper';
+import { MainComponent } from '@app/layouts/main/main.component';
+import { SharedModule } from '@app/shared/shared.module';
+import { ServicesModule } from '@app/services/services.module';
+import { LayoutsModule } from '@app/layouts/layouts.module';
+import { ComponentsModule } from '@app/components/components.module';
 
-import { AuthScreensModule } from './screens/auth/auth.module';
-import { FrontendScreensModule } from './screens/frontend/frontend.module';
-import { BackendScreensModule } from './screens/backend/backend.module';
+import { AuthScreensModule } from '@app/screens/auth/auth.module';
+import { FrontendScreensModule } from '@app/screens/frontend/frontend.module';
+import { BackendScreensModule } from '@app/screens/backend/backend.module';
 
-import { JwtInterceptor } from './shared/interceptors/jwt.interceptor';
+import { jwtProvider } from '@app/shared/interceptors/jwt.interceptor';
+import { appStorageProvider } from '@app/shared/storage/app.storage';
+import { fakeBackendProvider } from '@app/shared/interceptors/fake-backend';
+import { loadingScreenProvider } from '@app/shared/interceptors/loader.interceptor';
 
 import { IconsModule } from '@app/app.icons';
 import { ModalsModule } from '@app/modals/modals.module';
 
-import { fakeBackendProvider } from './shared/interceptors/fake-backend';
-import { loadingScreenProvider } from '@app/shared/interceptors/loader.interceptor';
-
-import { environment } from 'src/environments/environment';
+import { environment } from '@env/environment';
 import { PostType } from '@app/shared/types/post.type';
-import { states } from '@app/services/state/app.state';
+import { states } from '@app/shared/state/app.state';
 
 
 @NgModule({
@@ -74,7 +74,7 @@ import { states } from '@app/services/state/app.state';
         NgxsModule.forRoot(states),
         NgxsStoragePluginModule.forRoot(),
         NgxsReduxDevtoolsPluginModule.forRoot({
-            disabled: !!environment.production
+            disabled: environment.production
         }),
 
         // Application imports
@@ -92,14 +92,12 @@ import { states } from '@app/services/state/app.state';
         MainComponent,
     ],
     providers: [
-        {
-            provide: HTTP_INTERCEPTORS,
-            useClass: JwtInterceptor,
-            multi: true
-        },
+        jwtProvider,
         fakeBackendProvider,
+        appStorageProvider,
         loadingScreenProvider,
     ],
     declarations: []
 })
-export class AppModule {}
+export class AppModule {
+}

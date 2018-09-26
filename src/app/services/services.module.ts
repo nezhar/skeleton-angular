@@ -4,7 +4,6 @@ import { LanguageService } from './language/language.service';
 import { PostResource } from 'src/app/services/resource/post.resource';
 import { UserResource } from 'src/app/services/resource/user.resource';
 import { AuthenticationResource } from 'src/app/services/resource/authentication.resource';
-import { AuthenticationService } from '@app/services/authentication/authentication.service';
 import { AuthenticationGuard } from '@app/shared/guards/auth/auth.guard';
 import { AlertService } from '@app/services/alert/alert.service';
 
@@ -30,7 +29,6 @@ export class ServicesModule {
                 // Services
                 AlertService,
                 LanguageService,
-                AuthenticationService,
                 AuthenticationGuard,
             ]
         };

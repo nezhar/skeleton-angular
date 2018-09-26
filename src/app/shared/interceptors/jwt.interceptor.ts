@@ -1,10 +1,10 @@
 import { Injectable } from '@angular/core';
-import { HttpRequest, HttpHandler, HttpEvent, HttpInterceptor } from '@angular/common/http';
+import { HttpRequest, HttpHandler, HttpEvent, HttpInterceptor, HTTP_INTERCEPTORS } from '@angular/common/http';
 
 import { Observable } from 'rxjs/Observable';
+import { Store } from '@ngxs/store';
 
-import { environment } from 'src/environments/environment';
-import { AUTHENTICATION_TOKEN_NAME } from '@app/services/authentication/authentication.service';
+import { environment } from '@env/environment';
 
 
 @Injectable()
@@ -19,10 +19,11 @@ export class JwtInterceptor implements HttpInterceptor {
         environment.api_url,
     ];
 
+    constructor(private store: Store) {
+    }
+
     intercept(request: HttpRequest<any>, next: HttpHandler): Observable<HttpEvent<any>> {
-        const
-            tokenName = AUTHENTICATION_TOKEN_NAME,
-            token = window.localStorage.getItem(tokenName) || null;
+        const token = this.store.snapshot().auth.token;
         let addAuthHeaders = false;
 
         for (const allowedUrl of this.allowedUrls) {
@@ -43,3 +44,9 @@ export class JwtInterceptor implements HttpInterceptor {
         return next.handle(request);
     }
 }
+
+export let jwtProvider =  {
+    provide: HTTP_INTERCEPTORS,
+    useClass: JwtInterceptor,
+    multi: true
+};

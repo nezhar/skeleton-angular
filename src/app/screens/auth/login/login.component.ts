@@ -2,8 +2,9 @@ import { Component, OnInit } from '@angular/core';
 
 import { StateService } from '@uirouter/angular';
 import { AlertService } from 'src/app/services/alert/alert.service';
-import { AuthenticationService } from '@app/services/authentication/authentication.service';
 import { FormControl, FormGroup, Validators } from '@angular/forms';
+import { Store } from '@ngxs/store';
+import { Login } from '@app/shared/state/auth/auth.actions';
 
 
 @Component({
@@ -18,7 +19,7 @@ export class LoginComponent implements OnInit {
 
     constructor(
         private state: StateService,
-        private authenticationService: AuthenticationService,
+        private store: Store,
         private alertService: AlertService) {
     }
 
@@ -35,7 +36,9 @@ export class LoginComponent implements OnInit {
             password = this.loginForm.get('password').value;
 
         this.loading = true;
-        this.authenticationService.login(username, password)
+        this.store
+            .dispatch(new Login(username, password))
+            .toPromise()
             .then(
                 () => {
                     this.alertService.success('Login successful');

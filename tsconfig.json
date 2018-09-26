@@ -4,6 +4,7 @@
     "baseUrl": "./",
     "paths": {
         "@app/*": [ "src/app/*" ],
+        "@env/*": [ "src/environments/*" ],
         "ngx-anx-forms/*": [ "src/app/modules/ngx-anx-forms/*" ],
         "ngx-anx-loading-screen/*": [ "src/app/modules/ngx-anx-loading-screen/*" ]
     },

@@ -38,7 +38,7 @@ export class AuthenticationResource extends Resource<User> {
         urlSuffix: '../authverify',
         reportProgress: true,
     })
-    verify: ResourceActionMethod<any, {token: string}, null>;
+    verify: ResourceActionMethod<any, {token: string}, {token: string, user: User}>;
 
     @ResourceAction({
         method: ResourceActionHttpMethod.POST,
@@ -47,5 +47,5 @@ export class AuthenticationResource extends Resource<User> {
         urlSuffix: '../authrefresh/',
         reportProgress: true,
     })
-    refresh: ResourceActionMethod<any, { token: string }, null>;
+    refresh: ResourceActionMethod<any, { token: string }, {token: string, user: User}>;
 }

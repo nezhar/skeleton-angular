@@ -3,8 +3,8 @@ import { Observable } from 'rxjs';
 import { Select, Store } from '@ngxs/store';
 
 import { User } from 'src/app/services/resource/user.resource';
-import { AuthenticationService } from '@app/services/authentication/authentication.service';
-import { Add, Clear, DemoState } from '@app/services/state/demo.state';
+import { Add, Clear, DemoState } from '@app/shared/state/demo.state';
+import { ResourceModel } from 'ngx-resource-factory/resource/resource-model';
 
 @Component({
     templateUrl: './home.component.html',
@@ -13,16 +13,15 @@ import { Add, Clear, DemoState } from '@app/services/state/demo.state';
     ]
 })
 export class HomeComponent implements OnInit {
-    currentUser: User;
+    currentUser: ResourceModel<User>;
 
     @Select(DemoState) count: Observable<number>;
 
-    constructor(private authenticationService: AuthenticationService,
-                private store: Store) {
+    constructor(private store: Store) {
     }
 
     ngOnInit() {
-        this.currentUser = this.authenticationService.user;
+        this.currentUser = this.store.snapshot().auth.user;
     }
 
     add() {
