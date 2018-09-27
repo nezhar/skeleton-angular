@@ -1,18 +1,13 @@
 import { State, Action } from '@ngxs/store';
 
-export class Add {
-    static readonly type = 'Add';
-}
+import { Add, Clear } from '@app/shared/state/count/count.actions';
 
-export class Clear {
-    static readonly type = 'Clear';
-}
 
 @State<number>({
     name: 'count',
     defaults: 0
 })
-export class DemoState {
+export class CountState {
 
     @Action(Add)
     add({getState, setState}) {
