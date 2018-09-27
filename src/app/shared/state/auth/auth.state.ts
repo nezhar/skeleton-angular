@@ -4,13 +4,14 @@ import { State, Action, Selector, StateContext } from '@ngxs/store';
 import { AuthenticationResource } from '@app/services/resource/authentication.resource';
 import { AuthStateModel } from '@app/shared/state/auth/auth.model';
 import { Login, Logout, Refresh, Verify } from '@app/shared/state/auth/auth.actions';
+import { interval, Subscription } from 'rxjs';
 
 
 /**
  * Interval for refreshing the token.
  * @type {number}
  */
-export const AUTHENTICATION_REFRESH_INTERVAL = 30 * 1000;
+export const AUTHENTICATION_REFRESH_INTERVAL = 60 * 1000;
 
 
 @State<AuthStateModel>({
@@ -22,7 +23,7 @@ export const AUTHENTICATION_REFRESH_INTERVAL = 30 * 1000;
 })
 export class AuthState {
 
-    protected _interval: any = null;
+    protected _interval: Subscription = null;
 
     /**
      * Selectors
@@ -102,19 +103,19 @@ export class AuthState {
      */
     protected startTokenRefreshInterval(ctx: StateContext<AuthStateModel>) {
         this.stopTokenRefreshInterval();
-
-        this._interval = window.setInterval(() => {
+        console.log('Auth: Start token refresh interval');
+        this._interval = interval(AUTHENTICATION_REFRESH_INTERVAL).subscribe(() => {
             ctx.dispatch(new Refresh());
-        }, AUTHENTICATION_REFRESH_INTERVAL);
+        });
     }
 
     /**
      * Clears an existing token refresh interval if one is running.
      */
     protected stopTokenRefreshInterval() {
-        // clear an existing interval if existing
-        if (this._interval) {
-            window.clearInterval(this._interval);
+        if (this._interval && !this._interval.closed) {
+            console.log('Auth: Stop token refresh interval');
+            this._interval.unsubscribe();
         }
     }
 

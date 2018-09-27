@@ -3,6 +3,8 @@ import { TranslateService } from '@ngx-translate/core';
 
 import { Language } from './language.model';
 import { translate } from './language.helper';
+import { Store } from '@ngxs/store';
+import { Update } from '@app/shared/state/language/language.actions';
 
 
 @Injectable()
@@ -12,9 +14,15 @@ export class LanguageService {
         new Language('de', translate('German')),
     ];
 
-    constructor(private locale: TranslateService) {
+    constructor(private locale: TranslateService,
+                protected store: Store) {
         this.setFallbackLanguage(this.availableLanguages[0]);
-        this.setLanguage(this.availableLanguages[0]);
+
+        if (this.store.snapshot().language) {
+            this.locale.use(this.store.snapshot().language);
+        } else {
+            this.setLanguage(this.availableLanguages[0]);
+        }
     }
 
     getFallbackLanguage(): Language {
@@ -41,6 +49,7 @@ export class LanguageService {
 
     setLanguage(lang: Language) {
         this.locale.use(lang.getLanguageKey());
+        this.store.dispatch(new Update(lang.getLanguageKey()));
     }
 
     getAvailableLanguages(): Language[] {

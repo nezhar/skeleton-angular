@@ -55,17 +55,17 @@ export class AuthenticationGuard {
             transitionTargetName = transition.to().name;
 
         if (!user) {
-            console.log('auth');
+            console.log('Auth guard: Redirect to auth');
 
             return this._stateService.target('auth', {}, {
                 reload: true,
             });
         } else if (user.superuser && transitionTargetName.indexOf('backend') !== 0) {
-            console.log('backend');
+            console.log('Auth guard: Redirect to backend');
 
             return this._stateService.target('backend');
         } else if (!user.superuser && transitionTargetName.indexOf('frontend') !== 0) {
-            console.log('frontend');
+            console.log('Auth guard: Redirect to frontend');
 
             return this._stateService.target('frontend');
         }
