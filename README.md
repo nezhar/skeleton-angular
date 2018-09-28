@@ -3,6 +3,7 @@
 This application uses these core components:
 * Angular 6.1.x
 * UI Router 1.0.x
+* NGXS
 * ngx-translate
 * ngx-resource-factory
 * ngx-ui-router-url-type-factory
@@ -12,6 +13,11 @@ This application uses these core components:
 For generating documentation we use:
 * Compodoc 1.1.x
 * Angular Storybook 4.0.x
+
+NGXS has several plugins installed:
+
+* @ngxs/storage-plugin - Backups the store in localStorage. Configuration is in "app/shared/storage/app.storage.ts"
+* @ngxs/devtools-plugin - Plugin with integration with the [Redux Devtools extension](http://extension.remotedev.io/). The plugin is enable donly during development.
 
 ## Installation instructions for development
 
@@ -233,14 +239,6 @@ The translations files are located under `src/assets/locales`
 * Only deploy production builds to staging and production servers
 * Only deploy the application if all tests pass
 
-### Application bootstrapping/entry point
-
-... todo:
-
-* How application load (MainComponent, ui-view)
-* Architecture diagram
-
-
 ### Replace the fake backend
 
 The fake backend is currently simulating the default authentication prodived by the [Django Skeleton](https://gitlab.anx.local/anexia-developme/skeleton-django)
@@ -249,11 +247,28 @@ The AuthenticationResource and the UserResource need to be reconfigured to use t
 
 ### JWT Authentication
 
-... todo
+JWT Authentication is currently implemented in the **AuthState** and it uses the **AuthenticationResource** where the required
+methods for authentication are preconfigured. Make sure to adapt this methods to your authentication backend.
+
+The **AuthState** provides the following actions:
+
+* Login (requires a username and password in constructor) - Adds token and user to state on success. Dispatched by the **LoginComponent** screen
+* Verify - Updates token and user in state on success. Dispatched by the **AuthenticationGuard** on application load.
+* Refresh - Updates token and user in state on success. Dispatched by an interval that starts after *Login* or *Verify*
+* Logout - Removes token and user from state. Dispatched when clicking or Logout or if the token if invalid during *Verify* or *Refresh*
 
 ### Usage of Layouts
 
-... todo
+Layouts are used to defined the structure of the page for a given user area. The application uses the following layouts:
+
+* auth-layout: Unguarded layout, used for providing user authentication or registration. Loaded in **auth** screen module.
+* frontend-layout: Guarded by **AuthenticationGuard**, meant for regular users of the application. Loaded in **frontend** screen module.
+* backend-layout: Guarded by **AuthenticationGuard**, meant for administrators of the application. Loaded in **backend** screen module.
+
+The **AuthenticationGuard** automatically redirects the user to the specific area. This behavior can be adapted in **redirectUser**.
+
+Each screen module loads the layout in the initial route declaration. A layout must make use the **ui-view** component,
+so the child routes of the screen can be loaded.
 
 ## Notes for dependencies
 
@@ -294,7 +309,10 @@ to version 2.x  @uirouter/angular
 ## Project related external resources
 
 * [Angular documentation](https://angular.io/docs)
+* [Angular environments](https://theinfogrid.com/tech/developers/angular/environment-variables-angular/)
+* [Angular bootstrapping](https://angular.io/guide/bootstrapping)
 * [UI-Router documentation](https://ui-router.github.io/ng2/)
+* [NGXS documentation](https://ngxs.gitbook.io/ngxs)
 * [ngx-translate documentation](https://github.com/ngx-translate/core)
 * [ngx-resource-factory documentation](https://github.com/beachmachine/ngx-resource-factory)
 * [ngx-ui-router-url-type-factory documentation](https://github.com/anx-astocker/ngx-ui-router-url-type-factory)
