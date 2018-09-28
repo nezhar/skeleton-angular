@@ -1,4 +1,4 @@
-# Angular Skeleton
+# {{ cookiecutter.project_title }}
 
 This application uses these core components:
 * Angular 6.1.x

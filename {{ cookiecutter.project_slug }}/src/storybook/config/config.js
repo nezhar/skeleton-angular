@@ -8,7 +8,7 @@ import '!style-loader!css-loader!sass-loader!../styles/main.scss';
 
 
 setOptions({
-    name: 'Skeleton Angular',
+    name: '{{ cookiecutter.project_title }}',
     hierarchyRootSeparator: /\|/,
 });
 
