@@ -7,6 +7,7 @@ export const environment = {
     development: true,
     staging: false,
     api_url: '',
+    hmr: false
 };
 
 /*

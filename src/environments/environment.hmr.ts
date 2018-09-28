@@ -1,7 +1,7 @@
 export const environment = {
     production: false,
-    development: false,
-    staging: true,
+    development: true,
+    staging: false,
     api_url: '',
-    hmr: false
+    hmr: true
 };

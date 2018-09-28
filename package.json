@@ -4,6 +4,7 @@
   "scripts": {
     "ng": "ng",
     "app-start": "ng serve --host 0.0.0.0 --port 8080",
+    "app-start-hmr": "ng serve --host 0.0.0.0 --port 8080 -c=hmr",
     "app-build-dev": "node helpers/version.js && ng build",
     "app-build-stage": "node helpers/version.js && ng build -c=staging",
     "app-build-prod": "node helpers/version.js && ng build -c=production",
@@ -56,6 +57,7 @@
     "@angular/cli": "~6.2.3",
     "@angular/compiler-cli": "^6.1.9",
     "@angular/language-service": "^6.1.9",
+    "@angularclass/hmr": "^2.1.3",
     "@babel/core": "^7.1.0",
     "@compodoc/compodoc": "^1.1.5",
     "@ngxs/devtools-plugin": "^3.2.0",

@@ -3,4 +3,5 @@ export const environment = {
     development: false,
     staging: false,
     api_url: '',
+    hmr: false
 };
