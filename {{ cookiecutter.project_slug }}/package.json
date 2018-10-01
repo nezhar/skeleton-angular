@@ -68,7 +68,7 @@
     "@storybook/angular": "^4.0.0-alpha.23",
     "@types/jasmine": "~2.8.6",
     "@types/jasminewd2": "~2.0.4",
-    "@types/node": "~10.10.3",
+    "@types/node": "~10.11.3",
     "babel-loader": "^8.0.4",
     "codelyzer": "~4.4.4",
     "git-describe": "^4.0.3",

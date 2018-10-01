@@ -24,6 +24,7 @@ NGXS has several plugins installed:
 It is expected you have `docker` as well as `docker-compose` set up and running on your machine.
 
 To initially build and run the application, do the steps as follows:
+* Initialize the git repository and create an initial commit: `git init && git add . && git commit -m 'Initial commit'`
 * Create the `docker-compose.yml` from the example: `cp docker-compose.yml.example docker-compose.yml`
 * Make sure you can access the [Internal Docker Registry](https://ais.anexia-it.com/display/SI/Interne+Docker+Registry)
 * Build the docker container: `docker-compose build`
@@ -284,13 +285,13 @@ Probably they are cause in the *ngx-resource-factory*
 
 Angular 2.9 is the maximum that Angular 6 is currently supporting.
 
-#### @storybook - 4.0.0-alpha.21
+#### @storybook - 4.0.0-alpha.23
 
 We use the alpha version here as this is providing some features that are required for Angular 6.
 Also this is a dev dependency and is not causing any harm to the application.
 It should be updated to stable once it is available.
 
-#### date-fns - 2.0.0-alpha.16
+#### date-fns - 2.0.0-alpha.20
 
 It should be updated to stable once it is available.
 

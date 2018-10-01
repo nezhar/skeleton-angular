@@ -3,6 +3,7 @@
 [![build passing](https://gitlab.anx.local/anexia-developme/skeleton-angular/badges/master/build.svg)](https://gitlab.anx.local/anexia-developme/skeleton-angular/builds)
 
 A [Cookiecutter](https://cookiecutter.readthedocs.io/en/latest/) template for Angular 6.1 applications. The skeleton will generate an Angular application, having:
+* Angular 6 with HMR and AOT build
 * UI Router with layout configuration
 * Global state management
 * Metalanguage

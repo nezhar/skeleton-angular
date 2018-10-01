@@ -1,10 +1,12 @@
 {
-    "project_title": "Example project",
-    "project_slug": "{{ cookiecutter.project_title|lower|replace(' ', '-')|replace('_', '-') }}",
-    "project_description": "A short description of the project.",
-    "author_name": "Your Name",
-    "author_email": "your@email.com",
-    "_copy_without_render": [
-        "src/*"
-    ]
+  "project_title": "Example project",
+  "project_slug": "{{ cookiecutter.project_title|lower|replace(' ', '-')|replace('_', '-') }}",
+  "project_description": "A short description of the project.",
+  "author_name": "Your Name",
+  "author_email": "your@email.com",
+  "_copy_without_render": [
+    "src/app/*",
+    "src/assets/*",
+    "src/storybook/stories/*"
+  ]
 }
