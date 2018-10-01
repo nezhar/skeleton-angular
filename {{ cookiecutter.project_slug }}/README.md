@@ -26,7 +26,7 @@ NGXS has several plugins installed:
 It is expected you have `docker` as well as `docker-compose` set up and running on your machine.
 
 To initially build and run the application, do the steps as follows:
-* Initialize the git repository and create an initial commit: `git init && git add . && git commit -m 'Initial commit'`
+* Initialize the git repository and create an initial commit: `git init && git add . && git commit -m "Initial commit"`
 * Create the `docker-compose.yml` from the example: `cp docker-compose.yml.example docker-compose.yml`
 * Make sure you can access the [Internal Docker Registry](https://ais.anexia-it.com/display/SI/Interne+Docker+Registry)
 * Build the docker container: `docker-compose build`
