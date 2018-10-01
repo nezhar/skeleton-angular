@@ -1,5 +1,7 @@
 # {{ cookiecutter.project_title }}
 
+{{ cookiecutter.project_description }}
+
 This application uses these core components:
 * Angular 6.1.x
 * UI Router 1.0.x
