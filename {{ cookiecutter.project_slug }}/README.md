@@ -303,8 +303,7 @@ to version 2.x  @uirouter/angular
 
 ## List of developers
 
-* Harald Nezbeda <HNezbeda@anexia-it.com>, Lead developer
-* Andreas Stocker <AStocker@anexia-it.com>, Developer
+* {{ cookiecutter.author_name }} <{{ cookiecutter.author_email }}>, Lead developer
 
 ## Project related external resources
 
