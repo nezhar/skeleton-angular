@@ -35,7 +35,7 @@ export class AuthenticationGuard {
     }
 
     authenticated(transition: Transition) {
-        return new Promise((resolve, reject) => {
+        return new Promise((resolve) => {
 
             if (this._store.snapshot().auth.user) {
                 resolve(this.redirectUser(transition, this._store.snapshot().auth.user));
@@ -45,7 +45,9 @@ export class AuthenticationGuard {
                 .then((data) => {
                     resolve(this.redirectUser(transition, data.auth.user));
                 })
-                .catch(reject);
+                .catch(() => {
+                    resolve(this._stateService.target('auth'));
+                });
             }
         });
     }

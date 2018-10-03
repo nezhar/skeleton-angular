@@ -10,6 +10,7 @@ export class AppStorageEngine implements StorageEngine {
     setItem(key, value) {
         const state = JSON.parse(value);
         state.auth.user = null;
+        state.auth.loaded = false;
         return window.localStorage.setItem(key, JSON.stringify(state));
     }
 

@@ -19,6 +19,7 @@ export const AUTHENTICATION_REFRESH_INTERVAL = 60 * 1000;
     defaults: {
         token: null,
         user: null,
+        loaded: false,
     }
 })
 export class AuthState {
@@ -65,6 +66,7 @@ export class AuthState {
                 ctx.patchState({
                     token: result.token,
                     user: result.user,
+                    loaded: true,
                 });
 
                 this.startTokenRefreshInterval(ctx);
@@ -81,6 +83,7 @@ export class AuthState {
                 ctx.patchState({
                     token: result.token,
                     user: result.user,
+                    loaded: true,
                 });
             }, () => {
                 ctx.dispatch(new Logout());
@@ -93,6 +96,7 @@ export class AuthState {
         ctx.setState({
             token: null,
             user: null,
+            loaded: false,
         });
 
         this.stopTokenRefreshInterval();

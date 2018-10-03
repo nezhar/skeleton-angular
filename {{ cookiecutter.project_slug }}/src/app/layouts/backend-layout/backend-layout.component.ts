@@ -24,7 +24,7 @@ export class BackendLayoutComponent implements OnInit, OnDestroy {
 
     ngOnInit() {
         this.authSubscription = this.auth.subscribe(auth => {
-            if (auth.user === null) {
+            if (auth.user === null && auth.loaded) {
                 console.log('Backend: Redirect to auth');
                 this.state.go('auth');
             }
