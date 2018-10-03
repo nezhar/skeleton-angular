@@ -9,7 +9,7 @@ function mapFormControlErrors(formControl: FormControl, apiErrors: string[]) {
 function mapFormGroupErrors(formGroup: FormGroup, apiErrors: {}) {
     if (Object.keys(apiErrors).length) {
         Object.keys(formGroup.controls).forEach(controlName => {
-            this.mapFormErrors(formGroup.get(controlName), apiErrors[controlName]);
+            mapFormErrors(formGroup.get(controlName), apiErrors[controlName]);
         });
         formGroup.setErrors({'serverErrors': apiErrors});
     }
@@ -18,7 +18,7 @@ function mapFormGroupErrors(formGroup: FormGroup, apiErrors: {}) {
 function mapFormArrayErrors(formArray: FormArray, apiErrors: {}[]) {
     if (apiErrors) {
         formArray.controls.forEach((formControl, index) => {
-            this.mapFormErrors(formControl, apiErrors[index]);
+            mapFormErrors(formControl, apiErrors[index]);
         });
         formArray.setErrors({'serverErrors': apiErrors});
     }
