@@ -19,6 +19,17 @@ export class JwtInterceptor implements HttpInterceptor {
         environment.api_url,
     ];
 
+    /**
+     * Authorization headers will not be set for this URLs
+     *
+     * @type {string[]}
+     */
+    ignoreUrls = [
+        '/register',
+        '/auth',
+    ];
+
+
     constructor(private store: Store) {
     }
 
@@ -29,6 +40,13 @@ export class JwtInterceptor implements HttpInterceptor {
         for (const allowedUrl of this.allowedUrls) {
             if (new RegExp(allowedUrl).test(request.url)) {
                 addAuthHeaders = true;
+                break;
+            }
+        }
+
+        for (const ignoreUrl of this.ignoreUrls) {
+            if (new RegExp(ignoreUrl).test(request.url)) {
+                addAuthHeaders = false;
                 break;
             }
         }
