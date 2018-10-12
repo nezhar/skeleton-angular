@@ -4,6 +4,16 @@
 USER_ID=$(stat -c "%u" $PWD)
 USER_GROUP_ID=$(stat -c "%g" $PWD)
 
+if [ "$USER_ID" -eq "0" ]; then
+    echo "Detected User Id 0 - are you on Windows? Setting USER_ID=1000"
+    USER_ID=1000
+fi
+
+if [ "$USER_GROUP_ID" -eq "0" ]; then
+    echo "Detected Group id 0 - are you on Windows? Setting USER_GROUP_ID=1000"
+    USER_GROUP_ID=1000
+fi
+
 # set the node run uid to the user id we just retrieved
 NODE_RUN_UID=${NODE_RUN_UID:=${USER_ID}}
 NODE_RUN_USER=${NODE_RUN_USER:=user}
@@ -41,7 +51,6 @@ else
     # Create the user with the corresponding group
     groupadd $NODE_RUN_GROUP
     useradd -u $NODE_RUN_UID -g $NODE_RUN_GROUP -d /home/$NODE_RUN_USER $NODE_RUN_USER
-    chown $NODE_RUN_USER:$NODE_RUN_GROUP /home/$NODE_RUN_USER
 fi
 
 # export home directory (required by npm/node to store some settings)
@@ -51,7 +60,6 @@ export HOME=/home/$NODE_RUN_USER
 if [ ! -d "$HOME" ]; then
     mkdir "$HOME"
 fi
-
 
 # make sure home directory has the correct permissions
 chown -R ${NODE_RUN_USER}:${NODE_RUN_GID} "$HOME"
