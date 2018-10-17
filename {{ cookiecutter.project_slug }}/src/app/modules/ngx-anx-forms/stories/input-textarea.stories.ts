@@ -3,11 +3,13 @@ import { withNotes } from '@storybook/addon-notes';
 import {
     withKnobs,
     boolean,
+    text,
 } from '@storybook/addon-knobs/angular';
 
 import { InputComponent } from '../components/input/input.component';
 import { InputErrorComponent } from '../components/input-error/input-error.component';
 import { InputTextareaComponent } from '../components/input-textarea/input-textarea.component';
+import { DefaultErrorMessageService, ErrorMessageService } from 'ngx-anx-forms/services/error-message.service';
 
 
 const metaData = {
@@ -17,6 +19,12 @@ const metaData = {
             InputTextareaComponent,
             InputErrorComponent,
         ],
+        providers: [
+            {
+                provide: ErrorMessageService,
+                useClass: DefaultErrorMessageService
+            },
+        ]
     }
 };
 
@@ -28,7 +36,8 @@ const template = {
             [readonly]="readonly"
             [errors]="errors"
             [errorMessages]="errorMessages"
-            [(ngModel)]="asd"
+            [floatingPlaceholder]="floatingPlaceholder"
+            [(ngModel)]="value"
         ></anx-forms-input-textarea>
     `,
 };
@@ -44,7 +53,9 @@ storiesOf('NGX Forms|Input textarea', module)
         'with knobs',
         withNotes('This story uses knobs.')(() => {
             const
-                readonly = boolean('readonly', false);
+                value = text('value', 'Input text'),
+                readonly = boolean('readonly', false),
+                floatingPlaceholder = boolean('floatingPlaceholder', false);
 
             return {
                 ...metaData,
@@ -52,7 +63,9 @@ storiesOf('NGX Forms|Input textarea', module)
                 props: {
                     type: 'text',
                     placeholder: 'Text',
+                    value: value,
                     readonly: readonly,
+                    floatingPlaceholder: floatingPlaceholder,
                 },
             };
         })

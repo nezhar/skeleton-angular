@@ -5,15 +5,24 @@
 
   div.icon {
     position: absolute;
-    top: 9px;
+    top: 8px;
     left: 10px;
     color: #6c757d;
+    z-index: 100;
   }
 
   anx-forms-input {
     ::ng-deep {
       input {
-        padding-left: 30px;
+        padding-left: 2.5rem;
+      }
+
+      .form-label-float label {
+        padding-left: 2.5rem;
+      }
+
+      .form-label-float input:not(:placeholder-shown) ~ label {
+        padding-left: 0.25rem;
       }
     }
   }

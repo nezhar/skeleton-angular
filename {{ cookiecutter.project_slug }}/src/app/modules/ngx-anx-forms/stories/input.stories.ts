@@ -3,10 +3,12 @@ import { withNotes } from '@storybook/addon-notes';
 import {
     withKnobs,
     boolean,
+    text,
 } from '@storybook/addon-knobs/angular';
 
 import { InputComponent } from '../components/input/input.component';
 import { InputErrorComponent } from '../components/input-error/input-error.component';
+import { DefaultErrorMessageService, ErrorMessageService } from 'ngx-anx-forms/services/error-message.service';
 
 const metaData = {
     moduleMetadata: {
@@ -14,6 +16,12 @@ const metaData = {
             InputComponent,
             InputErrorComponent,
         ],
+        providers: [
+            {
+                provide: ErrorMessageService,
+                useClass: DefaultErrorMessageService
+            },
+        ]
     }
 };
 
@@ -25,7 +33,8 @@ const template = {
             [readonly]="readonly"
             [errors]="errors"
             [errorMessages]="errorMessages"
-            [(ngModel)]="asd"
+            [floatingPlaceholder]="floatingPlaceholder"
+            [(ngModel)]="value"
         ></anx-forms-input>
     `,
 };
@@ -41,7 +50,9 @@ storiesOf('NGX Forms|Simple input', module)
         'text',
         withNotes('This story uses knobs.')(() => {
             const
-                readonly = boolean('readonly', false);
+                value = text('value', 'Input text'),
+                readonly = boolean('readonly', false),
+                floatingPlaceholder = boolean('floatingPlaceholder', false);
 
             return {
                 ...metaData,
@@ -49,7 +60,9 @@ storiesOf('NGX Forms|Simple input', module)
                 props: {
                     type: 'text',
                     placeholder: 'Text',
+                    value: value,
                     readonly: readonly,
+                    floatingPlaceholder: floatingPlaceholder,
                 },
             };
         })
@@ -58,7 +71,9 @@ storiesOf('NGX Forms|Simple input', module)
         'password',
         withNotes('This story uses knobs.')(() => {
             const
-                readonly = boolean('readonly', false);
+                value = text('value', 'Input text'),
+                readonly = boolean('readonly', false),
+                floatingPlaceholder = boolean('floatingPlaceholder', false);
 
             return {
                 ...metaData,
@@ -66,7 +81,9 @@ storiesOf('NGX Forms|Simple input', module)
                 props: {
                     type: 'password',
                     placeholder: 'Password',
+                    value: value,
                     readonly: readonly,
+                    floatingPlaceholder: floatingPlaceholder,
                 },
             };
         })
@@ -75,7 +92,9 @@ storiesOf('NGX Forms|Simple input', module)
         'number',
         withNotes('This story uses knobs.')(() => {
             const
-                readonly = boolean('readonly', false);
+                value = text('value', 'Input text'),
+                readonly = boolean('readonly', false),
+                floatingPlaceholder = boolean('floatingPlaceholder', false);
 
             return {
                 ...metaData,
@@ -83,7 +102,9 @@ storiesOf('NGX Forms|Simple input', module)
                 props: {
                     type: 'number',
                     placeholder: '10',
+                    value: value,
                     readonly: readonly,
+                    floatingPlaceholder: floatingPlaceholder,
                 },
             };
         })

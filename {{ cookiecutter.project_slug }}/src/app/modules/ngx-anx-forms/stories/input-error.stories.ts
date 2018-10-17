@@ -2,12 +2,19 @@ import { storiesOf } from '@storybook/angular';
 import { withNotes } from '@storybook/addon-notes';
 
 import { InputErrorComponent } from '../components/input-error/input-error.component';
+import { DefaultErrorMessageService, ErrorMessageService } from 'ngx-anx-forms/services/error-message.service';
 
 
 const metaData = {
     moduleMetadata: {
         declarations: [
             InputErrorComponent,
+        ],
+        providers: [
+            {
+                provide: ErrorMessageService,
+                useClass: DefaultErrorMessageService
+            },
         ]
     }
 };

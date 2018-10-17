@@ -26,6 +26,7 @@ export class InputComponent extends NgModelValueAccessor {
     @Input() public type: string = 'text';
     @Input() public placeholder: string = '';
     @Input() public readonly: boolean = false;
+    @Input() public floatingPlaceholder: boolean = false;
     @Input() public min: number;
     @Input() public max: number;
     @Input() public step: number;

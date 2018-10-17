@@ -1,6 +1,7 @@
 import { async, ComponentFixture, TestBed } from '@angular/core/testing';
 
 import { InputErrorComponent } from './input-error.component';
+import { DefaultErrorMessageService, ErrorMessageService } from 'ngx-anx-forms/services/error-message.service';
 
 describe('InputErrorComponent', () => {
     let component: InputErrorComponent;
@@ -8,7 +9,13 @@ describe('InputErrorComponent', () => {
 
     beforeEach(async(() => {
         TestBed.configureTestingModule({
-            declarations: [InputErrorComponent]
+            declarations: [InputErrorComponent],
+            providers: [
+                {
+                    provide: ErrorMessageService,
+                    useClass: DefaultErrorMessageService
+                }
+            ]
         })
             .compileComponents();
     }));

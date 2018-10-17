@@ -4,6 +4,7 @@ import { FormsModule } from '@angular/forms';
 import { IconInputComponent } from './icon-input.component';
 import { InputComponent } from '../input/input.component';
 import { InputErrorComponent } from '../input-error/input-error.component';
+import { DefaultErrorMessageService, ErrorMessageService } from 'ngx-anx-forms/services/error-message.service';
 
 
 describe('IconInputComponent', () => {
@@ -19,6 +20,12 @@ describe('IconInputComponent', () => {
                 IconInputComponent,
                 InputComponent,
                 InputErrorComponent,
+            ],
+            providers: [
+                {
+                    provide: ErrorMessageService,
+                    useClass: DefaultErrorMessageService
+                }
             ]
         })
             .compileComponents();

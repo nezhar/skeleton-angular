@@ -11,6 +11,7 @@ import { InputComponent } from "../components/input/input.component";
 import { InputErrorComponent } from "../components/input-error/input-error.component";
 import { InputDistributedMultipleChoiceComponent } from "../components/input-distributed-multiple-choice/input-distributed-multiple-choice.component";
 import { InputSelectComponent } from "../components/input-select/input-select.component";
+import { DefaultErrorMessageService, ErrorMessageService } from 'ngx-anx-forms/services/error-message.service';
 
 
 const metaData = {
@@ -25,7 +26,11 @@ const metaData = {
                 useValue: {
                     notFoundText: '-'
                 }
-            }
+            },
+            {
+                provide: ErrorMessageService,
+                useClass: DefaultErrorMessageService
+            },
         ],
         declarations: [
             InputComponent,

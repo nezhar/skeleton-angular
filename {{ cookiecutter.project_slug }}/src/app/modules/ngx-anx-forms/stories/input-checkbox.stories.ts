@@ -7,6 +7,7 @@ import {
 import { InputComponent } from "../components/input/input.component";
 import { InputErrorComponent } from "../components/input-error/input-error.component";
 import { InputCheckboxComponent } from "../components/input-checkbox/input-checkbox.component";
+import { DefaultErrorMessageService, ErrorMessageService } from 'ngx-anx-forms/services/error-message.service';
 
 
 const metaData = {
@@ -15,6 +16,12 @@ const metaData = {
             InputComponent,
             InputCheckboxComponent,
             InputErrorComponent,
+        ],
+        providers: [
+            {
+                provide: ErrorMessageService,
+                useClass: DefaultErrorMessageService
+            },
         ]
     }
 };

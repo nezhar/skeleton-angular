@@ -6,6 +6,7 @@ import { NG_SELECT_DEFAULT_CONFIG, NgSelectModule } from '@ng-select/ng-select';
 import { InputComponent } from '../components/input/input.component';
 import { InputErrorComponent } from '../components/input-error/input-error.component';
 import { InputSelectComponent } from '../components/input-select/input-select.component';
+import { DefaultErrorMessageService, ErrorMessageService } from 'ngx-anx-forms/services/error-message.service';
 
 const
     metaData = {
@@ -19,7 +20,11 @@ const
                     useValue: {
                         notFoundText: '-'
                     }
-                }
+                },
+                {
+                    provide: ErrorMessageService,
+                    useClass: DefaultErrorMessageService
+                },
             ],
             declarations: [
                 InputComponent,

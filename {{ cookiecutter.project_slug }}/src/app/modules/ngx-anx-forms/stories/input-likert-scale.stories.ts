@@ -11,6 +11,7 @@ import { InputComponent } from '../components/input/input.component';
 import { InputErrorComponent } from '../components/input-error/input-error.component';
 import { InputLikertScaleComponent } from '../components/input-likert-scale/input-likert-scale.component';
 import { InputRadioComponent } from '../components/input-radio/input-radio.component';
+import { DefaultErrorMessageService, ErrorMessageService } from 'ngx-anx-forms/services/error-message.service';
 
 const metaData = {
     moduleMetadata: {
@@ -19,6 +20,12 @@ const metaData = {
             InputRadioComponent,
             InputLikertScaleComponent,
             InputErrorComponent,
+        ],
+        providers: [
+            {
+                provide: ErrorMessageService,
+                useClass: DefaultErrorMessageService
+            },
         ]
     }
 };

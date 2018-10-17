@@ -36,6 +36,7 @@ test_project:
   stage: test_project
   script:
   - cd .cache/skeleton-test
+  - npm run lint
   - npm run test
   - npm run app-build-dev
   - npm run app-build-prod

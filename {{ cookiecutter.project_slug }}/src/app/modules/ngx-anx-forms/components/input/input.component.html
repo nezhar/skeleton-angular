@@ -1,4 +1,4 @@
-<div class="form-group">
+<div class="form-group" [ngClass]="{'form-label-float': floatingPlaceholder}">
     <input
         #inputField="ngModel"
         class="form-control"
@@ -14,6 +14,8 @@
         [min]="min"
         [max]="max"
         [step]="step"/>
+    <label *ngIf="floatingPlaceholder">{{ placeholder }}</label>
+
     <anx-forms-input-error
         *ngIf="displayErrors()"
         [errors]="errors"

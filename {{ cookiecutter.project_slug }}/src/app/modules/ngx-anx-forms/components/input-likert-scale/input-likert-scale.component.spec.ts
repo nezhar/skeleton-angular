@@ -4,6 +4,7 @@ import { InputLikertScaleComponent } from './input-likert-scale.component';
 import { FormsModule } from '@angular/forms';
 import { InputRadioComponent } from '../input-radio/input-radio.component';
 import { InputErrorComponent } from '../input-error/input-error.component';
+import { DefaultErrorMessageService, ErrorMessageService } from 'ngx-anx-forms/services/error-message.service';
 
 describe('InputLikertScaleComponent', () => {
     let component: InputLikertScaleComponent;
@@ -18,6 +19,12 @@ describe('InputLikertScaleComponent', () => {
                 InputLikertScaleComponent,
                 InputRadioComponent,
                 InputErrorComponent,
+            ],
+            providers: [
+                {
+                    provide: ErrorMessageService,
+                    useClass: DefaultErrorMessageService
+                }
             ]
         })
             .compileComponents();

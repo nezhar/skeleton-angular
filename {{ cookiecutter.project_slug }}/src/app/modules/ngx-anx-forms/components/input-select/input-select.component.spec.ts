@@ -4,6 +4,7 @@ import { NgSelectModule } from '@ng-select/ng-select';
 
 import { InputSelectComponent } from './input-select.component';
 import { InputErrorComponent } from '../input-error/input-error.component';
+import { DefaultErrorMessageService, ErrorMessageService } from 'ngx-anx-forms/services/error-message.service';
 
 describe('InputSelectComponent', () => {
     let component: InputSelectComponent;
@@ -18,6 +19,12 @@ describe('InputSelectComponent', () => {
             declarations: [
                 InputSelectComponent,
                 InputErrorComponent
+            ],
+            providers: [
+                {
+                    provide: ErrorMessageService,
+                    useClass: DefaultErrorMessageService
+                }
             ]
         })
             .compileComponents();

@@ -6,7 +6,8 @@ import { ErrorMessageService } from 'ngx-anx-forms/services/error-message.servic
 
 @Injectable()
 export class FormErrorMessageService implements ErrorMessageService {
-    constructor(private translateService: TranslateService,) {
+
+    constructor(private translateService: TranslateService) {
     }
 
     handle(type: string): string {
