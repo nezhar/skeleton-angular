@@ -48,5 +48,9 @@
 	"Build variant": "Build-Variante",
 	"Test build": "Test build",
 	"User": "Benutzer",
-	"Permission": "Rechte"
+	"Permission": "Rechte",
+	"This field is required": "Dieses Feld wird benötigt",
+	"Please insert a valid email": "Bitte geben Sie eine gültige E-Mail-Adresse ein",
+	"Please insert a higher value": "Bitte geben Sie einen höheren Wert ein",
+	"Please insert a lower value": "Bitte einen niedrigeren Wert eingeben"
 }

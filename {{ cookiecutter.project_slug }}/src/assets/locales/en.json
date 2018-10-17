@@ -48,5 +48,9 @@
 	"Build variant": "Build variant",
 	"Test build": "Test build",
 	"User": "User",
-	"Permission": "Permission"
+	"Permission": "Permission",
+	"This field is required": "This field is required",
+	"Please insert a valid email": "Please insert a valid email",
+	"Please insert a higher value": "Please insert a higher value",
+	"Please insert a lower value": "Please insert a lower value"
 }

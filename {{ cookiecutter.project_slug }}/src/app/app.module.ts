@@ -13,6 +13,8 @@ import { NgxsModule } from '@ngxs/store';
 import { NgxsReduxDevtoolsPluginModule } from '@ngxs/devtools-plugin';
 import { NgxsStoragePluginModule } from '@ngxs/storage-plugin';
 
+import { NgxAnxFormsModule } from 'ngx-anx-forms/ngx-anx-forms.module';
+import { ErrorMessageService } from 'ngx-anx-forms/services/error-message.service';
 import { NgxAnxLoadingScreenModule } from 'ngx-anx-loading-screen/ngx-anx-loading-screen.module';
 
 import { routingConfig } from '@app/app.routing';
@@ -38,6 +40,7 @@ import { ModalsModule } from '@app/modals/modals.module';
 import { environment } from '@env/environment';
 import { PostType } from '@app/shared/types/post.type';
 import { states } from '@app/shared/state/app.state';
+import { FormErrorMessageService } from '@app/services/form-error-messages/form-error-message.service';
 
 
 @NgModule({
@@ -62,6 +65,12 @@ import { states } from '@app/shared/state/app.state';
             missingTranslationHandler: {
                 provide: MissingTranslationHandler,
                 useClass: AppMissingTranslationHandler,
+            }
+        }),
+        NgxAnxFormsModule.forRoot({
+            errorMessageService: {
+                provide: ErrorMessageService,
+                useClass: FormErrorMessageService,
             }
         }),
         NgxAnxLoadingScreenModule.forRoot(),

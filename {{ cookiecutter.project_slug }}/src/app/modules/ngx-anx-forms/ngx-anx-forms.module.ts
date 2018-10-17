@@ -1,4 +1,4 @@
-import { CUSTOM_ELEMENTS_SCHEMA, NgModule } from '@angular/core';
+import { CUSTOM_ELEMENTS_SCHEMA, ModuleWithProviders, NgModule, Provider } from '@angular/core';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { CommonModule } from '@angular/common';
 
@@ -15,6 +15,12 @@ import { InputRadioComponent } from './components/input-radio/input-radio.compon
 import {
     InputDistributedMultipleChoiceComponent
 } from './components/input-distributed-multiple-choice/input-distributed-multiple-choice.component';
+import { DefaultErrorMessageService, ErrorMessageService } from 'ngx-anx-forms/services/error-message.service';
+
+
+export interface NgxAnxFormsConfig {
+  errorMessageService?: Provider;
+}
 
 
 @NgModule({
@@ -57,5 +63,12 @@ import {
     schemas: [ CUSTOM_ELEMENTS_SCHEMA ]
 })
 export class NgxAnxFormsModule {
-
+    static forRoot(config: NgxAnxFormsConfig = {}): ModuleWithProviders {
+        return {
+            ngModule: NgxAnxFormsModule,
+            providers: [
+                config.errorMessageService || {provide: ErrorMessageService, useClass: DefaultErrorMessageService},
+            ]
+        };
+    }
 }

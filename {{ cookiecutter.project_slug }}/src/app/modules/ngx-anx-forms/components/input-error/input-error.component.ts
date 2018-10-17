@@ -1,6 +1,8 @@
 import { Component, Input, OnChanges, SimpleChanges } from '@angular/core';
 import { ValidationErrors } from '@angular/forms';
 
+import { ErrorMessageService } from '../../services/error-message.service';
+
 
 export const SERVER_ERROR_KEY = 'serverErrors';
 
@@ -17,6 +19,9 @@ export class InputErrorComponent implements OnChanges {
     @Input() public errorMessages: Object = {};
 
     errorsToDisplay: string[] = [];
+
+    constructor(private errorMessageService: ErrorMessageService) {
+    }
 
     ngOnChanges(changes: SimpleChanges) {
         if (changes['errors']) {
@@ -48,26 +53,6 @@ export class InputErrorComponent implements OnChanges {
         }
 
         // Display component default message
-        switch (type) {
-            case 'required': {
-                return 'This field is required';
-            }
-
-            case 'email': {
-                return 'Please insert a valid email';
-            }
-
-            case 'min': {
-                return 'Please insert a higher value';
-            }
-
-            case 'max': {
-                return 'Please insert a lower value';
-            }
-
-            default: {
-                return 'Unknown error: ' + type;
-            }
-        }
+        return this.errorMessageService.handle(type);
     }
 }
