@@ -287,13 +287,13 @@ Probably they are cause in the *ngx-resource-factory*
 
 Angular 2.9 is the maximum that Angular 6 is currently supporting.
 
-#### @storybook - 4.0.0-alpha.23
+#### @storybook - 4.0.0-rc.0
 
 We use the alpha version here as this is providing some features that are required for Angular 6.
 Also this is a dev dependency and is not causing any harm to the application.
 It should be updated to stable once it is available.
 
-#### date-fns - 2.0.0-alpha.20
+#### date-fns - 2.0.0-alpha.22
 
 It should be updated to stable once it is available.
 
