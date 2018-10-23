@@ -29,19 +29,19 @@ test_install:
   stage: test_install
   script:
   - cd .cache/skeleton-test
-  - npm install
+  - yarn install
 
 test_project:
   image: gitlab.anx.local:4567/anexia-developme/skeleton-angular/node_base
   stage: test_project
   script:
   - cd .cache/skeleton-test
-  - npm run lint
-  - npm run test
-  - npm run app-build-dev
-  - npm run app-build-prod
-  - npm run storybook-build
-  - npm run generatedocs
+  - yarn run lint
+  - yarn run test
+  - yarn run app-build-dev
+  - yarn run app-build-prod
+  - yarn run storybook-build
+  - yarn run generatedocs
   cache:
     key: application_cache
     paths:

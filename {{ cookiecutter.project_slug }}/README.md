@@ -30,24 +30,24 @@ To initially build and run the application, do the steps as follows:
 * Create the `docker-compose.yml` from the example: `cp docker-compose.yml.example docker-compose.yml`
 * Make sure you can access the [Internal Docker Registry](https://ais.anexia-it.com/display/SI/Interne+Docker+Registry)
 * Build the docker container: `docker-compose build`
-* Install the NPM dependencies: `docker-compose run --rm node npm install`
+* Install the dependencies: `docker-compose run --rm node yarn install`
 * Build the application, start development server and watch for changes: `docker-compose up`
 
 ## Installation and update instructions for deployment
 
 You may need the following common tasks during the development of the application:
-* Run code lint: `docker-compose run --rm node "npm run lint"`
-* Run unit tests: `docker-compose run --rm node "npm run test"`
-* Collect all translatable strings: `docker-compose run --rm node "npm run makemessages"`
-* Add a NPM dependency to the application: `docker-compose run --rm "node npm install --save DEPENDENCY_NAME"`
-* Add a NPM development-only dependency to the application: `docker-compose run --rm node "npm install --save-dev DEPENDENCY_NAME"`
+* Run code lint: `docker-compose run --rm node "yarn run lint"`
+* Run unit tests: `docker-compose run --rm node "yarn run test"`
+* Collect all translatable strings: `docker-compose run --rm node "yarn run makemessages"`
+* Add a dependency to the application: `docker-compose run --rm "node yarn add DEPENDENCY_NAME"`
+* Add a development-only dependency to the application: `docker-compose run --rm node "yarn add --dev DEPENDENCY_NAME"`
 
 ## Manual tasks
 
 All of the commands described below assume that you have your docker-compose up and running (e.g. by using `docker-compose up`).
-* Build the application for production: `docker-compose run --rm node "npm run build"`
-* Build the documentation: `docker-compose run --rm node "npm run generatedocs"`
-* Build the storybook: `docker-compose run --rm node "npm run storybook-build"`
+* Build the application for production: `docker-compose run --rm node "yarn run build"`
+* Build the documentation: `docker-compose run --rm node "yarn run generatedocs"`
+* Build the storybook: `docker-compose run --rm node "yarn run storybook-build"`
 
 ### Adding screens
 
@@ -230,7 +230,7 @@ You can also add a the new module in the tsconfig.json paths for a more convenie
 
 ### Manage translations
 
-Use `docker-compose run --rm node "npm run makemessages"` to collect all available translations.
+Use `docker-compose run --rm node "yarn run makemessages"` to collect all available translations.
 
 All available languages are managed in the `LanguageService` located under `src/app/services/language/language.service.ts`
 

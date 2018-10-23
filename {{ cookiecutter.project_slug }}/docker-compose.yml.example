@@ -5,7 +5,7 @@ services:
       context: ./docker/node
     volumes:
     - ./:/app
-    command: npm run app-start
+    command: yarn run app-start
     ports:
     - "8080:8080"
     - "9876:9876"
@@ -19,7 +19,7 @@ services:
       context: ./docker/node
     volumes:
     - ./:/app
-    command: npm run storybook-start
+    command: yarn run storybook-start
     ports:
     - "9001:9001"
 # Enable on Windows

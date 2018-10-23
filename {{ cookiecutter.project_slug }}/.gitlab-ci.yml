@@ -13,7 +13,7 @@ cache:
 
 before_script:
 - cd src/
-- npm install
+- yarn install
 
 #
 # CI Tasks
@@ -23,13 +23,13 @@ before_script:
 code_review:
   stage: code_review
   script:
-  - npm run lint
+  - yarn run lint
 
 # Task for running tests
 test_code:
   stage: test_code
   script:
-  - npm run test
+  - yarn run test
 
 
 # Builds the apps documentation and stores it as an artifact
@@ -37,7 +37,7 @@ test_code:
 documentation:
   stage: build_docs
   script:
-  - npm run generatedocs
+  - yarn run generatedocs
   only:
   - master
   artifacts:
@@ -53,7 +53,7 @@ documentation:
 storybook:
   stage: build_docs
   script:
-  - npm run storybook-build
+  - yarn run storybook-build
   only:
   - master
   artifacts:
@@ -68,7 +68,7 @@ storybook:
 build_development:
   stage: build_app
   script:
-  - npm run app-build-dev
+  - yarn run app-build-dev
   artifacts:
     when: on_success
     expire_in: 1 month
@@ -82,7 +82,7 @@ build_development:
 build_staging:
   stage: build_app
   script:
-  - npm run app-build-stage
+  - yarn run app-build-stage
   only:
   - master
   artifacts:
@@ -98,7 +98,7 @@ build_staging:
 build_production:
   stage: build_app
   script:
-  - npm run app-build-prod
+  - yarn run app-build-prod
   only:
   - master
   artifacts:
@@ -114,6 +114,6 @@ build_production:
 build_production_test:
   stage: build_app
   script:
-  - npm run app-build-prod
+  - yarn run app-build-prod
   except:
   - master
