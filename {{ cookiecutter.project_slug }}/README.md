@@ -4,7 +4,7 @@
 
 This application uses these core components:
 * Angular 6.1.x
-* UI Router 1.0.x
+* UI Router 2.0.x
 * NGXS
 * ngx-translate
 * ngx-resource-factory
@@ -280,14 +280,13 @@ Make sure to keep this list updated when making changes to the applications depe
 
 #### rxjs - 6.2.2 and rxjs-compat - 6.2.2
 
-There are some issues with observables and promises when upgrading to 6.3
-Probably they are cause in the *ngx-resource-factory*
+6.2.x is the maximum that Angular 6 is currently supporting.
 
 #### typescript - 2.9
 
-Angular 2.9 is the maximum that Angular 6 is currently supporting.
+2.9.x is the maximum that Angular 6 is currently supporting.
 
-#### @storybook - 4.0.0-rc.0
+#### @storybook - 4.0.0-rc.1
 
 We use the alpha version here as this is providing some features that are required for Angular 6.
 Also this is a dev dependency and is not causing any harm to the application.
@@ -296,13 +295,6 @@ It should be updated to stable once it is available.
 #### date-fns - 2.0.0-alpha.22
 
 It should be updated to stable once it is available.
-
-#### @uirouter/angular - 1.1.0
-
-The ngx-ui-router-url-type-factory requires version ^1.0.1 as a dependency.
-A [pull request](https://github.com/anx-astocker/ngx-ui-router-url-type-factory/pull/1)
-to change this to a peerDependency is already made. Once this is merged we can upgrade
-to version 2.x  @uirouter/angular
 
 ## List of developers
 

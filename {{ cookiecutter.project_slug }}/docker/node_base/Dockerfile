@@ -22,8 +22,7 @@ RUN npm install --global --unsafe-perm \
         posthtml-include \
         posthtml-img-autosize \
         postcss-modules \
-        autoprefixer \
-        yarn
+        autoprefixer
 
 # Add Chrome dependencies
 RUN apt-get update && \
