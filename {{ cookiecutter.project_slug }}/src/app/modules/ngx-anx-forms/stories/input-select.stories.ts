@@ -1,7 +1,7 @@
 import { storiesOf } from '@storybook/angular';
 import { withKnobs, boolean} from '@storybook/addon-knobs/angular';
 
-import { NG_SELECT_DEFAULT_CONFIG, NgSelectModule } from '@ng-select/ng-select';
+import { NgSelectModule } from '@ng-select/ng-select';
 
 import { InputComponent } from '../components/input/input.component';
 import { InputErrorComponent } from '../components/input-error/input-error.component';
@@ -15,12 +15,6 @@ const
                 NgSelectModule,
             ],
             providers: [
-                {
-                    provide: NG_SELECT_DEFAULT_CONFIG,
-                    useValue: {
-                        notFoundText: '-'
-                    }
-                },
                 {
                     provide: ErrorMessageService,
                     useClass: DefaultErrorMessageService

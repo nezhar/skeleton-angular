@@ -2,7 +2,7 @@ import { CUSTOM_ELEMENTS_SCHEMA, ModuleWithProviders, NgModule, Provider } from 
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { CommonModule } from '@angular/common';
 
-import { NG_SELECT_DEFAULT_CONFIG, NgSelectModule } from '@ng-select/ng-select';
+import { NgSelectModule } from '@ng-select/ng-select';
 
 import { InputComponent } from './components/input/input.component';
 import { IconInputComponent } from './components/icon-input/icon-input.component';
@@ -51,14 +51,6 @@ export interface NgxAnxFormsConfig {
         InputTextareaComponent,
         InputRadioComponent,
         InputDistributedMultipleChoiceComponent,
-    ],
-    providers: [
-        {
-            provide: NG_SELECT_DEFAULT_CONFIG,
-            useValue: {
-                notFoundText: '-'
-            }
-        }
     ],
     schemas: [ CUSTOM_ELEMENTS_SCHEMA ]
 })

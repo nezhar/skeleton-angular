@@ -1,6 +1,8 @@
 import { Component, forwardRef, Input, ViewChild } from '@angular/core';
 import { NG_VALUE_ACCESSOR, NgModel } from '@angular/forms';
 
+import { NgSelectConfig } from '@ng-select/ng-select';
+
 import { InputComponent } from '../input/input.component';
 
 
@@ -29,5 +31,10 @@ export class InputSelectComponent extends InputComponent {
     @Input() notFoundText: string = '-';
 
     @ViewChild('inputField') inputField: NgModel;
+
+    constructor(private config: NgSelectConfig) {
+        super();
+        this.config.notFoundText = '-';
+    }
 
 }
