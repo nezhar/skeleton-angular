@@ -278,15 +278,11 @@ so the child routes of the screen can be loaded.
 Some of the applications dependencies cannot be upgraded. Here you can find out why.
 Make sure to keep this list updated when making changes to the applications dependencies.
 
-#### rxjs - 6.2.2 and rxjs-compat - 6.2.2
-
-6.2.x is the maximum that Angular 6 is currently supporting.
-
 #### typescript - 2.9
 
 2.9.x is the maximum that Angular 6 is currently supporting.
 
-#### @storybook - 4.0.0-rc.1
+#### @storybook - 4.0.0-rc.6
 
 We use the alpha version here as this is providing some features that are required for Angular 6.
 Also this is a dev dependency and is not causing any harm to the application.

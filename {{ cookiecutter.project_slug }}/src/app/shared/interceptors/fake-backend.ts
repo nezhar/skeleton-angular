@@ -1,12 +1,12 @@
 import { Injectable } from '@angular/core';
 import { HttpRequest, HttpResponse, HttpHandler, HttpEvent, HttpInterceptor, HTTP_INTERCEPTORS } from '@angular/common/http';
-import { Observable } from 'rxjs/Observable';
-import 'rxjs/add/observable/of';
-import 'rxjs/add/observable/throw';
-import 'rxjs/add/operator/delay';
-import 'rxjs/add/operator/mergeMap';
-import 'rxjs/add/operator/materialize';
-import 'rxjs/add/operator/dematerialize';
+import { Observable } from 'rxjs';
+import 'rxjs-compat/add/observable/of';
+import 'rxjs-compat/add/operator/mergeMap';
+import 'rxjs-compat/add/observable/throw';
+import 'rxjs-compat/add/operator/materialize';
+import 'rxjs-compat/add/operator/delay';
+import 'rxjs-compat/add/operator/dematerialize';
 import { User } from '@app/services/resource/user.resource';
 
 @Injectable()
