@@ -3,7 +3,7 @@
 {{ cookiecutter.project_description }}
 
 This application uses these core components:
-* Angular 6.1.x
+* Angular 7.0.x
 * UI Router 2.0.x
 * NGXS
 * ngx-translate
@@ -278,17 +278,7 @@ so the child routes of the screen can be loaded.
 Some of the applications dependencies cannot be upgraded. Here you can find out why.
 Make sure to keep this list updated when making changes to the applications dependencies.
 
-#### typescript - 2.9
-
-2.9.x is the maximum that Angular 6 is currently supporting.
-
-#### @storybook - 4.0.0-rc.6
-
-We use the alpha version here as this is providing some features that are required for Angular 6.
-Also this is a dev dependency and is not causing any harm to the application.
-It should be updated to stable once it is available.
-
-#### date-fns - 2.0.0-alpha.22
+#### date-fns - 2.0.0-alpha.25
 
 It should be updated to stable once it is available.
 
