@@ -45,7 +45,7 @@ You may need the following common tasks during the development of the applicatio
 ## Manual tasks
 
 All of the commands described below assume that you have your docker-compose up and running (e.g. by using `docker-compose up`).
-* Build the application for production: `docker-compose run --rm node "yarn run build"`
+* Build the application for production: `docker-compose run --rm node "yarn run app-build-prod"`
 * Build the documentation: `docker-compose run --rm node "yarn run generatedocs"`
 * Build the storybook: `docker-compose run --rm node "yarn run storybook-build"`
 
