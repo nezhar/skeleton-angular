@@ -35,16 +35,17 @@ To initially build and run the application, do the steps as follows:
 
 ## Installation and update instructions for deployment
 
+* Build the application for production: `docker-compose run --rm node "yarn run app-build-prod"`
+
+
+## Manual tasks
+
 You may need the following common tasks during the development of the application:
 * Run code lint: `docker-compose run --rm node "yarn run lint"`
 * Run unit tests: `docker-compose run --rm node "yarn run test"`
 * Collect all translatable strings: `docker-compose run --rm node "yarn run makemessages"`
-* Add a dependency to the application: `docker-compose run --rm "node yarn add DEPENDENCY_NAME"`
+* Add a dependency to the application: `docker-compose run --rm node "yarn add DEPENDENCY_NAME"`
 * Add a development-only dependency to the application: `docker-compose run --rm node "yarn add --dev DEPENDENCY_NAME"`
-
-## Manual tasks
-
-All of the commands described below assume that you have your docker-compose up and running (e.g. by using `docker-compose up`).
 * Build the application for production: `docker-compose run --rm node "yarn run app-build-prod"`
 * Build the documentation: `docker-compose run --rm node "yarn run generatedocs"`
 * Build the storybook: `docker-compose run --rm node "yarn run storybook-build"`
