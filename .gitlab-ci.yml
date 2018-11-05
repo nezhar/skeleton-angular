@@ -19,6 +19,7 @@ setup_cookiecutter:
   - apt-get -y install python-dev python-setuptools
   - pip install --upgrade pip
   - pip install cookiecutter
+  - rm -rf .cache/*
   - rm -rf .cache
   - mkdir -p .cache
   - cd .cache

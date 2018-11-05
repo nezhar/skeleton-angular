@@ -113,7 +113,9 @@
               "src/tsconfig.spec.json"
             ],
             "exclude": [
-              "**/node_modules/**"
+              "**/node_modules/**",
+              "src/app/shared/interceptors/fake-backend.ts",
+              "src/polyfills.ts"
             ]
           }
         }

@@ -1,5 +1,6 @@
 import { ChangeDetectionStrategy, Component, Input, OnChanges } from '@angular/core';
 
+export type ButtonComponentRole = 'default'|'primary'|'secondary'|'success'|'danger'|'warning'|'info'|'light'|'dark'|'link';
 
 @Component({
     selector: 'app-button',
@@ -11,7 +12,7 @@ import { ChangeDetectionStrategy, Component, Input, OnChanges } from '@angular/c
 })
 export class ButtonComponent implements OnChanges {
     @Input() type: 'submit'|'button' = 'button';
-    @Input() role: 'default'|'primary'|'secondary'|'success'|'danger'|'warning'|'info'|'light'|'dark'|'link' = 'default';
+    @Input() role: ButtonComponentRole = 'default';
     @Input() size: 'sm'|'md'|'lg' = 'md';
     @Input() outline: boolean = false;
     @Input() disabled: boolean = false;
