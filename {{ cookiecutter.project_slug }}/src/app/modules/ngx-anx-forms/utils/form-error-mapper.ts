@@ -32,10 +32,10 @@ function mapFormArrayErrors(formArray: FormArray, apiErrors: {}[]) {
  */
 export function mapFormErrors(abstractControl: AbstractControl, apiErrors: any) {
     if (abstractControl instanceof FormGroup) {
-        mapFormGroupErrors(abstractControl as FormGroup, apiErrors);
+        mapFormGroupErrors(abstractControl, apiErrors);
     } else if (abstractControl instanceof FormArray) {
-        mapFormArrayErrors(abstractControl as FormArray, apiErrors);
+        mapFormArrayErrors(abstractControl, apiErrors);
     } else if (abstractControl instanceof FormControl) {
-        mapFormControlErrors(abstractControl as FormControl, apiErrors);
+        mapFormControlErrors(abstractControl, apiErrors);
     }
 }

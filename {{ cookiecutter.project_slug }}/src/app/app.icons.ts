@@ -1,3 +1,4 @@
+/* tslint:disable:no-commented-code */
 import { NgModule } from '@angular/core';
 
 import { library } from '@fortawesome/fontawesome-svg-core';

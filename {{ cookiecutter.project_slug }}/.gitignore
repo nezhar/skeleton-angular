@@ -27,3 +27,6 @@ node_modules/*
 *.mo
 docker-compose.yml
 src/environments/version.ts
+
+# sonarqube
+.scannerwork/
