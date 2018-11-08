@@ -7,7 +7,9 @@ import { Store } from '@ngxs/store';
 import { Update } from '@app/shared/state/language/language.actions';
 
 
-@Injectable()
+@Injectable({
+    providedIn: 'root'
+})
 export class LanguageService {
     private availableLanguages = [
         new Language('en', translate('English')),

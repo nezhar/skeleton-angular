@@ -4,7 +4,9 @@ import { TranslateService } from '@ngx-translate/core';
 import { ErrorMessageService } from 'ngx-anx-forms/services/error-message.service';
 
 
-@Injectable()
+@Injectable({
+    providedIn: 'root'
+})
 export class FormErrorMessageService implements ErrorMessageService {
 
     constructor(private translateService: TranslateService) {

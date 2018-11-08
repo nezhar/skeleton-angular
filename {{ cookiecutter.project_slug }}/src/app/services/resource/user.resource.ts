@@ -15,7 +15,9 @@ export class User extends ResourceInstance {
     superuser: boolean;
 }
 
-@Injectable()
+@Injectable({
+    providedIn: 'root'
+})
 @ResourceConfiguration({
     name: 'UserResource',
     url: '/api/users/:pk/',

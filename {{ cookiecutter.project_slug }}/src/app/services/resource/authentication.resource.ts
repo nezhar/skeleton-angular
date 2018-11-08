@@ -13,7 +13,9 @@ export class AuthenticationUserToken extends ResourceInstance {
     user: User;
 }
 
-@Injectable()
+@Injectable({
+    providedIn: 'root'
+})
 @ResourceConfiguration({
     name: 'AuthenticationResource',
     url: '/api/authenticate/',

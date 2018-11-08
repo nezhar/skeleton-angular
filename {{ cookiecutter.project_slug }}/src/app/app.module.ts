@@ -29,11 +29,6 @@ import { AuthScreensModule } from '@app/screens/auth/auth.module';
 import { FrontendScreensModule } from '@app/screens/frontend/frontend.module';
 import { BackendScreensModule } from '@app/screens/backend/backend.module';
 
-import { jwtProvider } from '@app/shared/interceptors/jwt.interceptor';
-import { appStorageProvider } from '@app/shared/storage/app.storage';
-import { fakeBackendProvider } from '@app/shared/interceptors/fake-backend';
-import { loadingScreenProvider } from '@app/shared/interceptors/loader.interceptor';
-
 import { IconsModule } from '@app/app.icons';
 import { ModalsModule } from '@app/modals/modals.module';
 
@@ -88,7 +83,7 @@ import { FormErrorMessageService } from '@app/services/form-error-messages/form-
 
         // Application imports
         IconsModule,
-        ServicesModule.forRoot(),
+        ServicesModule,
         SharedModule.forRoot(),
         AuthScreensModule.forRoot(),
         FrontendScreensModule.forRoot(),
@@ -100,13 +95,6 @@ import { FormErrorMessageService } from '@app/services/form-error-messages/form-
     bootstrap: [
         MainComponent,
     ],
-    providers: [
-        jwtProvider,
-        fakeBackendProvider,
-        appStorageProvider,
-        loadingScreenProvider,
-    ],
-    declarations: []
 })
 export class AppModule {
 }
