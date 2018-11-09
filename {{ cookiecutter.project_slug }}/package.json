@@ -4,7 +4,9 @@
   "scripts": {
     "ng": "ng",
     "app-start": "ng serve --host 0.0.0.0 --port 8080",
+    "app-start-poll": "ng serve --host 0.0.0.0 --port 8080 --poll 1000",
     "app-start-hmr": "ng serve --host 0.0.0.0 --port 8080 -c=hmr",
+    "app-start-hmr-poll": "ng serve --host 0.0.0.0 --port 8080 -c=hmr --poll 1000",
     "app-build-dev": "node helpers/version.js && ng build --base-href /",
     "app-build-stage": "node helpers/version.js && ng build -c=staging --base-href /",
     "app-build-prod": "node helpers/version.js && ng build -c=production --base-href /",

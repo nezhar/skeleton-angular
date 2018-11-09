@@ -33,6 +33,42 @@ To initially build and run the application, do the steps as follows:
 * Install the dependencies: `docker-compose run --rm node yarn install`
 * Build the application, start development server and watch for changes: `docker-compose up`
 
+#### Notes for HMR
+
+The default setting in the `docker-compose.yml`is to use the regular `ng serve` command. If you want to enable
+hmr you have to adapt the command used for the node container from `command: yarn run app-start` to
+`command: yarn run app-start-hmr`.
+
+#### Notes for Windows
+
+Windows requires some extra configurations in the `docker-compose.yml` to work properly:
+
+* Extend the port binding definition by adding a fixed local IP (e.g. 127.0.0.10, or any other IP on your localhost):
+
+    ```
+    services:
+      node:
+        ...
+        ports:
+        - "127.0.0.10:8080:8080"
+        - "127.0.0.10:9876:9876"
+
+      storybook:
+        ...
+        ports:
+        - "127.0.0.10:9001:9001"
+    ```
+
+* Adapt the run command to use polling:
+
+    ```
+    services:
+      node:
+        ...
+        command: yarn run app-start-poll
+    ```
+
+
 ## Installation and update instructions for deployment
 
 * Build the application for production: `docker-compose run --rm node "yarn run app-build-prod"`

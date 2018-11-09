@@ -9,10 +9,6 @@ services:
     ports:
     - "8080:8080"
     - "9876:9876"
-# Enable on Windows
-#    environment:
-#      NODE_RUN_UID: 1000
-#      NODE_RUN_GID: 1000
 
   storybook:
     build:
@@ -22,7 +18,3 @@ services:
     command: yarn run storybook-start
     ports:
     - "9001:9001"
-# Enable on Windows
-#    environment:
-#      NODE_RUN_UID: 1000
-#      NODE_RUN_GID: 1000
