@@ -1,10 +1,11 @@
 import { tap } from 'rxjs/operators';
+import { interval, Subscription } from 'rxjs';
 import { State, Action, Selector, StateContext } from '@ngxs/store';
+import { ResourceModel } from 'ngx-resource-factory/resource/resource-model';
 
-import { AuthenticationResource } from '@app/services/resource/authentication.resource';
+import { AuthenticationResource, AuthenticationUserToken } from '@app/services/resource/authentication.resource';
 import { AuthStateModel } from '@app/shared/state/auth/auth.model';
 import { Login, Logout, Refresh, Verify } from '@app/shared/state/auth/auth.actions';
-import { interval, Subscription } from 'rxjs';
 
 
 /**
@@ -48,7 +49,7 @@ export class AuthState {
     @Action(Login)
     login(ctx: StateContext<AuthStateModel>, payload: Login) {
         return this.authenticationResource.login({}, {'username': payload.username, 'password': payload.password}).$observable.pipe(
-            tap(result => {
+            tap((result: ResourceModel<AuthenticationUserToken>) => {
                 ctx.patchState({
                     token: result.token,
                     user: result.user,
