@@ -3,10 +3,11 @@
 {{ cookiecutter.project_description }}
 
 This application uses these core components:
-* Angular 7.0.x
+* Angular 7.1.x
 * UI Router 2.0.x
 * NGXS
 * ngx-translate
+* ngx-toastr
 * ngx-resource-factory
 * ngx-ui-router-url-type-factory
 * ng-bootstrap (using Bootstrap 4.1)
@@ -333,6 +334,7 @@ It should be updated to stable once it is available.
 * [ngx-translate documentation](https://github.com/ngx-translate/core)
 * [ngx-resource-factory documentation](https://github.com/beachmachine/ngx-resource-factory)
 * [ngx-ui-router-url-type-factory documentation](https://github.com/anx-astocker/ngx-ui-router-url-type-factory)
+* [ngx-toastr documentation](https://github.com/scttcper/ngx-toastr)
 * [ng-bootstrap documentation](https://ng-bootstrap.github.io/#/home)
 * [Font Awesome 5 icons](https://fontawesome.com/icons?d=gallery&m=free)
 * [Angular Font Awesome docs](https://github.com/FortAwesome/angular-fontawesome)
