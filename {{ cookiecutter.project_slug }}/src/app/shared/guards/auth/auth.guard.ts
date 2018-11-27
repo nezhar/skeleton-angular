@@ -2,15 +2,18 @@ import { Injectable } from '@angular/core';
 import { Select, Store } from '@ngxs/store';
 
 import { StateService, Transition } from '@uirouter/angular';
-
 import { Observable } from 'rxjs';
+import { ResourceModel } from 'ngx-resource-factory/resource/resource-model';
+
+import { SharedModule } from '@app/shared/shared.module';
 import { AuthState } from '@app/shared/state/auth/auth.state';
 import { Logout, Verify } from '@app/shared/state/auth/auth.actions';
-import { ResourceModel } from 'ngx-resource-factory/resource/resource-model';
 import { User } from '@app/services/resource/user.resource';
 
 
-@Injectable()
+@Injectable({
+    providedIn: SharedModule
+})
 export class AuthenticationGuard {
 
     @Select(AuthState) auth: Observable<number>;

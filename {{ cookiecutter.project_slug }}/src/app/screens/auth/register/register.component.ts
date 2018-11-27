@@ -2,8 +2,9 @@ import { Component, OnInit } from '@angular/core';
 import { FormControl, FormGroup, Validators } from '@angular/forms';
 
 import { StateService } from '@uirouter/angular';
+import { ToastrService } from 'ngx-toastr';
+
 import { UserResource } from 'src/app/services/resource/user.resource';
-import { AlertService } from 'src/app/services/alert/alert.service';
 
 
 @Component({
@@ -19,7 +20,7 @@ export class RegisterComponent implements OnInit {
     constructor(
         private state: StateService,
         private userResource: UserResource,
-        private alertService: AlertService) {
+        private toastrService: ToastrService) {
     }
 
     ngOnInit() {
@@ -37,11 +38,11 @@ export class RegisterComponent implements OnInit {
         this.userResource.save({}, this.registerForm.value).$promise
             .then(() => {
                 // set success message and pass true parameter to persist the message after redirecting to the login page
-                this.alertService.success('Registration successful', true);
+                this.toastrService.success('Registration successful');
                 this.state.go('auth.login');
             })
             .catch(error => {
-                this.alertService.error(error);
+                this.toastrService.error(error);
             })
             .finally(() => {
                 this.loading = false;

@@ -1,5 +1,5 @@
-import { ModuleWithProviders, NgModule } from '@angular/core';
+import { NgModule } from '@angular/core';
 
-@NgModule(})
+@NgModule()
 export class ServicesModule {
 }

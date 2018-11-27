@@ -1,6 +1,7 @@
 import { NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
 import { HttpClient, HttpClientModule } from '@angular/common/http';
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 
 import { MissingTranslationHandler, TranslateLoader, TranslateModule } from '@ngx-translate/core';
 import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
@@ -12,6 +13,7 @@ import { NgxUIRouterUrlTypeFactoryModule } from 'ngx-ui-router-url-type-factory'
 import { NgxsModule } from '@ngxs/store';
 import { NgxsReduxDevtoolsPluginModule } from '@ngxs/devtools-plugin';
 import { NgxsStoragePluginModule } from '@ngxs/storage-plugin';
+import { ToastrModule } from 'ngx-toastr';
 
 import { NgxAnxFormsModule } from 'ngx-anx-forms/ngx-anx-forms.module';
 import { ErrorMessageService } from 'ngx-anx-forms/services/error-message.service';
@@ -43,6 +45,7 @@ import { FormErrorMessageService } from '@app/services/form-error-messages/form-
         // Angular imports
         BrowserModule,
         HttpClientModule,
+        BrowserAnimationsModule,
 
         // 3rd party imports
         NgbModule,
@@ -80,6 +83,7 @@ import { FormErrorMessageService } from '@app/services/form-error-messages/form-
         NgxsReduxDevtoolsPluginModule.forRoot({
             disabled: environment.production
         }),
+        ToastrModule.forRoot(),
 
         // Application imports
         IconsModule,
