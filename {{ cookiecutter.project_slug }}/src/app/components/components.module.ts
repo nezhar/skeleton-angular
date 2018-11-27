@@ -4,7 +4,6 @@ import { FormsModule } from '@angular/forms';
 import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
 
 import { ButtonComponent } from '@app/components/button/button.component';
-import { AlertComponent } from '@app/components/alert/alert.component';
 import { BuildComponent } from '@app/components/build/build.component';
 import { ContentComponent } from '@app/components/content/content.component';
 import { HeaderComponent } from '@app/components/header/header.component';
@@ -27,7 +26,6 @@ import { FontAwesomeModule } from '@fortawesome/angular-fontawesome';
     ],
     exports: [
         ButtonComponent,
-        AlertComponent,
         BuildComponent,
         ContentComponent,
         HeaderComponent,
@@ -36,7 +34,6 @@ import { FontAwesomeModule } from '@fortawesome/angular-fontawesome';
     ],
     declarations: [
         ButtonComponent,
-        AlertComponent,
         BuildComponent,
         ContentComponent,
         HeaderComponent,

@@ -1,9 +1,10 @@
 import { Component, OnInit } from '@angular/core';
+import { FormControl, FormGroup, Validators } from '@angular/forms';
 
 import { StateService } from '@uirouter/angular';
-import { AlertService } from 'src/app/services/alert/alert.service';
-import { FormControl, FormGroup, Validators } from '@angular/forms';
 import { Store } from '@ngxs/store';
+import { ToastrService } from 'ngx-toastr';
+
 import { Login } from '@app/shared/state/auth/auth.actions';
 
 
@@ -20,7 +21,7 @@ export class LoginComponent implements OnInit {
     constructor(
         private state: StateService,
         private store: Store,
-        private alertService: AlertService) {
+        private toastrService: ToastrService) {
     }
 
     ngOnInit() {
@@ -41,14 +42,14 @@ export class LoginComponent implements OnInit {
             .toPromise()
             .then(
                 () => {
-                    this.alertService.success('Login successful');
+                    this.toastrService.success('Login successful');
                     this.state.go('root');
                 },
             )
             .catch(
                 error => {
                     console.log('Could not login user!');
-                    this.alertService.error(error);
+                    this.toastrService.error(error);
                 }
             )
             .finally(() => {
