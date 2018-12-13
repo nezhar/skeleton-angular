@@ -1,4 +1,4 @@
-import { Component, Input, OnDestroy, OnInit } from '@angular/core';
+import { AfterViewInit, ChangeDetectorRef, Component, ElementRef, Input, OnDestroy } from '@angular/core';
 import { Subscription } from 'rxjs/Subscription';
 import { debounceTime } from 'rxjs/operators';
 
@@ -12,25 +12,29 @@ import { LoadingScreenService } from '../loading-screen.service';
         './loading-screen.component.scss',
     ],
 })
-export class LoadingScreenComponent implements OnInit, OnDestroy {
+export class LoadingScreenComponent implements OnDestroy, AfterViewInit {
 
     @Input() debounceTime: number = 200;
-
-    displayLoadingScreen: boolean = false;
     loadingScreenSubscription: Subscription;
 
-    constructor(private loadingScreenService: LoadingScreenService) {
+    constructor(private loadingScreenService: LoadingScreenService,
+                private elementRef: ElementRef,
+                private changeDetectorRef: ChangeDetectorRef) {
     }
 
-    ngOnInit() {
+    ngAfterViewInit(): void {
+        // Hide the loading screen after init
+        this.elementRef.nativeElement.style.display = 'none';
+
         this.loadingScreenSubscription = this.loadingScreenService.loadingScreenObservable.pipe(
-            debounceTime(this.debounceTime)
+            debounceTime(this.debounceTime),
         ).subscribe((status: boolean) => {
-            this.displayLoadingScreen = status;
+            this.elementRef.nativeElement.style.display = status ? 'block' : 'none';
+            this.changeDetectorRef.detectChanges();
         });
     }
 
-    ngOnDestroy() {
+    ngOnDestroy(): void  {
         this.loadingScreenSubscription.unsubscribe();
     }
 }
