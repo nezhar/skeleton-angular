@@ -62,6 +62,13 @@ export class AuthState {
 
     @Action(Verify)
     verify(ctx: StateContext<AuthStateModel>) {
+        if (!ctx.getState().token) {
+            // do not verify if there is no token set
+            ctx.dispatch(new Logout());
+
+            return false;
+        }
+
         return this.authenticationResource.verify({}, {'token': ctx.getState().token}).$observable.pipe(
             tap(result => {
                 ctx.patchState({
