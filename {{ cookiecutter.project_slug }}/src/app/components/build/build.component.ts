@@ -11,7 +11,7 @@ import { VERSION } from '@env/version';
     ]
 })
 export class BuildComponent implements OnInit {
-    buildVersion: string = VERSION.hash;
+    buildVersion: string = VERSION.tag || VERSION.hash;
     buildDate: string = VERSION.date;
     buildDevelopment: boolean = environment.development;
     buildProduction: boolean = environment.production;

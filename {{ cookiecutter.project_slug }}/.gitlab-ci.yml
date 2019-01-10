@@ -71,7 +71,7 @@ build_development:
   - yarn run app-build-dev
   artifacts:
     when: on_success
-    expire_in: 1 month
+    expire_in: 1 week
     name: "development_build_$CI_COMMIT_REF_SLUG_$CI_COMMIT_SHA"
     paths:
     - dist/{{ cookiecutter.project_slug }}/
@@ -117,3 +117,19 @@ build_production_test:
   - yarn run app-build-prod
   except:
   - master
+  - tags
+
+
+# This generates of tagged production build
+build_production_tag:
+  stage: build_app
+  script:
+  - yarn run app-build-prod
+  only:
+  - tags
+  artifacts:
+    when: on_success
+    expire_in: 3 months
+    name: "production_build_$CI_COMMIT_REF_SLUG_$CI_COMMIT_SHA"
+    paths:
+    - dist/{{ cookiecutter.project_slug }}/
