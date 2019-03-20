@@ -1,6 +1,7 @@
 import { tap } from 'rxjs/operators';
 import { interval, Subscription } from 'rxjs';
 import { State, Action, Selector, StateContext } from '@ngxs/store';
+import { StateService } from '@uirouter/core';
 import { ResourceModel } from 'ngx-resource-factory/resource/resource-model';
 
 import { AuthenticationResource, AuthenticationUserToken } from '@app/services/resource/authentication.resource';
@@ -40,7 +41,7 @@ export class AuthState {
         return state.token;
     }
 
-    constructor(private authenticationResource: AuthenticationResource) {
+    constructor(private authenticationResource: AuthenticationResource, private state: StateService) {
     }
 
     /**
@@ -93,8 +94,13 @@ export class AuthState {
                     user: result.user,
                     loaded: true,
                 });
-            }, () => {
-                ctx.dispatch(new Logout());
+            }, (rejection) => {
+                if (rejection.status === 0) {
+                    // network error (bad connection, server offline, ...)
+                    console.error('Auth Refresh: Failed to connect to server.');
+                } else {
+                    ctx.dispatch(new Logout());
+                }
             })
         );
     }
@@ -108,6 +114,9 @@ export class AuthState {
         });
 
         this.stopTokenRefreshInterval();
+
+        // navigate to start page
+        this.state.go('auth');
     }
 
     /**
