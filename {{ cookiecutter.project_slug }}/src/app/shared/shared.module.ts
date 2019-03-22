@@ -4,6 +4,7 @@ import { jwtProvider } from '@app/shared/interceptors/jwt.interceptor';
 import { fakeBackendProvider } from '@app/shared/interceptors/fake-backend';
 import { appStorageProvider } from '@app/shared/storage/app.storage';
 import { loadingScreenProvider } from '@app/shared/interceptors/loader.interceptor';
+import { activeLanguageProvider } from '@app/shared/interceptors/language.interceptor';
 
 
 @NgModule({
@@ -22,6 +23,7 @@ export class SharedModule {
                 fakeBackendProvider,
                 appStorageProvider,
                 loadingScreenProvider,
+                activeLanguageProvider,
             ]
         };
     }
