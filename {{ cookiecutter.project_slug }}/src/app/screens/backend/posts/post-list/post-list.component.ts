@@ -1,7 +1,7 @@
-import { Component, ElementRef, EventEmitter, OnInit, TemplateRef, ViewChild, OnDestroy } from '@angular/core';
+import { Component, ElementRef, OnInit, TemplateRef, ViewChild, OnDestroy } from '@angular/core';
 import { FormControl, FormGroup } from '@angular/forms';
 
-import { LangChangeEvent, TranslateService } from '@ngx-translate/core';
+import { TranslateService } from '@ngx-translate/core';
 import { TableColumn } from '@swimlane/ngx-datatable';
 import { NgbModal } from '@ng-bootstrap/ng-bootstrap';
 
@@ -20,7 +20,6 @@ import { debounceTime, startWith } from 'rxjs/operators';
 export class PostListComponent implements OnInit, OnDestroy {
     items = [];
     tableColumns: TableColumn[] = [];
-    languageSubscription: EventEmitter<LangChangeEvent> = null;
     paginationLimit = 10;
 
     @ViewChild('titleColumn') titleColumn: TemplateRef<ElementRef>;
@@ -28,6 +27,7 @@ export class PostListComponent implements OnInit, OnDestroy {
 
     filterForm: FormGroup;
     filterFormSubscription: Subscription;
+    languageSubscription: Subscription;
 
     userIds = [
         {'id': 1, 'label': 'User 1'},
@@ -53,10 +53,10 @@ export class PostListComponent implements OnInit, OnDestroy {
             'search': new FormControl('', null, null),
         });
 
-        this.filterFormSubscription  = combineLatest(
+        this.filterFormSubscription = combineLatest([
             this.filterForm.get('userId').valueChanges.pipe(startWith(null)),
             this.filterForm.get('search').valueChanges.pipe(debounceTime(500), startWith('')),
-        ).subscribe((values) => {
+        ]).subscribe((values) => {
             this.loadPosts({
                 userId: values[0],
                 search: values[1],
@@ -76,7 +76,7 @@ export class PostListComponent implements OnInit, OnDestroy {
         this.filterFormSubscription.unsubscribe();
     }
 
-    loadPosts(filter: {userId: string, search: string}) {
+    loadPosts(filter: { userId: string, search: string }) {
         // This must be removed because the test REST API cannot handle null values
         if (filter.userId === null) {
             delete filter.userId;

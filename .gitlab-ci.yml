@@ -10,6 +10,7 @@ stages:
 - setup
 - test_install
 - test_project
+- test_dependencies
 
 setup_cookiecutter:
   image: python:3.5-stretch
@@ -48,3 +49,16 @@ test_project:
     paths:
     - .cache/
     policy: pull
+
+test_dependencies:
+  image: gitlab.anx.local:4567/anexia-developme/skeleton-angular/node_base
+  stage: test_dependencies
+  script:
+  - cd .cache/skeleton-test
+  - yarn outdated
+  cache:
+    key: application_cache
+    paths:
+    - .cache/
+    policy: pull
+  allow_failure: true
