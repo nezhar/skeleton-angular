@@ -1,4 +1,4 @@
 <h1>Hi {{currentUser.first_name}}!</h1>
 
 <p>{{ "You're logged in!" | translate }}</p>
-<p><a uiSref="auth.logout">{{ "Logout" | translate }}</a></p>
+<p><a (click)="logout()" href="javascript:void(0)">{{ "Logout" | translate }}</a></p>
