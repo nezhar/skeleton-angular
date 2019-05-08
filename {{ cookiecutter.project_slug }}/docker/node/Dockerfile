@@ -14,5 +14,5 @@ COPY docker-node-entrypoint /usr/local/bin/
 RUN dos2unix /usr/local/bin/docker-node-entrypoint && \
     chmod a+x /usr/local/bin/docker-node-entrypoint
 
-WORKDIR /app/src
+WORKDIR /app
 ENTRYPOINT [ "/bin/bash", "/usr/local/bin/docker-node-entrypoint" ]

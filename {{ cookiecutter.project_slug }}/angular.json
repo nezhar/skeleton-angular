@@ -5,7 +5,7 @@
   "projects": {
     "{{ cookiecutter.project_slug }}": {
       "root": "",
-      "sourceRoot": "src",
+      "sourceRoot": "projects/src",
       "projectType": "application",
       "prefix": "app",
       "schematics": {
@@ -18,20 +18,20 @@
           "builder": "@angular-devkit/build-angular:browser",
           "options": {
             "outputPath": "dist/{{ cookiecutter.project_slug }}",
-            "index": "src/index.html",
-            "main": "src/main.ts",
-            "polyfills": "src/polyfills.ts",
-            "tsConfig": "src/tsconfig.app.json",
+            "index": "projects/src/index.html",
+            "main": "projects/src/main.ts",
+            "polyfills": "projects/src/polyfills.ts",
+            "tsConfig": "projects/src/tsconfig.app.json",
             "assets": [
-              "src/favicon.ico",
-              "src/assets"
+              "projects/src/favicon.ico",
+              "projects/src/assets"
             ],
             "styles": [
-              "src/app/styles/main.scss"
+              "projects/src/app/styles/main.scss"
             ],
             "stylePreprocessorOptions": {
               "includePaths": [
-                "src/app"
+                "projects/src/app"
               ]
             },
             "scripts": []
@@ -40,24 +40,24 @@
             "hmr": {
               "fileReplacements": [
                 {
-                  "replace": "src/environments/environment.ts",
-                  "with": "src/environments/environment.hmr.ts"
+                  "replace": "projects/src/environments/environment.ts",
+                  "with": "projects/src/environments/environment.hmr.ts"
                 }
               ]
             },
             "staging": {
               "fileReplacements": [
                 {
-                  "replace": "src/environments/environment.ts",
-                  "with": "src/environments/environment.stage.ts"
+                  "replace": "projects/src/environments/environment.ts",
+                  "with": "projects/src/environments/environment.stage.ts"
                 }
               ]
             },
             "production": {
               "fileReplacements": [
                 {
-                  "replace": "src/environments/environment.ts",
-                  "with": "src/environments/environment.prod.ts"
+                  "replace": "projects/src/environments/environment.ts",
+                  "with": "projects/src/environments/environment.prod.ts"
                 }
               ],
               "optimization": true,
@@ -96,20 +96,20 @@
         "test": {
           "builder": "@angular-devkit/build-angular:karma",
           "options": {
-            "main": "src/test.ts",
-            "polyfills": "src/polyfills.ts",
-            "tsConfig": "src/tsconfig.spec.json",
-            "karmaConfig": "src/karma.conf.js",
+            "main": "projects/src/test.ts",
+            "polyfills": "projects/src/polyfills.ts",
+            "tsConfig": "projects/src/tsconfig.spec.json",
+            "karmaConfig": "projects/src/karma.conf.js",
             "assets": [
-              "src/favicon.ico",
-              "src/assets"
+              "projects/src/favicon.ico",
+              "projects/src/assets"
             ],
             "styles": [
-              "src/app/styles/main.scss"
+              "projects/src/app/styles/main.scss"
             ],
             "stylePreprocessorOptions": {
               "includePaths": [
-                "src/app"
+                "projects/src/app"
               ]
             },
             "scripts": []
@@ -119,40 +119,13 @@
           "builder": "@angular-devkit/build-angular:tslint",
           "options": {
             "tsConfig": [
-              "src/tsconfig.app.json",
-              "src/tsconfig.spec.json"
+              "projects/src/tsconfig.app.json",
+              "projects/src/tsconfig.spec.json"
             ],
             "exclude": [
               "**/node_modules/**",
-              "src/app/shared/interceptors/fake-backend.ts",
-              "src/polyfills.ts"
-            ]
-          }
-        }
-      }
-    },
-    "{{ cookiecutter.project_slug }}-e2e": {
-      "root": "e2e/",
-      "projectType": "application",
-      "architect": {
-        "e2e": {
-          "builder": "@angular-devkit/build-angular:protractor",
-          "options": {
-            "protractorConfig": "e2e/protractor.conf.js",
-            "devServerTarget": "{{ cookiecutter.project_slug }}:serve"
-          },
-          "configurations": {
-            "production": {
-              "devServerTarget": "{{ cookiecutter.project_slug }}:serve:production"
-            }
-          }
-        },
-        "lint": {
-          "builder": "@angular-devkit/build-angular:tslint",
-          "options": {
-            "tsConfig": "e2e/tsconfig.e2e.json",
-            "exclude": [
-              "**/node_modules/**"
+              "projects/src/app/shared/interceptors/fake-backend.ts",
+              "projects/src/polyfills.ts"
             ]
           }
         }

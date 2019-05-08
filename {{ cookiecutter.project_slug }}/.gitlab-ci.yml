@@ -37,7 +37,7 @@ test_code:
 documentation:
   stage: build_docs
   script:
-  - yarn run generatedocs
+  - yarn run generatedocs ./projects/src/tsconfig.app.json
   only:
   - master
   artifacts:

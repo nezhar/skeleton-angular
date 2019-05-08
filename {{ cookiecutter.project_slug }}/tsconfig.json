@@ -3,9 +3,9 @@
   "compilerOptions": {
     "baseUrl": "./",
     "paths": {
-        "@app/*": [ "src/app/*" ],
-        "@env/*": [ "src/environments/*" ],
-        "ngx-anx-loading-screen/*": [ "src/app/modules/ngx-anx-loading-screen/*" ],
+        "@app/*": [ "projects/src/app/*" ],
+        "@env/*": [ "projects/src/environments/*" ],
+        "ngx-anx-loading-screen/*": [ "projects/src/app/modules/ngx-anx-loading-screen/*" ],
         "core-js/es7/reflect": ["node_modules/core-js/proposals/reflect-metadata"]
     },
     "outDir": "./dist/out-tsc",

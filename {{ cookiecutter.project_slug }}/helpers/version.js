@@ -12,7 +12,7 @@ const gitInfo = gitDescribeSync({
 gitInfo.version = version;
 gitInfo.date = new Date();
 
-const file = resolve(__dirname, '..', 'src', 'environments', 'version.ts');
+const file = resolve(__dirname, '..', 'projects', 'src', 'environments', 'version.ts');
 writeFileSync(file,
 `// IMPORTANT: THIS FILE IS AUTO GENERATED! DO NOT MANUALLY EDIT OR CHECKIN!
 /* tslint:disable */

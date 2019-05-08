@@ -43,7 +43,7 @@ test_project:
   - yarn run app-build-dev
   - yarn run app-build-prod
   # - yarn run storybook-build - needs to be fixed
-  - yarn run generatedocs
+  - yarn run generatedocs -p ./projects/src/tsconfig.app.json
   cache:
     key: "$CI_PIPELINE_ID"
     paths:
