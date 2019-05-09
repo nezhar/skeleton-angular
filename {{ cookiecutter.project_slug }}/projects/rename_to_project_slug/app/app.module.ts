@@ -14,9 +14,9 @@ import { NgxsModule } from '@ngxs/store';
 import { NgxsReduxDevtoolsPluginModule } from '@ngxs/devtools-plugin';
 import { NgxsStoragePluginModule } from '@ngxs/storage-plugin';
 import { ToastrModule } from 'ngx-toastr';
+import { NgxAnxFormsModule } from 'ngx-anx-forms';
+import { ErrorMessageService } from 'ngx-anx-forms';
 
-import { NgxAnxFormsModule } from '@app/modules/ngx-anx-forms';
-import { ErrorMessageService } from '@app/modules/ngx-anx-forms';
 import { NgxAnxLoadingScreenModule } from '@app/modules/ngx-anx-loading-screen/ngx-anx-loading-screen.module';
 
 import { routingConfig } from '@app/app.routing';

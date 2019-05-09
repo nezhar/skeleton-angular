@@ -12,7 +12,6 @@ cache:
   key: "$CI_PROJECT_ID"
 
 before_script:
-- cd src/
 - yarn install
 
 #
@@ -24,6 +23,7 @@ code_review:
   stage: code_review
   script:
   - yarn run lint
+
 
 # Task for running tests
 test_code:
@@ -37,7 +37,7 @@ test_code:
 documentation:
   stage: build_docs
   script:
-  - yarn run generatedocs ./projects/src/tsconfig.app.json
+  - yarn run generatedocs ./projects/{{ cookiecutter.project_slug }}/tsconfig.app.json
   only:
   - master
   artifacts:

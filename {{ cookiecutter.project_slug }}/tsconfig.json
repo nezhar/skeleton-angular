@@ -3,9 +3,9 @@
   "compilerOptions": {
     "baseUrl": "./",
     "paths": {
-        "@app/*": [ "projects/src/app/*" ],
-        "@env/*": [ "projects/src/environments/*" ],
-        "ngx-anx-loading-screen/*": [ "projects/src/app/modules/ngx-anx-loading-screen/*" ],
+        "@app/*": [ "projects/{{ cookiecutter.project_slug }}/app/*" ],
+        "@env/*": [ "projects/{{ cookiecutter.project_slug }}/environments/*" ],
+        "ngx-anx-loading-screen/*": [ "projects/{{ cookiecutter.project_slug }}/app/modules/ngx-anx-loading-screen/*" ],
         "core-js/es7/reflect": ["node_modules/core-js/proposals/reflect-metadata"]
     },
     "outDir": "./dist/out-tsc",

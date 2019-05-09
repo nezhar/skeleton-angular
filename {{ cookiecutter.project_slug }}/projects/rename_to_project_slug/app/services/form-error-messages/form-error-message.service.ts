@@ -1,7 +1,7 @@
 import { Injectable } from '@angular/core';
 import { TranslateService } from '@ngx-translate/core';
 
-import { ErrorMessageService } from '../../modules/ngx-anx-forms';
+import { ErrorMessageService } from 'ngx-anx-forms';
 
 
 @Injectable({

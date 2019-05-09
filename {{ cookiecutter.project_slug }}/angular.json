@@ -5,7 +5,7 @@
   "projects": {
     "{{ cookiecutter.project_slug }}": {
       "root": "",
-      "sourceRoot": "projects/src",
+      "sourceRoot": "projects/{{ cookiecutter.project_slug }}",
       "projectType": "application",
       "prefix": "app",
       "schematics": {
@@ -18,20 +18,20 @@
           "builder": "@angular-devkit/build-angular:browser",
           "options": {
             "outputPath": "dist/{{ cookiecutter.project_slug }}",
-            "index": "projects/src/index.html",
-            "main": "projects/src/main.ts",
-            "polyfills": "projects/src/polyfills.ts",
-            "tsConfig": "projects/src/tsconfig.app.json",
+            "index": "projects/{{ cookiecutter.project_slug }}/index.html",
+            "main": "projects/{{ cookiecutter.project_slug }}/main.ts",
+            "polyfills": "projects/{{ cookiecutter.project_slug }}/polyfills.ts",
+            "tsConfig": "projects/{{ cookiecutter.project_slug }}/tsconfig.app.json",
             "assets": [
-              "projects/src/favicon.ico",
-              "projects/src/assets"
+              "projects/{{ cookiecutter.project_slug }}/favicon.ico",
+              "projects/{{ cookiecutter.project_slug }}/assets"
             ],
             "styles": [
-              "projects/src/app/styles/main.scss"
+              "projects/{{ cookiecutter.project_slug }}/app/styles/main.scss"
             ],
             "stylePreprocessorOptions": {
               "includePaths": [
-                "projects/src/app"
+                "projects/{{ cookiecutter.project_slug }}/app"
               ]
             },
             "scripts": []
@@ -40,24 +40,24 @@
             "hmr": {
               "fileReplacements": [
                 {
-                  "replace": "projects/src/environments/environment.ts",
-                  "with": "projects/src/environments/environment.hmr.ts"
+                  "replace": "projects/{{ cookiecutter.project_slug }}/environments/environment.ts",
+                  "with": "projects/{{ cookiecutter.project_slug }}/environments/environment.hmr.ts"
                 }
               ]
             },
             "staging": {
               "fileReplacements": [
                 {
-                  "replace": "projects/src/environments/environment.ts",
-                  "with": "projects/src/environments/environment.stage.ts"
+                  "replace": "projects/{{ cookiecutter.project_slug }}/environments/environment.ts",
+                  "with": "projects/{{ cookiecutter.project_slug }}/environments/environment.stage.ts"
                 }
               ]
             },
             "production": {
               "fileReplacements": [
                 {
-                  "replace": "projects/src/environments/environment.ts",
-                  "with": "projects/src/environments/environment.prod.ts"
+                  "replace": "projects/{{ cookiecutter.project_slug }}/environments/environment.ts",
+                  "with": "projects/{{ cookiecutter.project_slug }}/environments/environment.prod.ts"
                 }
               ],
               "optimization": true,
@@ -96,20 +96,20 @@
         "test": {
           "builder": "@angular-devkit/build-angular:karma",
           "options": {
-            "main": "projects/src/test.ts",
-            "polyfills": "projects/src/polyfills.ts",
-            "tsConfig": "projects/src/tsconfig.spec.json",
-            "karmaConfig": "projects/src/karma.conf.js",
+            "main": "projects/{{ cookiecutter.project_slug }}/test.ts",
+            "polyfills": "projects/{{ cookiecutter.project_slug }}/polyfills.ts",
+            "tsConfig": "projects/{{ cookiecutter.project_slug }}/tsconfig.spec.json",
+            "karmaConfig": "projects/{{ cookiecutter.project_slug }}/karma.conf.js",
             "assets": [
-              "projects/src/favicon.ico",
-              "projects/src/assets"
+              "projects/{{ cookiecutter.project_slug }}/favicon.ico",
+              "projects/{{ cookiecutter.project_slug }}/assets"
             ],
             "styles": [
-              "projects/src/app/styles/main.scss"
+              "projects/{{ cookiecutter.project_slug }}/app/styles/main.scss"
             ],
             "stylePreprocessorOptions": {
               "includePaths": [
-                "projects/src/app"
+                "projects/{{ cookiecutter.project_slug }}/app"
               ]
             },
             "scripts": []
@@ -119,13 +119,13 @@
           "builder": "@angular-devkit/build-angular:tslint",
           "options": {
             "tsConfig": [
-              "projects/src/tsconfig.app.json",
-              "projects/src/tsconfig.spec.json"
+              "projects/{{ cookiecutter.project_slug }}/tsconfig.app.json",
+              "projects/{{ cookiecutter.project_slug }}/tsconfig.spec.json"
             ],
             "exclude": [
               "**/node_modules/**",
-              "projects/src/app/shared/interceptors/fake-backend.ts",
-              "projects/src/polyfills.ts"
+              "projects/{{ cookiecutter.project_slug }}/app/shared/interceptors/fake-backend.ts",
+              "projects/{{ cookiecutter.project_slug }}/polyfills.ts"
             ]
           }
         }

@@ -176,7 +176,7 @@ The components module holds Angular components that are used inside **screens**,
 
 Run `docker-compose run --rm node "ng generate component app/components/{componentName}"` to add a new component.
 
-The new component will be added directly in the declarations of the component module, located under `src/app/components/components.module.ts`.
+The new component will be added directly in the declarations of the component module, located under `projects/{{ cookiecutter.project_slug }}/app/components/components.module.ts`.
 Open the file an make sure to also add the component in the **exports** array, so the component can be used in the other modules.
 
 Make sure that the ComponentsModule is declared in the **imports** array of the **@NgModule** you want to use the component.
@@ -188,7 +188,7 @@ The modals module holds Angular components that are used in modal dialogs, using
 
 Run `docker-compose run --rm node "ng generate component app/modals/{modalName}"` to add a new modal.
 
-The new component will be added directly in the declarations of the modal module, located under `src/app/modals/modals.module.ts`.
+The new component will be added directly in the declarations of the modal module, located under `projects/{{ cookiecutter.project_slug }}/app/modals/modals.module.ts`.
 Open the file an make sure to also add the component in the **entryComponents** array, so the component can be loaded using NgbModal.
 
 Always extend the **ModalBaseComponent** in a newly created modal, and use the provided content areas in the template
@@ -211,13 +211,13 @@ The **services** module is dedicated for creating service.
 Run `docker-compose run --rm node "ng generate service app/services/{serviceFolder}/{serviceName}"` to add a new modal.
 
 This will generate a new folder for the service, and also the .service.ts and .spec.ts files inside.
-Make sure to add the newly created service in the module (under `src/app/services/services.module.ts`),
+Make sure to add the newly created service in the module (under `projects/{{ cookiecutter.project_slug }}/app/services/services.module.ts`),
 as this is not done by the CLI.
 
 ### Adding resources
 
 Resources are also services, they act in the application similar to a data model.
-You have to create them manually under `src/app/services/resources`
+You have to create them manually under `projects/{{ cookiecutter.project_slug }}/app/services/resources`
 By convention we always name the file `{resourceName}.resource.ts`
 
 Resources cam be injected into any component and are used to fetch data from
@@ -230,10 +230,10 @@ Use the *PostResource* and the *UserResource* as samples.
 Types are used inside the state declarations of the UI Router.
 They allow to map an existing object to a given Route.
 
-Types are located in `src/app/shared/types/`.
+Types are located in `projects/{{ cookiecutter.project_slug }}/app/shared/types/`.
 By convention we always name the file `{resourceName}.type.ts`
 
-Each type must be added in `src/app/app.module.ts` in the types list declared in
+Each type must be added in `projects/{{ cookiecutter.project_slug }}/app/app.module.ts` in the types list declared in
 the forRoot method of the **NgxUIRouterUrlTypeFactoryModule**
 
 ```typescript
@@ -261,8 +261,8 @@ You can also add a the new module in the tsconfig.json paths for a more convenie
 
 ```typescript
     "paths": {
-        "@app/*": [ "src/app/*" ],
-        "ngx-anx-loading-screen/*": [ "src/app/modules/ngx-anx-loading-screen/*" ]
+        "@app/*": [ "projects/{{ cookiecutter.project_slug }}/app/*" ],
+        "ngx-anx-loading-screen/*": [ "projects/{{ cookiecutter.project_slug }}/app/modules/ngx-anx-loading-screen/*" ]
     },
 ```
 
@@ -270,9 +270,9 @@ You can also add a the new module in the tsconfig.json paths for a more convenie
 
 Use `docker-compose run --rm node "yarn run makemessages"` to collect all available translations.
 
-All available languages are managed in the `LanguageService` located under `src/app/services/language/language.service.ts`
+All available languages are managed in the `LanguageService` located under `projects/{{ cookiecutter.project_slug }}/app/services/language/language.service.ts`
 
-The translations files are located under `src/assets/locales`
+The translations files are located under `projects/{{ cookiecutter.project_slug }}/assets/locales`
 
 ## Instructions for project
 
@@ -283,7 +283,7 @@ The translations files are located under `src/assets/locales`
 ### Replace the fake backend
 
 The fake backend is currently simulating the default authentication prodived by the [Django Skeleton](https://gitlab.anx.local/anexia-developme/skeleton-django)
-In order to remove this you have to remove the `fake-backend.ts` from `src/app/shared/interceptors`. Also make sure that you remove all declarations of the fake backend.
+In order to remove this you have to remove the `fake-backend.ts` from `projects/{{ cookiecutter.project_slug }}/app/shared/interceptors`. Also make sure that you remove all declarations of the fake backend.
 The AuthenticationResource and the UserResource need to be reconfigured to use the appropriate REST APIs.
 
 ### JWT Authentication
