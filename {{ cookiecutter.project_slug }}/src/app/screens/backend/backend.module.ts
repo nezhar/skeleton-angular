@@ -8,7 +8,7 @@ import { FontAwesomeModule } from '@fortawesome/angular-fontawesome';
 import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
 import { NgxDatatableModule } from '@swimlane/ngx-datatable';
 
-import { NgxAnxFormsModule } from 'ngx-anx-forms/ngx-anx-forms.module';
+import { NgxAnxFormsModule } from 'ngx-anx-forms';
 import { ComponentsModule } from '@app/components/components.module';
 
 import { HomeComponent } from '@app/screens/backend/home/home.component';
