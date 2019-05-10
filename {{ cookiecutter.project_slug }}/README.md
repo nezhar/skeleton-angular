@@ -3,13 +3,14 @@
 {{ cookiecutter.project_description }}
 
 This application uses these core components:
-* Angular 7.1.x
+* Angular 7.2.x
 * UI Router 2.0.x
 * NGXS
 * ngx-translate
 * ngx-toastr
 * ngx-resource-factory
 * ngx-ui-router-url-type-factory
+* ngx-anx-forms
 * ng-bootstrap (using Bootstrap 4.1)
 * angular-fontawesome (using Font Awesome 5)
 
@@ -261,7 +262,6 @@ You can also add a the new module in the tsconfig.json paths for a more convenie
 ```typescript
     "paths": {
         "@app/*": [ "src/app/*" ],
-        "ngx-anx-forms/*": [ "src/app/modules/ngx-anx-forms/*" ],
         "ngx-anx-loading-screen/*": [ "src/app/modules/ngx-anx-loading-screen/*" ]
     },
 ```
@@ -334,6 +334,7 @@ It should be updated to stable once it is available.
 * [ngx-translate documentation](https://github.com/ngx-translate/core)
 * [ngx-resource-factory documentation](https://github.com/beachmachine/ngx-resource-factory)
 * [ngx-ui-router-url-type-factory documentation](https://github.com/anx-astocker/ngx-ui-router-url-type-factory)
+* [ngx-anx-forms documentation](https://anx-hnezbeda.github.io/ngx-anx-forms)
 * [ngx-toastr documentation](https://github.com/scttcper/ngx-toastr)
 * [ng-bootstrap documentation](https://ng-bootstrap.github.io/#/home)
 * [Font Awesome 5 icons](https://fontawesome.com/icons?d=gallery&m=free)

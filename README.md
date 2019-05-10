@@ -3,7 +3,7 @@
 [![build passing](https://gitlab.anx.local/anexia-developme/skeleton-angular/badges/master/build.svg)](https://gitlab.anx.local/anexia-developme/skeleton-angular/builds)
 
 A [Cookiecutter](https://cookiecutter.readthedocs.io/en/latest/) template for Angular 7.0 applications. The skeleton will generate an Angular application, having:
-* Angular 7.1 (HMR and AOT build)
+* Angular 7.2 (HMR and AOT build)
 * UI Router with layout configuration
 * Global state management
 * Multilanguage
@@ -38,6 +38,8 @@ instructions:
 ## List of developers
 
 * Harald Nezbeda <HNezbeda@anexia-it.com>, Lead developer
+* Christian Kreuzberger <CKreuzberger@anexia-it.com>, Developer
+* Alex Peruzzi <Aperuzzi@anexia-it.com>, Developer
 * Andreas Stocker <AStocker@anexia-it.com>, Developer
 
 ## Project related external resources
