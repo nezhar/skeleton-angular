@@ -35,8 +35,7 @@
             id="superuser"
             formControlName="superuser"
             [errors]="registerForm.get('superuser').errors"
-            [label]="'Is Superuser?' | translate"
-    ></anx-forms-input-checkbox>
+    >{{ 'Is Superuser?' | translate }}</anx-forms-input-checkbox>
 
     <div class="form-group">
         <app-button type="submit" [disabled]="!registerForm.valid" role="primary">
