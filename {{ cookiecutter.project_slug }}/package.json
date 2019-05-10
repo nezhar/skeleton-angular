@@ -44,6 +44,7 @@
     "@ngxs/storage-plugin": "^3.4.3",
     "@ngxs/store": "^3.4.3",
     "@swimlane/ngx-datatable": "^14.0.0",
+    "ngx-anx-forms": "^0.2.2",
     "@types/lodash": "^4.14.123",
     "@uirouter/angular": "^3.0.0",
     "bootstrap": "^4.3.1",

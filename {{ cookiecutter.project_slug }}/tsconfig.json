@@ -5,7 +5,6 @@
     "paths": {
         "@app/*": [ "src/app/*" ],
         "@env/*": [ "src/environments/*" ],
-        "ngx-anx-forms/*": [ "src/app/modules/ngx-anx-forms/*" ],
         "ngx-anx-loading-screen/*": [ "src/app/modules/ngx-anx-loading-screen/*" ],
         "core-js/es7/reflect": ["node_modules/core-js/proposals/reflect-metadata"]
     },
