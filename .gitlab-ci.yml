@@ -1,5 +1,5 @@
 cache:
-  key: application_cache
+  key: "$CI_PIPELINE_ID"
   paths:
   - .cache/
 
@@ -45,7 +45,7 @@ test_project:
   # - yarn run storybook-build - needs to be fixed
   - yarn run generatedocs
   cache:
-    key: application_cache
+    key: "$CI_PIPELINE_ID"
     paths:
     - .cache/
     policy: pull
@@ -57,7 +57,7 @@ test_dependencies:
   - cd .cache/skeleton-test
   - yarn outdated
   cache:
-    key: application_cache
+    key: "$CI_PIPELINE_ID"
     paths:
     - .cache/
     policy: pull
