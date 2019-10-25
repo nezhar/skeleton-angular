@@ -26,7 +26,7 @@ node_modules/*
 *.sqlite3
 *.mo
 docker-compose.yml
-src/environments/version.ts
+/projects/{{ cookiecutter.project_slug }}/environments/version.ts
 
 # sonarqube
 .scannerwork/

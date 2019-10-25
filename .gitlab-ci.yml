@@ -1,3 +1,5 @@
+image: gitlab.anx.local:4567/anexia-developme/skeleton-angular/node_base
+
 cache:
   key: "$CI_PIPELINE_ID"
   paths:
@@ -8,7 +10,6 @@ before_script:
 
 stages:
 - setup
-- test_install
 - test_project
 - test_dependencies
 
@@ -26,24 +27,17 @@ setup_cookiecutter:
   - cd .cache
   - cookiecutter ../ --no-input --overwrite-if-exists project_title='Skeleton Test'
 
-test_install:
-  image: gitlab.anx.local:4567/anexia-developme/skeleton-angular/node_base
-  stage: test_install
-  script:
-  - cd .cache/skeleton-test
-  - yarn install
-
 test_project:
-  image: gitlab.anx.local:4567/anexia-developme/skeleton-angular/node_base
   stage: test_project
   script:
   - cd .cache/skeleton-test
+  - yarn install
   - yarn run lint
   - yarn run test
   - yarn run app-build-dev
   - yarn run app-build-prod
   # - yarn run storybook-build - needs to be fixed
-  - yarn run generatedocs
+  - yarn run generatedocs -p ./projects/skeleton-test/tsconfig.app.json
   cache:
     key: "$CI_PIPELINE_ID"
     paths:
@@ -51,10 +45,10 @@ test_project:
     policy: pull
 
 test_dependencies:
-  image: gitlab.anx.local:4567/anexia-developme/skeleton-angular/node_base
   stage: test_dependencies
   script:
   - cd .cache/skeleton-test
+  - yarn install
   - yarn outdated
   cache:
     key: "$CI_PIPELINE_ID"

@@ -5,8 +5,8 @@
   "author_name": "Your Name",
   "author_email": "your@email.com",
   "_copy_without_render": [
-    "src/app/*",
-    "src/assets/*",
-    "src/storybook/stories/*"
+    "projects/rename_to_project_slug/app/*",
+    "projects/rename_to_project_slug/assets/*",
+    "projects/rename_to_project_slug/storybook/stories/*"
   ]
 }
