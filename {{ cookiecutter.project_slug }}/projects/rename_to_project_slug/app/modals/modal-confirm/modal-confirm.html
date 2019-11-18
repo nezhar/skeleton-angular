@@ -1,0 +1,10 @@
+<app-modal-base>
+    <span modal-title>{{ headerText }}</span>
+    <div modal-body>
+        {{ bodyText }}
+    </div>
+    <div modal-footer class="col-12">
+        <app-button [role]="btnCancelRole" (click)="cancelAction()">{{ btnCancelText }}</app-button>
+        <app-button [role]="btnConfirmRole" class="float-right" (click)="confirmAction()">{{ btnConfirmText }}</app-button>
+    </div>
+</app-modal-base>
