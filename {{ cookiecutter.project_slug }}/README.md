@@ -30,7 +30,6 @@ It is expected you have `docker` as well as `docker-compose` set up and running 
 To initially build and run the application, do the steps as follows:
 * Initialize the git repository and create an initial commit: `git init && git add . && git commit -m "Initial commit"`
 * Create the `docker-compose.yml` from the example: `cp docker-compose.yml.example docker-compose.yml`
-* Make sure you can access the [Internal Docker Registry](https://ais.anexia-it.com/display/SI/Interne+Docker+Registry)
 * Build the docker container: `docker-compose build`
 * Install the dependencies: `docker-compose run --rm node yarn install`
 * Build the application, start development server and watch for changes: `docker-compose up`
@@ -282,9 +281,9 @@ The translations files are located under `projects/{{ cookiecutter.project_slug 
 
 ### Replace the fake backend
 
-The fake backend is currently simulating the default authentication prodived by the [Django Skeleton](https://gitlab.anx.local/anexia-developme/skeleton-django)
-In order to remove this you have to remove the `fake-backend.ts` from `projects/{{ cookiecutter.project_slug }}/app/shared/interceptors`. Also make sure that you remove all declarations of the fake backend.
-The AuthenticationResource and the UserResource need to be reconfigured to use the appropriate REST APIs.
+In order to remove this you have to remove the `fake-backend.ts` from `projects/{{ cookiecutter.project_slug }}/app/shared/interceptors`.
+Also make sure that you remove all declarations of the fake backend.
+The AuthenticationResource and the UserResource need to be reconfigured to use appropriate REST APIs.
 
 ### JWT Authentication
 
@@ -339,6 +338,6 @@ It should be updated to stable once it is available.
 * [ng-bootstrap documentation](https://ng-bootstrap.github.io/#/home)
 * [Font Awesome 5 icons](https://fontawesome.com/icons?d=gallery&m=free)
 * [Angular Font Awesome docs](https://github.com/FortAwesome/angular-fontawesome)
-* [Angular Storyybook docs](https://storybook.js.org/basics/guide-angular/)
+* [Angular Storybook docs](https://storybook.js.org/basics/guide-angular/)
 * [Compodoc docs](https://compodoc.app/)
 * [GitLab flavored markdown](https://docs.gitlab.com/ee/user/markdown.html)

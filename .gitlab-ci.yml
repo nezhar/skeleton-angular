@@ -1,12 +1,9 @@
-image: gitlab.anx.local:4567/anexia-developme/skeleton-angular/node_base
+image: anexia/angular-skeleton-base
 
 cache:
   key: "$CI_PIPELINE_ID"
   paths:
   - .cache/
-
-before_script:
-- echo 'Acquire::http { Proxy "http://10.0.60.202:3142"; };' > /etc/apt/apt.conf.d/01proxy
 
 stages:
 - setup
