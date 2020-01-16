@@ -1,4 +1,4 @@
-FROM gitlab.anx.local:4567/anexia-developme/skeleton-angular/node_base
+FROM anexia/angular-skeleton-base
 MAINTAINER Harald Nezbeda <HNezbeda@anexia-it.com>
 
 RUN sed -i 's/deb.debian.org/archive.debian.org/g' /etc/apt/sources.list \
