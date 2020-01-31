@@ -3,20 +3,20 @@
 {{ cookiecutter.project_description }}
 
 This application uses these core components:
-* Angular 7.2.x
-* UI Router 2.0.x
+* Angular 8.x
+* UI Router 5.x
 * NGXS
 * ngx-translate
 * ngx-toastr
 * ngx-resource-factory
 * ngx-ui-router-url-type-factory
 * ngx-anx-forms
-* ng-bootstrap (using Bootstrap 4.1)
+* ng-bootstrap (using Bootstrap 4.x)
 * angular-fontawesome (using Font Awesome 5)
 
 For generating documentation we use:
 * Compodoc 1.1.x
-* Angular Storybook 4.0.x
+* Angular Storybook 5.x
 
 NGXS has several plugins installed:
 
