@@ -22,8 +22,8 @@ export class PostListComponent implements OnInit, OnDestroy {
     tableColumns: TableColumn[] = [];
     paginationLimit = 10;
 
-    @ViewChild('titleColumn') titleColumn: TemplateRef<ElementRef>;
-    @ViewChild('actionsColumn') actionsColumn: TemplateRef<ElementRef>;
+    @ViewChild('titleColumn', {static: false}) titleColumn: TemplateRef<ElementRef>;
+    @ViewChild('actionsColumn', {static: false}) actionsColumn: TemplateRef<ElementRef>;
 
     filterForm: FormGroup;
     filterFormSubscription: Subscription;
