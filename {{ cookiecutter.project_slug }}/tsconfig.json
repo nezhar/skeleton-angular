@@ -25,6 +25,8 @@
       "dom"
     ],
     "noUnusedParameters": true,
-    "noUnusedLocals": true
+    "noUnusedLocals": true,
+    "importHelpers": true,
+    "esModuleInterop": true
   }
 }
