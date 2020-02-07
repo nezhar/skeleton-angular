@@ -1,5 +1,5 @@
 {
-  "name": "angular-8-upgrade",
+  "name": "{{ cookiecutter.project_slug }}",
   "version": "0.0.0",
   "scripts": {
     "ng": "ng",
@@ -14,10 +14,10 @@
     "test-watch": "ng test",
     "lint": "ng lint",
     "e2e": "ng e2e",
-    "makemessages": "ngx-translate-extract -i ./projects/angular-8-upgrade/app/ -o ./projects/angular-8-upgrade/assets/locales/*.json",
-    "generatedocs": "./node_modules/.bin/compodoc -p ./projects/angular-8-upgrade/tsconfig.app.json -d ./dist/docs",
-    "storybook-start": "start-storybook --ci -p 9001 -h 0.0.0.0 -c ./projects/angular-8-upgrade/storybook/config",
-    "storybook-build": "node helpers/version.js && build-storybook -c ./projects/angular-8-upgrade/storybook/config -o ./dist/storybook",
+    "makemessages": "ngx-translate-extract -i ./projects/{{ cookiecutter.project_slug }}/app/ -o ./projects/{{ cookiecutter.project_slug }}/assets/locales/*.json",
+    "generatedocs": "./node_modules/.bin/compodoc -p ./projects/{{ cookiecutter.project_slug }}/tsconfig.app.json -d ./dist/docs",
+    "storybook-start": "start-storybook --ci -p 9001 -h 0.0.0.0 -c ./projects/{{ cookiecutter.project_slug }}/storybook/config",
+    "storybook-build": "node helpers/version.js && build-storybook -c ./projects/{{ cookiecutter.project_slug }}/storybook/config -o ./dist/storybook",
     "postinstall": "node helpers/version.js"
   },
   "private": true,
