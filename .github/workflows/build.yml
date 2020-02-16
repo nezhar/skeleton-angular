@@ -1,0 +1,38 @@
+name: Project Build
+
+on: [push, pull_request]
+
+jobs:
+  build:
+
+    runs-on: ubuntu-latest
+
+    strategy:
+      matrix:
+        node-version: [13.x]
+
+    steps:
+    - uses: actions/checkout@v2
+
+    - name: Use Node.js ${{ matrix.node-version }}
+      uses: actions/setup-node@v1
+      with:
+        node-version: ${{ matrix.node-version }}
+
+    - name: Update pip and install cookiecutter
+      run: pip install --upgrade pip && pip install cookiecutter
+
+    - run: mkdir -p .cache
+
+    - name: Create cookiecuter test project
+      run: cd .cache && python -m cookiecutter ../ --no-input --overwrite-if-exists project_title='Skeleton Test'
+
+    - name: Run tests
+      run: |
+        cd .cache/skeleton-test
+        yarn install
+        yarn run lint
+        yarn run test
+        yarn run app-build-dev
+        yarn run app-build-prod
+        yarn run generatedocs -p ./projects/skeleton-test/tsconfig.app.json
