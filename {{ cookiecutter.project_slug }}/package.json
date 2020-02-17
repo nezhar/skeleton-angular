@@ -69,7 +69,7 @@
     "@compodoc/compodoc": "^1.1.9",
     "@ngxs/devtools-plugin": "^3.6.1",
     "@storybook/addon-actions": "~5.3.13",
-    "@storybook/addon-knobs": "~5.3.9",
+    "@storybook/addon-knobs": "~5.3.13",
     "@storybook/addon-notes": "~5.3.9",
     "@storybook/addon-options": "~5.3.9",
     "@storybook/angular": "~5.3.9",
