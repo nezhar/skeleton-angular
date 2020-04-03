@@ -55,7 +55,7 @@
     "ngx-toastr": "^11.3.3",
     "ngx-ui-router-url-type-factory": "0.0.3",
     "rxjs": "6.5.4",
-    "rxjs-compat": "6.5.4",
+    "rxjs-compat": "6.5.5",
     "tslib": "^1.11.1",
     "zone.js": "~0.10.3"
   },
