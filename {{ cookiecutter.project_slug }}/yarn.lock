@@ -193,11 +193,6 @@
   dependencies:
     tslib "^1.9.0"
 
-"@angular/compiler@^9.0.7":
-  version "9.0.7"
-  resolved "https://registry.yarnpkg.com/@angular/compiler/-/compiler-9.0.7.tgz#3cf8f9f6dc6e787506a0bc9444c4abb857bb1068"
-  integrity sha512-hFpkuGpzxpK5h59LHHAjTFWsY6DCXZwgJFqvCuTPxWi/srvLGZRXrpC6Z1SlgHI9xxXaPfoa4uWw2VfA3BnqEg==
-
 "@angular/core@^8.2.14":
   version "8.2.14"
   resolved "https://registry.yarnpkg.com/@angular/core/-/core-8.2.14.tgz#35566f5b19480369229477e7e0e0fde740bd5204"
@@ -1106,12 +1101,11 @@
     lodash "^4.17.13"
     to-fast-properties "^2.0.0"
 
-"@biesbjerg/ngx-translate-extract@^6.0.3":
-  version "6.0.3"
-  resolved "https://registry.yarnpkg.com/@biesbjerg/ngx-translate-extract/-/ngx-translate-extract-6.0.3.tgz#9efae5376f007e1f871818e17cd9911adf9318dd"
-  integrity sha512-FWpToi3s4X631vBsOqZ52d1f96g5p4fKLRqPUhHeYVuQskHV4pVCwXg83gio/FoiHeHtiPIvLy8bQqqoFnxEVA==
+"@biesbjerg/ngx-translate-extract@^6.0.4":
+  version "6.0.4"
+  resolved "https://registry.yarnpkg.com/@biesbjerg/ngx-translate-extract/-/ngx-translate-extract-6.0.4.tgz#283defea14f4fb7fce2453306d0a2a4c99c02317"
+  integrity sha512-loaQc0ZNpGClW6D4nDslEOZ0OQJnqWWWDkRnPqmv8BlbMHNH1M7hpoQdxa/8utZ6DiWr9D3/rbTK/YlB4V3bHA==
   dependencies:
-    "@angular/compiler" "^9.0.7"
     "@phenomnomnominal/tsquery" "^4.0.0"
     boxen "^4.2.0"
     colorette "^1.1.0"
@@ -1121,7 +1115,6 @@
     mkdirp "^1.0.3"
     path "^0.12.7"
     terminal-link "^2.1.1"
-    typescript "^3.8.3"
     yargs "^15.3.1"
 
 "@chromaui/localtunnel@1.10.1":
@@ -12176,11 +12169,6 @@ typescript@3.5.3, typescript@~3.5.3:
 typescript@^2.4.2:
   version "2.9.2"
   resolved "https://registry.yarnpkg.com/typescript/-/typescript-2.9.2.tgz#1cbf61d05d6b96269244eb6a3bce4bd914e0f00c"
-
-typescript@^3.8.3:
-  version "3.8.3"
-  resolved "https://registry.yarnpkg.com/typescript/-/typescript-3.8.3.tgz#409eb8544ea0335711205869ec458ab109ee1061"
-  integrity sha512-MYlEfn5VrLNsgudQTVJeNaQFUAI7DkhnOjdpAp4T+ku1TfQClewlbSuTVHiA+8skNBgaf02TL/kLOvig4y3G8w==
 
 ua-parser-js@^0.7.18:
   version "0.7.19"
