@@ -43,7 +43,7 @@
     "@ngx-translate/http-loader": "^4.0.0",
     "@ngxs/storage-plugin": "^3.6.2",
     "@ngxs/store": "^3.6.2",
-    "@swimlane/ngx-datatable": "^16.0.3",
+    "@swimlane/ngx-datatable": "^16.1.1",
     "ngx-anx-forms": "^0.2.2",
     "@types/lodash": "^4.14.149",
     "@uirouter/angular": "^5.0.0",

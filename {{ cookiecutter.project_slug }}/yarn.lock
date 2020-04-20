@@ -1984,10 +1984,10 @@
     telejson "^3.2.0"
     util-deprecate "^1.0.2"
 
-"@swimlane/ngx-datatable@^16.0.3":
-  version "16.0.3"
-  resolved "https://registry.yarnpkg.com/@swimlane/ngx-datatable/-/ngx-datatable-16.0.3.tgz#95816dbc944679762d102d4a31b3e17674c67af3"
-  integrity sha512-SuVd89CTFhy+21SF8W+qmGoXGFeB7KB5/VwkrgvDRs0GnBC5m9u1nAyN0ypSXMmqilcem6vPmh4yVhjPL1rseg==
+"@swimlane/ngx-datatable@^16.1.1":
+  version "16.1.1"
+  resolved "https://registry.yarnpkg.com/@swimlane/ngx-datatable/-/ngx-datatable-16.1.1.tgz#1215e81f51400314ba6899f66acdbd4e3bde2915"
+  integrity sha512-h2A9xC/jo314eC/CzA19aoY/YadhdTupolCwpgB9Cbw3sDRi3x/LeGsdLSV0bj3XBKQUB3DA/gPuASKYuhm8iA==
   dependencies:
     tslib "^1.9.0"
 
