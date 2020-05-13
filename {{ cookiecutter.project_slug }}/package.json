@@ -47,7 +47,7 @@
     "ngx-anx-forms": "^0.2.2",
     "@types/lodash": "^4.14.150",
     "@uirouter/angular": "^5.0.0",
-    "bootstrap": "^4.4.1",
+    "bootstrap": "^4.5.0",
     "core-js": "^3.6.5",
     "date-fns": "^2.13.0",
     "lodash": "^4.17.15",
