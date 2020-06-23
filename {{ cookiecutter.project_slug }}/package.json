@@ -45,7 +45,7 @@
     "@ngxs/store": "^3.6.2",
     "@swimlane/ngx-datatable": "^16.1.1",
     "ngx-anx-forms": "^0.2.2",
-    "@types/lodash": "^4.14.155",
+    "@types/lodash": "^4.14.156",
     "@uirouter/angular": "^5.0.0",
     "bootstrap": "^4.5.0",
     "core-js": "^3.6.5",
