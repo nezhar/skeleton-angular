@@ -10,26 +10,26 @@
     "@angular-devkit/core" "8.3.24"
     rxjs "6.4.0"
 
-"@angular-devkit/architect@0.803.27":
-  version "0.803.27"
-  resolved "https://registry.yarnpkg.com/@angular-devkit/architect/-/architect-0.803.27.tgz#cb40cc9686f80eaf2d3aed64c41ab2ea18344bba"
-  integrity sha512-fp7r4BS3UqsnHobZ8n3tUAqd6WTKfYKEzs8SLrk/MXT8+DfqfxD26kd0tWW3bsoA7Pu8Fn6cXkKRAMFrYuOQHA==
+"@angular-devkit/architect@0.803.28":
+  version "0.803.28"
+  resolved "https://registry.yarnpkg.com/@angular-devkit/architect/-/architect-0.803.28.tgz#f5f05d429aaa6a4d6a6cfe5546b41d18726463ef"
+  integrity sha512-+2fMwMintkZ7e1Yu8UKVVL8I8pJoPuVjKf0bXxFDaWUMHmgLjYPKXg+QZKdPj5FF+TfmOc+q2LJxVlC4wPeUAg==
   dependencies:
-    "@angular-devkit/core" "8.3.27"
+    "@angular-devkit/core" "8.3.28"
     rxjs "6.4.0"
 
-"@angular-devkit/build-angular@~0.803.27":
-  version "0.803.27"
-  resolved "https://registry.yarnpkg.com/@angular-devkit/build-angular/-/build-angular-0.803.27.tgz#b3e7783daee1940aaf46b1511c186d3e992e9529"
-  integrity sha512-+l31P0KMZ4wdt2Fk3ZW2L07xpcHqZmbgPQ4QIv4tLe4x+94e+niJHeGhwMwZuH+anYuooWqDLExxE84i2Nxqjg==
+"@angular-devkit/build-angular@~0.803.28":
+  version "0.803.28"
+  resolved "https://registry.yarnpkg.com/@angular-devkit/build-angular/-/build-angular-0.803.28.tgz#2b25ac6c60b86eeff5c9e0ca0f5f0aee9e74ddc8"
+  integrity sha512-BW2R2W8rq8IKYFtlZNAXirKZnQT2HPde2asQFkjUTfwo4E+/zH0cLR42Crp0MARa38vM3xNhnkoVUKpuTtGHEg==
   dependencies:
-    "@angular-devkit/architect" "0.803.27"
-    "@angular-devkit/build-optimizer" "0.803.27"
-    "@angular-devkit/build-webpack" "0.803.27"
-    "@angular-devkit/core" "8.3.27"
+    "@angular-devkit/architect" "0.803.28"
+    "@angular-devkit/build-optimizer" "0.803.28"
+    "@angular-devkit/build-webpack" "0.803.28"
+    "@angular-devkit/core" "8.3.28"
     "@babel/core" "7.8.7"
     "@babel/preset-env" "7.8.7"
-    "@ngtools/webpack" "8.3.27"
+    "@ngtools/webpack" "8.3.28"
     ajv "6.10.2"
     autoprefixer "9.6.1"
     browserslist "4.10.0"
@@ -70,7 +70,7 @@
     stylus "0.54.5"
     stylus-loader "3.0.2"
     terser "4.6.3"
-    terser-webpack-plugin "1.4.3"
+    terser-webpack-plugin "3.0.3"
     tree-kill "1.2.2"
     webpack "4.39.2"
     webpack-dev-middleware "3.7.2"
@@ -80,10 +80,10 @@
     webpack-subresource-integrity "1.1.0-rc.6"
     worker-plugin "3.2.0"
 
-"@angular-devkit/build-optimizer@0.803.27":
-  version "0.803.27"
-  resolved "https://registry.yarnpkg.com/@angular-devkit/build-optimizer/-/build-optimizer-0.803.27.tgz#661825d55c5e5355489f0e7bceddf22ed666a992"
-  integrity sha512-rGx9gvKQrWUxTnYkWN6E8VfczajhmZtgHxpJTG7WaYVgl28OHFswp/jpe3JLXg7wOzcsTlRzk1Jr5bWhTMwRUw==
+"@angular-devkit/build-optimizer@0.803.28":
+  version "0.803.28"
+  resolved "https://registry.yarnpkg.com/@angular-devkit/build-optimizer/-/build-optimizer-0.803.28.tgz#69e81a7d2c55b5f8cbdb9305c0c8fcc0a4700fa9"
+  integrity sha512-Mn7gLiaiokXF2wIJkrVSN81cZ2SP9ETHnjDuQ+rn+J44pAeCu9yOwRrr1SPaf2XGCjrXWtglq29YR41V/D+zrg==
   dependencies:
     loader-utils "1.2.3"
     source-map "0.7.3"
@@ -91,13 +91,13 @@
     typescript "3.5.3"
     webpack-sources "1.4.3"
 
-"@angular-devkit/build-webpack@0.803.27":
-  version "0.803.27"
-  resolved "https://registry.yarnpkg.com/@angular-devkit/build-webpack/-/build-webpack-0.803.27.tgz#903b7de92a4567887349e48bd6bca9f0cbc5571a"
-  integrity sha512-atnt2jnSkz4XRWzJYYn0W0IN1i10gIhkLrZ2gGSeQ7YsJ2Otlfd5pdFy6Im1c42nikP6NdUX9Qt+GVm5bJDkuw==
+"@angular-devkit/build-webpack@0.803.28":
+  version "0.803.28"
+  resolved "https://registry.yarnpkg.com/@angular-devkit/build-webpack/-/build-webpack-0.803.28.tgz#52268ce206d489599f499381669720d2f212402e"
+  integrity sha512-TnEi8Y76HObq+ls2q0IIM2zZtf9HlrIcrcR/6QY/MidJGINO7dJlLY1W0eH4HzQjaJB5pXZ6XScQIXVK5sHpRw==
   dependencies:
-    "@angular-devkit/architect" "0.803.27"
-    "@angular-devkit/core" "8.3.27"
+    "@angular-devkit/architect" "0.803.28"
+    "@angular-devkit/core" "8.3.28"
     rxjs "6.4.0"
 
 "@angular-devkit/core@8.3.24":
@@ -111,10 +111,10 @@
     rxjs "6.4.0"
     source-map "0.7.3"
 
-"@angular-devkit/core@8.3.27":
-  version "8.3.27"
-  resolved "https://registry.yarnpkg.com/@angular-devkit/core/-/core-8.3.27.tgz#d99e797bb0c8be643f01c707fdb3904ab347b106"
-  integrity sha512-Mf2u86mIMqCEbbhaN74r4lvMb4nKgAZIQo3s/GQIfKkGaGYvxmiQHkltdVvSR+fgaQ0CMh4ARI0uefmzQyUsAA==
+"@angular-devkit/core@8.3.28":
+  version "8.3.28"
+  resolved "https://registry.yarnpkg.com/@angular-devkit/core/-/core-8.3.28.tgz#0a733132821d916788a8ed34eff0f9149a9f3a15"
+  integrity sha512-tM0oPjzftJMdfuAuZF2EspVKtJyhtS2IQ02S7eKTZqkh5p/oVv710aND2D2IN5qdFrzpUSearx6D+Mr/Jo8jrA==
   dependencies:
     ajv "6.10.2"
     fast-json-stable-stringify "2.0.0"
@@ -1408,12 +1408,12 @@
   dependencies:
     tslib "^1.9.0"
 
-"@ngtools/webpack@8.3.27":
-  version "8.3.27"
-  resolved "https://registry.yarnpkg.com/@ngtools/webpack/-/webpack-8.3.27.tgz#f2e841bd87fb08fb99f84fb784ddeb57b1e148d4"
-  integrity sha512-WoJ3bHChPkGJzxH95tcpmz3q6LPUPQtHfsS/62G1ZxvHmx+IaMKyX4rSkWUCxRYDQoS9zWo4JP/YbZBsymWm2A==
+"@ngtools/webpack@8.3.28":
+  version "8.3.28"
+  resolved "https://registry.yarnpkg.com/@ngtools/webpack/-/webpack-8.3.28.tgz#3164cd136a6c4fd884edee52a731633bfbb86d65"
+  integrity sha512-AZsiGNRQRxuNcZX8tW95rhKtXwL6lfhyFAoLoRQY0ILrk24famDSBjUtnMcGMH92rzO1RLjlPOEhsVnFvsrjNA==
   dependencies:
-    "@angular-devkit/core" "8.3.27"
+    "@angular-devkit/core" "8.3.28"
     enhanced-resolve "4.1.0"
     rxjs "6.4.0"
     tree-kill "1.2.2"
@@ -7376,6 +7376,14 @@ jest-worker@^25.1.0:
     merge-stream "^2.0.0"
     supports-color "^7.0.0"
 
+jest-worker@^26.0.0:
+  version "26.0.0"
+  resolved "https://registry.yarnpkg.com/jest-worker/-/jest-worker-26.0.0.tgz#4920c7714f0a96c6412464718d0c58a3df3fb066"
+  integrity sha512-pPaYa2+JnwmiZjK9x7p9BoZht+47ecFCDFA/CJxspHzeDvQcfVBLWzCiWyo+EGrSiQMWZtCFo9iSvMZnAAo8vw==
+  dependencies:
+    merge-stream "^2.0.0"
+    supports-color "^7.0.0"
+
 "js-tokens@^3.0.0 || ^4.0.0", js-tokens@^4.0.0:
   version "4.0.0"
   resolved "https://registry.yarnpkg.com/js-tokens/-/js-tokens-4.0.0.tgz#19203fb59991df98e3a287050d4647cdeaf32499"
@@ -10633,7 +10641,7 @@ schema-utils@^1.0.0:
     ajv-errors "^1.0.0"
     ajv-keywords "^3.1.0"
 
-schema-utils@^2.0.0, schema-utils@^2.0.1, schema-utils@^2.5.0, schema-utils@^2.6.1, schema-utils@^2.6.4, schema-utils@^2.6.5, schema-utils@^2.7.0:
+schema-utils@^2.0.0, schema-utils@^2.0.1, schema-utils@^2.5.0, schema-utils@^2.6.1, schema-utils@^2.6.4, schema-utils@^2.6.5, schema-utils@^2.6.6, schema-utils@^2.7.0:
   version "2.7.0"
   resolved "https://registry.yarnpkg.com/schema-utils/-/schema-utils-2.7.0.tgz#17151f76d8eae67fbbf77960c33c676ad9f4efc7"
   integrity sha512-0ilKFI6QQF5nxDZLFn2dMjvc4hjg/Wkg7rHd3jK6/A4a1Hl9VFdQWvgB1UMGoU94pad1P/8N7fMcEnLnSiju8A==
@@ -11740,7 +11748,22 @@ terminal-link@^2.1.1:
     ansi-escapes "^4.2.1"
     supports-hyperlinks "^2.0.0"
 
-terser-webpack-plugin@1.4.3, terser-webpack-plugin@^1.4.1, terser-webpack-plugin@^1.4.3:
+terser-webpack-plugin@3.0.3:
+  version "3.0.3"
+  resolved "https://registry.yarnpkg.com/terser-webpack-plugin/-/terser-webpack-plugin-3.0.3.tgz#23bda2687b197f878a743373b9411d917adc2e45"
+  integrity sha512-bZFnotuIKq5Rqzrs+qIwFzGdKdffV9epG5vDSEbYzvKAhPeR5RbbrQysfPgbIIMhNAQtZD2hGwBfSKUXjXZZZw==
+  dependencies:
+    cacache "^15.0.4"
+    find-cache-dir "^3.3.1"
+    jest-worker "^26.0.0"
+    p-limit "^2.3.0"
+    schema-utils "^2.6.6"
+    serialize-javascript "^3.1.0"
+    source-map "^0.6.1"
+    terser "^4.6.13"
+    webpack-sources "^1.4.3"
+
+terser-webpack-plugin@^1.4.1, terser-webpack-plugin@^1.4.3:
   version "1.4.3"
   resolved "https://registry.yarnpkg.com/terser-webpack-plugin/-/terser-webpack-plugin-1.4.3.tgz#5ecaf2dbdc5fb99745fd06791f46fc9ddb1c9a7c"
   integrity sha512-QMxecFz/gHQwteWwSo5nTc6UaICqN1bMedC5sMtUc7y3Ha3Q8y6ZO0iCR8pq4RJC8Hjf0FEPEHZqcMB/+DFCrA==
@@ -11770,10 +11793,19 @@ terser-webpack-plugin@^2.1.2:
     terser "^4.4.3"
     webpack-sources "^1.4.3"
 
-terser@4.6.3, terser@^4.1.2, terser@^4.4.3:
+terser@4.6.3:
   version "4.6.3"
   resolved "https://registry.yarnpkg.com/terser/-/terser-4.6.3.tgz#e33aa42461ced5238d352d2df2a67f21921f8d87"
   integrity sha512-Lw+ieAXmY69d09IIc/yqeBqXpEQIpDGZqT34ui1QWXIUpR2RjbqEkT8X7Lgex19hslSqcWM5iMN2kM11eMsESQ==
+  dependencies:
+    commander "^2.20.0"
+    source-map "~0.6.1"
+    source-map-support "~0.5.12"
+
+terser@^4.1.2, terser@^4.4.3, terser@^4.6.13:
+  version "4.8.0"
+  resolved "https://registry.yarnpkg.com/terser/-/terser-4.8.0.tgz#63056343d7c70bb29f3af665865a46fe03a0df17"
+  integrity sha512-EAPipTNeWsb/3wLPeup1tVPaXfIaU68xMnVdPafIL1TV05OhASArYyIfFvnvJCNrR2NIOvDVNNTFRa+Re2MWyw==
   dependencies:
     commander "^2.20.0"
     source-map "~0.6.1"
