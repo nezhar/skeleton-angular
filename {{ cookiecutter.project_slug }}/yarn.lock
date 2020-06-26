@@ -1148,10 +1148,10 @@
     lodash "^4.17.13"
     to-fast-properties "^2.0.0"
 
-"@biesbjerg/ngx-translate-extract@^7.0.0":
-  version "7.0.0"
-  resolved "https://registry.yarnpkg.com/@biesbjerg/ngx-translate-extract/-/ngx-translate-extract-7.0.0.tgz#5aa280e508d4dbb54460eff4a6e607d4551efad5"
-  integrity sha512-TlEmXgGGuFiNSILkhdzmobZ+002m1AJSarT56oA31iVkCNiWiDfSsAxsHLtsi8ywZUxjWjmF5lGtU70l9VWk5g==
+"@biesbjerg/ngx-translate-extract@^7.0.2":
+  version "7.0.2"
+  resolved "https://registry.yarnpkg.com/@biesbjerg/ngx-translate-extract/-/ngx-translate-extract-7.0.2.tgz#72237556462c1d9b7987112b4e927f696bfdaf4f"
+  integrity sha512-bUVWFDK+oeWJCP8mL7sYnhSJIsW2BSgXay+yO3jVckhgwg3+T46z5Tc0UiXxRhi1qeRG/cZ1XlTjiVZNa26e4A==
   dependencies:
     "@phenomnomnominal/tsquery" "^4.1.0"
     boxen "^4.2.0"
