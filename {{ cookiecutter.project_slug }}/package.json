@@ -50,7 +50,7 @@
     "bootstrap": "^4.5.2",
     "core-js": "^3.6.5",
     "date-fns": "^2.15.0",
-    "lodash": "^4.17.19",
+    "lodash": "^4.17.20",
     "ngx-resource-factory": "1.0.0",
     "ngx-toastr": "^11.3.3",
     "ngx-ui-router-url-type-factory": "0.0.3",
