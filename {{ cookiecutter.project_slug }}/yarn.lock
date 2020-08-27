@@ -1585,12 +1585,12 @@
     prop-types "^15.7.2"
     util-deprecate "^1.0.2"
 
-"@storybook/addon-options@~5.3.19":
-  version "5.3.19"
-  resolved "https://registry.yarnpkg.com/@storybook/addon-options/-/addon-options-5.3.19.tgz#065e8f6be53073b37ebcaebe602dcc85ee202eaf"
-  integrity sha512-i5PzPlsv4QWdOvQhYVlyOW7VEW2ovhxg4MWVRjCoVy6vhF42MR+0HRtIOeOENuc3XnpSxsSk0ci/UI2XQjnX3Q==
+"@storybook/addon-options@~5.3.20":
+  version "5.3.20"
+  resolved "https://registry.yarnpkg.com/@storybook/addon-options/-/addon-options-5.3.20.tgz#7125f5085e0d09fccda06fb2d7558f30dfe260e3"
+  integrity sha512-Sb1sJ6uKNiVesN9s1DvAKNjQDQaegQcnBS2S60GpFJ/LFbE3Yu5YgKVplfhGy89n95+1IO6nZw1xEh9cFvfQCg==
   dependencies:
-    "@storybook/addons" "5.3.19"
+    "@storybook/addons" "5.3.20"
     core-js "^3.0.1"
     util-deprecate "^1.0.2"
 
