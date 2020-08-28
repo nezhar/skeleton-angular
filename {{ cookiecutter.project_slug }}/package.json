@@ -49,7 +49,7 @@
     "@uirouter/angular": "^5.0.0",
     "bootstrap": "^4.5.2",
     "core-js": "^3.6.5",
-    "date-fns": "^2.15.0",
+    "date-fns": "^2.16.0",
     "lodash": "^4.17.20",
     "ngx-resource-factory": "1.0.0",
     "ngx-toastr": "^11.3.3",
