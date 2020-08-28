@@ -71,7 +71,7 @@
     "@storybook/addon-actions": "~5.3.21",
     "@storybook/addon-knobs": "~5.3.19",
     "@storybook/addon-notes": "~5.3.21",
-    "@storybook/addon-options": "~5.3.20",
+    "@storybook/addon-options": "~5.3.21",
     "@storybook/angular": "~5.3.19",
     "@types/jasmine": "~3.5.14",
     "@types/jasminewd2": "~2.0.6",
