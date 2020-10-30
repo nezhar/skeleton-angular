@@ -3064,10 +3064,10 @@
   resolved "https://registry.yarnpkg.com/@types/is-function/-/is-function-1.0.0.tgz#1b0b819b1636c7baf0d6785d030d12edf70c3e83"
   integrity sha512-iTs9HReBu7evG77Q4EC8hZnqRt57irBDkK9nvmHroiOIVwYMQc4IvYvdRgwKfYepunIY7Oh/dBuuld+Gj9uo6w==
 
-"@types/jasmine@*", "@types/jasmine@~3.5.14":
-  version "3.5.14"
-  resolved "https://registry.yarnpkg.com/@types/jasmine/-/jasmine-3.5.14.tgz#f41a14e8ffa939062a71cf9722e5ee7d4e1f94af"
-  integrity sha512-Fkgk536sHPqcOtd+Ow+WiUNuk0TSo/BntKkF8wSvcd6M2FvPjeXcUE6Oz/bwDZiUZEaXLslAgw00Q94Pnx6T4w==
+"@types/jasmine@*", "@types/jasmine@~3.6.0":
+  version "3.6.0"
+  resolved "https://registry.yarnpkg.com/@types/jasmine/-/jasmine-3.6.0.tgz#8064fdb6fe9cb92fe79d9d5e9eaff8d2d9a1251a"
+  integrity sha512-CPT4r0a63e5wpNj5ejMnconM7a+0Hdx6/APsyw8AQOHk0/Mxp3xYrym1ZabWJiYuQkgKB3MonYoN04mxtvAvRA==
 
 "@types/jasminewd2@~2.0.6":
   version "2.0.8"
