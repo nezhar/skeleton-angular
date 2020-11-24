@@ -68,7 +68,7 @@
     "@babel/core": "^7.12.8",
     "@compodoc/compodoc": "^1.1.9",
     "@ngxs/devtools-plugin": "^3.7.0",
-    "@storybook/addon-actions": "~5.3.21",
+    "@storybook/addon-actions": "~6.1.4",
     "@storybook/addon-knobs": "~5.3.19",
     "@storybook/addon-notes": "~5.3.21",
     "@storybook/addon-options": "~5.3.21",
