@@ -41,7 +41,7 @@
     "@ng-select/ng-select": "^3.7.3",
     "@ngx-translate/core": "^12.1.2",
     "@ngx-translate/http-loader": "^4.0.0",
-    "@ngxs/storage-plugin": "^3.7.0",
+    "@ngxs/storage-plugin": "^3.7.1",
     "@ngxs/store": "^3.7.1",
     "@swimlane/ngx-datatable": "^16.1.1",
     "ngx-anx-forms": "^0.2.2",
