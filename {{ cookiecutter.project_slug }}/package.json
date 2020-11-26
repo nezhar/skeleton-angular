@@ -67,7 +67,7 @@
     "@angularclass/hmr": "^3.0.0",
     "@babel/core": "^7.12.9",
     "@compodoc/compodoc": "^1.1.9",
-    "@ngxs/devtools-plugin": "^3.7.0",
+    "@ngxs/devtools-plugin": "^3.7.1",
     "@storybook/addon-actions": "~5.3.21",
     "@storybook/addon-knobs": "~5.3.19",
     "@storybook/addon-notes": "~5.3.21",
