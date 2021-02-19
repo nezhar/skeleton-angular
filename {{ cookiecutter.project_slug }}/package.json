@@ -65,7 +65,7 @@
     "@angular/compiler-cli": "^8.2.14",
     "@angular/language-service": "^10.2.3",
     "@angularclass/hmr": "^3.0.0",
-    "@babel/core": "^7.12.16",
+    "@babel/core": "^7.12.17",
     "@compodoc/compodoc": "^1.1.9",
     "@ngxs/devtools-plugin": "^3.7.1",
     "@storybook/addon-actions": "~5.3.21",
