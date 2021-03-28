@@ -6,7 +6,6 @@
   "author_email": "your@email.com",
   "_copy_without_render": [
     "projects/rename_to_project_slug/app/*",
-    "projects/rename_to_project_slug/assets/*",
-    "projects/rename_to_project_slug/storybook/stories/*"
+    "projects/rename_to_project_slug/assets/*"
   ]
 }

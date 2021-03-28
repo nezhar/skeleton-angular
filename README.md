@@ -12,7 +12,6 @@ The skeleton will generate an Angular application, having:
 * Gitlab CI configuration
 * Template README.md file
 * Docker compose configuration for development
-* Docs generator using Compodoc and Storybook
 
 ## Prerequisites
 
@@ -32,7 +31,7 @@ instructions:
 ## Usage
 
 * Start the project: `cookiecutter https://github.com/anx-hnezbeda/skeleton-angular`
-* Follow the instructions in the project's `README.md`.
+* Follow the instructions in the project's `README.md`
 * You're done!
 
 ## List of developers

@@ -14,9 +14,7 @@ This application uses these core components:
 * ng-bootstrap (using Bootstrap 4.x)
 * angular-fontawesome (using Font Awesome 5)
 
-For generating documentation we use:
-* Compodoc 1.1.x
-* Angular Storybook 5.x
+For generating documentation we use Compodoc
 
 NGXS has several plugins installed:
 
@@ -53,11 +51,6 @@ Windows requires some extra configurations in the `docker-compose.yml` to work p
         ports:
         - "127.0.0.10:8080:8080"
         - "127.0.0.10:9876:9876"
-
-      storybook:
-        ...
-        ports:
-        - "127.0.0.10:9001:9001"
     ```
 
 * Adapt the run command to use polling:
@@ -85,7 +78,6 @@ You may need the following common tasks during the development of the applicatio
 * Add a development-only dependency to the application: `docker-compose run --rm node "yarn add --dev DEPENDENCY_NAME"`
 * Build the application for production: `docker-compose run --rm node "yarn run app-build-prod"`
 * Build the documentation: `docker-compose run --rm node "yarn run generatedocs"`
-* Build the storybook: `docker-compose run --rm node "yarn run storybook-build"`
 
 ### Adding screens
 
@@ -338,6 +330,5 @@ It should be updated to stable once it is available.
 * [ng-bootstrap documentation](https://ng-bootstrap.github.io/#/home)
 * [Font Awesome 5 icons](https://fontawesome.com/icons?d=gallery&m=free)
 * [Angular Font Awesome docs](https://github.com/FortAwesome/angular-fontawesome)
-* [Angular Storybook docs](https://storybook.js.org/basics/guide-angular/)
 * [Compodoc docs](https://compodoc.app/)
 * [GitLab flavored markdown](https://docs.gitlab.com/ee/user/markdown.html)

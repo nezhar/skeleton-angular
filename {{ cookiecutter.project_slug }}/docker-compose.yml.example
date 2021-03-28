@@ -9,12 +9,3 @@ services:
     ports:
     - "8080:8080"
     - "9876:9876"
-
-  storybook:
-    build:
-      context: ./docker/node
-    volumes:
-    - ./:/app
-    command: yarn run storybook-start
-    ports:
-    - "9001:9001"
