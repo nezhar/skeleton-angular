@@ -42,7 +42,7 @@
     "@ngxs/storage-plugin": "^3.7.1",
     "@ngxs/store": "^3.7.1",
     "@swimlane/ngx-datatable": "^16.1.1",
-    "ngx-anx-forms": "^0.2.2",
+    "ngx-anx-forms": "^0.3.1",
     "@types/lodash": "^4.14.168",
     "@uirouter/angular": "^5.0.0",
     "bootstrap": "^4.6.0",
