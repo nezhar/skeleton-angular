@@ -44,7 +44,7 @@
     "@swimlane/ngx-datatable": "^16.1.1",
     "ngx-anx-forms": "^0.2.2",
     "@types/lodash": "^4.14.168",
-    "@uirouter/angular": "^5.0.0",
+    "@uirouter/angular": "^8.0.1",
     "bootstrap": "^4.6.0",
     "core-js": "^3.9.1",
     "date-fns": "^2.19.0",
