@@ -50,7 +50,7 @@
     "date-fns": "^2.19.0",
     "lodash": "^4.17.21",
     "ngx-resource-factory": "1.0.0",
-    "ngx-toastr": "^11.3.3",
+    "ngx-toastr": "^13.2.1",
     "ngx-ui-router-url-type-factory": "0.0.3",
     "rxjs": "6.6.3",
     "rxjs-compat": "6.6.3",
