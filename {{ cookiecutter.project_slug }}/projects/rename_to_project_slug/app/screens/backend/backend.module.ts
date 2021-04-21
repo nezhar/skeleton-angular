@@ -43,7 +43,7 @@ import { UsersComponent } from './users/users.component';
 })
 export class BackendScreensModule {
 
-    static forRoot(): ModuleWithProviders {
+    static forRoot(): ModuleWithProviders<BackendScreensModule> {
         return {
             ngModule: BackendScreensModule,
             providers: []

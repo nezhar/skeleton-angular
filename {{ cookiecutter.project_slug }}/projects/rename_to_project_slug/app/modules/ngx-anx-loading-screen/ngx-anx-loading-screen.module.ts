@@ -22,7 +22,7 @@ import { LoadingScreenComponent } from './loading-screen/loading-screen.componen
     providers: [/* declare in `forRoot()` */],
 })
 export class NgxAnxLoadingScreenModule {
-    static forRoot(): ModuleWithProviders {
+    static forRoot(): ModuleWithProviders<NgxAnxLoadingScreenModule> {
         return {
             ngModule: NgxAnxLoadingScreenModule,
             providers: [

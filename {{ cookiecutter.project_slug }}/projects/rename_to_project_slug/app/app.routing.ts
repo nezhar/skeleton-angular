@@ -1,8 +1,6 @@
 import { Injector } from '@angular/core';
 
-import { Ng2StateDeclaration, StatesModule, Transition, UIRouter } from '@uirouter/angular';
-
-import { configure } from 'ngx-ui-router-url-type-factory/factory/url-type-factory';
+import { Ng2StateDeclaration, Transition, UIRouter } from '@uirouter/angular';
 
 import { authStates } from '@app/screens/auth/auth.routing';
 import { backendStates } from '@app/screens/backend/backend.routing';
@@ -34,10 +32,7 @@ export const routingConfig = {
 };
 
 
-export function configureRouter(router: UIRouter, injector: Injector, module: StatesModule) {
-
-    configure(router, injector, module);
-
+export function configureRouter(router: UIRouter, injector: Injector) {
     router.transitionService.onBefore({
         to: (state: any) => {
             return state && state.data && !!state.data.guard;

@@ -28,7 +28,7 @@ import { HomeComponent } from './home/home.component';
 })
 export class FrontendScreensModule {
 
-    static forRoot(): ModuleWithProviders {
+    static forRoot(): ModuleWithProviders<FrontendScreensModule> {
         return {
             ngModule: FrontendScreensModule,
             providers: []

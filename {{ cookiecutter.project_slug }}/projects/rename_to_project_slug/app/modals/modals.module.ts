@@ -31,7 +31,7 @@ import { ModalConfirmResourceRemoveComponent } from '@app/modals/modal-confirm/m
 })
 export class ModalsModule {
 
-    static forRoot(): ModuleWithProviders {
+    static forRoot(): ModuleWithProviders<ModalsModule> {
         return {
             ngModule: ModalsModule,
             providers: []
