@@ -38,7 +38,7 @@ import { ComponentsModule } from '../components/components.module';
 })
 export class LayoutsModule {
 
-    static forRoot(): ModuleWithProviders {
+    static forRoot(): ModuleWithProviders<LayoutsModule> {
         return {
             ngModule: LayoutsModule,
             providers: []

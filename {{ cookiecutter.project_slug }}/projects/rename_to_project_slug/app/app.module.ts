@@ -9,7 +9,6 @@ import { UIRouterModule } from '@uirouter/angular';
 import { NgxResourceFactoryModule } from 'ngx-resource-factory';
 import { FontAwesomeModule } from '@fortawesome/angular-fontawesome';
 import { NgxDatatableModule } from '@swimlane/ngx-datatable';
-import { NgxUIRouterUrlTypeFactoryModule } from 'ngx-ui-router-url-type-factory';
 import { NgxsModule } from '@ngxs/store';
 import { NgxsReduxDevtoolsPluginModule } from '@ngxs/devtools-plugin';
 import { NgxsStoragePluginModule } from '@ngxs/storage-plugin';
@@ -35,7 +34,6 @@ import { IconsModule } from '@app/app.icons';
 import { ModalsModule } from '@app/modals/modals.module';
 
 import { environment } from '@env/environment';
-import { PostType } from '@app/shared/types/post.type';
 import { states } from '@app/shared/state/app.state';
 import { FormErrorMessageService } from '@app/services/form-error-messages/form-error-message.service';
 
@@ -72,11 +70,6 @@ import { FormErrorMessageService } from '@app/services/form-error-messages/form-
             }
         }),
         NgxAnxLoadingScreenModule.forRoot(),
-        NgxUIRouterUrlTypeFactoryModule.forRoot({
-            types: [
-                PostType,
-            ]
-        }),
         UIRouterModule.forRoot(routingConfig),
         NgxsModule.forRoot(states),
         NgxsStoragePluginModule.forRoot(),

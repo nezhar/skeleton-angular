@@ -28,5 +28,8 @@
     "noUnusedLocals": true,
     "importHelpers": true,
     "esModuleInterop": true
+  },
+  "angularCompilerOptions": {
+    "enableIvy": false
   }
 }

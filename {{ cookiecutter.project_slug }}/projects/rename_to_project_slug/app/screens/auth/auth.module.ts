@@ -33,7 +33,7 @@ import { NgxAnxFormsModule } from 'ngx-anx-forms';
 })
 export class AuthScreensModule {
 
-    static forRoot(): ModuleWithProviders {
+    static forRoot(): ModuleWithProviders<AuthScreensModule> {
         return {
             ngModule: AuthScreensModule,
             providers: []
