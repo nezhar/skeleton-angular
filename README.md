@@ -3,12 +3,12 @@
 A [Cookiecutter](https://cookiecutter.readthedocs.io/en/latest/) template for Angular applications.
 
 The skeleton will generate an Angular application, having:
-* Angular 8 (HMR and AOT build)
-* UI Router 5 with layout configuration
+* Angular (HMR and AOT build)
+* UI Router with layout configuration
 * Global state management
 * Multilanguage
-* Bootstrap 4
-* Font Awesome 5
+* Bootstrap
+* Font Awesome
 * Gitlab CI configuration
 * Template README.md file
 * Docker compose configuration for development
