@@ -9,7 +9,6 @@ This application uses these core components:
 * ngx-translate
 * ngx-toastr
 * ngx-resource-factory
-* ngx-ui-router-url-type-factory
 * ngx-anx-forms
 * ng-bootstrap (using Bootstrap 4.x)
 * angular-fontawesome (using Font Awesome 5)
@@ -216,26 +215,6 @@ an external source.
 
 Use the *PostResource* and the *UserResource* as samples.
 
-### Adding types
-
-Types are used inside the state declarations of the UI Router.
-They allow to map an existing object to a given Route.
-
-Types are located in `projects/{{ cookiecutter.project_slug }}/app/shared/types/`.
-By convention we always name the file `{resourceName}.type.ts`
-
-Each type must be added in `projects/{{ cookiecutter.project_slug }}/app/app.module.ts` in the types list declared in
-the forRoot method of the **NgxUIRouterUrlTypeFactoryModule**
-
-```typescript
-NgxUIRouterUrlTypeFactoryModule.forRoot({
-    types: [
-        PostType,
-    ]
-}),
-```
-
-Use the *PostType* as a sample.
 
 ### Adding modules
 
@@ -324,7 +303,6 @@ It should be updated to stable once it is available.
 * [NGXS documentation](https://ngxs.gitbook.io/ngxs)
 * [ngx-translate documentation](https://github.com/ngx-translate/core)
 * [ngx-resource-factory documentation](https://github.com/beachmachine/ngx-resource-factory)
-* [ngx-ui-router-url-type-factory documentation](https://github.com/anx-astocker/ngx-ui-router-url-type-factory)
 * [ngx-anx-forms documentation](https://anx-hnezbeda.github.io/ngx-anx-forms)
 * [ngx-toastr documentation](https://github.com/scttcper/ngx-toastr)
 * [ng-bootstrap documentation](https://ng-bootstrap.github.io/#/home)
